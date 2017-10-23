@@ -19,7 +19,9 @@ import javafx.scene.layout.Pane;
 
 /**
  *
- * @author Rick
+ * @author Rick den Otter 500749952 Lines 93-156
+ * Stan van Weringh 500771870 Lines 46-91
+ * 
  */
 public class FXMLDocumentController implements Initializable {
 
