@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.mavenproject2;
 
 import java.io.IOException;
@@ -21,7 +16,8 @@ import javafx.scene.layout.Pane;
  *
  * @author Rick den Otter 500749952 Lines 93-156
  * Stan van Weringh 500771870 Lines 46-91
- * 
+ * This file contains some methods for use when buttons are clicked or when the 
+ * program has to switch pages
  */
 public class FXMLDocumentController implements Initializable {
 
