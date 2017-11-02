@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication1.FXMLDocumentController">
+<AnchorPane id="AnchorPane" fx:id="paneCustomerHomescreen" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.FXMLDocumentController">
    <children>
       <SplitPane dividerPositions="0.18384401114206128" layoutY="14.0" orientation="VERTICAL" prefHeight="720.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -32,7 +32,7 @@
                         <Font size="27.0" />
                      </font>
                   </Button>
-                  <Button layoutX="690.0" layoutY="108.0" mnemonicParsing="false" prefHeight="280.0" prefWidth="379.0" style="-fx-background-color: #d81e05;" text="Request status" textFill="WHITE" AnchorPane.rightAnchor="220.0">
+                  <Button layoutX="690.0" layoutY="108.0" mnemonicParsing="false" onAction="#openLogin" prefHeight="280.0" prefWidth="379.0" style="-fx-background-color: #d81e05;" text="Request status" textFill="WHITE" AnchorPane.rightAnchor="220.0">
                      <font>
                         <Font size="27.0" />
                      </font>

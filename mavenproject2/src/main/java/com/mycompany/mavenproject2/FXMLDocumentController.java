@@ -10,22 +10,22 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 /**
  *
- * @author Rick den Otter 500749952 Lines 93-156
- * Stan van Weringh 500771870 Lines 46-91
- * This file contains some methods for use when buttons are clicked or when the 
- * program has to switch pages
+ * @author Rick den Otter 500749952 Lines 93-156 Stan van Weringh 500771870
+ * Lines 46-91 This file contains some methods for use when buttons are clicked
+ * or when the program has to switch pages
  */
 public class FXMLDocumentController implements Initializable {
 
     @FXML
-    private Label label;
+    private Pane mainpage;
 
     @FXML
-    private Pane mainpage;
+    private AnchorPane paneLogin, paneCustomerHomescreen;
 
     @FXML
     private Label label1;
@@ -37,7 +37,7 @@ public class FXMLDocumentController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
-    
+
     // All methods for hovering off a button
     @FXML
     private void onHoverbut1() {
@@ -58,7 +58,7 @@ public class FXMLDocumentController implements Initializable {
     private void onHoverbut4() {
         onHover("User Roles", but4, true);
     }
-    
+
     @FXML
     private void onHover(String currentPage, Button btn) {
         System.out.println("onHover activated");
@@ -74,7 +74,7 @@ public class FXMLDocumentController implements Initializable {
             btn.setStyle("-fx-background-color: #951504; -fx-background-radius: 0; -fx-border-width: 1 0 1 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18;");
         }
     }
-    
+
     // All methods for hovering off a button
     @FXML
     private void offHoverbut1() {
@@ -96,7 +96,6 @@ public class FXMLDocumentController implements Initializable {
         offHover("User Roles", but4, true);
     }
 
-
     // Two methods to use when hovered off the button, overloaded
     @FXML
     private void offHover(String currentPage, Button btn) {
@@ -114,32 +113,54 @@ public class FXMLDocumentController implements Initializable {
         }
     }
 
+    //Methods to open other pages
     @FXML
     private void openRequestStatus(ActionEvent event) {
-        openPage("RequestStatus", but1);
-
+        newPane("RequestStatus", but1);
     }
 
     @FXML
     private void openRegisterMissing(ActionEvent event) {
-        openPage("RegisterMissing", but2);
-
+        newPane("RegisterMissing", but2);
     }
 
     @FXML
     private void openUserRoles(ActionEvent event) {
-        openPage("UserRoles", but4);
-
+        newPane("UserRoles", but4);
     }
 
-    // Opens a different page
     @FXML
-    private void openPage(String pageName, Button btn) {
+    private void openCustomerHomescreen(ActionEvent event) {
+        newAnchorpane("CustomerHomescreen", paneLogin);
+    }
+
+    @FXML
+    private void openWorkerHomescreen(ActionEvent event) {
+        newAnchorpane("FXMLDocument", paneLogin);
+    }
+
+    @FXML
+    private void openLogin(ActionEvent event) {
+        newAnchorpane("Login", paneCustomerHomescreen);
+    }
+
+    // Opens a different page, changing just a Pane
+    @FXML
+    private void newPane(String pageName, Button btn) {
         System.out.println("Andere pagina geopend");
-        Parent pane = loadFXMLFile("/fxml/" + pageName + ".fxml");
+        Parent newPane = loadFXMLFile("/fxml/" + pageName + ".fxml");
         mainpage.getChildren().clear();
-        mainpage.getChildren().add(pane);
+        mainpage.getChildren().add(newPane);
         label1.setText(btn.getText());
+    }
+    
+    // Opens a different page, changing the AnchorPane
+    @FXML
+    private void newAnchorpane(String pageName, AnchorPane paneToReplace) {
+        System.out.println("Andere pagina geopend");
+        Parent newPane = loadFXMLFile("/fxml/" + pageName + ".fxml");
+        paneToReplace.getChildren().clear();
+        paneToReplace.getChildren().add(newPane);
     }
 
     private Parent loadFXMLFile(String fxmlFileName) {
