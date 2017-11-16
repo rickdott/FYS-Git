@@ -37,6 +37,11 @@ public class FXMLDocumentController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
+    
+    // Importen van een excel (knop)
+    private void excelImport() {
+        
+    }
 
     // All methods for hovering off a button
     @FXML
