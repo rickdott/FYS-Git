@@ -37,7 +37,14 @@ public class FXMLDocumentController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
-
+    
+    // Method for creating a PDF
+    @FXML
+    private void createPdf() {
+        Pdf pdf = new Pdf();
+        pdf.printPDF();
+    }
+    
     // All methods for hovering off a button
     @FXML
     private void onHoverbut1() {

@@ -1,0 +1,37 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1500311442967
+Build-Jdk: 1.7.0_75
+Built-By: lehmi
+Bundle-Description: The Apache FontBox library is an open source Java to
+ ol to obtain low level information    from font files. FontBox is a sub
+ project of Apache PDFBox.
+Bundle-DocURL: http://pdfbox.apache.org
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: Apache FontBox
+Bundle-SymbolicName: org.apache.pdfbox.fontbox
+Bundle-Vendor: The Apache Software Foundation
+Bundle-Version: 2.0.7
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.apache.fontbox.util.autodetect;version="2.0.7",org.a
+ pache.fontbox.util;version="2.0.7",org.apache.fontbox.afm;version="2.0.
+ 7";uses:="org.apache.fontbox.util",org.apache.fontbox.encoding;version=
+ "2.0.7",org.apache.fontbox.type1;version="2.0.7";uses:="org.apache.font
+ box,org.apache.fontbox.cff,org.apache.fontbox.encoding,org.apache.fontb
+ ox.util",org.apache.fontbox.cmap;version="2.0.7",org.apache.fontbox;ver
+ sion="2.0.7";uses:="org.apache.fontbox.encoding,org.apache.fontbox.util
+ ",org.apache.fontbox.cff;version="2.0.7";uses:="org.apache.fontbox,org.
+ apache.fontbox.encoding,org.apache.fontbox.type1,org.apache.fontbox.uti
+ l",org.apache.fontbox.ttf;version="2.0.7";uses:="org.apache.fontbox,org
+ .apache.fontbox.cff,org.apache.fontbox.util",org.apache.fontbox.pfb;ver
+ sion="2.0.7"
+Implementation-Title: Apache FontBox
+Implementation-Vendor: The Apache Software Foundation
+Implementation-Vendor-Id: org.apache.pdfbox
+Implementation-Version: 2.0.7
+Import-Package: org.apache.commons.logging;version="[1.2,2)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.6))"
+Specification-Title: Apache FontBox
+Specification-Vendor: The Apache Software Foundation
+Specification-Version: 2.0.7
+Tool: Bnd-2.4.1.201501161923
