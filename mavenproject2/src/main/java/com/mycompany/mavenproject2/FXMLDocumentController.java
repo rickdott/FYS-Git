@@ -37,18 +37,12 @@ public class FXMLDocumentController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
-    
-<<<<<<< HEAD
-=======
-    /* Importen van een excel (knop) WERKT NIET GVD KAN AAN DE BUTTON LIGGEN OF DEZE METHOD (Btn is verwijderd)
-    private static void excelImport() {
+ 
+    @FXML
+    private void excelImport() {
         //ExcelReader reader = new ExcelReader("C:\\Users\\User\\Downloads\\Excel_import.xlsx");
         System.out.println("TEST: Klik");
-
-        
     }
-    */
->>>>>>> e5f9ddc0a445f3fdff68544d5c3ced6759a04cf5
 
     // All methods for hovering off a button
     @FXML

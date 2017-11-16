@@ -42,6 +42,7 @@
                   <Button layoutX="77.0" layoutY="77.0" mnemonicParsing="false" onAction="#openCustomerHomescreen" text="Inloggen als klant" />
                   <Button layoutX="57.0" layoutY="106.0" mnemonicParsing="false" onAction="#openWorkerHomescreen" text="Inloggen als medewerker" />
                   <TextField editable="false" layoutX="258.0" layoutY="49.0" prefHeight="56.0" prefWidth="162.0" />
+                  <Button layoutX="313.0" layoutY="65.0" mnemonicParsing="false" onAction="#excelImport" text="Button" />
                </children>
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="130.0" prefWidth="1287.0">
