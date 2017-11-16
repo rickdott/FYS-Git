@@ -129,6 +129,12 @@ public class FXMLDocumentController implements Initializable {
         newPane("RegisterMissing", but2);
     }
 
+    /**@FXML
+    private void openReports(ActionEvent event) {
+        newPane("Reports", but3);
+    }
+    **/
+    
     @FXML
     private void openUserRoles(ActionEvent event) {
         newPane("UserRoles", but4);
