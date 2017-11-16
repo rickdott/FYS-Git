@@ -12,7 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-
+        
 /**
  *
  * @author Rick den Otter 500749952 Lines 93-156 Stan van Weringh 500771870
@@ -38,6 +38,17 @@ public class FXMLDocumentController implements Initializable {
         // TODO
     }
     
+<<<<<<< HEAD
+=======
+    /* Importen van een excel (knop) WERKT NIET GVD KAN AAN DE BUTTON LIGGEN OF DEZE METHOD (Btn is verwijderd)
+    private static void excelImport() {
+        //ExcelReader reader = new ExcelReader("C:\\Users\\User\\Downloads\\Excel_import.xlsx");
+        System.out.println("TEST: Klik");
+
+        
+    }
+    */
+>>>>>>> e5f9ddc0a445f3fdff68544d5c3ced6759a04cf5
 
     // All methods for hovering off a button
     @FXML
