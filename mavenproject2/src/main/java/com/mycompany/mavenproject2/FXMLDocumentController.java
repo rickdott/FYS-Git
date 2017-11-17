@@ -12,7 +12,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
         
 /**
  *
@@ -42,18 +41,14 @@ public class FXMLDocumentController implements Initializable {
     // Method om een Excelsheet te importeren
     @FXML
     private void excelImport() {
-        System.out.println("Excel import geactiveerd");
-        ExcelReader reader = new ExcelReader("C:\\Users\\User\\Downloads\\Excel_import.xlsx");
+        System.out.println("Excel import beginnen...");
+        
+        // Roept een method aan in de MainApp die het path returnt
+        String filePath = MainApp.fileChoosePath();
+        
+        ExcelReader reader = new ExcelReader(filePath);
         System.out.printf("Number of sheets: %s\n", reader.getNumberOfSheets());
         System.out.printf("getNextRow(): %s\n", reader.getNextRow());
-        
-        //FileChooserSample fileChoose = new FileChooserSample();
-        //fileChoose.start(stage);
-        
-        Stage stage = new Stage();
-        
-        FileChooserSample fileChoose = new FileChooserSample();
-        fileChoose.start(stage);
     }
 
     // All methods for hovering off a button
