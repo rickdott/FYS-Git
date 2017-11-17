@@ -29,7 +29,7 @@ public class Pdf {
 
             PDPageContentStream contentStream = new PDPageContentStream(document, page);
 
-            PDImageXObject pdImage = PDImageXObject.createFromFile("C:\\Users\\Rick\\Desktop\\FYS-Git\\mavenproject2\\src\\main\\resources\\images\\corendonLogo.jpg", document);
+             PDImageXObject pdImage = PDImageXObject.createFromFile("corendonLogo.jpg", document);
             contentStream.drawImage(pdImage, 150, 650);
             Color corendonColor = new Color(216, 30, 5);
             contentStream.setStrokingColor(corendonColor);
