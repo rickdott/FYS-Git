@@ -39,7 +39,8 @@ public final class FileChooserSample extends Application {
                 public void handle(final ActionEvent e) {
                     File file = fileChooser.showOpenDialog(stage);
                     if (file != null) {
-                        openFile(file);
+                        returnFile(file); // Return file
+                        //openFile(file);
                     }
                 }
             });
@@ -52,7 +53,8 @@ public final class FileChooserSample extends Application {
                         fileChooser.showOpenMultipleDialog(stage);
                     if (list != null) {
                         for (File file : list) {
-                            openFile(file);
+                            returnFile(file); // Return file
+                            //openFile(file);
                         }
                     }
                 }
@@ -88,6 +90,11 @@ public final class FileChooserSample extends Application {
                     Level.SEVERE, null, ex
                 );
         }
+    }
+    
+    private File returnFile(File file) {
+        //System.out.printf("File: %s\n", file);
+        return file;
     }
 }
 
