@@ -44,6 +44,11 @@ public class FXMLDocumentController implements Initializable {
         Pdf pdf = new Pdf();
         pdf.printPDF();
     }
+    @FXML
+    private void sendMail() {
+        Mail mail = new Mail("baggerfys@gmail.com");
+        mail.mailsturen();
+    }
     
     // All methods for hovering off a button
     @FXML

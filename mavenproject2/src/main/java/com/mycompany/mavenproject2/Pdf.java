@@ -101,10 +101,11 @@ public class Pdf {
             contentStream.endText();
             contentStream.close();
 
-            document.save("PDFTest.pdf");
+            document.save("src\\main\\resources\\temp\\PDFTest.pdf");
             document.close();
         } catch (IOException e) {
             System.out.println(e);
         }
+        System.out.println("PDF created!");
     }
 }
