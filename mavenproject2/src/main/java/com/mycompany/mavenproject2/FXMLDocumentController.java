@@ -70,36 +70,46 @@ public class FXMLDocumentController implements Initializable {
         
         System.out.println("Excel import complete...");
     }
+    
+    @FXML
+    private void openCustomerHomescreen(ActionEvent event) {
+        newAnchorpane("CustomerHomescreen", paneLogin);
+    }
 
     @FXML
-    public void onHover(String currentPage, Button btn) {
+    private void openWorkerHomescreen(ActionEvent event) {
+        newAnchorpane("WorkerHomescreen", paneLogin);
+    }
+
+    @FXML
+    public void onHover(String currentPage, Button btn, Label label) {
         System.out.println("onHover activated");
-        if (!label1.getText().equals(currentPage)) {
+        if (!label.getText().equals(currentPage)) {
             btn.setStyle("-fx-background-color: #951504; -fx-background-radius: 0; -fx-border-width: 1 0 0 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18;");
         }
     }
 
     @FXML
-    public void onHover(String currentPage, Button btn, boolean isLast) {
+    public void onHover(String currentPage, Button btn, Label label, boolean isLast) {
         System.out.println("onHover activated");
-        if (!label1.getText().equals(currentPage) && isLast) {
+        if (!label.getText().equals(currentPage) && isLast) {
             btn.setStyle("-fx-background-color: #951504; -fx-background-radius: 0; -fx-border-width: 1 0 1 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18;");
         }
     }
 
     // Two methods to use when hovered off the button, overloaded
     @FXML
-    public void offHover(String currentPage, Button btn) {
+    public void offHover(String currentPage, Button btn, Label label) {
         System.out.println("offHover activated");
-        if (!label1.getText().equals(currentPage)) {
+        if (!label.getText().equals(currentPage)) {
             btn.setStyle("-fx-background-color: #D81E05; -fx-background-radius: 0; -fx-border-width: 1 0 0 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18;");
         }
     }
 
     @FXML
-    public void offHover(String currentPage, Button btn, boolean isLast) {
+    public void offHover(String currentPage, Button btn, Label label, boolean isLast) {
         System.out.println("offHover activated");
-        if (!label1.getText().equals(currentPage) && isLast) {
+        if (!label.getText().equals(currentPage) && isLast) {
             btn.setStyle("-fx-background-color: #D81E05; -fx-background-radius: 0; -fx-border-width: 1 0 1 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18;");
         }
     }

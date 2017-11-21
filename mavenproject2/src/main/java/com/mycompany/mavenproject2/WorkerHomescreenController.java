@@ -12,7 +12,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 /**
@@ -23,9 +22,6 @@ public class WorkerHomescreenController implements Initializable {
     
     @FXML
     private Pane mainpage;
-
-    @FXML
-    private AnchorPane paneLogin, paneCustomerHomescreen;
 
     @FXML
     private Label label1;
@@ -62,61 +58,47 @@ public class WorkerHomescreenController implements Initializable {
         controller.newPane("UserRoles", but4, mainpage);
     }
 
-    @FXML
-    private void openCustomerHomescreen(ActionEvent event) {
-        controller.newAnchorpane("CustomerHomescreen", paneLogin);
-    }
-
-    @FXML
-    private void openWorkerHomescreen(ActionEvent event) {
-        controller.newAnchorpane("FXMLDocument", paneLogin);
-    }
-
-    @FXML
-    private void openLogin(ActionEvent event) {
-        controller.newAnchorpane("Login", paneCustomerHomescreen);
-    }
     
     // All methods for hovering off a button
     @FXML
     private void offHoverbut1() {
-        controller.offHover("Request Status", but1);
+        controller.offHover("Request Status", but1, label1);
     }
 
     @FXML
     private void offHoverbut2() {
-        controller.offHover("Register Missing", but2);
+        controller.offHover("Register Missing", but2, label1);
     }
 
     @FXML
     private void offHoverbut3() {
-        controller.offHover("Reports", but3);
+        controller.offHover("Reports", but3, label1);
     }
 
     @FXML
     private void offHoverbut4() {
-        controller.offHover("User Roles", but4, true);
+        controller.offHover("User Roles", but4, label1, true);
     }
     
     // All methods for hovering over a button
     @FXML
     private void onHoverbut1() {
-        controller.onHover("Request Status", but1);
+        controller.onHover("Request Status", but1, label1);
     }
 
     @FXML
     private void onHoverbut2() {
-        controller.onHover("Register Missing", but2);
+        controller.onHover("Register Missing", but2, label1);
     }
 
     @FXML
     private void onHoverbut3() {
-        controller.onHover("Reports", but3);
+        controller.onHover("Reports", but3, label1);
     }
 
     @FXML
     private void onHoverbut4() {
-        controller.onHover("User Roles", but4, true);
+        controller.onHover("User Roles", but4, label1, true);
     }
     
     
