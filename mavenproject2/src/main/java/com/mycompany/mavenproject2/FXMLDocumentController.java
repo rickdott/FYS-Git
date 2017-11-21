@@ -116,13 +116,13 @@ public class FXMLDocumentController implements Initializable {
 
     // Opens a different page, changing just a Pane
     @FXML
-    public void newPane(String pageName, Button btn, Pane pane) {
+    public void newPane(String pageName, Button btn, Pane pane, Label label) {
         System.out.println("Opening another page...");
         
-        Parent newPane = loadFXMLFile("/fxml/" + pageName + ".fxml");
+        Parent newPane = loadFXMLFile(pageName + ".fxml");
         pane.getChildren().clear();
         pane.getChildren().add(newPane);
-        label1.setText(btn.getText());
+        label.setText(btn.getText());
         
         System.out.println("Another page opened...");
     }
@@ -132,7 +132,7 @@ public class FXMLDocumentController implements Initializable {
     public void newAnchorpane(String pageName, AnchorPane paneToReplace) {
         System.out.println("Opening another page(anchor)...");
         
-        Parent newPane = loadFXMLFile("/fxml/" + pageName + ".fxml");
+        Parent newPane = loadFXMLFile(pageName + ".fxml");
         paneToReplace.getChildren().clear();
         paneToReplace.getChildren().add(newPane);
         

@@ -17,7 +17,7 @@
                <children>
                   <ImageView fitHeight="196.0" fitWidth="579.0" layoutX="377.0" layoutY="-21.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/Corendon%20Logo.png" />
+                        <Image url="@../../../images/Corendon%20Logo.png" />
                      </image>
                   </ImageView>
                </children>
@@ -56,27 +56,27 @@
                   </Text>
                   <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="150.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/flag-square-250.png" />
+                        <Image url="@../../../images/Square_Flag_of_the_United_Kingdom.svg.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="240.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/Square_Flag_of_the_United_Kingdom.svg.png" />
+                        <Image url="@../../../images/flag-square-250.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="327.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/flag-square-250_1.png" />
+                        <Image url="@../../../images/flag_portugal_square-512.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="412.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/flag_portugal_square-512.png" />
+                        <Image url="@../../../images/flag_germany_square-512.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="496.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/flag_germany_square-512.png" />
+                        <Image url="@../../../images/flag-square-250_1.png" />
                      </image>
                   </ImageView>
                </children>

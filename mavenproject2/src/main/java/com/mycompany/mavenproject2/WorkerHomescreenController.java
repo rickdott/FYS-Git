@@ -39,23 +39,23 @@ public class WorkerHomescreenController implements Initializable {
     //Methods to open other pages
     @FXML
     private void openRequestStatus(ActionEvent event) {
-        controller.newPane("RequestStatus", but1, mainpage);
+        controller.newPane("RequestStatus", but1, mainpage, label1);
     }
 
     @FXML
     private void openRegisterMissing(ActionEvent event) {
-        controller.newPane("RegisterMissing", but2, mainpage);
+        controller.newPane("RegisterMissing", but2, mainpage, label1);
     }
 
     /**@FXML
     private void openReports(ActionEvent event) {
-        newPane("Reports", but3, mainpage);
+        newPane("Reports", but3, mainpage, label1);
     }
     **/
     
     @FXML
     private void openUserRoles(ActionEvent event) {
-        controller.newPane("UserRoles", but4, mainpage);
+        controller.newPane("UserRoles", but4, mainpage, label1);
     }
 
     
