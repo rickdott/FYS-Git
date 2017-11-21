@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.gluonhq.charm.glisten.control.DropdownButton?>
+<?import com.gluonhq.charm.glisten.control.Icon?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -8,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane id="AnchorPane" fx:id="actualmain" minHeight="647.0" minWidth="1053.0" prefHeight="647.0" prefWidth="1053.0" style="-fx-background-color: #f3f3f3;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.FXMLDocumentController">
+<AnchorPane id="AnchorPane" fx:id="actualmain" minHeight="647.0" minWidth="1053.0" prefHeight="647.0" prefWidth="1053.0" style="-fx-background-color: #f3f3f3;" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.FXMLDocumentController">
    <children>
       <GridPane fx:id="grid1" prefHeight="720.0" prefWidth="1106.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
@@ -26,6 +29,15 @@
                       <TableColumn prefWidth="234.0" text="Roles" />
                     </columns>
                   </TableView>
+                  <Icon content="DELETE_FOREVER" layoutX="909.0" layoutY="2.0" prefHeight="25.0" prefWidth="25.0" />
+                  <Icon content="ADD_CIRCLE" layoutX="884.0" layoutY="2.0" prefHeight="25.0" prefWidth="25.0" />
+                  <DropdownButton layoutX="934.0" layoutY="1.0">
+                      <items>
+                          <MenuItem text="Change Role" />
+                          <MenuItem text="Role 1" />
+                          <MenuItem text="Role 2" />
+                      </items>
+                  </DropdownButton>
                </children>
             </Pane>
          </children>
