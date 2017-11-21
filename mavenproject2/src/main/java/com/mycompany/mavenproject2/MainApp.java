@@ -11,7 +11,7 @@ import javafx.stage.FileChooser;
 
 public class MainApp extends Application {
 
-    public static Stage stageVariable;
+    public static Stage application;
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -24,13 +24,13 @@ public class MainApp extends Application {
         stage.setScene(scene);
         stage.show();
 
-        stageVariable = stage;
+        application = stage;
     }
 
     // Returnt het pad (String)
     public static String fileChoosePath() {
         final FileChooser fileChooser = new FileChooser();
-        File file = fileChooser.showOpenDialog(stageVariable);
+        File file = fileChooser.showOpenDialog(application);
         if (file != null) {
             return file.getPath();
         }
