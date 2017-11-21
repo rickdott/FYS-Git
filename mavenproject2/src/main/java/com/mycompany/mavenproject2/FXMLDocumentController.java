@@ -12,7 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-
+        
 /**
  *
  * @author Rick den Otter 500749952 Lines 93-156 Stan van Weringh 500771870
@@ -44,12 +44,26 @@ public class FXMLDocumentController implements Initializable {
         Pdf pdf = new Pdf();
         pdf.printPDF();
     }
+    
     @FXML
     private void sendMail() {
         Mail mail = new Mail("baggerfys@gmail.com");
         mail.mailsturen();
     }
     
+    // Method om een Excelsheet te importeren
+    @FXML
+    private void excelImport() {
+        System.out.println("Excel import beginnen...");
+        
+        // Roept een method aan in de MainApp die het path returnt
+        String filePath = MainApp.fileChoosePath();
+        
+        ExcelReader reader = new ExcelReader(filePath);
+        System.out.printf("Number of sheets: %s\n", reader.getNumberOfSheets());
+        System.out.printf("getNextRow(): %s\n", reader.getNextRow());
+    }
+
     // All methods for hovering off a button
     @FXML
     private void onHoverbut1() {
