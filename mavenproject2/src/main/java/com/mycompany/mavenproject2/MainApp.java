@@ -13,6 +13,7 @@ public class MainApp extends Application {
 
     public static Stage application;
 
+    // Start van de hele applicatie
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
@@ -25,6 +26,12 @@ public class MainApp extends Application {
         stage.show();
 
         application = stage;
+        
+        // Database testen
+        Database db = new Database();
+        db.executeUpdateQuery("INSERT INTO Airport (iatacode, name, timezone) VALUES ('BBB', 'Oruam', 1)"); //WERKT NIET
+        //String temp = db.executeStringListQuery("SELECT * FROM stanviw199_fys.Airport");
+        //System.out.print(temp);
     }
 
     // Returnt het pad (String)

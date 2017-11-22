@@ -8,14 +8,14 @@ import java.util.Enumeration;
  * @author Stan van Weringh
  */
 public class Database {
-    private static final String DB_DEFAULT_DATABASE = "sys";
-    private static final String DB_DEFAULT_SERVER_URL = "localhost:3306";
-    private static final String DB_DEFAULT_ACCOUNT = "root";
-    private static final String DB_DEFAULT_PASSWORD = "root";
+    private static final String DB_DEFAULT_DATABASE = "stanviw199_fys";
+    private static final String DB_DEFAULT_SERVER_URL = "svwdesigners.nl:3306";
+    private static final String DB_DEFAULT_ACCOUNT = "stanviw199_fys";
+    private static final String DB_DEFAULT_PASSWORD = "fysbagger";
     
     private final static String DB_DRIVER_URL = "com.mysql.jdbc.Driver";
     private final static String DB_DRIVER_PREFIX = "jdbc:mysql://";
-    private final static String DB_DRIVER_PARAMETERS = "?useSSL=false";
+    private final static String DB_DRIVER_PARAMETERS = "";
     
     private Connection connection = null;
     
@@ -222,9 +222,9 @@ public class Database {
         System.out.println("Creating the " + dbName + " database...");
         
         // use the sys schema for creating another db
-        Database sysJDBC = new Database("sys");
-        sysJDBC.executeUpdateQuery("CREATE DATABASE IF NOT EXISTS " + dbName);
-        sysJDBC.close();
+        Database sysDB = new Database("sys");
+        sysDB.executeUpdateQuery("CREATE DATABASE IF NOT EXISTS " + dbName);
+        sysDB.close();
 
         // create or truncate Airport table in the Airline database
         System.out.println("Creating the Airport table...");
