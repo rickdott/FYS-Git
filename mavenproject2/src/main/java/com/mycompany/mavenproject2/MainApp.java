@@ -21,16 +21,16 @@ public class MainApp extends Application {
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/styles/Styles.css");
 
-        stage.setTitle("JavaFX and Maven");
+        stage.setTitle("BAGGER");
         stage.setScene(scene);
         stage.show();
 
         application = stage;
         
         // Database testen
-        Database db = new Database();
-        db.executeUpdateQuery("INSERT INTO Airport (iatacode, name, timezone) VALUES ('BBB', 'Oruam', 1)"); //WERKT NIET
-        //String temp = db.executeStringListQuery("SELECT * FROM stanviw199_fys.Airport");
+        //Database db = new Database();
+        //db.executeUpdateQuery("INSERT INTO Airport (iatacode, name, timezone) VALUES ('BBB', 'Oruam', 1)");
+        //String temp = db.executeStringListQuery("SELECT * FROM Airport");
         //System.out.print(temp);
     }
 
