@@ -1,42 +1,25 @@
 package com.mycompany.mavenproject2;
 
-import java.io.File;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.stage.FileChooser;
+
 
 public class MainApp extends Application {
 
-    public static Stage application;
-
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
-
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Login.fxml"));
+        
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/styles/Styles.css");
-
+        
         stage.setTitle("JavaFX and Maven");
         stage.setScene(scene);
         stage.show();
-
-        application = stage;
-    }
-
-    // Returnt het pad (String)
-    public static String fileChoosePath() {
-        final FileChooser fileChooser = new FileChooser();
-        File file = fileChooser.showOpenDialog(application);
-        if (file != null) {
-            return file.getPath();
-        }
-        else{
-            return "";
-        }
     }
 
     /**

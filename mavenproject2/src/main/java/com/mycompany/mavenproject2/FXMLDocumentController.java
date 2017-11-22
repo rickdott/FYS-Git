@@ -12,7 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-        
+
 /**
  *
  * @author Rick den Otter 500749952 Lines 93-156 Stan van Weringh 500771870
@@ -37,40 +37,104 @@ public class FXMLDocumentController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
-    
-    // Method for creating a PDF ---MOVE TO RELEVANT CONTROLLER
+
+    // All methods for hovering off a button
     @FXML
-    private void createPdf() {
-        System.out.println("Creating PDF...");
-        Pdf pdf = new Pdf();
-        pdf.printPDF();
-        System.out.println("PDF Created...");
+    private void onHoverbut1() {
+        onHover("Request Status", but1);
     }
-    
-    // Method for sending an e-mail ---MOVE TO RELEVANT CONTROLLER
+
     @FXML
-    private void sendMail() {
-        System.out.println("Sending mail...");
-        Mail mail = new Mail("baggerfys@gmail.com");
-        mail.mailsturen();
-        System.out.println("Mail sent...");
+    private void onHoverbut2() {
+        onHover("Register Missing", but2);
     }
-    
-    // Method om een Excelsheet te importeren ---MOVE TO RELEVANT CONTROLLER
+
     @FXML
-    private void excelImport() {
-        System.out.println("Beginning Excel import...");
-        
-        // Roept een method aan in de MainApp die het path returnt
-        String filePath = MainApp.fileChoosePath();
-        
-        ExcelReader reader = new ExcelReader(filePath);
-        System.out.printf("Number of sheets: %s\n", reader.getNumberOfSheets());
-        System.out.printf("getNextRow(): %s\n", reader.getNextRow());
-        
-        System.out.println("Excel import complete...");
+    private void onHoverbut3() {
+        onHover("Reports", but3);
     }
+
+    @FXML
+    private void onHoverbut4() {
+        onHover("User Roles", but4, true);
+    }
+
+    @FXML
+    private void onHover(String currentPage, Button btn) {
+        System.out.println("onHover activated");
+        if (!label1.getText().equals(currentPage)) {
+            btn.setStyle("-fx-background-color: #951504; -fx-background-radius: 0; -fx-border-width: 1 0 0 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18;");
+        }
+    }
+
+    @FXML
+    private void onHover(String currentPage, Button btn, boolean isLast) {
+        System.out.println("onHover activated");
+        if (!label1.getText().equals(currentPage) && isLast) {
+            btn.setStyle("-fx-background-color: #951504; -fx-background-radius: 0; -fx-border-width: 1 0 1 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18;");
+        }
+    }
+
+    // All methods for hovering off a button
+    @FXML
+    private void offHoverbut1() {
+        offHover("Request Status", but1);
+    }
+
+    @FXML
+    private void offHoverbut2() {
+        offHover("Register Missing", but2);
+    }
+
+    @FXML
+    private void offHoverbut3() {
+        offHover("Reports", but3);
+    }
+
+    @FXML
+    private void offHoverbut4() {
+        offHover("User Roles", but4, true);
+    }
+
+    // Two methods to use when hovered off the button, overloaded
+    @FXML
+    private void offHover(String currentPage, Button btn) {
+        System.out.println("offHover activated");
+        if (!label1.getText().equals(currentPage)) {
+            btn.setStyle("-fx-background-color: #D81E05; -fx-background-radius: 0; -fx-border-width: 1 0 0 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18;");
+        }
+    }
+
+    @FXML
+    private void offHover(String currentPage, Button btn, boolean isLast) {
+        System.out.println("offHover activated");
+        if (!label1.getText().equals(currentPage) && isLast) {
+            btn.setStyle("-fx-background-color: #D81E05; -fx-background-radius: 0; -fx-border-width: 1 0 1 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18;");
+        }
+    }
+
+    //Methods to open other pages
+    @FXML
+    private void openRequestStatus(ActionEvent event) {
+        newPane("RequestStatus", but1);
+    }
+
+    @FXML
+    private void openRegisterMissing(ActionEvent event) {
+        newPane("RegisterMissing", but2);
+    }
+
+    /**@FXML
+    private void openReports(ActionEvent event) {
+        newPane("Reports", but3);
+    }
+    **/
     
+    @FXML
+    private void openUserRoles(ActionEvent event) {
+        newPane("UserRoles", but4);
+    }
+
     @FXML
     private void openCustomerHomescreen(ActionEvent event) {
         newAnchorpane("CustomerHomescreen", paneLogin);
@@ -78,68 +142,34 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void openWorkerHomescreen(ActionEvent event) {
-        newAnchorpane("WorkerHomescreen", paneLogin);
+        newAnchorpane("FXMLDocument", paneLogin);
     }
 
     @FXML
-    public void onHover(String currentPage, Button btn, Label label) {
-        System.out.println("onHover activated");
-        if (!label.getText().equals(currentPage)) {
-            btn.setStyle("-fx-background-color: #951504; -fx-background-radius: 0; -fx-border-width: 1 0 0 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18;");
-        }
-    }
-
-    @FXML
-    public void onHover(String currentPage, Button btn, Label label, boolean isLast) {
-        System.out.println("onHover activated");
-        if (!label.getText().equals(currentPage) && isLast) {
-            btn.setStyle("-fx-background-color: #951504; -fx-background-radius: 0; -fx-border-width: 1 0 1 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18;");
-        }
-    }
-
-    // Two methods to use when hovered off the button, overloaded
-    @FXML
-    public void offHover(String currentPage, Button btn, Label label) {
-        System.out.println("offHover activated");
-        if (!label.getText().equals(currentPage)) {
-            btn.setStyle("-fx-background-color: #D81E05; -fx-background-radius: 0; -fx-border-width: 1 0 0 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18;");
-        }
-    }
-
-    @FXML
-    public void offHover(String currentPage, Button btn, Label label, boolean isLast) {
-        System.out.println("offHover activated");
-        if (!label.getText().equals(currentPage) && isLast) {
-            btn.setStyle("-fx-background-color: #D81E05; -fx-background-radius: 0; -fx-border-width: 1 0 1 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18;");
-        }
+    private void openLogin(ActionEvent event) {
+        newAnchorpane("Login", paneCustomerHomescreen);
     }
 
     // Opens a different page, changing just a Pane
     @FXML
-    public void newPane(String pageName, Button btn, Pane pane, Label label) {
-        System.out.println("Opening another page...");
-        
-        Parent newPane = loadFXMLFile(pageName + ".fxml");
-        pane.getChildren().clear();
-        pane.getChildren().add(newPane);
-        label.setText(btn.getText());
-        
-        System.out.println("Another page opened...");
+    private void newPane(String pageName, Button btn) {
+        System.out.println("Andere pagina geopend");
+        Parent newPane = loadFXMLFile("/fxml/" + pageName + ".fxml");
+        mainpage.getChildren().clear();
+        mainpage.getChildren().add(newPane);
+        label1.setText(btn.getText());
     }
     
     // Opens a different page, changing the AnchorPane
     @FXML
-    public void newAnchorpane(String pageName, AnchorPane paneToReplace) {
-        System.out.println("Opening another page(anchor)...");
-        
-        Parent newPane = loadFXMLFile(pageName + ".fxml");
+    private void newAnchorpane(String pageName, AnchorPane paneToReplace) {
+        System.out.println("Andere pagina geopend");
+        Parent newPane = loadFXMLFile("/fxml/" + pageName + ".fxml");
         paneToReplace.getChildren().clear();
         paneToReplace.getChildren().add(newPane);
-        
-        System.out.println("Another page opened(anchor)...");
     }
 
-    public Parent loadFXMLFile(String fxmlFileName) {
+    private Parent loadFXMLFile(String fxmlFileName) {
         try {
             return FXMLLoader.load(getClass().getResource(fxmlFileName));
         } catch (IOException ex) {
