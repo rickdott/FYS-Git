@@ -47,11 +47,11 @@ public class WorkerHomescreenController implements Initializable {
         controller.newPane("RegisterMissing", but2, mainpage, label1);
     }
 
-    /**@FXML
+    @FXML
     private void openReports(ActionEvent event) {
-        newPane("Reports", but3, mainpage, label1);
+        controller.newPane("Reports", but3, mainpage, label1);
     }
-    **/
+    
     
     @FXML
     private void openUserRoles(ActionEvent event) {

@@ -126,6 +126,16 @@ public class FXMLDocumentController implements Initializable {
         
         System.out.println("Another page opened...");
     }
+    @FXML
+    public void newPane(String pageName, Pane pane) {
+        System.out.println("Opening another page...");
+        
+        Parent newPane = loadFXMLFile(pageName + ".fxml");
+        pane.getChildren().clear();
+        pane.getChildren().add(newPane);
+        
+        System.out.println("Another page opened...");
+    }
     
     // Opens a different page, changing the AnchorPane
     @FXML
