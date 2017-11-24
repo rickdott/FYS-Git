@@ -2,6 +2,8 @@ package com.mycompany.mavenproject2;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -60,15 +62,66 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void excelImport() {
         System.out.println("Beginning Excel import...");
-        
+
         // Roept een method aan in de MainApp die het path returnt
         String filePath = MainApp.fileChoosePath();
-        
+
         ExcelReader reader = new ExcelReader(filePath);
-        System.out.printf("Number of sheets: %s\n", reader.getNumberOfSheets());
-        System.out.printf("getNextRow(): %s\n", reader.getNextRow());
-        
-        System.out.println("Excel import complete...");
+        List<String> row = new ArrayList<>();
+
+        // Header lezen en printen 
+        /*
+        row = reader.getNextRow();
+        for (int i = 0; i < row.size(); i++) {
+            System.out.printf("%s: %s\n", i, row.get(i));
+        }
+        */
+
+        boolean moreData = true;
+        while(moreData) {
+            row = reader.getNextRow();
+            String mail = row.get(row.size() - 1);
+            System.out.println(mail);
+            
+            // Opvragen van de idpassenger die hij zoekt via de mail van de passengier
+            Database db = new Database();
+            String sql = String.format("SELECT idpassenger FROM Passenger WHERE email = '%s'", mail);
+            System.out.print(db.executeStringListQuery(sql));
+            
+            // TODO: Inserten in Bagage tabel
+            /*
+            INSERT INTO `Bagage`
+            (`labelnumber`,
+            `flightnumber`,
+            `destination`,
+            `type`,
+            `brand`,
+            `colour`,
+            `specialchar`,
+            `passengerid`,
+            `foundat`,
+            `foundatdate`,
+            `date`)
+            VALUES
+            (<{labelnumber: }>,
+            <{flightnumber: }>,
+            <{destination: }>,
+            <{type: }>,
+            <{brand: }>,
+            <{colour: }>,
+            <{specialchar: }>,
+            <{passengerid: }>,
+            <{foundat: }>,
+            <{foundatdate: }>,
+            <{date: }>);
+            */
+            
+            
+            
+            if(reader.getNextRow() != null){
+                moreData = false;
+            }
+        }
     }
     
     @FXML
