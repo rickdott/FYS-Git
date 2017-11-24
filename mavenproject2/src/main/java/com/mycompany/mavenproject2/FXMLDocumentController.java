@@ -3,7 +3,6 @@ package com.mycompany.mavenproject2;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -21,66 +20,11 @@ import javafx.scene.layout.Pane;
  */
 public class FXMLDocumentController implements Initializable {
 
-    @FXML
-    private Pane mainpage;
-
-    @FXML
-    private AnchorPane paneLogin, paneCustomerHomescreen;
-
-    @FXML
-    private Label label1;
-
-    @FXML
-    private Button but1, but2, but3, but4;
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
     
-    // Method for creating a PDF ---MOVE TO RELEVANT CONTROLLER
-    @FXML
-    private void createPdf() {
-        System.out.println("Creating PDF...");
-        Pdf pdf = new Pdf();
-        pdf.printPDF();
-        System.out.println("PDF Created...");
-    }
-    
-    // Method for sending an e-mail ---MOVE TO RELEVANT CONTROLLER
-    @FXML
-    private void sendMail() {
-        System.out.println("Sending mail...");
-        Mail mail = new Mail("baggerfys@gmail.com");
-        mail.mailsturen();
-        System.out.println("Mail sent...");
-    }
-    
-    // Method om een Excelsheet te importeren ---MOVE TO RELEVANT CONTROLLER
-    @FXML
-    private void excelImport() {
-        System.out.println("Beginning Excel import...");
-        
-        // Roept een method aan in de MainApp die het path returnt
-        String filePath = MainApp.fileChoosePath();
-        
-        ExcelReader reader = new ExcelReader(filePath);
-        System.out.printf("Number of sheets: %s\n", reader.getNumberOfSheets());
-        System.out.printf("getNextRow(): %s\n", reader.getNextRow());
-        
-        System.out.println("Excel import complete...");
-    }
-    
-    @FXML
-    private void openCustomerHomescreen(ActionEvent event) {
-        newAnchorpane("CustomerHomescreen", paneLogin);
-    }
-
-    @FXML
-    private void openWorkerHomescreen(ActionEvent event) {
-        newAnchorpane("WorkerHomescreen", paneLogin);
-    }
-
     @FXML
     public void onHover(String currentPage, Button btn, Label label) {
         System.out.println("onHover activated");

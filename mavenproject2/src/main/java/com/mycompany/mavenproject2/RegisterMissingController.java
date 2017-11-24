@@ -20,16 +20,21 @@ public class RegisterMissingController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
     }
-    FXMLDocumentController controller = new FXMLDocumentController();
-
+    
     @FXML
-    private AnchorPane actualmain;
+    private AnchorPane actualmain, thankyoupage;
+        
+    FXMLDocumentController controller = new FXMLDocumentController();
 
     @FXML
     private void openRegisterThankyou(ActionEvent event) {
         controller.newAnchorpane("RegisterMissing_thankyou", actualmain);
+    }
+    
+    @FXML
+    private void backToLogin(ActionEvent event) {
+        controller.newAnchorpane("Login", thankyoupage);
     }
 
 }

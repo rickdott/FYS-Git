@@ -44,4 +44,9 @@ public class CustomerHomescreenController implements Initializable {
         controller.newAnchorpane("FAQ", paneCustomerHomescreen);
     }
     
+    @FXML
+    private void backToLogin(ActionEvent event) {
+        controller.newAnchorpane("Login", paneCustomerHomescreen);
+    }
+    
 }

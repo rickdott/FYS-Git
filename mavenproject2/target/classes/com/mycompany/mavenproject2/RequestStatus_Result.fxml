@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" fx:id="actualmain" minHeight="647.0" minWidth="1053.0" prefHeight="647.0" prefWidth="1053.0" style="-fx-background-color: #f3f3f3;" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.FXMLDocumentController">
+<AnchorPane id="AnchorPane" fx:id="resultpage" minHeight="647.0" minWidth="1053.0" prefHeight="647.0" prefWidth="1053.0" style="-fx-background-color: #f3f3f3;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.RequestStatusController">
    <children>
       <Text layoutX="382.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Airport" />
       <Text layoutX="381.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="History" />
@@ -15,5 +15,6 @@
       <TextField alignment="CENTER_RIGHT" layoutX="306.0" layoutY="394.0" text="Schiphol" />
       <Button layoutX="395.0" layoutY="472.0" mnemonicParsing="false" style="-fx-background-color: red;" text="SUBMIT" textFill="WHITE" />
       <Button layoutX="673.0" layoutY="472.0" mnemonicParsing="false" style="-fx-background-color: red;" text="SUBMIT" textFill="WHITE" />
+      <Button layoutX="129.0" layoutY="106.0" mnemonicParsing="false" onAction="#backToLogin" text="Back to login" />
    </children>
 </AnchorPane>

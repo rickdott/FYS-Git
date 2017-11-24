@@ -20,18 +20,20 @@ public class RequestStatusController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
     }
-    
-
+   
     @FXML
-    private AnchorPane requestpage;        
+    private AnchorPane requestpage, resultpage;
+    
     FXMLDocumentController controller = new FXMLDocumentController();
 
     @FXML
     private void openRequestStatusResult(ActionEvent event) {
-        controller.newAnchorpane("RequestStatus_Result",requestpage);
+        controller.newAnchorpane("RequestStatus_Result", requestpage);
     }
     
-    // TODO
+    @FXML
+    private void backToLogin(ActionEvent event) {
+        controller.newAnchorpane("Login", resultpage);
+    }
 }

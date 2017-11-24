@@ -15,14 +15,15 @@
                <children>
                   <ImageView fitHeight="196.0" fitWidth="579.0" layoutX="377.0" layoutY="-21.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/Corendon%20Logo.png" />
+                        <Image url="@../../../images/Corendon%20Logo.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="71.0" fitWidth="69.0" layoutX="1168.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/logout.png" />
+                        <Image url="@../../../images/logout.png" />
                      </image>
                   </ImageView>
+                  <Button layoutX="1076.0" layoutY="40.0" mnemonicParsing="false" onAction="#backToLogin" text="Back to Login" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="130.0" prefWidth="1287.0">
