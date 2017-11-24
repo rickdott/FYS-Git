@@ -6,6 +6,8 @@
 package com.mycompany.mavenproject2;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -49,14 +51,33 @@ public class LoginController implements Initializable{
     @FXML
     private void excelImport() {
         System.out.println("Beginning Excel import...");
-        
+
         // Roept een method aan in de MainApp die het path returnt
         String filePath = MainApp.fileChoosePath();
-        
+
         ExcelReader reader = new ExcelReader(filePath);
-        System.out.printf("Number of sheets: %s\n", reader.getNumberOfSheets());
-        System.out.printf("getNextRow(): %s\n", reader.getNextRow());
-        
+        List<String> row = new ArrayList<>();
+
+        row = reader.getNextRow(); // De header van het excel bestand
+        row = reader.getNextRow(); // Eerste row
+        Database db = new Database();
+        while (row != null) {
+            
+            String mail = row.get(row.size() - 1);
+            System.out.println(mail);
+
+            // Opvragen van de idpassenger die hij zoekt via de mail van de passengier
+            String sql = String.format("SELECT idpassenger FROM Passenger WHERE email = '%s'", mail);
+            String idpassenger = db.executeStringListQuery(sql);
+
+            // SQL query die alles invoert in de database
+            sql = String.format("INSERT INTO `Bagage`(`labelnumber`, `flightnumber`, `destination`, `type`, `brand`, `colour`, `specialchar`, `passengerid`, `foundat`, `foundatdate`, `date`)VALUES('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')", row.get(0), row.get(1), row.get(2), row.get(3), row.get(4), row.get(5), row.get(6), idpassenger, row.get(7), row.get(8), row.get(9));
+            db.executeUpdateQuery(sql);
+            
+            // Pakt alvast de volgende row
+            row = reader.getNextRow();
+        }
+
         System.out.println("Excel import complete...");
     }
     
