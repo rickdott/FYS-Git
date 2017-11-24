@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 /**
@@ -23,18 +24,22 @@ public class RegisterMissingController implements Initializable {
     }
     
     @FXML
-    private AnchorPane actualmain, thankyoupage;
-        
+    private AnchorPane registerMissingPane, thankYouPage;
+           
     FXMLDocumentController controller = new FXMLDocumentController();
 
     @FXML
     private void openRegisterThankyou(ActionEvent event) {
-        controller.newAnchorpane("RegisterMissing_thankyou", actualmain);
+        controller.newAnchorpane("RegisterMissing_thankyou", registerMissingPane);
     }
     
     @FXML
     private void backToLogin(ActionEvent event) {
-        controller.newAnchorpane("Login", thankyoupage);
+        controller.newAnchorpane("Login", registerMissingPane);
     }
-
+    
+    @FXML
+    private void backToLoginTY(ActionEvent event) {
+        controller.newAnchorpane("Login", thankYouPage);
+    }
 }
