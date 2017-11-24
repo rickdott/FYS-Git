@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 /**
@@ -19,6 +20,9 @@ import javafx.scene.layout.Pane;
  * @author Rick
  */
 public class WorkerHomescreenController implements Initializable {
+    
+    @FXML
+    private AnchorPane actualmain;
     
     @FXML
     private Pane mainpage;
@@ -47,11 +51,11 @@ public class WorkerHomescreenController implements Initializable {
         controller.newPane("RegisterMissing", but2, mainpage, label1);
     }
 
-    /**@FXML
+    @FXML
     private void openReports(ActionEvent event) {
-        newPane("Reports", but3, mainpage, label1);
+        controller.newPane("Reports", but3, mainpage, label1);
     }
-    **/
+    
     
     @FXML
     private void openUserRoles(ActionEvent event) {
@@ -99,6 +103,11 @@ public class WorkerHomescreenController implements Initializable {
     @FXML
     private void onHoverbut4() {
         controller.onHover("User Roles", but4, label1, true);
+    }
+    
+    @FXML
+    private void backToLogin(ActionEvent event) {
+        controller.newAnchorpane("Login", actualmain);
     }
     
     

@@ -43,7 +43,7 @@
                         <Insets />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="but3" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseEntered="#onHoverbut3" onMouseExited="#offHoverbut3" prefHeight="50.0" style="-fx-background-color: #d81e05; -fx-background-radius: 0; -fx-border-width: 1 0 0 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18;" text="Reports" textFill="WHITE">
+                  <Button fx:id="but3" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#openReports" onMouseEntered="#onHoverbut3" onMouseExited="#offHoverbut3" prefHeight="50.0" style="-fx-background-color: #d81e05; -fx-background-radius: 0; -fx-border-width: 1 0 0 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18;" text="Reports" textFill="WHITE">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
@@ -53,6 +53,7 @@
                         <Insets />
                      </VBox.margin>
                   </Button>
+                  <Button mnemonicParsing="false" onAction="#backToLogin" text="Back to Login" />
                </children>
             </VBox>
             <Pane fx:id="mainpage" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">

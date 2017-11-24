@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="paneCustomerHomescreen" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.FXMLDocumentController">
+<AnchorPane id="AnchorPane" fx:id="paneCustomerHomescreen" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.CustomerHomescreenController">
    <children>
       <SplitPane dividerPositions="0.18384401114206128" layoutY="14.0" orientation="VERTICAL" prefHeight="720.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -15,29 +15,30 @@
                <children>
                   <ImageView fitHeight="196.0" fitWidth="579.0" layoutX="377.0" layoutY="-21.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/Corendon%20Logo.png" />
+                        <Image url="@../../../images/Corendon%20Logo.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="71.0" fitWidth="69.0" layoutX="1168.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/logout.png" />
+                        <Image url="@../../../images/logout.png" />
                      </image>
                   </ImageView>
+                  <Button layoutX="1076.0" layoutY="40.0" mnemonicParsing="false" onAction="#backToLogin" text="Back to Login" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="130.0" prefWidth="1287.0">
                <children>
-                  <Button layoutX="225.0" layoutY="108.0" mnemonicParsing="false" prefHeight="280.0" prefWidth="379.0" style="-fx-background-color: #d81e05;" text="Register missing luggage" textFill="WHITE" AnchorPane.leftAnchor="220.0">
+                  <Button layoutX="225.0" layoutY="108.0" mnemonicParsing="false" onAction="#openRegisterMissing" prefHeight="280.0" prefWidth="379.0" style="-fx-background-color: #d81e05;" text="Register missing luggage" textFill="WHITE" AnchorPane.leftAnchor="220.0">
                      <font>
                         <Font size="27.0" />
                      </font>
                   </Button>
-                  <Button layoutX="690.0" layoutY="108.0" mnemonicParsing="false" onAction="#openLogin" prefHeight="280.0" prefWidth="379.0" style="-fx-background-color: #d81e05;" text="Request status" textFill="WHITE" AnchorPane.rightAnchor="220.0">
+                  <Button fx:id="but5" layoutX="692.0" layoutY="108.0" mnemonicParsing="false" onAction="#openRequestStatus" prefHeight="280.0" prefWidth="379.0" style="-fx-background-color: #d81e05;" text="Request status" textFill="WHITE" AnchorPane.rightAnchor="207.0">
                      <font>
                         <Font size="27.0" />
                      </font>
                   </Button>
-                  <Button layoutX="568.0" layoutY="424.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="143.0" style="-fx-background-color: #d81e05;" text="F.A.Q." textFill="WHITE">
+                  <Button layoutX="568.0" layoutY="424.0" mnemonicParsing="false" onAction="#openFaq" prefHeight="71.0" prefWidth="143.0" style="-fx-background-color: #d81e05;" text="F.A.Q." textFill="WHITE">
                      <font>
                         <Font size="27.0" />
                      </font>
