@@ -14,7 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-        
+
 /**
  *
  * @author Rick den Otter 500749952 Lines 93-156 Stan van Weringh 500771870
@@ -39,7 +39,7 @@ public class FXMLDocumentController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
-    
+
     // Method for creating a PDF ---MOVE TO RELEVANT CONTROLLER
     @FXML
     private void createPdf() {
@@ -48,7 +48,7 @@ public class FXMLDocumentController implements Initializable {
         pdf.printPDF();
         System.out.println("PDF Created...");
     }
-    
+
     // Method for sending an e-mail ---MOVE TO RELEVANT CONTROLLER
     @FXML
     private void sendMail() {
@@ -57,7 +57,7 @@ public class FXMLDocumentController implements Initializable {
         mail.mailsturen();
         System.out.println("Mail sent...");
     }
-    
+
     // Method om een Excelsheet te importeren ---MOVE TO RELEVANT CONTROLLER
     @FXML
     private void excelImport() {
@@ -69,61 +69,22 @@ public class FXMLDocumentController implements Initializable {
         ExcelReader reader = new ExcelReader(filePath);
         List<String> row = new ArrayList<>();
 
-        // Header lezen en printen 
-        /*
+        row = reader.getNextRow(); // De header van het excel bestand
         row = reader.getNextRow();
-        for (int i = 0; i < row.size(); i++) {
-            System.out.printf("%s: %s\n", i, row.get(i));
-        }
-        */
+        String mail = row.get(row.size() - 1);
+        System.out.println(mail);
 
-        boolean moreData = true;
-        while(moreData) {
-            row = reader.getNextRow();
-            String mail = row.get(row.size() - 1);
-            System.out.println(mail);
-            
-            // Opvragen van de idpassenger die hij zoekt via de mail van de passengier
-            Database db = new Database();
-            String sql = String.format("SELECT idpassenger FROM Passenger WHERE email = '%s'", mail);
-            System.out.print(db.executeStringListQuery(sql));
-            
-            // TODO: Inserten in Bagage tabel
-            /*
-            INSERT INTO `Bagage`
-            (`labelnumber`,
-            `flightnumber`,
-            `destination`,
-            `type`,
-            `brand`,
-            `colour`,
-            `specialchar`,
-            `passengerid`,
-            `foundat`,
-            `foundatdate`,
-            `date`)
-            VALUES
-            (<{labelnumber: }>,
-            <{flightnumber: }>,
-            <{destination: }>,
-            <{type: }>,
-            <{brand: }>,
-            <{colour: }>,
-            <{specialchar: }>,
-            <{passengerid: }>,
-            <{foundat: }>,
-            <{foundatdate: }>,
-            <{date: }>);
-            */
-            
-            
-            
-            if(reader.getNextRow() != null){
-                moreData = false;
-            }
-        }
+        // Opvragen van de idpassenger die hij zoekt via de mail van de passengier
+        Database db = new Database();
+        String sql = String.format("SELECT idpassenger FROM Passenger WHERE email = '%s'", mail);
+        String idpassenger = db.executeStringListQuery(sql);
+
+        // SQL query die alles invoert in de database
+        sql = String.format("INSERT INTO `Bagage`(`labelnumber`, `flightnumber`, `destination`, `type`, `brand`, `colour`, `specialchar`, `passengerid`, `foundat`, `foundatdate`, `date`)VALUES('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')", row.get(0), row.get(1), row.get(2), row.get(3), row.get(4), row.get(5), row.get(6), idpassenger, row.get(7), row.get(9), row.get(10));
+        db.executeUpdateQuery(sql);
+        System.out.println("Excel import complete...");
     }
-    
+
     @FXML
     private void openCustomerHomescreen(ActionEvent event) {
         newAnchorpane("CustomerHomescreen", paneLogin);
@@ -171,24 +132,24 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     public void newPane(String pageName, Button btn, Pane pane, Label label) {
         System.out.println("Opening another page...");
-        
+
         Parent newPane = loadFXMLFile(pageName + ".fxml");
         pane.getChildren().clear();
         pane.getChildren().add(newPane);
         label.setText(btn.getText());
-        
+
         System.out.println("Another page opened...");
     }
-    
+
     // Opens a different page, changing the AnchorPane
     @FXML
     public void newAnchorpane(String pageName, AnchorPane paneToReplace) {
         System.out.println("Opening another page(anchor)...");
-        
+
         Parent newPane = loadFXMLFile(pageName + ".fxml");
         paneToReplace.getChildren().clear();
         paneToReplace.getChildren().add(newPane);
-        
+
         System.out.println("Another page opened(anchor)...");
     }
 
