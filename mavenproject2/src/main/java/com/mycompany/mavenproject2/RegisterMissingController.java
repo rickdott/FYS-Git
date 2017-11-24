@@ -18,7 +18,21 @@ import javafx.scene.layout.AnchorPane;
  * @author Rick
  */
 public class RegisterMissingController implements Initializable {
+    
+    @FXML
+    private TextField TravellerName;
+    private TextField TravellerAdress;
+    private TextField TravellerCity;
+    private TextField TravellerPostalCode;
+    private TextField TravellerCountry;
+    private TextField TravellerPhone;
+    private TextField TravellerEmail;
 
+    public RegisterMissingController() {
+    }
+    
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     }
@@ -27,10 +41,17 @@ public class RegisterMissingController implements Initializable {
     private AnchorPane registerMissingPane, thankYouPage;
            
     FXMLDocumentController controller = new FXMLDocumentController();
-
+    //submit button
     @FXML
     private void openRegisterThankyou(ActionEvent event) {
+
         controller.newAnchorpane("RegisterMissing_thankyou", registerMissingPane);
+
+
+        Database db = new Database();
+        String sql = String.format("INSERT INTO testje (idtestje) VALUES ('%s')", TravellerName.getText());
+        db.executeUpdateQuery(sql);
+
     }
     
     @FXML
@@ -42,4 +63,5 @@ public class RegisterMissingController implements Initializable {
     private void backToLoginTY(ActionEvent event) {
         controller.newAnchorpane("Login", thankYouPage);
     }
+
 }
