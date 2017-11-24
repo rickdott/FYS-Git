@@ -53,6 +53,7 @@
                         <Insets />
                      </VBox.margin>
                   </Button>
+                  <Button mnemonicParsing="false" onAction="#backToLogin" text="Back to Login" />
                </children>
             </VBox>
             <Pane fx:id="mainpage" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
