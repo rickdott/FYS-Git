@@ -54,27 +54,27 @@
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="150.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="150.0" layoutY="14.0" onMouseClicked="#setLanguageEnglish" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/Square_Flag_of_the_United_Kingdom.svg.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="240.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="240.0" layoutY="14.0" onMouseClicked="#setLanguageDutch" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/flag-square-250.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="327.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="327.0" layoutY="14.0" onMouseClicked="#setLanguageTurkish" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/flag_portugal_square-512.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="412.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="412.0" layoutY="14.0" onMouseClicked="#setLanguageGerman" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/flag_germany_square-512.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="496.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="496.0" layoutY="14.0" onMouseClicked="#setLanguagePortuguese" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/flag-square-250_1.png" />
                      </image>
