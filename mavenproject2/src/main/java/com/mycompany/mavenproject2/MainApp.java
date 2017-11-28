@@ -1,25 +1,49 @@
 package com.mycompany.mavenproject2;
 
+import java.io.File;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
+import javafx.stage.FileChooser;
 
 public class MainApp extends Application {
 
+    public static Stage application;
+
+    // Start van de hele applicatie
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Login.fxml"));
-        
+        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/styles/Styles.css");
-        
-        stage.setTitle("JavaFX and Maven");
+
+        stage.setTitle("BAGGER");
         stage.setScene(scene);
         stage.show();
+
+        application = stage;
+        
+        // Database testen
+        //Database db = new Database();
+        //db.executeUpdateQuery("INSERT INTO Airport (iatacode, name, timezone) VALUES ('BBB', 'Oruam', 1)");
+        //String temp = db.executeStringListQuery("SELECT * FROM Airport");
+        //System.out.print(temp);
+    }
+
+    // Returnt het pad (String)
+    public static String fileChoosePath() {
+        final FileChooser fileChooser = new FileChooser();
+        File file = fileChooser.showOpenDialog(application);
+        if (file != null) {
+            return file.getPath();
+        }
+        else{
+            return "";
+        }
     }
 
     /**
