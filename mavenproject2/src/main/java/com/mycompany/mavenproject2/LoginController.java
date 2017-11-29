@@ -66,10 +66,14 @@ public class LoginController implements Initializable {
 
     // Main method for changing languages WERKT NIET (PATH IN .getBundle() kan niet worden gevonden)
     private void loadLanguage(String language, String lang) {
-
-        Locale.setDefault(new Locale(language, lang));
-        bundle = ResourceBundle.getBundle("lang");
-        System.out.println("GVD WERK EENS! : " + bundle.getString("language"));
+        //Locale.setDefault(new Locale(language, lang));
+        //bundle = ResourceBundle.getBundle("com/mycompany/mavenproject2/lang");
+        //System.out.println("GVD WERK EENS! : " + bundle.getString("language"));
+        System.out.println(Locale.getDefault());
+        ResourceBundle mybundle = ResourceBundle.getBundle("MyLabels");
+        System.out.println(mybundle.getString("language"));
+    
+    
     }
 
     // Method for creating a PDF ---MOVE TO RELEVANT CONTROLLER
