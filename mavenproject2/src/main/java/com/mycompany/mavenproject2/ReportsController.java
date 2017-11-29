@@ -7,8 +7,6 @@ package com.mycompany.mavenproject2;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -80,6 +78,7 @@ public class ReportsController {
         while (result.next()) {
             counter++;
         }
+        database.close();
         return counter;
     }
 }

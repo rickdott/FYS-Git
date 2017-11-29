@@ -116,8 +116,8 @@ public class RequestStatusController implements Initializable {
             luggage.setFoundatdate(result.getString("foundatdate"));
             luggage.setDate(result.getString("date"));
             foundLuggageList.add(luggage);
-
         }
+        database.close();
         // back button
     }
 }
