@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="requestpage" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.RequestStatusController">
+<AnchorPane id="AnchorPane" fx:id="requestpage" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.RequestStatusKlantenController">
    <children>
-      <Label layoutX="308.0" layoutY="347.0" prefHeight="27.0" prefWidth="165.0" text="Lable number:">
+      <Label layoutX="308.0" layoutY="347.0" prefHeight="27.0" prefWidth="165.0" text="Label number:">
          <font>
             <Font size="18.0" />
          </font>
@@ -21,13 +21,13 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="498.0" layoutY="348.0" prefHeight="25.0" prefWidth="469.0">
+      <TextField fx:id="labelNrField" layoutX="498.0" layoutY="348.0" prefHeight="25.0" prefWidth="469.0">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
       </TextField>
-      <Button fx:id="submit" layoutX="596.0" layoutY="495.0" mnemonicParsing="false" onAction="#openRequestStatusResult" prefWidth="88.0" style="-fx-background-color: #d81e05; -fx-background-radius: 0; -fx-border-width: 1 0 0 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18;" text="Submit" textFill="WHITE" />
-      <TextField layoutX="498.0" layoutY="390.0" prefHeight="25.0" prefWidth="469.0" />
+      <Button fx:id="submit" layoutX="596.0" layoutY="495.0" mnemonicParsing="false" onAction="#getInput" prefWidth="88.0" style="-fx-background-color: #d81e05; -fx-background-radius: 0; -fx-border-width: 1 0 0 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18;" text="Submit" textFill="WHITE" />
+      <TextField fx:id="lastNameField" layoutX="498.0" layoutY="390.0" prefHeight="25.0" prefWidth="469.0" />
       <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="127.0" prefWidth="1259.0">
          <children>
             <ImageView fitHeight="196.0" fitWidth="579.0" layoutX="340.0" layoutY="-30.0" pickOnBounds="true" preserveRatio="true">
