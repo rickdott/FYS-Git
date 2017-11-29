@@ -49,31 +49,26 @@ public class LoginController implements Initializable {
     @FXML
     private void setLanguageGerman() {
         System.out.println("Set language to German");
-        //loadLanguage("");
+        loadLanguage("de", "DE");
     }
 
     @FXML
     private void setLanguagePortuguese() {
         System.out.println("Set language to Portuguese");
-        //loadLanguage("");
+        loadLanguage("pt", "PT");
     }
 
     @FXML
     private void setLanguageTurkish() {
         System.out.println("Set language to Turkish");
-        //loadLanguage("");
+        loadLanguage("tr", "TR");
     }
 
-    // Main method for changing languages WERKT NIET (PATH IN .getBundle() kan niet worden gevonden)
+    // Main method for changing languages
     private void loadLanguage(String language, String lang) {
-        //Locale.setDefault(new Locale(language, lang));
-        //bundle = ResourceBundle.getBundle("com/mycompany/mavenproject2/lang");
-        //System.out.println("GVD WERK EENS! : " + bundle.getString("language"));
-        System.out.println(Locale.getDefault());
-        ResourceBundle mybundle = ResourceBundle.getBundle("MyLabels");
-        System.out.println(mybundle.getString("language"));
-    
-    
+        Locale.setDefault(new Locale(language, lang));
+        ResourceBundle bundle = ResourceBundle.getBundle("Language"); // TODO: Path veranderen zodat de .properties in een map languages kunnen
+        //System.out.println(bundle.getString("language"));
     }
 
     // Method for creating a PDF ---MOVE TO RELEVANT CONTROLLER
