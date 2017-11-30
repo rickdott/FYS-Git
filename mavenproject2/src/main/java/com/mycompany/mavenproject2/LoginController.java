@@ -33,8 +33,8 @@ public class LoginController implements Initializable{
     @FXML
     private void createPdf() {
         System.out.println("Creating PDF...");
-        Pdf pdf = new Pdf();
-        pdf.printPDF();
+       // Pdf pdf = new Pdf();
+        //pdf.printPDF();
         System.out.println("PDF Created...");
     }
     
