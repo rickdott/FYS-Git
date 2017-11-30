@@ -1,18 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.mavenproject2;
 
+import com.mycompany.mavenproject2.connection.sqlDatabaseConnection;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 /**
  *
@@ -91,4 +99,110 @@ public class LoginController implements Initializable{
         controller.newAnchorpane("WorkerHomescreen", paneLogin);
     }
     
+    //Login for employee
+    @FXML
+    private TextField textEmail;
+
+    @FXML
+    private PasswordField textPassword;
+
+    Stage dialogStage = new Stage();
+    Scene scene;
+
+    Connection connection = null;
+    PreparedStatement preparedStatement = null;
+    ResultSet resultSet = null;
+
+    public LoginController() {
+        connection = sqlDatabaseConnection.connectdb();
+    }
+
+    //Login for employee
+    @FXML
+    private void handleButtonAction(ActionEvent event) {
+        String username = textEmail.getText().toString();
+        String password = textPassword.getText().toString();
+
+        //SQL query checks if username and password is equal to input.
+        String sql = "SELECT * FROM Employee WHERE username = ? and password = ?";
+
+        try {
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, password);
+            resultSet = preparedStatement.executeQuery();
+            if (!resultSet.next()) {
+                infoBox("Enter Correct Username and Password", "Failed", null);
+            } else {
+                infoBox("Login Successfull", "Success", null);
+                /*Node source = (Node) event.getSource();
+                dialogStage = (Stage) source.getScene().getWindow();
+                dialogStage.close();*/
+                
+                FXMLDocumentController controller = new FXMLDocumentController();
+                controller.newAnchorpane("WorkerHomescreen", paneLogin);
+                /*scene = new Scene((Parent) FXMLLoader.load(getClass().getResource(resultSet.getIn‌​t(01) == 0 ? "WorkerHomescreen.fxml" : "Reports.fxml")));
+                dialogStage.setScene(scene);
+                dialogStage.show();*/
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void infoBox(String infoMessage, String titleBar, String headerMessage) {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle(titleBar);
+        alert.setHeaderText(headerMessage);
+        alert.setContentText(infoMessage);
+        alert.showAndWait();
+    }
+
+    //Login for passenger
+    @FXML
+    private TextField textFlight;
+
+    @FXML
+    private TextField textLastName;
+    
+    @FXML
+    private void handleButtonActionPassenger(ActionEvent event) {
+        String flight = textFlight.getText().toString();
+        String lastname = textLastName.getText().toString();
+
+        String sql = "SELECT * FROM Passenger WHERE flightnumber = ? and lastname = ?";
+
+        try {
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, flight);
+            preparedStatement.setString(2, lastname);
+            resultSet = preparedStatement.executeQuery();
+            if (!resultSet.next()) {
+                infoBox("Enter Correct Flight number and Lastname", "Failed", null);
+            } else {
+                infoBox("Login Successfull", "Success", null);
+                /*Node source = (Node) event.getSource();
+                dialogStage = (Stage) source.getScene().getWindow();
+                dialogStage.close();*/
+                
+                FXMLDocumentController controller = new FXMLDocumentController();
+                controller.newAnchorpane("CustomerHomescreen", paneLogin);
+                /*scene = new Scene((Parent) FXMLLoader.load(getClass().getResource("CustomerHomescreen.fxml")));
+                dialogStage.setScene(scene);
+                dialogStage.show();*/
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void infoBoxPassenger(String infoMessage, String titleBar, String headerMessage) {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle(titleBar);
+        alert.setHeaderText(headerMessage);
+        alert.setContentText(infoMessage);
+        alert.showAndWait();
+    }
 }

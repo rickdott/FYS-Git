@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="requestpage" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.RequestStatusKlantenController">
+   <children>
+      <Label layoutX="311.0" layoutY="401.0" prefHeight="27.0" prefWidth="165.0" text="Label number:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="311.0" layoutY="443.0" prefHeight="27.0" prefWidth="114.0" text="Last name:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="labelNrField" layoutX="501.0" layoutY="402.0" prefHeight="25.0" prefWidth="469.0">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </TextField>
+      <Button fx:id="submit" layoutX="596.0" layoutY="495.0" mnemonicParsing="false" onAction="#getInput" prefWidth="88.0" style="-fx-background-color: #d81e05; -fx-background-radius: 0; -fx-border-width: 1 0 0 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18;" text="Submit" textFill="WHITE" />
+      <TextField fx:id="lastNameField" layoutX="501.0" layoutY="444.0" prefHeight="25.0" prefWidth="469.0" />
+      <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="127.0" prefWidth="1259.0">
+         <children>
+            <ImageView fitHeight="196.0" fitWidth="579.0" layoutX="340.0" layoutY="-30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/Corendon%20Logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Label fx:id="labelnumber" layoutX="577.0" layoutY="175.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="flightnumber" layoutX="577.0" layoutY="205.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="destination" layoutX="577.0" layoutY="235.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="type" layoutX="577.0" layoutY="265.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="brand" layoutX="577.0" layoutY="295.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="colour" layoutX="577.0" layoutY="325.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="specialchar" layoutX="577.0" layoutY="355.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="bagageid" layoutX="577.0" layoutY="145.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="427.0" layoutY="175.0" text="labelnumber">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="427.0" layoutY="205.0" text="flightnumber">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="427.0" layoutY="235.0" text="destination">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="427.0" layoutY="265.0" text="type">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="427.0" layoutY="295.0" text="brand">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="427.0" layoutY="325.0" text="colour">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="427.0" layoutY="355.0" text="specialchar">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="427.0" layoutY="145.0" text="bagageid">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="826.0" layoutY="205.0" text="date">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="826.0" layoutY="175.0" text="foundatdate">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="826.0" layoutY="145.0" text="foundat">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="date" layoutX="968.0" layoutY="205.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="foundatdate" layoutX="968.0" layoutY="175.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="foundat" layoutX="968.0" layoutY="145.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

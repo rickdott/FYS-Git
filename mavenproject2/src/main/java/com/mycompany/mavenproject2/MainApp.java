@@ -16,7 +16,7 @@ public class MainApp extends Application {
     // Start van de hele applicatie
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("LoginEmployee.fxml"));
 
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/styles/Styles.css");
@@ -24,7 +24,8 @@ public class MainApp extends Application {
         stage.setTitle("BAGGER");
         stage.setScene(scene);
         stage.show();
-
+        stage.setResizable(false);
+   
         application = stage;
         
         // Database testen

@@ -31,7 +31,7 @@ public class CustomerHomescreenController implements Initializable {
     
     @FXML
     private void openRequestStatus(ActionEvent event) {
-        controller.newAnchorpane("RequestStatus", paneCustomerHomescreen);
+        controller.newAnchorpane("RequestStatusKlanten", paneCustomerHomescreen);
     }
     
     @FXML
