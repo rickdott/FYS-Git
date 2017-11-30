@@ -164,19 +164,14 @@ public class RegisterMissingController implements Initializable {
             
           
     }
-    
-    
-    
-    
-    
     @FXML
-    private void backToLogin(ActionEvent event) {
-        controller.newAnchorpane("Login", registerMissingPane);
+    private void backToLogin() {
+        controller.newAnchorpane("LoginEmployee", registerMissingPane);
     }
     
     @FXML
-    private void backToLoginTY(ActionEvent event) {
-        controller.newAnchorpane("Login", thankYouPage);
+    private void backToLoginTY() {
+        controller.newAnchorpane("LoginEmployee", thankYouPage);
     }
     
     
