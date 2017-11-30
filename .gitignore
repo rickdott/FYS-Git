@@ -2,3 +2,8 @@
 *.lst
 *.jar
 *.properties
+!/mavenproject2/src/main/resources/Language_pt_PT.properties
+!/mavenproject2/src/main/resources/Language_nl_NL.properties
+!/mavenproject2/src/main/resources/Language_en_EN.properties
+!/mavenproject2/src/main/resources/Language_tr_TR.properties
+!/mavenproject2/src/main/resources/Language_de_DE.properties
