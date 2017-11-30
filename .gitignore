@@ -2,4 +2,4 @@
 *.lst
 *.jar
 *.properties
-!/src/main/resources/
+!/mavenproject2/src/main/resources/
