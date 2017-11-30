@@ -1,5 +1,5 @@
-
 *.class
-*.properties
 *.lst
 *.jar
+*.properties
+!/src/main/resources/
