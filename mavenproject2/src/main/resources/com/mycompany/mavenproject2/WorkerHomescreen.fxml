@@ -12,7 +12,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <AnchorPane id="AnchorPane" fx:id="actualmain" minHeight="720.0" minWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #f3f3f3;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.WorkerHomescreenController">
    <children>
@@ -26,7 +25,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label fx:id="label1" text="Template" textFill="#d81e05" GridPane.columnIndex="1">
+            <Label fx:id="label1" text="B.A.G.G.E.R" textFill="#d81e05" GridPane.columnIndex="1">
                <font>
                   <Font name="Helvetica Neue" size="48.0" />
                </font>
@@ -58,11 +57,11 @@
             </VBox>
             <Pane fx:id="mainpage" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <Text layoutX="163.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LOREM IPSUM PIPSUM">
-                     <font>
-                        <Font size="46.0" />
-                     </font>
-                  </Text>
+                  <ImageView fitHeight="949.0" fitWidth="999.0" layoutX="27.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/Corendon-in-beroep-tegen-boete-van-350.000-wegens-misleiding_crop1000x500.jpg" />
+                     </image>
+                  </ImageView>
                </children>
             </Pane>
          </children>

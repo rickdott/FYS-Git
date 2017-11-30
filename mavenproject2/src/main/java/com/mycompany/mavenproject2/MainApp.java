@@ -24,7 +24,8 @@ public class MainApp extends Application {
         stage.setTitle("BAGGER");
         stage.setScene(scene);
         stage.show();
-
+        stage.setResizable(false);
+   
         application = stage;
         
         // Database testen
