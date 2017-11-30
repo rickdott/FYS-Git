@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" fx:id="paneCustomerHomescreen" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.CustomerHomescreenController">
+<AnchorPane id="AnchorPane" fx:id="paneCustomerHomescreen" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.CustomerHomescreenController">
    <children>
       <SplitPane dividerPositions="0.18384401114206128" layoutY="14.0" orientation="VERTICAL" prefHeight="720.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -26,6 +26,7 @@
                      </image>
                   </ImageView>
                   <Button layoutX="1170.0" layoutY="30.0" mnemonicParsing="false" onAction="#backToLogin" prefHeight="69.0" prefWidth="69.0" style="-fx-background-color: transparent;" />
+                  <Button layoutX="404.0" layoutY="13.0" mnemonicParsing="false" prefHeight="86.0" prefWidth="464.0" style="-fx-background-color: trasparent;" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="130.0" prefWidth="1287.0">
