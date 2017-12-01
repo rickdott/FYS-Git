@@ -88,7 +88,7 @@ public class RegisterMissingController implements Initializable {
     } */
     
            
-    FXMLDocumentController controller = new FXMLDocumentController();
+    Utilities utilities = new Utilities();
     //submit button
     @FXML
     private void openRegisterThankyou(ActionEvent event) {
@@ -153,7 +153,7 @@ public class RegisterMissingController implements Initializable {
         db.executeUpdateQuery(luggageInformation);
         
         
-        controller.newAnchorpane("RegisterMissing_thankyou", registerMissingPane); 
+        utilities.newAnchorpane("RegisterMissing_thankyou", registerMissingPane); 
         
          
         
@@ -166,12 +166,12 @@ public class RegisterMissingController implements Initializable {
     }
     @FXML
     private void backToLogin() {
-        controller.newAnchorpane("LoginEmployee", registerMissingPane);
+        utilities.newAnchorpane("LoginEmployee", registerMissingPane);
     }
     
     @FXML
     private void backToLoginTY() {
-        controller.newAnchorpane("LoginEmployee", thankYouPage);
+        utilities.newAnchorpane("LoginEmployee", thankYouPage);
     }
     
     

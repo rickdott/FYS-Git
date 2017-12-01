@@ -78,6 +78,7 @@ public class ReportsController {
         while (result.next()) {
             counter++;
         }
+        result.close();
         database.close();
         return counter;
     }

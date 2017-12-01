@@ -35,7 +35,7 @@ public class LoginController implements Initializable{
     @FXML
     private AnchorPane paneLogin;
     
-    FXMLDocumentController controller = new FXMLDocumentController();
+    Utilities utilities = new Utilities();
     
     // Method for creating a PDF ---MOVE TO RELEVANT CONTROLLER
     @FXML
@@ -91,12 +91,12 @@ public class LoginController implements Initializable{
     
     @FXML
     private void openCustomerHomescreen(ActionEvent event) {
-        controller.newAnchorpane("CustomerHomescreen", paneLogin);
+        utilities.newAnchorpane("CustomerHomescreen", paneLogin);
     }
 
     @FXML
     private void openWorkerHomescreen(ActionEvent event) {
-        controller.newAnchorpane("WorkerHomescreen", paneLogin);
+        utilities.newAnchorpane("WorkerHomescreen", paneLogin);
     }
     
     //Login for employee
@@ -140,7 +140,7 @@ public class LoginController implements Initializable{
                 dialogStage.close();*/
                 
                 FXMLDocumentController controller = new FXMLDocumentController();
-                controller.newAnchorpane("WorkerHomescreen", paneLogin);
+                utilities.newAnchorpane("WorkerHomescreen", paneLogin);
                 /*scene = new Scene((Parent) FXMLLoader.load(getClass().getResource(resultSet.getIn‌​t(01) == 0 ? "WorkerHomescreen.fxml" : "Reports.fxml")));
                 dialogStage.setScene(scene);
                 dialogStage.show();*/
@@ -187,7 +187,7 @@ public class LoginController implements Initializable{
                 dialogStage.close();*/
                 
                 FXMLDocumentController controller = new FXMLDocumentController();
-                controller.newAnchorpane("CustomerHomescreen", paneLogin);
+                utilities.newAnchorpane("CustomerHomescreen", paneLogin);
                 /*scene = new Scene((Parent) FXMLLoader.load(getClass().getResource("CustomerHomescreen.fxml")));
                 dialogStage.setScene(scene);
                 dialogStage.show();*/
