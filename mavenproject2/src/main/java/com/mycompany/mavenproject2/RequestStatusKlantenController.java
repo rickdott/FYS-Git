@@ -35,30 +35,10 @@ public class RequestStatusKlantenController {
         Database database = new Database();
         ResultSet result = database.executeResultSetQuery(query);
         FoundLuggage luggage = new FoundLuggage();
-        // display all information
+        
+        // display all information MAKE THIS USE luggage OBJECT TO SHOW INFO
         while (result.next()) { 
-            luggage.setBagageid(result.getInt("bagageid"));
-            luggage.setLabelnumber(result.getString("labelnumber"));
-            luggage.setFlightnumber(result.getString("flightnumber"));
-            luggage.setDestination(result.getString("destination"));
-            luggage.setType(result.getString("type"));
-            luggage.setBrand(result.getString("brand"));
-            luggage.setColour(result.getString("colour"));
-            luggage.setSpecialchar(result.getString("specialchar"));
-            luggage.setFoundat(result.getString("foundat"));
-            luggage.setFoundatdate(result.getString("foundatdate"));
-            luggage.setDate(result.getString("date"));
-//            bagageid.setText(Integer.toString(result.getInt("bagageid")));
-//            labelnumber.setText(result.getString("labelnumber"));
-//            flightnumber.setText(result.getString("flightnumber"));
-//            destination.setText(result.getString("destination"));
-//            type.setText(result.getString("type"));
-//            brand.setText(result.getString("brand"));
-//            colour.setText(result.getString("colour"));
-//            specialchar.setText(result.getString("specialchar"));
-//            foundat.setText(result.getString("foundat"));
-//            foundatdate.setText(result.getString("foundatdate"));
-//            date.setText(result.getString("date"));
+            luggage = Utilities.initializeLuggageFromResultSet(result, luggage);
         }
         System.out.println(luggage.getDestination());
         // Closing open connections

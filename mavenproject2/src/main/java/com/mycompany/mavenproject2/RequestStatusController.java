@@ -104,19 +104,10 @@ public class RequestStatusController implements Initializable {
         // corresponding attribute in the FoundLuggage object
         while (result.next()) {
             FoundLuggage luggage = new FoundLuggage();
-            luggage.setBagageid(result.getInt("bagageid"));
-            luggage.setLabelnumber(result.getString("labelnumber"));
-            luggage.setFlightnumber(result.getString("flightnumber"));
-            luggage.setDestination(result.getString("destination"));
-            luggage.setType(result.getString("type"));
-            luggage.setBrand(result.getString("brand"));
-            luggage.setColour(result.getString("colour"));
-            luggage.setSpecialchar(result.getString("specialchar"));
-            luggage.setFoundat(result.getString("foundat"));
-            luggage.setFoundatdate(result.getString("foundatdate"));
-            luggage.setDate(result.getString("date"));
-            foundLuggageList.add(luggage);
+            luggage = Utilities.initializeLuggageFromResultSet(result, luggage);
+            foundLuggageList.add(luggage); 
         }
+        
         result.close();
         database.close();
         // back button

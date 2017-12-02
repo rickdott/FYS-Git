@@ -6,6 +6,8 @@
 package com.mycompany.mavenproject2;
 
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -95,5 +97,25 @@ public class Utilities {
             System.out.println(ex.getClass().getName() + ": " + ex.getMessage());
             return null;
         }
+    }
+    public static FoundLuggage initializeLuggageFromResultSet(ResultSet result, FoundLuggage luggage) throws SQLException {
+        // Loop through the resultset, making a new 'FoundLuggage' Object 
+        // for every result, adding the attributes of the result to the 
+        // corresponding attribute in the FoundLuggage object
+        while (result.next()) {
+            luggage.setBagageid(result.getInt("bagageid"));
+            luggage.setLabelnumber(result.getString("labelnumber"));
+            luggage.setFlightnumber(result.getString("flightnumber"));
+            luggage.setDestination(result.getString("destination"));
+            luggage.setType(result.getString("type"));
+            luggage.setBrand(result.getString("brand"));
+            luggage.setColour(result.getString("colour"));
+            luggage.setSpecialchar(result.getString("specialchar"));
+            luggage.setFoundat(result.getString("foundat"));
+            luggage.setFoundatdate(result.getString("foundatdate"));
+            luggage.setDate(result.getString("date"));
+        }
+        result.close();
+        return luggage;
     }
 }

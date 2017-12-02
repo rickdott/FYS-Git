@@ -38,6 +38,8 @@
                   </Text>
                   <TextField id="txtUsername" fx:id="textEmail" layoutX="581.0" layoutY="187.0" prefHeight="25.0" prefWidth="253.0" promptText="Enter your username" />
                   <PasswordField id="txtPassword" fx:id="textPassword" layoutX="581.0" layoutY="227.0" prefHeight="25.0" prefWidth="253.0" promptText="Enter your password" />
+                  <Button layoutX="319.0" layoutY="349.0" mnemonicParsing="false" onAction="#openWorkerHomescreen" text="Skip to Worker homescreen" />
+                  <Button layoutX="514.0" layoutY="349.0" mnemonicParsing="false" onAction="#openCustomerHomescreen" text="Skip to Customer homescreen" />
                </children>
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="130.0" prefWidth="1287.0">
