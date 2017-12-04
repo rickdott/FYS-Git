@@ -11,16 +11,19 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Set;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 
 /**
  *
@@ -38,7 +41,13 @@ public class RequestStatusController implements Initializable {
     private AnchorPane requestpage;
 
     @FXML
-    private TextField destinationField, labelNrField, dateField, bagageidField;
+    private VBox vbox1, vbox2;
+    
+    @FXML
+    private TextField regNrField, dateFoundField, timeFoundField, typeField,
+            brandField, flightNrField, labelNrField, locationFoundField,
+            mainColourField, secondaryColourField, sizeField, weightField,
+            nameAndCityField, specialCharField;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -53,7 +62,7 @@ public class RequestStatusController implements Initializable {
             }
         }
     }
-    
+
     Utilities utilities = new Utilities();
 
     @FXML
@@ -63,23 +72,94 @@ public class RequestStatusController implements Initializable {
 
     @FXML
     private void getInput() throws SQLException {
+        String query = getQueryFromTextfields();
+                
+        // Create database connection, execute the query
+        Database database = new Database();
+        ResultSet result = database.executeResultSetQuery(query);
+        foundLuggageList.clear();
+
+        // Loop through the resultset, making a new 'FoundLuggage' Object 
+        // for every result, adding the attributes of the result to the 
+        // corresponding attribute in the FoundLuggage object
+        while (result.next()) {
+            FoundLuggage luggage = new FoundLuggage();
+            luggage = Utilities.initializeLuggageFromResultSet(result, luggage);
+            foundLuggageList.add(luggage);
+        }
+
+        result.close();
+        database.close();
+        
+        // Show the TableView
+        makeTextFieldsAndLabelsInvisible();
+        foundLuggageTableView.setVisible(true);
+    }
+
+    @FXML
+    private String getQueryFromTextfields() {
         // Creates new List of Strings to be included in the query
         List<String> queryList = new ArrayList<String>();
 
-        if (!destinationField.getText().isEmpty()) {
-            queryList.add("destination = '" + destinationField.getText() + "' ");
+        if (!regNrField.getText().isEmpty()) {
+            queryList.add("registrationnr = '" + regNrField.getText() + "' ");
         }
+
+        if (!dateFoundField.getText().isEmpty()) {
+            queryList.add("datefound = '" + dateFoundField.getText() + "' ");
+        }
+
+        if (!timeFoundField.getText().isEmpty()) {
+            queryList.add("timefound = '" + timeFoundField.getText() + "' ");
+        }
+
+        if (!typeField.getText().isEmpty()) {
+            queryList.add("luggagetype = '" + typeField.getText() + "' ");
+        }
+
+        if (!brandField.getText().isEmpty()) {
+            queryList.add("brand = '" + brandField.getText() + "' ");
+        }
+
+        if (!flightNrField.getText().isEmpty()) {
+            queryList.add("flightnumber = '" + flightNrField.getText() + "' ");
+        }
+
         if (!labelNrField.getText().isEmpty()) {
-            queryList.add("labelnumber = '" + labelNrField.getText() + "' ");
+            queryList.add("luggagelabelnr = '" + labelNrField.getText() + "' ");
         }
-        if (!dateField.getText().isEmpty()) {
-            queryList.add("date = '" + dateField.getText() + "' ");
+
+        if (!locationFoundField.getText().isEmpty()) {
+            queryList.add("locationfound = '" + locationFoundField.getText() + "' ");
         }
-        if (!bagageidField.getText().isEmpty()) {
-            queryList.add("bagageid = '" + bagageidField.getText() + "' ");
+
+        if (!mainColourField.getText().isEmpty()) {
+            queryList.add("primarycolour = '" + mainColourField.getText() + "' ");
         }
+
+        if (!secondaryColourField.getText().isEmpty()) {
+            queryList.add("secondarycolour = '" + secondaryColourField.getText() + "' ");
+        }
+
+        if (!sizeField.getText().isEmpty()) {
+            queryList.add("size = '" + sizeField.getText() + "' ");
+        }
+
+        if (!weightField.getText().isEmpty()) {
+            queryList.add("weight = '" + weightField.getText() + "' ");
+        }
+
+        if (!nameAndCityField.getText().isEmpty()) {
+            queryList.add("passenger_name_city = '" + nameAndCityField.getText() + "' ");
+        }
+
+        if (!specialCharField.getText().isEmpty()) {
+            queryList.add("otherchar = '" + specialCharField.getText() + "' ");
+        }
+        
         // Start of the query
-        String query = "SELECT * FROM Bagage ";
+        // FOUNDBAGAGEINVENTORY IS INVALID, FIX THIS
+        String query = "SELECT * FROM Foundbagageinventory ";
 
         // Loop through the list of Strings to add to the query, adding 
         // 'WHERE ' in front if it's the first, adding 'AND ' in front if it's 
@@ -93,23 +173,35 @@ public class RequestStatusController implements Initializable {
                 query += queryList.get(i);
             }
         }
-
-        // Create database connection, execute the query
-        Database database = new Database();
-        ResultSet result = database.executeResultSetQuery(query);
-        foundLuggageList.clear();
-
-        // Loop through the resultset, making a new 'FoundLuggage' Object 
-        // for every result, adding the attributes of the result to the 
-        // corresponding attribute in the FoundLuggage object
-        while (result.next()) {
-            FoundLuggage luggage = new FoundLuggage();
-            luggage = Utilities.initializeLuggageFromResultSet(result, luggage);
-            foundLuggageList.add(luggage); 
+        return query;
+    }
+    
+    public void makeTextFieldsAndLabelsInvisible() {
+        // Create an ObservableList consisting of all children nodes of the 
+        // vboxes, then making them invisible
+        ObservableList<Node> vbox1Children = vbox1.getChildren();
+        for (Node node : vbox1Children) {
+            node.setVisible(false);
         }
         
-        result.close();
-        database.close();
-        // back button
+        ObservableList<Node> vbox2Children = vbox2.getChildren();
+        for (Node node : vbox2Children) {
+            node.setVisible(false);
+        }
     }
+    
+    public void makeTextFieldsAndLabelsVisible() {
+        // Create an ObservableList consisting of all children nodes of the 
+        // vboxes, then making them visible
+        ObservableList<Node> vbox1Children = vbox1.getChildren();
+        for (Node node : vbox1Children) {
+            node.setVisible(true);
+        }
+        
+        ObservableList<Node> vbox2Children = vbox2.getChildren();
+        for (Node node : vbox2Children) {
+            node.setVisible(true);
+        }
+    }
+
 }

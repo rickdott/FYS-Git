@@ -103,17 +103,21 @@ public class Utilities {
         // for every result, adding the attributes of the result to the 
         // corresponding attribute in the FoundLuggage object
         while (result.next()) {
-            luggage.setBagageid(result.getInt("bagageid"));
-            luggage.setLabelnumber(result.getString("labelnumber"));
-            luggage.setFlightnumber(result.getString("flightnumber"));
-            luggage.setDestination(result.getString("destination"));
-            luggage.setType(result.getString("type"));
+            luggage.setRegistrationnr(result.getInt("registrationnr"));
+            luggage.setDatefound(result.getString("datefound"));
+            luggage.setTimefound(result.getString("timefound"));
+            luggage.setLuggagetype(result.getString("luggagetype"));
             luggage.setBrand(result.getString("brand"));
-            luggage.setColour(result.getString("colour"));
-            luggage.setSpecialchar(result.getString("specialchar"));
-            luggage.setFoundat(result.getString("foundat"));
-            luggage.setFoundatdate(result.getString("foundatdate"));
-            luggage.setDate(result.getString("date"));
+            luggage.setFlightnumber(result.getString("flightnumber"));
+            luggage.setLuggagelabelnr(result.getString("luggagelabelnr"));
+            luggage.setLocationfound(result.getString("locationfound"));
+            luggage.setPrimarycolour(result.getString("primarycolour"));
+            luggage.setSecondarycolour(result.getString("secondarycolour"));
+            luggage.setSize(result.getString("size"));
+            luggage.setWeight(result.getString("weight"));
+            luggage.setPassenger_name_city(result.getString("passenger_name_city"));
+            luggage.setOtherchar(result.getString("otherchar"));
+            luggage.setIdpassenger(result.getInt("idpassenger"));
         }
         result.close();
         return luggage;

@@ -10,61 +10,50 @@ package com.mycompany.mavenproject2;
  * @author Rick
  */
 public class FoundLuggage {
-    private int bagageid;
-    private String labelnumber;
-    private String flightnumber;
-    private String destination;
-    private String type;
-    private String brand;
-    private String colour;
-    private String specialchar;
-    private String foundat;
-    private String foundatdate;
-    private String date;
-    
-    FoundLuggage() {
-        int test = 100000 + (int)(Math.random() * (999999 - 100000));
-        this.bagageid = test;
+    private int registrationnr;
+    private String datefound, timefound;
+    private String luggagetype, brand;
+    private String flightnumber, luggagelabelnr;
+    private String locationfound;
+    private String primarycolour, secondarycolour;
+    private String size, weight;
+    private String passenger_name_city;
+    private String otherchar;
+    private int idpassenger;
+
+    public FoundLuggage() {
     }
 
-    public int getBagageid() {
-        return bagageid;
+    public int getRegistrationnr() {
+        return registrationnr;
     }
 
-    public void setBagageid(int bagageid) {
-        this.bagageid = bagageid;
+    public void setRegistrationnr(int registrationnr) {
+        this.registrationnr = registrationnr;
     }
 
-    public String getLabelnumber() {
-        return labelnumber;
+    public String getDatefound() {
+        return datefound;
     }
 
-    public void setLabelnumber(String labelnumber) {
-        this.labelnumber = labelnumber;
+    public void setDatefound(String datefound) {
+        this.datefound = datefound;
     }
 
-    public String getFlightnumber() {
-        return flightnumber;
+    public String getTimefound() {
+        return timefound;
     }
 
-    public void setFlightnumber(String flightnumber) {
-        this.flightnumber = flightnumber;
+    public void setTimefound(String timefound) {
+        this.timefound = timefound;
     }
 
-    public String getDestination() {
-        return destination;
+    public String getLuggagetype() {
+        return luggagetype;
     }
 
-    public void setDestination(String destination) {
-        this.destination = destination;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
+    public void setLuggagetype(String luggagetype) {
+        this.luggagetype = luggagetype;
     }
 
     public String getBrand() {
@@ -75,44 +64,86 @@ public class FoundLuggage {
         this.brand = brand;
     }
 
-    public String getColour() {
-        return colour;
+    public String getFlightnumber() {
+        return flightnumber;
     }
 
-    public void setColour(String colour) {
-        this.colour = colour;
+    public void setFlightnumber(String flightnumber) {
+        this.flightnumber = flightnumber;
     }
 
-    public String getSpecialchar() {
-        return specialchar;
+    public String getLuggagelabelnr() {
+        return luggagelabelnr;
     }
 
-    public void setSpecialchar(String specialchar) {
-        this.specialchar = specialchar;
+    public void setLuggagelabelnr(String luggagelabelnr) {
+        this.luggagelabelnr = luggagelabelnr;
     }
 
-    public String getFoundat() {
-        return foundat;
+    public String getLocationfound() {
+        return locationfound;
     }
 
-    public void setFoundat(String foundat) {
-        this.foundat = foundat;
+    public void setLocationfound(String locationfound) {
+        this.locationfound = locationfound;
     }
 
-    public String getFoundatdate() {
-        return foundatdate;
+    public String getPrimarycolour() {
+        return primarycolour;
     }
 
-    public void setFoundatdate(String foundatdate) {
-        this.foundatdate = foundatdate;
+    public void setPrimarycolour(String primarycolour) {
+        this.primarycolour = primarycolour;
     }
 
-    public String getDate() {
-        return date;
+    public String getSecondarycolour() {
+        return secondarycolour;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setSecondarycolour(String secondarycolour) {
+        this.secondarycolour = secondarycolour;
     }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public String getWeight() {
+        return weight;
+    }
+
+    public void setWeight(String weight) {
+        this.weight = weight;
+    }
+
+    public String getPassenger_name_city() {
+        return passenger_name_city;
+    }
+
+    public void setPassenger_name_city(String passenger_name_city) {
+        this.passenger_name_city = passenger_name_city;
+    }
+
+    public String getOtherchar() {
+        return otherchar;
+    }
+
+    public void setOtherchar(String otherchar) {
+        this.otherchar = otherchar;
+    }
+
+    public int getIdpassenger() {
+        return idpassenger;
+    }
+
+    public void setIdpassenger(int idpassenger) {
+        this.idpassenger = idpassenger;
+    }
+    
+    
     
 }

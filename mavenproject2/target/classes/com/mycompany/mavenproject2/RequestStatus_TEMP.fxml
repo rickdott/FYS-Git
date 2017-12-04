@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="requestpage" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.RequestStatusController">
+   <children>
+      <TableView fx:id="foundLuggageTableView" editable="true" layoutY="54.0" prefHeight="200.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+        <columns>
+          <TableColumn fx:id="bagageid" editable="false" prefWidth="60.0" text="BagageID" />
+          <TableColumn fx:id="labelnumber" editable="false" prefWidth="50.0" text="Label" />
+            <TableColumn fx:id="flightnumber" editable="false" prefWidth="50.0" text="Flight" />
+            <TableColumn fx:id="destination" editable="false" text="Destination" />
+            <TableColumn fx:id="type" editable="false" prefWidth="50.0" text="Type" />
+            <TableColumn fx:id="brand" editable="false" prefWidth="60.0" text="Brand" />
+            <TableColumn fx:id="colour" editable="false" prefWidth="60.0" text="Colour" />
+            <TableColumn fx:id="specialchar" editable="false" text="Special Char" />
+            <TableColumn fx:id="foundat" editable="false" prefWidth="60.0" text="Found at" />
+            <TableColumn fx:id="foundatdate" editable="false" prefWidth="90.0" text="Found at Date" />
+            <TableColumn fx:id="date" editable="false" prefWidth="60.0" text="Date" />
+        </columns>
+      </TableView>
+      <TextField fx:id="destinationField" layoutX="105.0" layoutY="15.0" />
+      <Label layoutX="14.0" layoutY="14.0" text="Destination">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="514.0" layoutY="69.0" mnemonicParsing="false" onAction="#getInput" text="SUBMIT" />
+      <TextField fx:id="labelNrField" layoutX="105.0" layoutY="42.0" />
+      <Label layoutX="14.0" layoutY="41.0" text="Label #">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="bagageidField" layoutX="365.0" layoutY="42.0" />
+      <Label layoutX="274.0" layoutY="41.0" text="Bagage ID">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="dateField" layoutX="365.0" layoutY="15.0" />
+      <Label layoutX="274.0" layoutY="14.0" text="Date lost">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
