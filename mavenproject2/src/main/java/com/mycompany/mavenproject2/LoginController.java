@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,19 +25,66 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Rick
+ * @author Staick
  */
-public class LoginController implements Initializable{
+public class LoginController implements Initializable {
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
-    
+
     @FXML
     private AnchorPane paneLogin;
+<<<<<<< HEAD
     
     Utilities utilities = new Utilities();
     
+=======
+    private ResourceBundle bundle;
+    private Locale locale;
+
+    FXMLDocumentController controller = new FXMLDocumentController();
+
+    // Methods for changing the language
+    @FXML
+    private void setLanguageEnglish() {
+        System.out.println("Set language to English");
+        loadLanguage("en", "EN");
+    }
+
+    @FXML
+    private void setLanguageDutch() {
+        System.out.println("Set language to Dutch");
+        loadLanguage("nl", "NL");
+    }
+
+    @FXML
+    private void setLanguageGerman() {
+        System.out.println("Set language to German");
+        loadLanguage("de", "DE");
+    }
+
+    @FXML
+    private void setLanguagePortuguese() {
+        System.out.println("Set language to Portuguese");
+        loadLanguage("pt", "PT");
+    }
+
+    @FXML
+    private void setLanguageTurkish() {
+        System.out.println("Set language to Turkish");
+        loadLanguage("tr", "TR");
+    }
+
+    // Main method for changing languages
+    private void loadLanguage(String language, String lang) {
+        Locale.setDefault(new Locale(language, lang));
+        ResourceBundle bundle = ResourceBundle.getBundle("Language"); // TODO: Path veranderen zodat de .properties in een map languages kunnen
+        //System.out.println(bundle.getString("language"));
+    }
+
+>>>>>>> Stanbranch
     // Method for creating a PDF ---MOVE TO RELEVANT CONTROLLER
     @FXML
     private void createPdf() {
@@ -45,7 +93,7 @@ public class LoginController implements Initializable{
         //pdf.printPDF();
         System.out.println("PDF Created...");
     }
-    
+
     // Method for sending an e-mail ---MOVE TO RELEVANT CONTROLLER
     @FXML
     private void sendMail() {
@@ -54,7 +102,7 @@ public class LoginController implements Initializable{
         mail.mailsturen();
         System.out.println("Mail sent...");
     }
-    
+
     // Method om een Excelsheet te importeren ---MOVE TO RELEVANT CONTROLLER
     @FXML
     private void excelImport() {
@@ -70,7 +118,7 @@ public class LoginController implements Initializable{
         row = reader.getNextRow(); // Eerste row
         Database db = new Database();
         while (row != null) {
-            
+
             String mail = row.get(row.size() - 1);
             System.out.println(mail);
 
@@ -81,14 +129,14 @@ public class LoginController implements Initializable{
             // SQL query die alles invoert in de database
             sql = String.format("INSERT INTO `Bagage`(`labelnumber`, `flightnumber`, `destination`, `type`, `brand`, `colour`, `specialchar`, `passengerid`, `foundat`, `foundatdate`, `date`)VALUES('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')", row.get(0), row.get(1), row.get(2), row.get(3), row.get(4), row.get(5), row.get(6), idpassenger, row.get(7), row.get(8), row.get(9));
             db.executeUpdateQuery(sql);
-            
+
             // Pakt alvast de volgende row
             row = reader.getNextRow();
         }
 
         System.out.println("Excel import complete...");
     }
-    
+
     @FXML
     private void openCustomerHomescreen(ActionEvent event) {
         utilities.newAnchorpane("CustomerHomescreen", paneLogin);
@@ -159,6 +207,7 @@ public class LoginController implements Initializable{
         alert.showAndWait();
     }
 
+<<<<<<< HEAD
     //Login for passenger
     @FXML
     private TextField textFlight;
@@ -205,4 +254,6 @@ public class LoginController implements Initializable{
         alert.setContentText(infoMessage);
         alert.showAndWait();
     }
+=======
+>>>>>>> Stanbranch
 }
