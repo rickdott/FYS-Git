@@ -32,7 +32,7 @@ public class LoginController implements Initializable {
     }
 
     @FXML
-    private AnchorPane paneLogin;    
+    private AnchorPane paneLogin;
     Utilities utilities = new Utilities();
     private ResourceBundle bundle;
     private Locale locale;
@@ -81,7 +81,7 @@ public class LoginController implements Initializable {
     @FXML
     private void createPdf() {
         System.out.println("Creating PDF...");
-       // Pdf pdf = new Pdf();
+        // Pdf pdf = new Pdf();
         //pdf.printPDF();
         System.out.println("PDF Created...");
     }
@@ -106,24 +106,139 @@ public class LoginController implements Initializable {
         ExcelReader reader = new ExcelReader(filePath);
         List<String> row = new ArrayList<>();
 
-        row = reader.getNextRow(); // De header van het excel bestand
+        row = reader.getNextRow(); // De header van het excel bestand skippen
+        row = reader.getNextRow();
+        row = reader.getNextRow();
+        row = reader.getNextRow();
+
         row = reader.getNextRow(); // Eerste row
         Database db = new Database();
         while (row != null) {
 
-            String mail = row.get(row.size() - 1);
-            System.out.println(mail);
+            // Opvragen van de keys 
+            String luggagetype = db.executeStringListQuery(String.format("SELECT `idluggage type` FROM Luggagetype WHERE english = '%s' OR dutch = '%s' OR spanish = '%s' OR turkish = '%s';", row.get(3), row.get(3), row.get(3), row.get(3)));
+            String maincolor = db.executeStringListQuery(String.format("SELECT `ralcode` FROM Colour WHERE english = '%s' OR dutch = '%s' OR spanish = '%s' OR turkish = '%s';", row.get(8), row.get(8), row.get(8), row.get(8)));
+            String secondcolor = db.executeStringListQuery(String.format("SELECT `ralcode` FROM Colour WHERE english = '%s' OR dutch = '%s' OR spanish = '%s' OR turkish = '%s';", row.get(9), row.get(9), row.get(9), row.get(9)));
+            String locationfound = db.executeStringListQuery(String.format("SELECT `idlocation` FROM Location WHERE english = '%s' OR dutch = '%s' OR spanish = '%s' OR turkish = '%s';", row.get(7), row.get(7), row.get(7), row.get(7)));
 
-            // Opvragen van de idpassenger die hij zoekt via de mail van de passengier
-            String sql = String.format("SELECT idpassenger FROM Passenger WHERE email = '%s'", mail);
-            String idpassenger = db.executeStringListQuery(sql);
+            // Hardcoded oplossing voor deze query die niet werkt: SELECT `idluggage type` FROM Luggagetype WHERE english = 'Bagpack';
+            if(luggagetype == null){
+                luggagetype = "3";
+            }
+            
+            // Luggage tag, als er geen is wordt de value op 0 gezet
+            String luggagetag = row.get(6);
+            if(luggagetag == ""){
+                luggagetag = "0";
+            }
+            
+            //x = x.substring(0, 4) + "." + x.substring(4, x.length());
+            // Kijkt of er een ' voorkomt en als dat zo is zet er een \ voor
+            String passengernamecity = row.get(12);
+            if(passengernamecity.indexOf("'") != -1){
+                passengernamecity = passengernamecity.substring(0, passengernamecity.indexOf("'")) + "\\" + passengernamecity.substring(passengernamecity.indexOf("'"), passengernamecity.length());
+            }
+            
+            // Test prints
+            System.out.println("registrationnr: " + row.get(0));
+            System.out.println("datefound: " + row.get(1));
+            System.out.println("timefound: " + row.get(2));
+            System.out.println("luggagetype: " + luggagetype);
+            System.out.println("brand: " + row.get(4));
+            System.out.println("flightnumber: " + row.get(5));
+            System.out.println("luggagelabelnr: " + luggagetag);
+            System.out.println("locationfound: " + locationfound);
+            System.out.println("primarycolour: " + maincolor);
+            System.out.println("secondarycolour: " + secondcolor);
+            System.out.println("size: " + row.get(10));
+            System.out.println("weight: " + row.get(11));
+            System.out.println("passenger_name_city: " + passengernamecity);
+            System.out.println("otherchar: " + row.get(13));
 
-            // SQL query die alles invoert in de database
-            sql = String.format("INSERT INTO `Bagage`(`labelnumber`, `flightnumber`, `destination`, `type`, `brand`, `colour`, `specialchar`, `passengerid`, `foundat`, `foundatdate`, `date`)VALUES('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')", row.get(0), row.get(1), row.get(2), row.get(3), row.get(4), row.get(5), row.get(6), idpassenger, row.get(7), row.get(8), row.get(9));
+            // SQL query die alles invoert in de database 
+            // In de if kijken welke query er gemaakt moet worden
+            String sql;
+            if (secondcolor == null && locationfound == null) {
+                    sql = String.format("INSERT INTO `Foundbagageinventory`"
+                        + "(`registrationnr`,"
+                        + "`datefound`,"
+                        + "`timefound`,"
+                        + "`luggagetype`,"
+                        + "`brand`,"
+                        + "`flightnumber`,"
+                        + "`luggagelabelnr`,"
+                        + "`primarycolour`,"
+                        + "`size`,"
+                        + "`weight`,"
+                        + "`passenger_name_city`,"
+                        + "`otherchar`)"
+                        + "VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')",
+                        row.get(0), row.get(1), row.get(2), luggagetype, row.get(4), row.get(5), luggagetag, maincolor, row.get(10), row.get(11), passengernamecity, row.get(13));
+
+            } else if (locationfound == null) {
+                    sql = String.format("INSERT INTO `Foundbagageinventory`"
+                        + "(`registrationnr`,"
+                        + "`datefound`,"
+                        + "`timefound`,"
+                        + "`luggagetype`,"
+                        + "`brand`,"
+                        + "`flightnumber`,"
+                        + "`luggagelabelnr`,"
+                        + "`primarycolour`,"
+                        + "`secondarycolour`,"
+                        + "`size`,"
+                        + "`weight`,"
+                        + "`passenger_name_city`,"
+                        + "`otherchar`)"
+                        + "VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')", 
+                        row.get(0), row.get(1), row.get(2), luggagetype, row.get(4), row.get(5), luggagetag, maincolor, secondcolor, row.get(10), row.get(11), passengernamecity, row.get(13));
+
+            } else if (secondcolor == null){
+                sql = String.format("INSERT INTO `Foundbagageinventory`"
+                        + "(`registrationnr`,"
+                        + "`datefound`,"
+                        + "`timefound`,"
+                        + "`luggagetype`,"
+                        + "`brand`,"
+                        + "`flightnumber`,"
+                        + "`luggagelabelnr`,"
+                        + "`locationfound`,"
+                        + "`primarycolour`,"
+                        + "`size`,"
+                        + "`weight`,"
+                        + "`passenger_name_city`,"
+                        + "`otherchar`)"
+                        + "VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')", 
+                        row.get(0), row.get(1), row.get(2), luggagetype, row.get(4), row.get(5), luggagetag, locationfound, maincolor, row.get(10), row.get(11), passengernamecity, row.get(13));
+            }
+            else {
+                sql = String.format("INSERT INTO `Foundbagageinventory`"
+                        + "(`registrationnr`,"
+                        + "`datefound`,"
+                        + "`timefound`,"
+                        + "`luggagetype`,"
+                        + "`brand`,"
+                        + "`flightnumber`,"
+                        + "`luggagelabelnr`,"
+                        + "`locationfound`,"
+                        + "`primarycolour`,"
+                        + "`secondarycolour`,"
+                        + "`size`,"
+                        + "`weight`,"
+                        + "`passenger_name_city`,"
+                        + "`otherchar`)"
+                        + "VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')",
+                        row.get(0), row.get(1), row.get(2), luggagetype, row.get(4), row.get(5), luggagetag, locationfound, maincolor, secondcolor, row.get(10), row.get(11), passengernamecity, row.get(13));
+            }
             db.executeUpdateQuery(sql);
 
             // Pakt alvast de volgende row
             row = reader.getNextRow();
+            //System.out.println("NEXT ROW: " + row); // row = [, , , , , , , , , ];
+            //System.out.println("EMPTY ROW: " + row.isEmpty() ); // row.isEmpty = false;
+            
+            // TODO: Niet naar de volgende row gaan maar naar de volgende tab in het excel bestand
+
         }
 
         System.out.println("Excel import complete...");
@@ -138,7 +253,7 @@ public class LoginController implements Initializable {
     private void openWorkerHomescreen(ActionEvent event) {
         utilities.newAnchorpane("WorkerHomescreen", paneLogin);
     }
-    
+
     //Login for employee
     @FXML
     private TextField textEmail;
@@ -178,7 +293,7 @@ public class LoginController implements Initializable {
                 /*Node source = (Node) event.getSource();
                 dialogStage = (Stage) source.getScene().getWindow();
                 dialogStage.close();*/
-                
+
                 FXMLDocumentController controller = new FXMLDocumentController();
                 utilities.newAnchorpane("WorkerHomescreen", paneLogin);
                 /*scene = new Scene((Parent) FXMLLoader.load(getClass().getResource(resultSet.getIn‌​t(01) == 0 ? "WorkerHomescreen.fxml" : "Reports.fxml")));
@@ -205,7 +320,7 @@ public class LoginController implements Initializable {
 
     @FXML
     private TextField textLastName;
-    
+
     @FXML
     private void handleButtonActionPassenger(ActionEvent event) {
         String flight = textFlight.getText().toString();
@@ -225,7 +340,7 @@ public class LoginController implements Initializable {
                 /*Node source = (Node) event.getSource();
                 dialogStage = (Stage) source.getScene().getWindow();
                 dialogStage.close();*/
-                
+
                 FXMLDocumentController controller = new FXMLDocumentController();
                 utilities.newAnchorpane("CustomerHomescreen", paneLogin);
                 /*scene = new Scene((Parent) FXMLLoader.load(getClass().getResource("CustomerHomescreen.fxml")));
