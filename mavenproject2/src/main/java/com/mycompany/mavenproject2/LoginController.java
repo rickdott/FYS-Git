@@ -11,10 +11,7 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -35,12 +32,8 @@ public class LoginController implements Initializable {
     }
 
     @FXML
-    private AnchorPane paneLogin;
-<<<<<<< HEAD
-    
+    private AnchorPane paneLogin;    
     Utilities utilities = new Utilities();
-    
-=======
     private ResourceBundle bundle;
     private Locale locale;
 
@@ -84,7 +77,6 @@ public class LoginController implements Initializable {
         //System.out.println(bundle.getString("language"));
     }
 
->>>>>>> Stanbranch
     // Method for creating a PDF ---MOVE TO RELEVANT CONTROLLER
     @FXML
     private void createPdf() {
@@ -207,7 +199,6 @@ public class LoginController implements Initializable {
         alert.showAndWait();
     }
 
-<<<<<<< HEAD
     //Login for passenger
     @FXML
     private TextField textFlight;
@@ -254,6 +245,5 @@ public class LoginController implements Initializable {
         alert.setContentText(infoMessage);
         alert.showAndWait();
     }
-=======
->>>>>>> Stanbranch
+
 }
