@@ -36,9 +36,9 @@ public class RequestStatusKlantenController {
         FoundLuggage luggage = new FoundLuggage();
 
         // display all information MAKE THIS USE luggage OBJECT TO SHOW INFO
-        while (result.next()) {
-            luggage = Utilities.initializeLuggageFromResultSet(result, luggage);
-        }
+//        while (result.next()) {
+//            luggage = Utilities.initializeLuggageFromResultSet(result, luggage);
+//        }
 
         // Closing open connections
         result.close();

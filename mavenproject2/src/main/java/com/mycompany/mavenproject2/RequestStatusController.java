@@ -34,7 +34,7 @@ public class RequestStatusController implements Initializable {
     @FXML
     private TableView foundLuggageTableView;
 
-    private final ObservableList<FoundLuggage> foundLuggageList
+    private ObservableList<FoundLuggage> foundLuggageList
             = FXCollections.observableArrayList();
 
     @FXML
@@ -82,11 +82,7 @@ public class RequestStatusController implements Initializable {
         // Loop through the resultset, making a new 'FoundLuggage' Object 
         // for every result, adding the attributes of the result to the 
         // corresponding attribute in the FoundLuggage object
-        while (result.next()) {
-            FoundLuggage luggage = new FoundLuggage();
-            luggage = Utilities.initializeLuggageFromResultSet(result, luggage);
-            foundLuggageList.add(luggage);
-        }
+        foundLuggageList = Utilities.initializeLuggageFromResultSet(result, foundLuggageList);
 
         result.close();
         database.close();

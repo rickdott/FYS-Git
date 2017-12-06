@@ -8,6 +8,7 @@ package com.mycompany.mavenproject2;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -21,7 +22,7 @@ import javafx.scene.layout.Pane;
  * @author Rick
  */
 public class Utilities {
-    
+
     // Two methods to use when hovering over a button
     @FXML
     public static void onHover(String currentPage, Button btn, Label label) {
@@ -30,7 +31,7 @@ public class Utilities {
             btn.setStyle("-fx-background-color: #951504; -fx-background-radius: 0; -fx-border-width: 1 0 0 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18;");
         }
     }
-    
+
     @FXML
     public static void onHover(String currentPage, Button btn, Label label, boolean isLast) {
         System.out.println("onHover activated");
@@ -38,6 +39,7 @@ public class Utilities {
             btn.setStyle("-fx-background-color: #951504; -fx-background-radius: 0; -fx-border-width: 1 0 1 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18;");
         }
     }
+
     // Two methods to use when hovered off the button, overloaded
     @FXML
     public static void offHover(String currentPage, Button btn, Label label) {
@@ -59,34 +61,35 @@ public class Utilities {
     @FXML
     public void newPane(String pageName, Button btn, Pane pane, Label label) {
         System.out.println("Opening another page...");
-        
+
         Parent newPane = loadFXMLFile(pageName + ".fxml");
         pane.getChildren().clear();
         pane.getChildren().add(newPane);
         label.setText(btn.getText());
-        
+
         System.out.println("Another page opened...");
     }
+
     @FXML
     public void newPane(String pageName, Pane pane) {
         System.out.println("Opening another page...");
-        
+
         Parent newPane = loadFXMLFile(pageName + ".fxml");
         pane.getChildren().clear();
         pane.getChildren().add(newPane);
-        
+
         System.out.println("Another page opened...");
     }
-    
+
     // Opens a different page, changing the AnchorPane
     @FXML
     public void newAnchorpane(String pageName, AnchorPane paneToReplace) {
         System.out.println("Opening another page(anchor)...");
-        
+
         Parent newPane = loadFXMLFile(pageName + ".fxml");
         paneToReplace.getChildren().clear();
         paneToReplace.getChildren().add(newPane);
-        
+
         System.out.println("Another page opened(anchor)...");
     }
 
@@ -98,10 +101,12 @@ public class Utilities {
             return null;
         }
     }
-    public static FoundLuggage initializeLuggageFromResultSet(ResultSet result, FoundLuggage luggage) throws SQLException {
+
+    public static ObservableList initializeLuggageFromResultSet(ResultSet result, ObservableList foundLuggageList) throws SQLException {
         // Loop through the resultset, making a new 'FoundLuggage' Object 
         // for every result, adding the attributes of the result to the 
         // corresponding attribute in the FoundLuggage object
+        FoundLuggage luggage = new FoundLuggage();
         while (result.next()) {
             luggage.setRegistrationnr(result.getInt("registrationnr"));
             luggage.setDatefound(result.getString("datefound"));
@@ -118,8 +123,9 @@ public class Utilities {
             luggage.setPassenger_name_city(result.getString("passenger_name_city"));
             luggage.setOtherchar(result.getString("otherchar"));
             luggage.setIdpassenger(result.getInt("idpassenger"));
+            foundLuggageList.add(luggage);
         }
-        result.close();
-        return luggage;
+
+        return foundLuggageList;
     }
 }
