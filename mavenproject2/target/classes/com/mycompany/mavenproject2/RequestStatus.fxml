@@ -13,6 +13,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -60,65 +61,76 @@
                         </VBox>
                      </children>
                   </HBox>
-                  <Label contentDisplay="RIGHT" minWidth="-Infinity" text="Registration Number">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                     <graphic>
-                        <TextField fx:id="regNrField" />
-                     </graphic>
-                  </Label>
-                  <Label contentDisplay="RIGHT" text="Date Found">
-                     <graphic>
-                        <TextField fx:id="dateFoundField" />
-                     </graphic>
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label contentDisplay="RIGHT" text="Time Found">
-                     <graphic>
-                        <TextField fx:id="timeFoundField" />
-                     </graphic>
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label contentDisplay="RIGHT" text="Type">
-                     <graphic>
-                        <TextField fx:id="typeField" />
-                     </graphic>
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label contentDisplay="RIGHT" text="Brand">
-                     <graphic>
-                        <TextField fx:id="brandField" />
-                     </graphic>
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label contentDisplay="RIGHT" text="Flight Number">
-                     <graphic>
-                        <TextField fx:id="flightNrField" />
-                     </graphic>
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label contentDisplay="RIGHT" minWidth="-Infinity" text="Bagage Label Number">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                     <graphic>
-                        <TextField fx:id="labelNrField" />
-                     </graphic>
-                  </Label>
+                  <StackPane>
+                     <children>
+                        <TextField fx:id="regNrField" alignment="CENTER_RIGHT" maxWidth="175.0" StackPane.alignment="CENTER_RIGHT" />
+                        <Label contentDisplay="RIGHT" minWidth="-Infinity" text="Registration Number" StackPane.alignment="CENTER_LEFT">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane>
+                     <children>
+                        <Label contentDisplay="RIGHT" text="Date Found" StackPane.alignment="CENTER_LEFT">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="dateFoundField" maxWidth="175.0" StackPane.alignment="CENTER_RIGHT" />
+                     </children>
+                  </StackPane>
+                  <StackPane>
+                     <children>
+                        <Label contentDisplay="RIGHT" text="Time Found" StackPane.alignment="CENTER_LEFT">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="timeFoundField" maxWidth="175.0" StackPane.alignment="CENTER_RIGHT" />
+                     </children>
+                  </StackPane>
+                  <StackPane>
+                     <children>
+                        <Label contentDisplay="RIGHT" text="Type" StackPane.alignment="CENTER_LEFT">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="typeField" maxWidth="175.0" StackPane.alignment="CENTER_RIGHT" />
+                     </children>
+                  </StackPane>
+                  <StackPane>
+                     <children>
+                        <Label contentDisplay="RIGHT" text="Brand" StackPane.alignment="CENTER_LEFT">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="brandField" maxWidth="175.0" StackPane.alignment="CENTER_RIGHT" />
+                     </children>
+                  </StackPane>
+                  <StackPane>
+                     <children>
+                        <Label contentDisplay="RIGHT" text="Flight Number" StackPane.alignment="CENTER_LEFT">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="flightNrField" maxWidth="175.0" StackPane.alignment="CENTER_RIGHT" />
+                     </children>
+                  </StackPane>
+                  <StackPane>
+                     <children>
+                        <Label contentDisplay="RIGHT" minWidth="-Infinity" text="Bagage Label Number" StackPane.alignment="CENTER_LEFT">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="labelNrField" maxWidth="175.0" StackPane.alignment="CENTER_RIGHT" />
+                     </children>
+                  </StackPane>
                </children>
                <GridPane.margin>
                   <Insets />
@@ -132,62 +144,104 @@
             </VBox>
             <VBox fx:id="vbox2" prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.columnIndex="3">
                <children>
-                  <Label contentDisplay="RIGHT" text="Location Found">
-                     <graphic>
-                        <TextField fx:id="locationFoundField" />
-                     </graphic>
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label contentDisplay="RIGHT" text="Main Colour">
-                     <graphic>
-                        <TextField fx:id="mainColourField" />
-                     </graphic>
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label contentDisplay="RIGHT" text="Secondary Colour">
-                     <graphic>
-                        <TextField fx:id="secondaryColourField" />
-                     </graphic>
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label contentDisplay="RIGHT" text="Size">
-                     <graphic>
-                        <TextField fx:id="sizeField" />
-                     </graphic>
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label contentDisplay="RIGHT" text="Weight">
-                     <graphic>
-                        <TextField fx:id="weightField" />
-                     </graphic>
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label contentDisplay="RIGHT" text="Passenger Name &amp; City">
-                     <graphic>
-                        <TextField fx:id="nameAndCityField" />
-                     </graphic>
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label contentDisplay="RIGHT" text="Special Characteristics">
-                     <graphic>
-                        <TextField fx:id="specialCharField" />
-                     </graphic>
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
+                  <StackPane>
+                     <children>
+                        <Label contentDisplay="RIGHT" text="Location Found" StackPane.alignment="CENTER_LEFT">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="locationFoundField" maxWidth="175.0" StackPane.alignment="CENTER_RIGHT">
+                           <StackPane.margin>
+                              <Insets right="10.0" />
+                           </StackPane.margin>
+                        </TextField>
+                     </children>
+                  </StackPane>
+                  <StackPane>
+                     <children>
+                        <Label contentDisplay="RIGHT" text="Main Colour" StackPane.alignment="CENTER_LEFT">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="mainColourField" maxWidth="175.0" StackPane.alignment="CENTER_RIGHT">
+                           <StackPane.margin>
+                              <Insets right="10.0" />
+                           </StackPane.margin>
+                        </TextField>
+                     </children>
+                  </StackPane>
+                  <StackPane>
+                     <children>
+                        <Label contentDisplay="RIGHT" text="Secondary Colour" StackPane.alignment="CENTER_LEFT">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="secondaryColourField" maxWidth="175.0" StackPane.alignment="CENTER_RIGHT">
+                           <StackPane.margin>
+                              <Insets right="10.0" />
+                           </StackPane.margin>
+                        </TextField>
+                     </children>
+                  </StackPane>
+                  <StackPane>
+                     <children>
+                        <Label contentDisplay="RIGHT" text="Size" StackPane.alignment="CENTER_LEFT">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="sizeField" maxWidth="175.0" StackPane.alignment="CENTER_RIGHT">
+                           <StackPane.margin>
+                              <Insets right="10.0" />
+                           </StackPane.margin>
+                        </TextField>
+                     </children>
+                  </StackPane>
+                  <StackPane>
+                     <children>
+                        <Label contentDisplay="RIGHT" text="Weight" StackPane.alignment="CENTER_LEFT">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="weightField" maxWidth="175.0" StackPane.alignment="CENTER_RIGHT">
+                           <StackPane.margin>
+                              <Insets right="10.0" />
+                           </StackPane.margin>
+                        </TextField>
+                     </children>
+                  </StackPane>
+                  <StackPane>
+                     <children>
+                        <Label contentDisplay="RIGHT" text="Passenger Name &amp; City" StackPane.alignment="CENTER_LEFT">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="nameAndCityField" maxWidth="175.0" StackPane.alignment="CENTER_RIGHT">
+                           <StackPane.margin>
+                              <Insets right="10.0" />
+                           </StackPane.margin>
+                        </TextField>
+                     </children>
+                  </StackPane>
+                  <StackPane>
+                     <children>
+                        <Label contentDisplay="RIGHT" text="Special Characteristics" StackPane.alignment="CENTER_LEFT">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="specialCharField" maxWidth="175.0" StackPane.alignment="CENTER_RIGHT">
+                           <StackPane.margin>
+                              <Insets right="10.0" />
+                           </StackPane.margin>
+                        </TextField>
+                     </children>
+                  </StackPane>
                   <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <Button mnemonicParsing="false" onAction="#getInput" style="-fx-background-color: #d81e05; -fx-background-radius: 0; -fx-border-width: 1 0 0 0; -fx-border-color: white;" text="Submit" textFill="WHITE">

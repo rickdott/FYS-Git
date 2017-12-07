@@ -87,8 +87,8 @@ public class RequestStatusController implements Initializable {
         // Loop through the resultset, making a new 'FoundLuggage' Object 
         // for every result, adding the attributes of the result to the 
         // corresponding attribute in the FoundLuggage object
-        foundLuggageList = Utilities.initializeLuggageFromResultSet(result, foundLuggageList);
-        
+        foundLuggageList = Utilities.initializeFoundLuggageFromResultSet(result, foundLuggageList);
+
         result.close();
         database.close();
 
@@ -96,16 +96,16 @@ public class RequestStatusController implements Initializable {
         makeTextFieldsAndLabelsInvisible();
         foundLuggageTableView.setVisible(true);
     }
-    
+
     @FXML
     private String getQueryFromTextfields() {
         // Creates new List of Strings to be included in the query
         List<String> queryList = new ArrayList<String>();
         String query;
-        
+
         List<Toggle> toggleList = new ArrayList();
         toggleList.addAll(lostFoundGroup.getToggles());
-        
+
         if (toggleList.get(0).isSelected()) {
             if (!regNrField.getText().isEmpty()) {
                 queryList.add("registrationnr = '" + regNrField.getText() + "' ");
@@ -267,6 +267,52 @@ public class RequestStatusController implements Initializable {
         for (Node node : vbox2Children) {
             node.setVisible(true);
         }
+    }
+
+    @FXML
+    public void initTableView() {
+        foundLuggageTableView.setItems(this.foundLuggageList);
+
+        for (int i = 0; i < foundLuggageTableView.getColumns().size(); i++) {
+            TableColumn tc = (TableColumn) foundLuggageTableView.getColumns().get(i);
+            String propertyName = tc.getId();
+            if (propertyName != null && !propertyName.isEmpty()) {
+                tc.setCellValueFactory(new PropertyValueFactory<>(propertyName));
+                System.out.println("Attached column '" + propertyName + "' in tableview to matching attribute");
+            }
+        }
+    }
+
+    @FXML
+    public void makeTableViewFound() {
+        List<TableColumn> columnList = new ArrayList();
+        columnList = foundLuggageTableView.getColumns();
+        
+        for (int i = 0; i < columnList.size(); i++) {
+            if (columnList.get(i).getText().equals("Date Found")) {
+                columnList.get(i).setVisible(true);
+            }
+            if (columnList.get(i).getText().equals("Time Found")) {
+                columnList.get(i).setVisible(true);
+            }
+            if (columnList.get(i).getText().equals("Location Found")) {
+                columnList.get(i).setVisible(true);
+            }
+            if (columnList.get(i).getText().contains("Date Found")) {
+                columnList.get(i).setVisible(false);
+            }
+            if (columnList.get(i).getText().contains("Date Found")) {
+                columnList.get(i).setVisible(false);
+            }
+            if (columnList.get(i).getText().contains("Date Found")) {
+                columnList.get(i).setVisible(false);
+            }
+        }
+    }
+    
+    @FXML
+    public void makeTableViewLost() {
+        
     }
 
 }

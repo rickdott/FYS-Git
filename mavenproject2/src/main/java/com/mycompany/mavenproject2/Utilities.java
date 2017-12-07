@@ -102,7 +102,7 @@ public class Utilities {
         }
     }
 
-    public static ObservableList initializeLuggageFromResultSet(ResultSet result, ObservableList foundLuggageList) throws SQLException {
+    public static ObservableList initializeFoundLuggageFromResultSet(ResultSet result, ObservableList foundLuggageList) throws SQLException {
         // Loop through the resultset, making a new 'FoundLuggage' Object 
         // for every result, adding the attributes of the result to the 
         // corresponding attribute in the FoundLuggage object
@@ -116,6 +116,32 @@ public class Utilities {
             luggage.setFlightnumber(result.getString("flightnumber"));
             luggage.setLuggagelabelnr(result.getString("luggagelabelnr"));
             luggage.setLocationfound(result.getString("locationfound"));
+            luggage.setPrimarycolour(result.getString("primarycolour"));
+            luggage.setSecondarycolour(result.getString("secondarycolour"));
+            luggage.setSize(result.getString("size"));
+            luggage.setWeight(result.getString("weight"));
+            luggage.setPassenger_name_city(result.getString("passenger_name_city"));
+            luggage.setOtherchar(result.getString("otherchar"));
+            luggage.setIdpassenger(result.getInt("idpassenger"));
+            foundLuggageList.add(luggage);
+        }
+
+        return foundLuggageList;
+    }
+    
+    public static ObservableList initializeLostLuggageFromResultSet(ResultSet result, ObservableList foundLuggageList) throws SQLException {
+        // Loop through the resultset, making a new 'FoundLuggage' Object 
+        // for every result, adding the attributes of the result to the 
+        // corresponding attribute in the FoundLuggage object
+        LostLuggage luggage = new LostLuggage();
+        while (result.next()) {
+            luggage.setRegistrationnr(result.getInt("registrationnr"));
+            luggage.setDateregistered(result.getString("dateregistered"));
+            luggage.setTimeregistered(result.getString("timeregistered"));
+            luggage.setLuggagetype(result.getString("luggagetype"));
+            luggage.setBrand(result.getString("brand"));
+            luggage.setFlightnumber(result.getString("flightnumber"));
+            luggage.setLuggagelabelnr(result.getString("luggagelabelnr"));
             luggage.setPrimarycolour(result.getString("primarycolour"));
             luggage.setSecondarycolour(result.getString("secondarycolour"));
             luggage.setSize(result.getString("size"));
