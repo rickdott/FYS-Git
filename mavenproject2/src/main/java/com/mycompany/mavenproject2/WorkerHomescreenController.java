@@ -33,15 +33,10 @@ public class WorkerHomescreenController implements Initializable {
 
     @FXML
     private Button but1, but2, but3, but4;
-    
-    Connection connection = null;
-    public WorkerHomescreenController() {
-        connection = sqlDatabaseConnection.connectdb();
-    }
-    
+        
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        String Check = "SELECT * FROM Employee WHERE function = Medewerker";
+        //String Check = "SELECT * FROM Employee WHERE function = Medewerker";
         //but4.setVisible(false);
     }
     
