@@ -1,10 +1,7 @@
 package com.mycompany.mavenproject2;
 
 import java.io.File;
-<<<<<<< HEAD
 import java.net.URL;
-=======
->>>>>>> 65eeb51b99983a3ab75f11bc655e5ac58955fa8f
 import java.util.ResourceBundle;
 import javafx.application.Application;
 import static javafx.application.Application.launch;

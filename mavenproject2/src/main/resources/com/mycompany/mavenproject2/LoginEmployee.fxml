@@ -33,11 +33,7 @@
                         <Font size="18.0" />
                      </font>
                   </Text>
-<<<<<<< HEAD
-                  <Button fx:id="buttonEmployee" layoutX="581.0" layoutY="306.0" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="253.0" text="Login" />
-=======
-                  <Button fx:id="buttonEmployee" layoutX="581.0" layoutY="275.0" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="253.0" text="Login" />
->>>>>>> 65eeb51b99983a3ab75f11bc655e5ac58955fa8f
+                  <Button fx:id="buttonEmployee" layoutX="581.0" layoutY="305.0" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="253.0" text="Login" />
                   <Text layoutX="480.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" wrappingWidth="88.291015625">
                      <font>
                         <Font size="18.0" />
@@ -45,7 +41,7 @@
                   </Text>
                   <TextField id="txtUsername" fx:id="textUsername" layoutX="581.0" layoutY="187.0" prefHeight="25.0" prefWidth="253.0" promptText="Enter your username" />
                   <PasswordField id="txtPassword" fx:id="textPassword" layoutX="581.0" layoutY="227.0" prefHeight="25.0" prefWidth="253.0" promptText="Enter your password" />
-                  <ChoiceBox fx:id="EmpSelect" layoutX="581.0" layoutY="272.0" prefWidth="150.0" value="Medewerker">
+                  <ChoiceBox fx:id="EmpSelect" layoutX="581.0" layoutY="266.0" prefWidth="150.0" value="Medewerker">
             <items>
                 <FXCollections fx:factory="observableArrayList">
                     <String fx:value="Medewerker" />

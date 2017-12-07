@@ -23,12 +23,9 @@ import javafx.stage.Stage;
 
 /**
  *
-<<<<<<< HEAD
  * @author Rick, Matthijs
-=======
- * @author Staick
->>>>>>> 65eeb51b99983a3ab75f11bc655e5ac58955fa8f
- */
+  */ 
+
 public class LoginController implements Initializable {
 
     @Override
@@ -166,35 +163,24 @@ public class LoginController implements Initializable {
 
     Stage dialogStage = new Stage();
     Scene scene;
-
-    Connection connection = null;
-    PreparedStatement preparedStatement = null;
+    
     ResultSet resultSet = null;
-
-    public LoginController() {
-        connection = sqlDatabaseConnection.connectdb();
-    }
 
     //Login for employee
     @FXML
     private void handleButtonAction(ActionEvent event) {
+        Database db = new Database();
         String username = textUsername.getText().toString();
         String password = textPassword.getText().toString();
         String function = EmpSelect.getValue().toString();
-        String sql = "SELECT * FROM Employee WHERE username = ? and password = ? and function = ?";
+        String sql = String.format("SELECT * FROM Employee WHERE username = '%s' and password = '%s' and function = '%s' ", username, password, function);
 
         try {
-            preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, username);
-            preparedStatement.setString(2, password);
-            preparedStatement.setString(3, function);
-            resultSet = preparedStatement.executeQuery();
+            resultSet = db.executeResultSetQuery(sql);
 
             if (!resultSet.next()) {
                 infoBox("Enter Correct Username and Password", "Failed", null);
             } else {
-<<<<<<< HEAD
-
                 if ("Medewerker".equals(function)) {
                     infoBox("Login Successfull", "Success", null);
                     FXMLDocumentController controller = new FXMLDocumentController();
@@ -204,18 +190,10 @@ public class LoginController implements Initializable {
                     FXMLDocumentController controller = new FXMLDocumentController();
                     controller.newAnchorpane("WorkerHomescreen", paneLogin);
                 }
-=======
                 infoBox("Login Successfull", "Success", null);
-                /*Node source = (Node) event.getSource();
-                dialogStage = (Stage) source.getScene().getWindow();
-                dialogStage.close();*/
                 
                 FXMLDocumentController controller = new FXMLDocumentController();
                 utilities.newAnchorpane("WorkerHomescreen", paneLogin);
-                /*scene = new Scene((Parent) FXMLLoader.load(getClass().getResource(resultSet.getIn‌​t(01) == 0 ? "WorkerHomescreen.fxml" : "Reports.fxml")));
-                dialogStage.setScene(scene);
-                dialogStage.show();*/
->>>>>>> 65eeb51b99983a3ab75f11bc655e5ac58955fa8f
             }
 
         } catch (Exception e) {
@@ -240,35 +218,23 @@ public class LoginController implements Initializable {
     
     @FXML
     private void handleButtonActionPassenger(ActionEvent event) {
+        Database db = new Database();
         String email = textEmail.getText().toString();
         String lastname = textLastName.getText().toString();
 
         //SQL query checks if email and lastname is equal to input.
-        String sql = "SELECT * FROM Passenger WHERE email = ? and lastname = ?";
+         String sql = String.format("SELECT * FROM Passenger WHERE email = '%s' and lastname = '%s' ", email, lastname);
 
         try {
-            preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, email);
-            preparedStatement.setString(2, lastname);
-            resultSet = preparedStatement.executeQuery();
+            resultSet = db.executeResultSetQuery(sql);
             if (!resultSet.next()) {
                 infoBox("Enter Correct Email And Lastname", "Failed", null);
             } else {
                 infoBox("Login Successfull", "Success", null);
-                /*Node source = (Node) event.getSource();
-                dialogStage = (Stage) source.getScene().getWindow();
-                dialogStage.close();*/
                 
                 FXMLDocumentController controller = new FXMLDocumentController();
-<<<<<<< HEAD
-                controller.newAnchorpane("CustomerHomescreen", paneLogin);
-                /*scene = new Scene((Parent) FXMLLoader.load(getClass().getResource(resultSet.getIn‌​t(01) == 0 ? "WorkerHomescreen.fxml" : "Reports.fxml")));
-=======
                 utilities.newAnchorpane("CustomerHomescreen", paneLogin);
-                /*scene = new Scene((Parent) FXMLLoader.load(getClass().getResource("CustomerHomescreen.fxml")));
->>>>>>> 65eeb51b99983a3ab75f11bc655e5ac58955fa8f
-                dialogStage.setScene(scene);
-                dialogStage.show();*/
+
             }
 
         } catch (Exception e) {
