@@ -156,6 +156,7 @@ public class LoginController implements Initializable {
             }
 
             // Test prints
+            /*
             System.out.println("registrationnr: " + row.get(0));
             System.out.println("datefound: " + row.get(1));
             System.out.println("timefound: " + row.get(2));
@@ -170,6 +171,7 @@ public class LoginController implements Initializable {
             System.out.println("weight: " + row.get(11));
             System.out.println("passenger_name_city: " + passengernamecity);
             System.out.println("otherchar: " + row.get(13));
+            */
 
             // Kijk of hij al in de db zit als dat niet zo is zet de record in de db
             String checkIfInDB = db.executeStringQuery(String.format("SELECT registrationnr FROM Foundbagageinventory WHERE registrationnr = '%s'", row.get(0)));
