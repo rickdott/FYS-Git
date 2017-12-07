@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="requestpage" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.RequestStatusController">
+<AnchorPane id="AnchorPane" fx:id="requestpage" prefHeight="650.0" prefWidth="1060.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.RequestStatusController">
    <children>
       <GridPane layoutX="219.0" layoutY="215.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
@@ -63,7 +63,7 @@
                   </HBox>
                   <StackPane>
                      <children>
-                        <TextField fx:id="regNrField" alignment="CENTER_RIGHT" maxWidth="175.0" StackPane.alignment="CENTER_RIGHT" />
+                        <TextField fx:id="regNrField" maxWidth="175.0" StackPane.alignment="CENTER_RIGHT" />
                         <Label contentDisplay="RIGHT" minWidth="-Infinity" text="Registration Number" StackPane.alignment="CENTER_LEFT">
                            <font>
                               <Font size="18.0" />
@@ -264,24 +264,24 @@
             </VBox>
          </children>
       </GridPane>
-      <TableView fx:id="foundLuggageTableView" editable="true" layoutY="54.0" prefHeight="200.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <TableView fx:id="foundLuggageTableView" editable="true" layoutY="54.0" prefHeight="200.0" prefWidth="600.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columns>
           <TableColumn fx:id="registrationnr" editable="false" prefWidth="95.0" text="Registration Nr" />
           <TableColumn fx:id="datefound" editable="false" prefWidth="70.0" text="Date Found" visible="false" />
             <TableColumn fx:id="timefound" editable="false" prefWidth="79.0" text="Time Found" visible="false" />
-            <TableColumn fx:id="dateregistered" editable="false" prefWidth="75.0" text="Date Registered" />
-            <TableColumn fx:id="timeregistered" editable="false" prefWidth="75.0" text="Time Registered" />
+            <TableColumn fx:id="dateregistered" editable="false" prefWidth="95.0" text="Date Registered" />
+            <TableColumn fx:id="timeregistered" editable="false" prefWidth="100.0" text="Time Registered" />
             <TableColumn fx:id="luggagetype" editable="false" prefWidth="85.0" text="Luggage Type" />
             <TableColumn fx:id="brand" editable="false" prefWidth="40.0" text="Brand" />
             <TableColumn fx:id="flightnumber" editable="false" prefWidth="55.0" text="Flight Nr" />
             <TableColumn fx:id="luggagelabelnr" editable="false" prefWidth="55.0" text="Label Nr" />
             <TableColumn fx:id="locationfound" editable="false" prefWidth="95.0" text="Location Found" visible="false" />
-            <TableColumn fx:id="primarycolour" editable="false" prefWidth="60.0" text="Primary Colour" />
-            <TableColumn fx:id="secondarycolour" editable="false" prefWidth="90.0" text="Secondary Colour" />
-            <TableColumn fx:id="size" editable="false" prefWidth="60.0" text="Size" />
-            <TableColumn fx:id="weight" prefWidth="75.0" text="Weight" />
-            <TableColumn fx:id="passenger_name_city" prefWidth="75.0" text="Name &amp; City" />
-            <TableColumn fx:id="otherchar" prefWidth="75.0" text="Characteristics" />
+            <TableColumn fx:id="primarycolour" editable="false" prefWidth="90.0" text="Primary Colour" />
+            <TableColumn fx:id="secondarycolour" editable="false" prefWidth="105.0" text="Secondary Colour" />
+            <TableColumn fx:id="size" editable="false" prefWidth="30.0" text="Size" />
+            <TableColumn fx:id="weight" prefWidth="50.0" text="Weight" />
+            <TableColumn fx:id="passenger_name_city" text="Name &amp; City" />
+            <TableColumn fx:id="otherchar" prefWidth="90.0" text="Characteristics" />
             <TableColumn fx:id="idpassenger" prefWidth="75.0" text="PassengerID" />
         </columns>
       </TableView>

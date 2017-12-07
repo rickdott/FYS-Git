@@ -11,7 +11,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.Set;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -71,11 +70,6 @@ public class RequestStatusController implements Initializable {
     Utilities utilities = new Utilities();
 
     @FXML
-    private void openRequestStatusResult(ActionEvent event) {
-        utilities.newAnchorpane("RequestStatus_Result", requestpage);
-    }
-
-    @FXML
     private void getInput() throws SQLException {
         String query = getQueryFromTextfields();
 
@@ -87,7 +81,13 @@ public class RequestStatusController implements Initializable {
         // Loop through the resultset, making a new 'FoundLuggage' Object 
         // for every result, adding the attributes of the result to the 
         // corresponding attribute in the FoundLuggage object
-        foundLuggageList = Utilities.initializeFoundLuggageFromResultSet(result, foundLuggageList);
+        if (lostSelected()) {
+            foundLuggageList = Utilities.initializeLostLuggageFromResultSet(result, foundLuggageList);
+            makeTableViewLost();
+        } else {
+            foundLuggageList = Utilities.initializeFoundLuggageFromResultSet(result, foundLuggageList);
+            makeTableViewFound();
+        }
 
         result.close();
         database.close();
@@ -97,16 +97,12 @@ public class RequestStatusController implements Initializable {
         foundLuggageTableView.setVisible(true);
     }
 
-    @FXML
     private String getQueryFromTextfields() {
         // Creates new List of Strings to be included in the query
-        List<String> queryList = new ArrayList<String>();
+        List<String> queryList = new ArrayList();
         String query;
 
-        List<Toggle> toggleList = new ArrayList();
-        toggleList.addAll(lostFoundGroup.getToggles());
-
-        if (toggleList.get(0).isSelected()) {
+        if (lostSelected()) {
             if (!regNrField.getText().isEmpty()) {
                 queryList.add("registrationnr = '" + regNrField.getText() + "' ");
             }
@@ -172,11 +168,11 @@ public class RequestStatusController implements Initializable {
             }
 
             if (!dateFoundField.getText().isEmpty()) {
-                queryList.add("datefound = '" + dateFoundField.getText() + "' ");
+                queryList.add("dateregistered = '" + dateFoundField.getText() + "' ");
             }
 
             if (!timeFoundField.getText().isEmpty()) {
-                queryList.add("timefound = '" + timeFoundField.getText() + "' ");
+                queryList.add("timeregistered = '" + timeFoundField.getText() + "' ");
             }
 
             if (!typeField.getText().isEmpty()) {
@@ -195,10 +191,9 @@ public class RequestStatusController implements Initializable {
                 queryList.add("luggagelabelnr = '" + labelNrField.getText() + "' ");
             }
 
-            if (!locationFoundField.getText().isEmpty()) {
-                queryList.add("locationfound = '" + locationFoundField.getText() + "' ");
-            }
-
+//            if (!locationFoundField.getText().isEmpty()) {
+//                queryList.add("locationfound = '" + locationFoundField.getText() + "' ");
+//            }
             if (!mainColourField.getText().isEmpty()) {
                 queryList.add("primarycolour = '" + mainColourField.getText() + "' ");
             }
@@ -241,7 +236,7 @@ public class RequestStatusController implements Initializable {
         return query;
     }
 
-    public void makeTextFieldsAndLabelsInvisible() {
+    private void makeTextFieldsAndLabelsInvisible() {
         // Create an ObservableList consisting of all children nodes of the 
         // vboxes, then making them invisible
         ObservableList<Node> vbox1Children = vbox1.getChildren();
@@ -255,7 +250,7 @@ public class RequestStatusController implements Initializable {
         }
     }
 
-    public void makeTextFieldsAndLabelsVisible() {
+    private void makeTextFieldsAndLabelsVisible() {
         // Create an ObservableList consisting of all children nodes of the 
         // vboxes, then making them visible
         ObservableList<Node> vbox1Children = vbox1.getChildren();
@@ -269,8 +264,7 @@ public class RequestStatusController implements Initializable {
         }
     }
 
-    @FXML
-    public void initTableView() {
+    private void initTableView() {
         foundLuggageTableView.setItems(this.foundLuggageList);
 
         for (int i = 0; i < foundLuggageTableView.getColumns().size(); i++) {
@@ -283,11 +277,10 @@ public class RequestStatusController implements Initializable {
         }
     }
 
-    @FXML
-    public void makeTableViewFound() {
+    private void makeTableViewFound() {
         List<TableColumn> columnList = new ArrayList();
         columnList = foundLuggageTableView.getColumns();
-        
+
         for (int i = 0; i < columnList.size(); i++) {
             if (columnList.get(i).getText().equals("Date Found")) {
                 columnList.get(i).setVisible(true);
@@ -298,21 +291,43 @@ public class RequestStatusController implements Initializable {
             if (columnList.get(i).getText().equals("Location Found")) {
                 columnList.get(i).setVisible(true);
             }
-            if (columnList.get(i).getText().contains("Date Found")) {
+            if (columnList.get(i).getText().contains("Date Registered")) {
                 columnList.get(i).setVisible(false);
             }
-            if (columnList.get(i).getText().contains("Date Found")) {
-                columnList.get(i).setVisible(false);
-            }
-            if (columnList.get(i).getText().contains("Date Found")) {
+            if (columnList.get(i).getText().contains("Time Registered")) {
                 columnList.get(i).setVisible(false);
             }
         }
     }
-    
-    @FXML
-    public void makeTableViewLost() {
-        
+
+    private void makeTableViewLost() {
+        List<TableColumn> columnList = new ArrayList();
+        columnList = foundLuggageTableView.getColumns();
+
+        for (int i = 0; i < columnList.size(); i++) {
+            if (columnList.get(i).getText().equals("Date Found")) {
+                columnList.get(i).setVisible(false);
+            }
+            if (columnList.get(i).getText().equals("Time Found")) {
+                columnList.get(i).setVisible(false);
+            }
+            if (columnList.get(i).getText().equals("Location Found")) {
+                columnList.get(i).setVisible(false);
+            }
+            if (columnList.get(i).getText().contains("Date Registered")) {
+                columnList.get(i).setVisible(true);
+            }
+            if (columnList.get(i).getText().contains("Time Registered")) {
+                columnList.get(i).setVisible(true);
+            }
+        }
+
     }
 
+    private boolean lostSelected() {
+        List<Toggle> toggleList = new ArrayList();
+        toggleList.addAll(lostFoundGroup.getToggles());
+
+        return (toggleList.get(0).isSelected());
+    }
 }

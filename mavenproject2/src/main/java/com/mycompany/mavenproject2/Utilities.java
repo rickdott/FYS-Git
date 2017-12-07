@@ -106,8 +106,9 @@ public class Utilities {
         // Loop through the resultset, making a new 'FoundLuggage' Object 
         // for every result, adding the attributes of the result to the 
         // corresponding attribute in the FoundLuggage object
-        FoundLuggage luggage = new FoundLuggage();
+        
         while (result.next()) {
+            FoundLuggage luggage = new FoundLuggage();
             luggage.setRegistrationnr(result.getInt("registrationnr"));
             luggage.setDatefound(result.getString("datefound"));
             luggage.setTimefound(result.getString("timefound"));
@@ -133,8 +134,9 @@ public class Utilities {
         // Loop through the resultset, making a new 'FoundLuggage' Object 
         // for every result, adding the attributes of the result to the 
         // corresponding attribute in the FoundLuggage object
-        LostLuggage luggage = new LostLuggage();
+        
         while (result.next()) {
+            LostLuggage luggage = new LostLuggage();
             luggage.setRegistrationnr(result.getInt("registrationnr"));
             luggage.setDateregistered(result.getString("dateregistered"));
             luggage.setTimeregistered(result.getString("timeregistered"));
@@ -151,7 +153,6 @@ public class Utilities {
             luggage.setIdpassenger(result.getInt("idpassenger"));
             foundLuggageList.add(luggage);
         }
-
         return foundLuggageList;
     }
 }
