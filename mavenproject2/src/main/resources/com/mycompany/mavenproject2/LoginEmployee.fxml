@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
@@ -23,22 +26,32 @@
                   </ImageView>
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="130.0" prefWidth="1287.0" styleClass="\\">
+          <AnchorPane fx:id="goToPassenger" minHeight="0.0" minWidth="0.0" prefHeight="130.0" prefWidth="1287.0" styleClass="\\">
                <children>
                   <Text layoutX="474.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" wrappingWidth="100.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Button fx:id="buttonEmployee" layoutX="581.0" layoutY="275.0" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="253.0" text="Login" />
-                  <Button fx:id="buttonPassenger" layoutX="581.0" layoutY="275.0" onAction="#handleButtonActionPassenger" text="Login" />
+                  <Button fx:id="buttonEmployee" layoutX="581.0" layoutY="306.0" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="253.0" text="Login" />
                   <Text layoutX="480.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" wrappingWidth="88.291015625">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <TextField id="txtUsername" fx:id="textEmail" layoutX="581.0" layoutY="187.0" prefHeight="25.0" prefWidth="253.0" promptText="Enter your username" />
+                  <TextField id="txtUsername" fx:id="textUsername" layoutX="581.0" layoutY="187.0" prefHeight="25.0" prefWidth="253.0" promptText="Enter your username" />
                   <PasswordField id="txtPassword" fx:id="textPassword" layoutX="581.0" layoutY="227.0" prefHeight="25.0" prefWidth="253.0" promptText="Enter your password" />
+                  <ChoiceBox fx:id="EmpSelect" layoutX="581.0" layoutY="272.0" prefWidth="150.0" value="Medewerker">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Medewerker" />
+                    <String fx:value="Manager" />
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+                  <Text layoutX="676.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Warning!" wrappingWidth="68.00003051757812" />
+                  <Text layoutX="646.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login is case sensitive" wrappingWidth="124.0" />
+                  <Button layoutX="39.0" layoutY="397.0" mnemonicParsing="false" onAction="#goToPassenger" text="Go to passenger login" />
                </children>
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="130.0" prefWidth="1287.0">

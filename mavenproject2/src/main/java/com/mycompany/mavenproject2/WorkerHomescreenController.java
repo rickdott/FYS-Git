@@ -6,6 +6,7 @@
 package com.mycompany.mavenproject2;
 
 import java.net.URL;
+import java.sql.Connection;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,7 +18,7 @@ import javafx.scene.layout.Pane;
 
 /**
  *
- * @author Rick
+ * @author Rick, Matthijs
  */
 public class WorkerHomescreenController implements Initializable {
     
@@ -33,9 +34,15 @@ public class WorkerHomescreenController implements Initializable {
     @FXML
     private Button but1, but2, but3, but4;
     
+    Connection connection = null;
+    public WorkerHomescreenController() {
+        connection = sqlDatabaseConnection.connectdb();
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        String Check = "SELECT * FROM Employee WHERE function = Medewerker";
+        //but4.setVisible(false);
     }
     
     FXMLDocumentController controller = new FXMLDocumentController();
@@ -107,7 +114,7 @@ public class WorkerHomescreenController implements Initializable {
     
     @FXML
     private void backToLogin(ActionEvent event) {
-        controller.newAnchorpane("Login", actualmain);
+        controller.newAnchorpane("LoginEmployee", actualmain);
     }
     
     

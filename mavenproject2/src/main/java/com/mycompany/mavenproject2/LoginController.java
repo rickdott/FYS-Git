@@ -17,6 +17,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -24,7 +25,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Rick
+ * @author Rick, Matthijs
  */
 public class LoginController implements Initializable{
     @Override
@@ -99,12 +100,25 @@ public class LoginController implements Initializable{
         controller.newAnchorpane("WorkerHomescreen", paneLogin);
     }
     
+    @FXML
+    private void goToEmployee(ActionEvent event) {
+        controller.newAnchorpane("LoginEmployee", paneLogin);
+    }
+    
+    @FXML
+    private void goToPassenger(ActionEvent event) {
+        controller.newAnchorpane("Login", paneLogin);
+    }
+    
     //Login for employee
     @FXML
-    private TextField textEmail;
+    private TextField textUsername;
 
     @FXML
     private PasswordField textPassword;
+    
+    @FXML
+    private ChoiceBox<String> EmpSelect;
 
     Stage dialogStage = new Stage();
     Scene scene;
@@ -120,30 +134,31 @@ public class LoginController implements Initializable{
     //Login for employee
     @FXML
     private void handleButtonAction(ActionEvent event) {
-        String username = textEmail.getText().toString();
+        String username = textUsername.getText().toString();
         String password = textPassword.getText().toString();
-
-        //SQL query checks if username and password is equal to input.
-        String sql = "SELECT * FROM Employee WHERE username = ? and password = ?";
+        String function = EmpSelect.getValue().toString();
+        String sql = "SELECT * FROM Employee WHERE username = ? and password = ? and function = ?";
 
         try {
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, username);
             preparedStatement.setString(2, password);
+            preparedStatement.setString(3, function);
             resultSet = preparedStatement.executeQuery();
+
             if (!resultSet.next()) {
                 infoBox("Enter Correct Username and Password", "Failed", null);
             } else {
-                infoBox("Login Successfull", "Success", null);
-                /*Node source = (Node) event.getSource();
-                dialogStage = (Stage) source.getScene().getWindow();
-                dialogStage.close();*/
-                
-                FXMLDocumentController controller = new FXMLDocumentController();
-                controller.newAnchorpane("WorkerHomescreen", paneLogin);
-                /*scene = new Scene((Parent) FXMLLoader.load(getClass().getResource(resultSet.getIn‌​t(01) == 0 ? "WorkerHomescreen.fxml" : "Reports.fxml")));
-                dialogStage.setScene(scene);
-                dialogStage.show();*/
+
+                if ("Medewerker".equals(function)) {
+                    infoBox("Login Successfull", "Success", null);
+                    FXMLDocumentController controller = new FXMLDocumentController();
+                    controller.newAnchorpane("WorkerHomescreen", paneLogin);
+                } else if ("Manager".equals(function)) {
+                    infoBox("Login Successfull", "Success", null);
+                    FXMLDocumentController controller = new FXMLDocumentController();
+                    controller.newAnchorpane("WorkerHomescreen", paneLogin);
+                }
             }
 
         } catch (Exception e) {
@@ -161,25 +176,26 @@ public class LoginController implements Initializable{
 
     //Login for passenger
     @FXML
-    private TextField textFlight;
+    private TextField textEmail;
 
     @FXML
     private TextField textLastName;
     
     @FXML
     private void handleButtonActionPassenger(ActionEvent event) {
-        String flight = textFlight.getText().toString();
+        String email = textEmail.getText().toString();
         String lastname = textLastName.getText().toString();
 
-        String sql = "SELECT * FROM Passenger WHERE flightnumber = ? and lastname = ?";
+        //SQL query checks if email and lastname is equal to input.
+        String sql = "SELECT * FROM Passenger WHERE email = ? and lastname = ?";
 
         try {
             preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, flight);
+            preparedStatement.setString(1, email);
             preparedStatement.setString(2, lastname);
             resultSet = preparedStatement.executeQuery();
             if (!resultSet.next()) {
-                infoBox("Enter Correct Flight number and Lastname", "Failed", null);
+                infoBox("Enter Correct Email And Lastname", "Failed", null);
             } else {
                 infoBox("Login Successfull", "Success", null);
                 /*Node source = (Node) event.getSource();
@@ -188,7 +204,7 @@ public class LoginController implements Initializable{
                 
                 FXMLDocumentController controller = new FXMLDocumentController();
                 controller.newAnchorpane("CustomerHomescreen", paneLogin);
-                /*scene = new Scene((Parent) FXMLLoader.load(getClass().getResource("CustomerHomescreen.fxml")));
+                /*scene = new Scene((Parent) FXMLLoader.load(getClass().getResource(resultSet.getIn‌​t(01) == 0 ? "WorkerHomescreen.fxml" : "Reports.fxml")));
                 dialogStage.setScene(scene);
                 dialogStage.show();*/
             }
