@@ -1,7 +1,10 @@
 package com.mycompany.mavenproject2;
 
 import java.io.File;
+<<<<<<< HEAD
 import java.net.URL;
+=======
+>>>>>>> 65eeb51b99983a3ab75f11bc655e5ac58955fa8f
 import java.util.ResourceBundle;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
@@ -26,14 +29,10 @@ public class MainApp extends Application {
         stage.setTitle("BAGGER");
         stage.setScene(scene);
         stage.show();
-
+        stage.setResizable(false);
+   
         application = stage;
         
-        // Database testen
-        //Database db = new Database();
-        //db.executeUpdateQuery("INSERT INTO Airport (iatacode, name, timezone) VALUES ('BBB', 'Oruam', 1)");
-        //String temp = db.executeStringListQuery("SELECT * FROM Airport");
-        //System.out.print(temp);
     }
 
     // Returnt het pad (String)

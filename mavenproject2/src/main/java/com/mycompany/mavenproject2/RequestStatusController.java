@@ -54,11 +54,11 @@ public class RequestStatusController implements Initializable {
         }
     }
     
-    FXMLDocumentController controller = new FXMLDocumentController();
+    Utilities utilities = new Utilities();
 
     @FXML
     private void openRequestStatusResult(ActionEvent event) {
-        controller.newAnchorpane("RequestStatus_Result", requestpage);
+        utilities.newAnchorpane("RequestStatus_Result", requestpage);
     }
 
     @FXML
@@ -117,6 +117,7 @@ public class RequestStatusController implements Initializable {
             luggage.setDate(result.getString("date"));
             foundLuggageList.add(luggage);
         }
+        result.close();
         database.close();
         // back button
     }

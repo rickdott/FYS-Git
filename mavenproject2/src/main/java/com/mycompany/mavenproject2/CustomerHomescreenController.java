@@ -26,27 +26,27 @@ public class CustomerHomescreenController implements Initializable {
     @FXML
     private AnchorPane paneCustomerHomescreen;
     
-    FXMLDocumentController controller = new FXMLDocumentController();
+    Utilities utilities = new Utilities();
 
     
     @FXML
     private void openRequestStatus(ActionEvent event) {
-        controller.newAnchorpane("RequestStatusKlanten", paneCustomerHomescreen);
+        utilities.newAnchorpane("RequestStatusKlanten", paneCustomerHomescreen);
     }
     
     @FXML
     private void openRegisterMissing(ActionEvent event) {
-        controller.newAnchorpane("RegisterMissing", paneCustomerHomescreen);
+        utilities.newAnchorpane("RegisterMissing", paneCustomerHomescreen);
     }
     
     @FXML
     private void openFaq(ActionEvent event) {
-        controller.newAnchorpane("FAQ", paneCustomerHomescreen);
+        utilities.newAnchorpane("FAQ", paneCustomerHomescreen);
     }
     
     @FXML
-    private void backToLogin(ActionEvent event) {
-        controller.newAnchorpane("Login", paneCustomerHomescreen);
+    private void backToLogin() {
+        utilities.newAnchorpane("LoginEmployee", paneCustomerHomescreen);
     }
     
 }
