@@ -264,7 +264,7 @@
             </VBox>
          </children>
       </GridPane>
-      <TableView fx:id="foundLuggageTableView" editable="true" layoutY="54.0" prefHeight="200.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <TableView fx:id="foundLuggageTableView" editable="true" layoutY="54.0" prefHeight="200.0" prefWidth="600.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columns>
           <TableColumn fx:id="registrationnr" editable="false" prefWidth="95.0" text="Registration Nr" />
           <TableColumn fx:id="datefound" editable="false" prefWidth="70.0" text="Date Found" visible="false" />

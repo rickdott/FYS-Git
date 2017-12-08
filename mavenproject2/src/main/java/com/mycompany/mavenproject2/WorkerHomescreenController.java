@@ -7,6 +7,7 @@ package com.mycompany.mavenproject2;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,7 +23,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Rick
+ * @author Rick, Matthijs
  */
 public class WorkerHomescreenController implements Initializable {
     
@@ -37,10 +38,11 @@ public class WorkerHomescreenController implements Initializable {
 
     @FXML
     private Button but1, but2, but3, but4;
-    
+        
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        //String Check = "SELECT * FROM Employee WHERE function = Medewerker";
+        //but4.setVisible(false);
     }
     
     Utilities utilities = new Utilities();
@@ -111,9 +113,8 @@ public class WorkerHomescreenController implements Initializable {
     }
     
     @FXML
-    private void backToLogin() {
-        utilities.newAnchorpane("Login", actualmain);
-    }
+    private void backToLogin(ActionEvent event) {
+        utilities.newAnchorpane("LoginEmployee", actualmain);  
     
-    
+}
 }
