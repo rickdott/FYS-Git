@@ -266,10 +266,20 @@ public class LoginController implements Initializable {
     private void openCustomerHomescreen(ActionEvent event) {
         utilities.newAnchorpane("CustomerHomescreen", paneLogin);
     }
+    
+    @FXML
+    private void openCustomerHomescreenFromCustomer(ActionEvent event) {
+        utilities.newAnchorpane("CustomerHomescreen", paneCustomer);
+    }
 
     @FXML
     private void openWorkerHomescreen(ActionEvent event) {
         utilities.newAnchorpane("WorkerHomescreen", paneLogin);
+    }
+    
+    @FXML
+    private void openWorkerHomescreenFromCustomer(ActionEvent event) {
+        utilities.newAnchorpane("WorkerHomescreen", paneCustomer);
     }
     
     @FXML

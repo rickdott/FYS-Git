@@ -38,8 +38,8 @@
                   <TextField fx:id="textEmail" layoutX="581.0" layoutY="187.0" prefHeight="25.0" prefWidth="253.0" promptText="Enter your email" />
                   <TextField fx:id="textLastName" layoutX="581.0" layoutY="227.0" prefHeight="25.0" prefWidth="253.0" promptText="Enter your lastname:" />
                   <Text layoutX="40.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tijdelijke knoppen om in te loggen" />
-                  <Button layoutX="77.0" layoutY="77.0" mnemonicParsing="false" onAction="#openCustomerHomescreen" text="Inloggen als klant" />
-                  <Button layoutX="57.0" layoutY="106.0" mnemonicParsing="false" onAction="#openWorkerHomescreen" text="Inloggen als medewerker" />
+                  <Button layoutX="77.0" layoutY="77.0" mnemonicParsing="false" onAction="#openCustomerHomescreenFromCustomer" text="Inloggen als klant" />
+                  <Button layoutX="57.0" layoutY="106.0" mnemonicParsing="false" onAction="#openWorkerHomescreenFromCustomer" text="Inloggen als medewerker" />
                   <TextField editable="false" layoutX="258.0" layoutY="49.0" prefHeight="56.0" prefWidth="162.0" />
                   <Button layoutX="289.0" layoutY="65.0" mnemonicParsing="false" onAction="#excelImport" text="Excel import DB" />
                   <Button fx:id="buttonPassenger" layoutX="581.0" layoutY="272.0" onAction="#handleButtonActionPassenger" prefHeight="25.0" prefWidth="253.0" text="Login" />

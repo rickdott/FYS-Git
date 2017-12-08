@@ -13,10 +13,10 @@ import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -39,6 +39,15 @@ public class RequestStatusController implements Initializable {
             = FXCollections.observableArrayList();
 
     @FXML
+    private ComboBox<String> typeComboBox;
+
+    @FXML
+    private ComboBox<String> mainColourComboBox;
+
+    @FXML
+    private ComboBox<String> secondaryColourComboBox;
+
+    @FXML
     private ToggleGroup lostFoundGroup;
 
     @FXML
@@ -48,15 +57,25 @@ public class RequestStatusController implements Initializable {
     private VBox vbox1, vbox2;
 
     @FXML
-    private TextField regNrField, dateFoundField, timeFoundField, typeField,
+    private TextField regNrField, dateFoundField, timeFoundField,
             brandField, flightNrField, labelNrField, locationFoundField,
-            mainColourField, secondaryColourField, sizeField, weightField,
-            nameAndCityField, specialCharField;
+            sizeField, weightField, nameAndCityField, specialCharField;
+
+    //dropdownlists
+    ObservableList<String> colours = FXCollections.observableArrayList(
+            "Yellow", "Olive", "Red", "Darkred", "Pink", "Purple", "Violet",
+            "Blue", "Lightblue", "Darkblue", "Bluegreen", "Green", "Darkgreen",
+            "Lightgreen", "Gray", "Darkgray", "Lightgray", "Brown", "Darkbrown",
+            "Lightbrown", "White", "Black", "Cream");
+
+    ObservableList<String> types = FXCollections.observableArrayList(
+            "Suitcase", "Bag", "Bagpack", "Box", "Sports",
+            "Bag", "Business Case", "Case", "Other");
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         foundLuggageTableView.setItems(this.foundLuggageList);
-
+        
         for (int i = 0; i < foundLuggageTableView.getColumns().size(); i++) {
             TableColumn tc = (TableColumn) foundLuggageTableView.getColumns().get(i);
             String propertyName = tc.getId();
@@ -65,12 +84,16 @@ public class RequestStatusController implements Initializable {
                 System.out.println("Attached column '" + propertyName + "' in tableview to matching attribute");
             }
         }
+        typeComboBox.setItems(types);
+        mainColourComboBox.setItems(colours);
+        secondaryColourComboBox.setItems(colours);
     }
 
     Utilities utilities = new Utilities();
 
     @FXML
     private void getInput() throws SQLException {
+
         String query = getQueryFromTextfields();
 
         // Create database connection, execute the query
@@ -101,7 +124,9 @@ public class RequestStatusController implements Initializable {
         // Creates new List of Strings to be included in the query
         List<String> queryList = new ArrayList();
         String query;
-
+        
+        Database database = new Database();
+        
         if (lostSelected()) {
             if (!regNrField.getText().isEmpty()) {
                 queryList.add("registrationnr = '" + regNrField.getText() + "' ");
@@ -115,8 +140,9 @@ public class RequestStatusController implements Initializable {
                 queryList.add("timefound = '" + timeFoundField.getText() + "' ");
             }
 
-            if (!typeField.getText().isEmpty()) {
-                queryList.add("luggagetype = '" + typeField.getText() + "' ");
+            if (typeComboBox.getValue() != null) {
+                String type = database.executeStringListQuery(String.format("SELECT idluggage_type FROM Luggagetype WHERE english = '%s'", typeComboBox.getValue()));
+                queryList.add(String.format("luggagetype = '%s'", type));
             }
 
             if (!brandField.getText().isEmpty()) {
@@ -135,12 +161,14 @@ public class RequestStatusController implements Initializable {
                 queryList.add("locationfound = '" + locationFoundField.getText() + "' ");
             }
 
-            if (!mainColourField.getText().isEmpty()) {
-                queryList.add("primarycolour = '" + mainColourField.getText() + "' ");
+            if (mainColourComboBox.getValue() != null) {
+                String ral = database.executeStringListQuery(String.format("SELECT ralcode FROM Colour WHERE english = '%s'", mainColourComboBox.getValue()));
+                queryList.add(String.format("primarycolour = '%s'", ral));
             }
 
-            if (!secondaryColourField.getText().isEmpty()) {
-                queryList.add("secondarycolour = '" + secondaryColourField.getText() + "' ");
+            if (secondaryColourComboBox.getValue() != null) {
+                String ral = database.executeStringListQuery(String.format("SELECT ralcode FROM Colour WHERE english = '%s'", secondaryColourComboBox.getValue()));
+                queryList.add(String.format("secondarycolour = '%s'", ral));
             }
 
             if (!sizeField.getText().isEmpty()) {
@@ -175,8 +203,9 @@ public class RequestStatusController implements Initializable {
                 queryList.add("timeregistered = '" + timeFoundField.getText() + "' ");
             }
 
-            if (!typeField.getText().isEmpty()) {
-                queryList.add("luggagetype = '" + typeField.getText() + "' ");
+            if (typeComboBox.getValue() != null) {
+                String type = database.executeStringListQuery(String.format("SELECT idluggage_type FROM Luggagetype WHERE english = '%s'", typeComboBox.getValue()));
+                queryList.add(String.format("luggagetype = '%s'", type));
             }
 
             if (!brandField.getText().isEmpty()) {
@@ -194,12 +223,14 @@ public class RequestStatusController implements Initializable {
 //            if (!locationFoundField.getText().isEmpty()) {
 //                queryList.add("locationfound = '" + locationFoundField.getText() + "' ");
 //            }
-            if (!mainColourField.getText().isEmpty()) {
-                queryList.add("primarycolour = '" + mainColourField.getText() + "' ");
+            if (mainColourComboBox.getValue() != null) {
+                String ral = database.executeStringListQuery(String.format("SELECT ralcode FROM Colour WHERE english = '%s'", mainColourComboBox.getValue()));
+                queryList.add(String.format("primarycolour = '%s'", ral));
             }
 
-            if (!secondaryColourField.getText().isEmpty()) {
-                queryList.add("secondarycolour = '" + secondaryColourField.getText() + "' ");
+            if (secondaryColourComboBox.getValue() != null) {
+                String ral = database.executeStringListQuery(String.format("SELECT ralcode FROM Colour WHERE english = '%s'", secondaryColourComboBox.getValue()));
+                queryList.add(String.format("secondarycolour = '%s'", ral));
             }
 
             if (!sizeField.getText().isEmpty()) {
@@ -233,6 +264,7 @@ public class RequestStatusController implements Initializable {
                 query += queryList.get(i);
             }
         }
+        database.close();
         return query;
     }
 

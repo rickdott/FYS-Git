@@ -49,7 +49,7 @@ public class WorkerHomescreenController implements Initializable {
     
     //Methods to open other pages
     @FXML
-    private void openRequestStatus(ActionEvent event) throws IOException {
+    private void openRequestStatus(ActionEvent event) {
         utilities.newPane("RequestStatus", but1, mainpage, label1);
     }
 
