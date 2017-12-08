@@ -28,10 +28,10 @@ public class UserRolesController implements Initializable {
         // TODO
     }
     
-    FXMLDocumentController controller = new FXMLDocumentController();
+    Utilities utilities = new Utilities();
     
     @FXML
     private void openAddRoles(ActionEvent event) {
-        controller.newAnchorpane("UserRoles_AddUser", mainpane);
+        utilities.newAnchorpane("UserRoles_AddUser", mainpane);
     }
 }

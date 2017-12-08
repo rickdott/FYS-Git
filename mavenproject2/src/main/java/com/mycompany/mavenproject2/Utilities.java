@@ -1,63 +1,44 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.mycompany.mavenproject2;
 
-import com.mycompany.mavenproject2.connection.sqlDatabaseConnection;
 import java.io.IOException;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-        
+
 /**
  *
- * @author Rick den Otter 500749952 Lines 93-156 Stan van Weringh 500771870
- * Lines 46-91 This file contains some methods for use when buttons are clicked
- * or when the program has to switch pages
+ * @author Rick
  */
-public class FXMLDocumentController implements Initializable {
-     
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }
+public class Utilities {
     
-    
- 
+    // Two methods to use when hovering over a button
     @FXML
-    public void onHover(String currentPage, Button btn, Label label) {
+    public static void onHover(String currentPage, Button btn, Label label) {
         System.out.println("onHover activated");
         if (!label.getText().equals(currentPage)) {
             btn.setStyle("-fx-background-color: #951504; -fx-background-radius: 0; -fx-border-width: 1 0 0 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18;");
         }
     }
-
+    
     @FXML
-    public void onHover(String currentPage, Button btn, Label label, boolean isLast) {
+    public static void onHover(String currentPage, Button btn, Label label, boolean isLast) {
         System.out.println("onHover activated");
         if (!label.getText().equals(currentPage) && isLast) {
             btn.setStyle("-fx-background-color: #951504; -fx-background-radius: 0; -fx-border-width: 1 0 1 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18;");
         }
     }
-
     // Two methods to use when hovered off the button, overloaded
     @FXML
-    public void offHover(String currentPage, Button btn, Label label) {
+    public static void offHover(String currentPage, Button btn, Label label) {
         System.out.println("offHover activated");
         if (!label.getText().equals(currentPage)) {
             btn.setStyle("-fx-background-color: #D81E05; -fx-background-radius: 0; -fx-border-width: 1 0 0 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18;");
@@ -65,7 +46,7 @@ public class FXMLDocumentController implements Initializable {
     }
 
     @FXML
-    public void offHover(String currentPage, Button btn, Label label, boolean isLast) {
+    public static void offHover(String currentPage, Button btn, Label label, boolean isLast) {
         System.out.println("offHover activated");
         if (!label.getText().equals(currentPage) && isLast) {
             btn.setStyle("-fx-background-color: #D81E05; -fx-background-radius: 0; -fx-border-width: 1 0 1 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18;");
@@ -115,5 +96,4 @@ public class FXMLDocumentController implements Initializable {
             return null;
         }
     }
-
 }

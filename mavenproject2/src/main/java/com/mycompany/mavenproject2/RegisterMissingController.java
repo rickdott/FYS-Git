@@ -107,8 +107,9 @@ public class RegisterMissingController implements Initializable {
     @FXML
     private AnchorPane registerMissingPane, thankYouPage;
 
-    FXMLDocumentController controller = new FXMLDocumentController();
 
+     FXMLDocumentController controller = new FXMLDocumentController();
+     Utilities utilities = new Utilities();
     //submit button
     @FXML
     private void openRegisterThankyou(ActionEvent event) {
@@ -195,10 +196,96 @@ public class RegisterMissingController implements Initializable {
                 mail.mailsturen();
                 System.out.println("Mail sent...");
             }
+            
+            utilities.newAnchorpane("RegisterMissing_thankyou", registerMissingPane);
+        }}
+    @FXML
+    private void backToLogin() {
+        utilities.newAnchorpane("LoginEmployee", registerMissingPane);
+    }
 
-            controller.newAnchorpane("RegisterMissing_thankyou", registerMissingPane);
+}
+        
 
-        } else {
+    
+    /*public String email(String input){
+    mail = input + "hallo";
+    return mail;
+    }
+    
+           
+    Utilities utilities = new Utilities();
+    //submit button
+    @FXML
+    private void openRegisterThankyou(ActionEvent event) {
+        
+            
+        
+        if (!TravellerFirstName.getText().trim().isEmpty()&&
+            !TravellerSurname.getText().trim().isEmpty()&&
+            !TravellerAdress.getText().trim().isEmpty()&&
+            !TravellerCity.getText().trim().isEmpty()&&
+            !TravellerPostalCode.getText().trim().isEmpty()&&
+            !TravellerCountry.getText().trim().isEmpty()&&    
+            !TravellerPhone.getText().trim().isEmpty()&&    
+            !TravellerEmail.getText().trim().isEmpty()&&
+            !BagageFlight.getText().trim().isEmpty()&&
+            !BagageLabel.getText().trim().isEmpty()&&
+            !BagageDestination.getText().trim().isEmpty()
+            ){
+            
+           
+            
+           
+        
+        Database db = new Database();
+        
+        
+                
+          String travellerInformation = String.format      
+        ("INSERT INTO Passenger "
+                + "(firstname, lastname, adress, city, zip, country, phone, email, flightnumber) "
+                + "VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')", 
+                TravellerFirstName.getText(), TravellerSurname.getText(),
+                TravellerAdress.getText(), TravellerCity.getText(),
+                TravellerPostalCode.getText(), TravellerCountry.getText(), 
+                TravellerPhone.getText(), TravellerEmail.getText(),
+                BagageFlight.getText());
+        
+        String luggageInformation = String.format("INSERT INTO "
+                + "Bagage (labelnumber, destination, type, brand, colour, specialchar, flightnumber) "
+                + "VALUES ('%s', '%s', '%s', '%s', '%s', '%s','%s')",
+                BagageLabel.getText(), 
+                BagageDestination.getText(), BagageType.getText(), 
+                BagageBrand.getText(), BagageColour.getText(), 
+                BagageSpecialchar.getText(), BagageFlight.getText());
+        
+        Pdf pdf = new Pdf();
+        pdf.printPDF(TravellerFirstName.getText(), TravellerSurname.getText(), 
+                TravellerAdress.getText(), TravellerCity.getText(), 
+                TravellerPostalCode.getText(), TravellerCountry.getText(), 
+                TravellerPhone.getText(), TravellerEmail.getText());
+        
+        if (mailSturen.isSelected()){
+        System.out.println("Sending mail...");    
+        Mail mail = new Mail(TravellerEmail.getText().trim());
+        mail.mailsturen();
+        System.out.println("Mail sent...");
+        }
+        
+        
+        
+        db.executeUpdateQuery(travellerInformation);
+        db.executeUpdateQuery(luggageInformation);
+        
+        
+        utilities.newAnchorpane("RegisterMissing_thankyou", registerMissingPane); 
+        
+         
+        
+    }
+        else 
+
             System.out.println("niet alle verplichte velden ingevuld");
         }
         warning.setText("Niet alle verplichte velden zijn ingevuld");
@@ -207,7 +294,14 @@ public class RegisterMissingController implements Initializable {
 
     @FXML
     private void backToLogin() {
-        controller.newAnchorpane("LoginEmployee", registerMissingPane);
+        utilities.newAnchorpane("LoginEmployee", registerMissingPane);
     }
 
-}
+    
+    @FXML
+    private void backToLoginTY() {
+        utilities.newAnchorpane("LoginEmployee", thankYouPage);
+    }
+     */
+
+

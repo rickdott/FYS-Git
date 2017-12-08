@@ -1,6 +1,8 @@
 package com.mycompany.mavenproject2;
 
 import java.io.File;
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
@@ -28,11 +30,6 @@ public class MainApp extends Application {
    
         application = stage;
         
-        // Database testen
-        //Database db = new Database();
-        //db.executeUpdateQuery("INSERT INTO Airport (iatacode, name, timezone) VALUES ('BBB', 'Oruam', 1)");
-        //String temp = db.executeStringListQuery("SELECT * FROM Airport");
-        //System.out.print(temp);
     }
 
     // Returnt het pad (String)
