@@ -29,7 +29,7 @@ public class RequestStatusKlantenController {
         String labelnr = labelNrField.getText();
 
         //MAKE THIS COMBINE LABELNR AND LASTNAME, THIS IS LOW SECURITY
-        String query = "SELECT * FROM Bagage WHERE labelnumber = '" + labelnr + "'";
+        String query = "SELECT * FROM Lostbagage WHERE labelnumber = '" + labelnr + "'";
 
         Database database = new Database();
         ResultSet result = database.executeResultSetQuery(query);
