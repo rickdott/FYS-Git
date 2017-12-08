@@ -30,7 +30,6 @@
                         <Font size="18.0" />
                      </font>
                   </Text>
-
                   <Text layoutX="472.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Achternaam:" wrappingWidth="104.291015625">
 
                      <font>
