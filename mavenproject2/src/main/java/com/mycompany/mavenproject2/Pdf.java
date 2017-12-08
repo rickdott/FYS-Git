@@ -32,7 +32,10 @@ public class Pdf {
     // Geef deze methode een object mee met alle beschikbare data uit de database
     // Creates a new PDF document, fills it with the missing-luggage form
     public void printPDF(String firstname, String lastname, String adress,
-            String city, String zip, String country, String phone, String email)
+            String city, String zip, String country, String phone, String email,
+            String labelnumber, String flightnumber, String destination, 
+            String type, String brand, String primaryColour, String secondaryColour,
+            String specialchar)
             {
 
         try (PDDocument document = new PDDocument()) {
@@ -96,29 +99,37 @@ public class Pdf {
             contentStream.newLineAtOffset(0, -(LEADING * 2));
             contentStream.setFont(PDType1Font.HELVETICA, FONT_SIZE_BIG);
             contentStream.showText("Luggage label");
-
+            
             contentStream.setFont(PDType1Font.HELVETICA, FONT_SIZE_SMALL);
             contentStream.newLine();
-            contentStream.showText("Label Number:");
+            contentStream.showText("Label Number: ");
+            contentStream.showText(labelnumber);
             contentStream.newLine();
-            contentStream.showText("Flight Number:");
+            contentStream.showText("Flight Number: ");
+            contentStream.showText(flightnumber);
             contentStream.newLine();
-            contentStream.showText("Destination:");
-
+            contentStream.showText("Destination: ");
+            contentStream.showText(destination);
             contentStream.newLineAtOffset(0, -(LEADING * 2));
             contentStream.setFont(PDType1Font.HELVETICA, FONT_SIZE_BIG);
             contentStream.showText("Luggage information");
-
+            
             contentStream.setFont(PDType1Font.HELVETICA, FONT_SIZE_SMALL);
             contentStream.newLine();
-            contentStream.showText("Type:");
+            contentStream.showText("Type: ");
+            contentStream.showText(type);
             contentStream.newLine();
-            contentStream.showText("Brand:");
+            contentStream.showText("Brand: ");
+            contentStream.showText(brand);
             contentStream.newLine();
-            contentStream.showText("Colour:");
+            contentStream.showText("Primary Colour: ");
+            contentStream.showText(primaryColour);
             contentStream.newLine();
-            contentStream.showText("Special Characteristics:");
-
+            contentStream.showText("Secondary Colour: ");
+            contentStream.showText(secondaryColour);
+            contentStream.newLine();
+            contentStream.showText("Special Characteristics: ");
+            contentStream.showText(specialchar);
             contentStream.endText();
             contentStream.close();
 
