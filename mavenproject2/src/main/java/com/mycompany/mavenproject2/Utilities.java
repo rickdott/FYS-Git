@@ -6,15 +6,12 @@
 package com.mycompany.mavenproject2;
 
 import java.io.IOException;
-<<<<<<< HEAD
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-=======
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javafx.collections.ObservableList;
->>>>>>> 165f83f7ca0edc1a8ea2bdc46ae54a18111acf1d
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -108,7 +105,6 @@ public class Utilities {
         }
     }
 
-<<<<<<< HEAD
     public static String GetCurrentDateTime2() {
 
         DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
@@ -118,7 +114,6 @@ public class Utilities {
 
     }
 
-=======
     public static ObservableList initializeFoundLuggageFromResultSet(ResultSet result, ObservableList foundLuggageList) throws SQLException {
         // Loop through the resultset, making a new 'FoundLuggage' Object 
         // for every result, adding the attributes of the result to the 
@@ -172,5 +167,4 @@ public class Utilities {
         }
         return foundLuggageList;
     }
->>>>>>> 165f83f7ca0edc1a8ea2bdc46ae54a18111acf1d
 }
