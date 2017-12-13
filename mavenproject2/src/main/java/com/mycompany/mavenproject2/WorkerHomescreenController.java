@@ -11,7 +11,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
@@ -31,7 +33,9 @@ public class WorkerHomescreenController implements Initializable {
     private Label label1;
 
     @FXML
-    private Button but1, but2, but3, but4;
+    private Button but1, but2, but3, but4, but5;
+    @FXML
+    private DatePicker GeneralDate2;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -49,7 +53,16 @@ public class WorkerHomescreenController implements Initializable {
     @FXML
     private void openRegisterMissing(ActionEvent event) {
         utilities.newPane("RegisterMissing", but2, mainpage, label1);
+        
     }
+    @FXML
+    private void openRegisterFound(ActionEvent event) {
+    utilities.newPane("RegisterFound", but5, mainpage, label1);
+    
+        
+        
+    }
+
 
     @FXML
     private void openReports(ActionEvent event) {
@@ -84,6 +97,11 @@ public class WorkerHomescreenController implements Initializable {
         Utilities.offHover("User Roles", but4, label1, true);
     }
     
+    @FXML
+    private void offHoverbut5() {
+        Utilities.offHover("User Roles", but5, label1, true);
+    }
+    
     // All methods for hovering over a button
     @FXML
     private void onHoverbut1() {
@@ -103,6 +121,10 @@ public class WorkerHomescreenController implements Initializable {
     @FXML
     private void onHoverbut4() {
         Utilities.onHover("User Roles", but4, label1, true);
+    }
+    @FXML
+    private void onHoverbut5() {
+        Utilities.onHover("Register Found", but5, label1, true);
     }
     
     @FXML

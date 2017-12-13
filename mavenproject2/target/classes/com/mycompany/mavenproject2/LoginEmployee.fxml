@@ -30,7 +30,7 @@
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Button fx:id="buttonEmployee" layoutX="581.0" layoutY="275.0" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="253.0" text="Login" />
+                  <Button fx:id="buttonEmployee" layoutX="581.0" layoutY="275.0" onAction="#handleButtonAction" onKeyPressed="#handleButtonAction" prefHeight="25.0" prefWidth="253.0" text="Login" />
                   <Text layoutX="480.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" wrappingWidth="88.291015625">
                      <font>
                         <Font size="18.0" />
