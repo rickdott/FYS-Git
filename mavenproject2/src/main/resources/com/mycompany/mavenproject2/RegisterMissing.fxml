@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -234,7 +235,7 @@
                         <Font size="17.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Colour">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Primary Colour">
                      <VBox.margin>
                         <Insets right="10.0" top="10.0" />
                      </VBox.margin>
@@ -242,13 +243,21 @@
                         <Font size="17.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Special Characteristics">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Secondary Colour">
                      <VBox.margin>
-                        <Insets right="10.0" top="10.0" />
+                        <Insets right="10.0" top="8.0" />
                      </VBox.margin>
                      <font>
                         <Font size="17.0" />
                      </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Special Characteristics">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets right="10.0" top="8.0" />
+                     </VBox.margin>
                   </Text>
                </children>
             </VBox>
@@ -282,21 +291,25 @@
                         <Font size="24.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="BagageType">
+                  <ComboBox fx:id="LuggageType" prefHeight="29.0" prefWidth="302.0" promptText="Luggage Type">
                      <VBox.margin>
-                        <Insets right="40.0" top="8.0" />
+                        <Insets top="5.0" />
                      </VBox.margin>
-                  </TextField>
+                  </ComboBox>
                   <TextField fx:id="BagageBrand">
                      <VBox.margin>
-                        <Insets right="40.0" top="8.0" />
+                        <Insets right="40.0" top="7.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField fx:id="BagageColour">
+                  <ComboBox fx:id="BagagePrimaryColour" prefHeight="29.0" prefWidth="302.0" promptText="Colour">
                      <VBox.margin>
-                        <Insets right="40.0" top="8.0" />
+                        <Insets top="5.0" />
+                     </VBox.margin></ComboBox>
+                  <ComboBox fx:id="BagageSecondaryColour" prefHeight="29.0" prefWidth="302.0" promptText="Colour">
+                     <VBox.margin>
+                        <Insets top="8.0" />
                      </VBox.margin>
-                  </TextField>
+                  </ComboBox>
                   <TextField fx:id="BagageSpecialchar">
                      <VBox.margin>
                         <Insets right="40.0" top="8.0" />
@@ -331,6 +344,7 @@
                </GridPane.margin>
             </Button>
             <Button mnemonicParsing="false" onAction="#backToLogin" text="Back to login" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" onAction="#excelImport" text="Excel importeren" GridPane.columnIndex="2" GridPane.rowIndex="1" />
          </children>
       </GridPane>
       <Line endX="526.5" endY="647.0" startX="526.5" stroke="#363636" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="526.0" AnchorPane.rightAnchor="526.0" AnchorPane.topAnchor="0.0" />

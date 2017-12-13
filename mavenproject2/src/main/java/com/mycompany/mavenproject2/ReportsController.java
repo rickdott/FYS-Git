@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.mavenproject2;
 
 import java.sql.ResultSet;
@@ -44,13 +39,13 @@ public class ReportsController {
     @FXML
     private void populatePieChart(PieChart chart) throws SQLException {
         ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
-                new PieChart.Data("Schiphol", countAppearances("Schiphol")),
-                new PieChart.Data("Malaga", countAppearances("Malaga")),
-                new PieChart.Data("Parijs", countAppearances("Parijs")),
-                new PieChart.Data("London", countAppearances("London")),
-                new PieChart.Data("Athene", countAppearances("Athene")));
+                new PieChart.Data("1024", countAppearances("1024")),
+                new PieChart.Data("3000", countAppearances("3000")),
+                new PieChart.Data("1003", countAppearances("1003")),
+                new PieChart.Data("3005", countAppearances("3005")),
+                new PieChart.Data("4010", countAppearances("4010")));
         chart.setData(pieChartData);
-        chart.setTitle("Vermissingen 2017");
+        chart.setTitle("Vermissingen per kleur 2017");
     }
 
     @FXML
@@ -69,7 +64,7 @@ public class ReportsController {
     private int countAppearances(String destination) throws SQLException {
         int counter = 0;
 
-        String query = "SELECT * FROM Bagage WHERE destination = '";
+        String query = "SELECT * FROM Lostbagage WHERE primarycolour = '";
         query += destination;
         query += "'";
 
@@ -78,8 +73,10 @@ public class ReportsController {
         while (result.next()) {
             counter++;
         }
+        
         result.close();
         database.close();
+        
         return counter;
     }
 }

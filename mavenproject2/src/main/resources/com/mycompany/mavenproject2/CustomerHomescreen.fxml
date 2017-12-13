@@ -49,7 +49,7 @@
                         <Font name="System Bold Italic" size="28.0" />
                      </font>
                   </Text>
-                  <Button fx:id="but5" layoutX="692.0" layoutY="116.0" mnemonicParsing="false" onAction="#openRequestStatus" prefHeight="267.0" prefWidth="372.0" style="-fx-background-color: transparant transparant;" textFill="WHITE" AnchorPane.rightAnchor="188.0">
+                  <Button layoutX="692.0" layoutY="116.0" mnemonicParsing="false" onAction="#openRequestStatus" prefHeight="267.0" prefWidth="372.0" style="-fx-background-color: transparant transparant;" textFill="WHITE" AnchorPane.rightAnchor="188.0">
                      <font>
                         <Font size="27.0" />
                      </font>

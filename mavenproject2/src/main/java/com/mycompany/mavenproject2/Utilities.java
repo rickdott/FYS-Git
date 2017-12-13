@@ -6,9 +6,15 @@
 package com.mycompany.mavenproject2;
 
 import java.io.IOException;
+<<<<<<< HEAD
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+=======
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javafx.collections.ObservableList;
+>>>>>>> 165f83f7ca0edc1a8ea2bdc46ae54a18111acf1d
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -102,6 +108,7 @@ public class Utilities {
         }
     }
 
+<<<<<<< HEAD
     public static String GetCurrentDateTime2() {
 
         DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
@@ -111,4 +118,59 @@ public class Utilities {
 
     }
 
+=======
+    public static ObservableList initializeFoundLuggageFromResultSet(ResultSet result, ObservableList foundLuggageList) throws SQLException {
+        // Loop through the resultset, making a new 'FoundLuggage' Object 
+        // for every result, adding the attributes of the result to the 
+        // corresponding attribute in the FoundLuggage object
+        
+        while (result.next()) {
+            FoundLuggage luggage = new FoundLuggage();
+            luggage.setRegistrationnr(result.getInt("registrationnr"));
+            luggage.setDatefound(result.getString("datefound"));
+            luggage.setTimefound(result.getString("timefound"));
+            luggage.setLuggagetype(result.getString("luggagetype"));
+            luggage.setBrand(result.getString("brand"));
+            luggage.setFlightnumber(result.getString("flightnumber"));
+            luggage.setLuggagelabelnr(result.getString("luggagelabelnr"));
+            luggage.setLocationfound(result.getString("locationfound"));
+            luggage.setPrimarycolour(result.getString("primarycolour"));
+            luggage.setSecondarycolour(result.getString("secondarycolour"));
+            luggage.setSize(result.getString("size"));
+            luggage.setWeight(result.getString("weight"));
+            luggage.setPassenger_name_city(result.getString("passenger_name_city"));
+            luggage.setOtherchar(result.getString("otherchar"));
+            luggage.setIdpassenger(result.getInt("idpassenger"));
+            foundLuggageList.add(luggage);
+        }
+
+        return foundLuggageList;
+    }
+    
+    public static ObservableList initializeLostLuggageFromResultSet(ResultSet result, ObservableList foundLuggageList) throws SQLException {
+        // Loop through the resultset, making a new 'FoundLuggage' Object 
+        // for every result, adding the attributes of the result to the 
+        // corresponding attribute in the FoundLuggage object
+        
+        while (result.next()) {
+            LostLuggage luggage = new LostLuggage();
+            luggage.setRegistrationnr(result.getInt("registrationnr"));
+            luggage.setDateregistered(result.getString("dateregistered"));
+            luggage.setTimeregistered(result.getString("timeregistered"));
+            luggage.setLuggagetype(result.getString("luggagetype"));
+            luggage.setBrand(result.getString("brand"));
+            luggage.setFlightnumber(result.getString("flightnumber"));
+            luggage.setLuggagelabelnr(result.getString("luggagelabelnr"));
+            luggage.setPrimarycolour(result.getString("primarycolour"));
+            luggage.setSecondarycolour(result.getString("secondarycolour"));
+            luggage.setSize(result.getString("size"));
+            luggage.setWeight(result.getString("weight"));
+            luggage.setPassenger_name_city(result.getString("passenger_name_city"));
+            luggage.setOtherchar(result.getString("otherchar"));
+            luggage.setIdpassenger(result.getInt("idpassenger"));
+            foundLuggageList.add(luggage);
+        }
+        return foundLuggageList;
+    }
+>>>>>>> 165f83f7ca0edc1a8ea2bdc46ae54a18111acf1d
 }

@@ -5,21 +5,27 @@
  */
 package com.mycompany.mavenproject2;
 
+import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 /**
  *
- * @author Rick
+ * @author Rick, Matthijs
  */
 public class WorkerHomescreenController implements Initializable {
     
@@ -33,13 +39,19 @@ public class WorkerHomescreenController implements Initializable {
     private Label label1;
 
     @FXML
+<<<<<<< HEAD
     private Button but1, but2, but3, but4, but5;
     @FXML
     private DatePicker GeneralDate2;
     
+=======
+    private Button but1, but2, but3, but4;
+        
+>>>>>>> 165f83f7ca0edc1a8ea2bdc46ae54a18111acf1d
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        //String Check = "SELECT * FROM Employee WHERE function = Medewerker";
+        //but4.setVisible(false);
     }
     
     Utilities utilities = new Utilities();
@@ -128,9 +140,8 @@ public class WorkerHomescreenController implements Initializable {
     }
     
     @FXML
-    private void backToLogin() {
-        utilities.newAnchorpane("Login", actualmain);
-    }
+    private void backToLogin(ActionEvent event) {
+        utilities.newAnchorpane("LoginEmployee", actualmain);  
     
-    
+}
 }
