@@ -61,17 +61,6 @@ public class RequestStatusController implements Initializable {
             brandField, flightNrField, labelNrField, locationFoundField,
             sizeField, weightField, nameAndCityField, specialCharField;
 
-    //dropdownlists
-    ObservableList<String> colours = FXCollections.observableArrayList(
-            "Yellow", "Olive", "Red", "Darkred", "Pink", "Purple", "Violet",
-            "Blue", "Lightblue", "Darkblue", "Bluegreen", "Green", "Darkgreen",
-            "Lightgreen", "Gray", "Darkgray", "Lightgray", "Brown", "Darkbrown",
-            "Lightbrown", "White", "Black", "Cream");
-
-    ObservableList<String> types = FXCollections.observableArrayList(
-            "Suitcase", "Bag", "Bagpack", "Box", "Sports",
-            "Bag", "Business Case", "Case", "Other");
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         foundLuggageTableView.setItems(this.foundLuggageList);
@@ -84,9 +73,9 @@ public class RequestStatusController implements Initializable {
                 System.out.println("Attached column '" + propertyName + "' in tableview to matching attribute");
             }
         }
-        typeComboBox.setItems(types);
-        mainColourComboBox.setItems(colours);
-        secondaryColourComboBox.setItems(colours);
+        typeComboBox.setItems(Utilities.types);
+        mainColourComboBox.setItems(Utilities.colours);
+        secondaryColourComboBox.setItems(Utilities.colours);
     }
 
     Utilities utilities = new Utilities();

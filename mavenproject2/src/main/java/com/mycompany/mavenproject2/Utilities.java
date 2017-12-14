@@ -11,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,6 +27,16 @@ import javafx.scene.layout.Pane;
  */
 public class Utilities {
 
+    public static ObservableList<String> colours = FXCollections.observableArrayList(
+            "Yellow", "Olive", "Red", "Darkred", "Pink", "Purple", "Violet",
+            "Blue", "Lightblue", "Darkblue", "Bluegreen", "Green", "Darkgreen",
+            "Lightgreen", "Gray", "Darkgray", "Lightgray", "Brown", "Darkbrown",
+            "Lightbrown", "White", "Black", "Cream");
+
+    public static ObservableList<String> types = FXCollections.observableArrayList(
+            "Suitcase", "Bag", "Bagpack", "Box", "Sports",
+            "Bag", "Business Case", "Case", "Other");
+    
     // Two methods to use when hovering over a button
     @FXML
     public static void onHover(String currentPage, Button btn, Label label) {
