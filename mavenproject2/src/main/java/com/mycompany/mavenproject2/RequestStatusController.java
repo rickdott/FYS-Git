@@ -16,6 +16,8 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -24,6 +26,7 @@ import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 /**
@@ -34,6 +37,9 @@ public class RequestStatusController implements Initializable {
 
     @FXML
     private TableView foundLuggageTableView;
+
+    @FXML
+    private Button editSelectedButton, submitButton;
 
     private ObservableList<FoundLuggage> foundLuggageList
             = FXCollections.observableArrayList();
@@ -55,6 +61,9 @@ public class RequestStatusController implements Initializable {
 
     @FXML
     private VBox vbox1, vbox2;
+    
+    @FXML
+    private HBox hboxRadio;
 
     @FXML
     private TextField regNrField, dateFoundField, timeFoundField,
@@ -64,7 +73,7 @@ public class RequestStatusController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         foundLuggageTableView.setItems(this.foundLuggageList);
-        
+
         for (int i = 0; i < foundLuggageTableView.getColumns().size(); i++) {
             TableColumn tc = (TableColumn) foundLuggageTableView.getColumns().get(i);
             String propertyName = tc.getId();
@@ -106,27 +115,79 @@ public class RequestStatusController implements Initializable {
 
         // Show the TableView
         makeTextFieldsAndLabelsInvisible();
-        foundLuggageTableView.setVisible(true);
+        makeTableViewVisible();
+    }
+
+    @FXML
+    private void editSelected() {
+        System.out.println("You clicked on edit selected!");
+
+        // Acquire the selected luggage item and fill the textFields with the data
+        if (lostSelected()) {
+            LostLuggage luggage = (LostLuggage) foundLuggageTableView.getSelectionModel().getSelectedItem();
+            initTextFieldsWithLostLuggage(luggage);
+        } else {
+            FoundLuggage luggage = (FoundLuggage) foundLuggageTableView.getSelectionModel().getSelectedItem();
+            initTextFieldsWithFoundLuggage(luggage);
+        }
+
+        makeTableViewInvisible();
+        makeTextFieldsAndLabelsVisible();
+        submitButton.setVisible(false);
+        hboxRadio.setVisible(false);
+    }
+    
+    @FXML
+    private void resetEdit() {
+        
+    }
+    
+    @FXML
+    private void deleteEdit() {
+        infoBox("Are you sure you want to remove this?", "Remove", "What is this?");
+        
+        Database database = new Database();
+        String regNr = regNrField.getText();
+        database.executeUpdateQuery("DELETE FROM Lostbagage WHERE registrationnr = " + regNr);
+    }
+    
+    @FXML
+    private void cancelEdit() {
+        makeTextFieldsAndLabelsInvisible();
+        makeTableViewVisible();
+    }
+    
+    @FXML
+    private void saveEdit() {
+        
+    }
+    
+    public static void infoBox(String infoMessage, String titleBar, String headerMessage) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle(titleBar);
+        alert.setHeaderText(headerMessage);
+        alert.setContentText(infoMessage);
+        alert.showAndWait();
     }
 
     private String getQueryFromTextfields() {
         // Creates new List of Strings to be included in the query
         List<String> queryList = new ArrayList();
         String query;
-        
+
         Database database = new Database();
-        
+
         if (lostSelected()) {
             if (!regNrField.getText().isEmpty()) {
                 queryList.add("registrationnr = '" + regNrField.getText() + "' ");
             }
 
             if (!dateFoundField.getText().isEmpty()) {
-                queryList.add("datefound = '" + dateFoundField.getText() + "' ");
+                queryList.add("dateregistered = '" + dateFoundField.getText() + "' ");
             }
 
             if (!timeFoundField.getText().isEmpty()) {
-                queryList.add("timefound = '" + timeFoundField.getText() + "' ");
+                queryList.add("timeregistered = '" + timeFoundField.getText() + "' ");
             }
 
             if (typeComboBox.getValue() != null) {
@@ -285,17 +346,14 @@ public class RequestStatusController implements Initializable {
         }
     }
 
-    private void initTableView() {
-        foundLuggageTableView.setItems(this.foundLuggageList);
+    private void makeTableViewInvisible() {
+        foundLuggageTableView.setVisible(false);
+        editSelectedButton.setVisible(false);
+    }
 
-        for (int i = 0; i < foundLuggageTableView.getColumns().size(); i++) {
-            TableColumn tc = (TableColumn) foundLuggageTableView.getColumns().get(i);
-            String propertyName = tc.getId();
-            if (propertyName != null && !propertyName.isEmpty()) {
-                tc.setCellValueFactory(new PropertyValueFactory<>(propertyName));
-                System.out.println("Attached column '" + propertyName + "' in tableview to matching attribute");
-            }
-        }
+    private void makeTableViewVisible() {
+        foundLuggageTableView.setVisible(true);
+        editSelectedButton.setVisible(true);
     }
 
     private void makeTableViewFound() {
@@ -342,7 +400,6 @@ public class RequestStatusController implements Initializable {
                 columnList.get(i).setVisible(true);
             }
         }
-
     }
 
     private boolean lostSelected() {
@@ -350,5 +407,39 @@ public class RequestStatusController implements Initializable {
         toggleList.addAll(lostFoundGroup.getToggles());
 
         return (toggleList.get(0).isSelected());
+    }
+    
+    private void initTextFieldsWithLostLuggage(LostLuggage luggage) {
+        regNrField.setText(Integer.toString(luggage.getRegistrationnr()));
+        dateFoundField.setText(luggage.getDateregistered());
+        timeFoundField.setText(luggage.getTimeregistered());
+        typeComboBox.getSelectionModel().select(luggage.getLuggagetype());
+        brandField.setText(luggage.getBrand());
+        flightNrField.setText(luggage.getFlightnumber());
+        labelNrField.setText(luggage.getLuggagelabelnr());
+        mainColourComboBox.getSelectionModel().select(luggage.getPrimarycolour());
+        secondaryColourComboBox.getSelectionModel().select(luggage.getSecondarycolour());
+        sizeField.setText(luggage.getSize());
+        weightField.setText(luggage.getWeight());
+        nameAndCityField.setText(luggage.getPassenger_name_city());
+        specialCharField.setText(luggage.getOtherchar());
+        
+    }
+    
+    private void initTextFieldsWithFoundLuggage(FoundLuggage luggage) {
+        regNrField.setText(Integer.toString(luggage.getRegistrationnr()));
+        dateFoundField.setText(luggage.getDatefound());
+        timeFoundField.setText(luggage.getTimefound());
+        typeComboBox.getSelectionModel().select(luggage.getLuggagetype());
+        brandField.setText(luggage.getBrand());
+        flightNrField.setText(luggage.getFlightnumber());
+        labelNrField.setText(luggage.getLuggagelabelnr());
+        locationFoundField.setText(luggage.getLocationfound());
+        mainColourComboBox.getSelectionModel().select(luggage.getPrimarycolour());
+        secondaryColourComboBox.getSelectionModel().select(luggage.getSecondarycolour());
+        sizeField.setText(luggage.getSize());
+        weightField.setText(luggage.getWeight());
+        nameAndCityField.setText(luggage.getPassenger_name_city());
+        specialCharField.setText(luggage.getOtherchar());
     }
 }
