@@ -24,6 +24,7 @@ public class Luggage {
     public Luggage() {
         
     }
+    
     public int getRegistrationnr() {
         return registrationnr;
     }

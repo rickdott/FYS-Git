@@ -245,7 +245,7 @@
                   </StackPane>
                   <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="submitButton" mnemonicParsing="false" onAction="#getInput" style="-fx-background-color: #d81e05; -fx-background-radius: 0;" text="Submit" textFill="WHITE">
+                        <Button fx:id="submitButton" mnemonicParsing="false" onAction="#getInput" style="-fx-background-color: #d81e05; -fx-background-radius: 0; -fx-font-size: 18; -fx-font-weight: bold;" text="Submit" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
@@ -255,9 +255,9 @@
                         </Button>
                      </children>
                   </HBox>
-                  <HBox fx:id="editHbox" alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                  <HBox fx:id="editHbox" alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" visible="false">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#resetEdit" style="-fx-background-color: #d81e05; -fx-background-radius: 0;" text="Reset" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#resetEdit" style="-fx-background-color: #d81e05; -fx-background-radius: 0; -fx-font-size: 18; -fx-font-weight: bold;" text="Reset" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
@@ -265,7 +265,7 @@
                               <Insets right="10.0" />
                            </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#deleteEdit" style="-fx-background-color: #d81e05; -fx-background-radius: 0;" text="Delete" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#deleteEdit" style="-fx-background-color: #d81e05; -fx-background-radius: 0; -fx-font-size: 18; -fx-font-weight: bold;" text="Delete" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
@@ -273,7 +273,7 @@
                               <Insets right="70.0" />
                            </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#cancelEdit" style="-fx-background-color: #d81e05; -fx-background-radius: 0;" text="Cancel" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#cancelEdit" style="-fx-background-color: #d81e05; -fx-background-radius: 0; -fx-font-size: 18; -fx-font-weight: bold;" text="Cancel" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
@@ -281,7 +281,7 @@
                               <Insets right="10.0" />
                            </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#saveEdit" style="-fx-background-color: #d81e05; -fx-background-radius: 0;" text="Save" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#saveEdit" style="-fx-background-color: #d81e05; -fx-background-radius: 0; -fx-font-size: 18; -fx-font-weight: bold;" text="Save" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
@@ -322,7 +322,7 @@
             <TableColumn fx:id="idpassenger" prefWidth="75.0" text="PassengerID" />
         </columns>
       </TableView>
-      <Button fx:id="editSelectedButton" layoutX="902.0" layoutY="590.0" mnemonicParsing="false" onAction="#editSelected" prefHeight="40.0" prefWidth="141.0" style="-fx-background-color: #d81e05; -fx-background-radius: 0;" text="Edit Selected" textFill="WHITE" visible="false" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="902.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="590.0">
+      <Button fx:id="editSelectedButton" layoutX="902.0" layoutY="590.0" mnemonicParsing="false" onAction="#editSelected" prefHeight="40.0" prefWidth="141.0" style="-fx-background-color: #d81e05; -fx-background-radius: 0; -fx-font-size: 18; -fx-font-weight: bold;" text="Edit Selected" textFill="WHITE" visible="false" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="902.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="590.0">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
