@@ -35,7 +35,6 @@ import javafx.scene.layout.VBox;
  *
  * @author Rick
  */
-
 public class RequestStatusController implements Initializable {
 
     @FXML
@@ -152,7 +151,7 @@ public class RequestStatusController implements Initializable {
         } else {
             FoundLuggage luggage = (FoundLuggage) foundLuggageTableView.getSelectionModel().getSelectedItem();
         }
-        
+
     }
 
     @FXML
@@ -190,71 +189,69 @@ public class RequestStatusController implements Initializable {
         Database database = new Database();
         String query;
 
-        if (lostSelected()) {
-            LostLuggage luggage = (LostLuggage) foundLuggageTableView.getSelectionModel().getSelectedItem();
-            query = getUpdateQuery(luggage, database);
-        } else {
-            FoundLuggage luggage = (FoundLuggage) foundLuggageTableView.getSelectionModel().getSelectedItem();
-            query = getUpdateQuery(luggage, database);
-        }
+        Luggage luggage = (Luggage) foundLuggageTableView.getSelectionModel().getSelectedItem();
+        query = getUpdateQuery(luggage, database);
 
         database.executeUpdateQuery(query);
         database.close();
         foundLuggageTableView.refresh();
         makeTextFieldsAndLabelsInvisible();
         makeTableViewVisible();
-        
+
         // Make two overloaded methods, one with Found, one with Lost
     }
 
-    private String getUpdateQuery(LostLuggage luggage, Database database) {
+    private String getUpdateQuery(Luggage luggage, Database database) {
         List<String> queryList = new ArrayList();
         String query;
 
-//        if (!regNrField.getText().equals(luggage.getRegistrationnr())) {
+        if (lostSelected()) {
+            //        if (!regNrField.getText().equals(luggage.getRegistrationnr())) {
 //            queryList.add("registrationnr = '" + regNrField.getText() + "' ");
 //        }
-        if (dateFoundField.getText() != null) {
-            if (!dateFoundField.getText().equals(luggage.getDateregistered())) {
-                queryList.add("dateregistered = '" + dateFoundField.getText() + "'");
-                luggage.setDateregistered(dateFoundField.getText());
-            }
-        }
+            LostLuggage lluggage = (LostLuggage) luggage;
 
-        if (timeFoundField.getText() != null) {
-            if (!timeFoundField.getText().equals(luggage.getTimeregistered())) {
-                queryList.add("timeregistered = '" + timeFoundField.getText() + "'");
-                luggage.setTimeregistered(timeFoundField.getText());
+            if (dateFoundField.getText() != null) {
+                if (!dateFoundField.getText().equals(lluggage.getDateregistered())) {
+                    queryList.add("dateregistered = '" + dateFoundField.getText() + "'");
+                    lluggage.setDateregistered(dateFoundField.getText());
+                }
             }
-        }
 
-        // Check this
+            if (timeFoundField.getText() != null) {
+                if (!timeFoundField.getText().equals(lluggage.getTimeregistered())) {
+                    queryList.add("timeregistered = '" + timeFoundField.getText() + "'");
+                    lluggage.setTimeregistered(timeFoundField.getText());
+                }
+            }
+
+            // Check this
 //        if (typeComboBox.getValue() != null) {
 //            String type = database.executeStringListQuery(String.format("SELECT idluggage_type FROM Luggagetype WHERE english = '%s'", typeComboBox.getValue()));
 //            queryList.add(String.format("luggagetype = '%s'", type));
 //        }
-        if (brandField.getText() != null) {
-            if (!brandField.getText().equals(luggage.getBrand())) {
-                queryList.add("brand = '" + brandField.getText() + "'");
-                luggage.setBrand(brandField.getText());
+            if (brandField.getText() != null) {
+                if (!brandField.getText().equals(lluggage.getBrand())) {
+                    queryList.add("brand = '" + brandField.getText() + "'");
+                    lluggage.setBrand(brandField.getText());
+                }
             }
-        }
 
-        if (flightNrField.getText() != null) {
-            if (!flightNrField.getText().equals(luggage.getFlightnumber())) {
-                queryList.add("flightnumber = '" + flightNrField.getText() + "'");
-                luggage.setFlightnumber(flightNrField.getText());
+            if (flightNrField.getText() != null) {
+                if (!flightNrField.getText().equals(lluggage.getFlightnumber())) {
+                    queryList.add("flightnumber = '" + flightNrField.getText() + "'");
+                    lluggage.setFlightnumber(flightNrField.getText());
+                }
             }
-        }
 
-        if (labelNrField.getText() != null) {
-            if (!labelNrField.getText().equals(luggage.getLuggagelabelnr())) {
-                queryList.add("luggagelabelnr = '" + labelNrField.getText() + "'");
-                luggage.setLuggagelabelnr(labelNrField.getText());
+            if (labelNrField.getText() != null) {
+                if (!labelNrField.getText().equals(lluggage.getLuggagelabelnr())) {
+                    queryList.add("luggagelabelnr = '" + labelNrField.getText() + "'");
+                    lluggage.setLuggagelabelnr(labelNrField.getText());
+                }
             }
-        }
 
-        // Check these two
+            // Check these two
 //        if (mainColourComboBox.getValue() != null) {
 //            String ral = database.executeStringListQuery(String.format("SELECT ralcode FROM Colour WHERE english = '%s'", mainColourComboBox.getValue()));
 //            queryList.add(String.format("primarycolour = '%s'", ral));
@@ -264,92 +261,89 @@ public class RequestStatusController implements Initializable {
 //            String ral = database.executeStringListQuery(String.format("SELECT ralcode FROM Colour WHERE english = '%s'", secondaryColourComboBox.getValue()));
 //            queryList.add(String.format("secondarycolour = '%s'", ral));
 //        }
-        if (sizeField.getText() != null) {
-            if (!sizeField.getText().equals(luggage.getSize())) {
-                queryList.add("size = '" + sizeField.getText() + "'");
-                luggage.setSize(sizeField.getText());
-            }
-        }
-
-        if (weightField.getText() != null) {
-            if (!weightField.getText().equals(luggage.getWeight())) {
-                queryList.add("weight = '" + weightField.getText() + "'");
-                luggage.setWeight(weightField.getText());
-            }
-        }
-
-        if (nameAndCityField.getText() != null) {
-            if (!nameAndCityField.getText().equals(luggage.getPassenger_name_city())) {
-                queryList.add("passenger_name_city = '" + nameAndCityField.getText() + "'");
-                luggage.setPassenger_name_city(nameAndCityField.getText());
+            if (sizeField.getText() != null) {
+                if (!sizeField.getText().equals(lluggage.getSize())) {
+                    queryList.add("size = '" + sizeField.getText() + "'");
+                    lluggage.setSize(sizeField.getText());
+                }
             }
 
-            if (!specialCharField.getText().equals(luggage.getOtherchar())) {
-                queryList.add("otherchar = '" + specialCharField.getText() + "'");
-                luggage.setOtherchar(specialCharField.getText());
+            if (weightField.getText() != null) {
+                if (!weightField.getText().equals(lluggage.getWeight())) {
+                    queryList.add("weight = '" + weightField.getText() + "'");
+                    lluggage.setWeight(weightField.getText());
+                }
             }
-        }
 
-        // Start of the query
-        query = stringListToUpdateQuery(queryList, "UPDATE Lostbagage SET ");
+            if (nameAndCityField.getText() != null) {
+                if (!nameAndCityField.getText().equals(lluggage.getPassenger_name_city())) {
+                    queryList.add("passenger_name_city = '" + nameAndCityField.getText() + "'");
+                    lluggage.setPassenger_name_city(nameAndCityField.getText());
+                }
 
-        return query;
-    }
+                if (!specialCharField.getText().equals(lluggage.getOtherchar())) {
+                    queryList.add("otherchar = '" + specialCharField.getText() + "'");
+                    lluggage.setOtherchar(specialCharField.getText());
+                }
+            }
 
-    private String getUpdateQuery(FoundLuggage luggage, Database database) {
-        List<String> queryList = new ArrayList();
-        String query;
+            // Start of the query
+            query = stringListToUpdateQuery(queryList, "UPDATE Lostbagage SET ");
 
-//        if (!regNrField.getText().equals(luggage.getRegistrationnr())) {
+            return query;
+        } else {
+            //        if (!regNrField.getText().equals(luggage.getRegistrationnr())) {
 //            queryList.add("registrationnr = '" + regNrField.getText() + "'");
 //        }
-        if (dateFoundField.getText() != null) {
-            if (!dateFoundField.getText().equals(luggage.getDatefound())) {
-                queryList.add("datefound = '" + dateFoundField.getText() + "'");
-                luggage.setDatefound(dateFoundField.getText());
-            }
-        }
+            FoundLuggage fluggage = (FoundLuggage) luggage;
 
-        if (timeFoundField.getText() != null) {
-            if (!timeFoundField.getText().equals(luggage.getTimefound())) {
-                queryList.add("timefound = '" + timeFoundField.getText() + "'");
-                luggage.setTimefound(timeFoundField.getText());
+            if (dateFoundField.getText() != null) {
+                if (!dateFoundField.getText().equals(fluggage.getDatefound())) {
+                    queryList.add("datefound = '" + dateFoundField.getText() + "'");
+                    fluggage.setDatefound(dateFoundField.getText());
+                }
             }
-        }
 
-        //check this
+            if (timeFoundField.getText() != null) {
+                if (!timeFoundField.getText().equals(fluggage.getTimefound())) {
+                    queryList.add("timefound = '" + timeFoundField.getText() + "'");
+                    fluggage.setTimefound(timeFoundField.getText());
+                }
+            }
+
+            //check this
 //        if (typeComboBox.getValue() != null) {
 //            String type = database.executeStringListQuery(String.format("SELECT idluggage_type FROM Luggagetype WHERE english = '%s'", typeComboBox.getValue()));
 //            queryList.add(String.format("luggagetype = '%s'", type));
 //        }
-        if (brandField.getText() != null) {
-            if (!brandField.getText().equals(luggage.getBrand())) {
-                queryList.add("brand = '" + brandField.getText() + "'");
-                luggage.setBrand(brandField.getText());
+            if (brandField.getText() != null) {
+                if (!brandField.getText().equals(fluggage.getBrand())) {
+                    queryList.add("brand = '" + brandField.getText() + "'");
+                    fluggage.setBrand(brandField.getText());
+                }
             }
-        }
 
-        if (flightNrField.getText() != null) {
-            if (!flightNrField.getText().equals(luggage.getFlightnumber())) {
-                queryList.add("flightnumber = '" + flightNrField.getText() + "'");
-                luggage.setFlightnumber(flightNrField.getText());
+            if (flightNrField.getText() != null) {
+                if (!flightNrField.getText().equals(fluggage.getFlightnumber())) {
+                    queryList.add("flightnumber = '" + flightNrField.getText() + "'");
+                    fluggage.setFlightnumber(flightNrField.getText());
+                }
             }
-        }
 
-        if (labelNrField.getText() != null) {
-            if (!labelNrField.getText().equals(luggage.getLuggagelabelnr())) {
-                queryList.add("luggagelabelnr = '" + labelNrField.getText() + "'");
-                luggage.setLuggagelabelnr(labelNrField.getText());
+            if (labelNrField.getText() != null) {
+                if (!labelNrField.getText().equals(fluggage.getLuggagelabelnr())) {
+                    queryList.add("luggagelabelnr = '" + labelNrField.getText() + "'");
+                    fluggage.setLuggagelabelnr(labelNrField.getText());
+                }
             }
-        }
 
-        if (locationFoundField.getText() != null) {
-            if (!locationFoundField.getText().equals(luggage.getLocationfound())) {
-                queryList.add("locationfound = '" + locationFoundField.getText() + "'");
-                luggage.setLocationfound(locationFoundField.getText());
+            if (locationFoundField.getText() != null) {
+                if (!locationFoundField.getText().equals(fluggage.getLocationfound())) {
+                    queryList.add("locationfound = '" + locationFoundField.getText() + "'");
+                    fluggage.setLocationfound(locationFoundField.getText());
+                }
             }
-        }
-        // Fix these
+            // Fix these
 //        if (mainColourComboBox.getValue() != null) {
 //            String ral = database.executeStringListQuery(String.format("SELECT ralcode FROM Colour WHERE english = '%s'", mainColourComboBox.getValue()));
 //            queryList.add(String.format("primarycolour = '%s'", ral));
@@ -360,37 +354,38 @@ public class RequestStatusController implements Initializable {
 //            queryList.add(String.format("secondarycolour = '%s'", ral));
 //        }
 
-        if (sizeField.getText() != null) {
-            if (!sizeField.getText().equals(luggage.getSize())) {
-                queryList.add("size = '" + sizeField.getText() + "'");
-                luggage.setSize(sizeField.getText());
+            if (sizeField.getText() != null) {
+                if (!sizeField.getText().equals(fluggage.getSize())) {
+                    queryList.add("size = '" + sizeField.getText() + "'");
+                    fluggage.setSize(sizeField.getText());
+                }
             }
-        }
 
-        if (weightField.getText() != null) {
-            if (!weightField.getText().equals(luggage.getWeight())) {
-                queryList.add("weight = '" + weightField.getText() + "'");
-                luggage.setWeight(weightField.getText());
+            if (weightField.getText() != null) {
+                if (!weightField.getText().equals(fluggage.getWeight())) {
+                    queryList.add("weight = '" + weightField.getText() + "'");
+                    fluggage.setWeight(weightField.getText());
+                }
             }
-        }
 
-        if (nameAndCityField.getText() != null) {
-            if (!nameAndCityField.getText().equals(luggage.getPassenger_name_city())) {
-                queryList.add("passenger_name_city = '" + nameAndCityField.getText() + "'");
-                luggage.setPassenger_name_city(nameAndCityField.getText());
+            if (nameAndCityField.getText() != null) {
+                if (!nameAndCityField.getText().equals(fluggage.getPassenger_name_city())) {
+                    queryList.add("passenger_name_city = '" + nameAndCityField.getText() + "'");
+                    fluggage.setPassenger_name_city(nameAndCityField.getText());
+                }
             }
-        }
 
-        if (specialCharField.getText() != null) {
-            if (!specialCharField.getText().equals(luggage.getOtherchar())) {
-                queryList.add("otherchar = '" + specialCharField.getText() + "'");
-                luggage.setOtherchar(specialCharField.getText());
+            if (specialCharField.getText() != null) {
+                if (!specialCharField.getText().equals(fluggage.getOtherchar())) {
+                    queryList.add("otherchar = '" + specialCharField.getText() + "'");
+                    fluggage.setOtherchar(specialCharField.getText());
+                }
             }
+
+            query = stringListToUpdateQuery(queryList, "UPDATE Foundbagageinventory SET ");
+
+            return query;
         }
-
-        query = stringListToUpdateQuery(queryList, "UPDATE Foundbagageinventory SET ");
-
-        return query;
     }
 
     private String stringListToUpdateQuery(List<String> stringList, String startOfQuery) {
