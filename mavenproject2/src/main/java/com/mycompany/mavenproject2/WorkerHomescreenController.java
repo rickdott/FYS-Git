@@ -95,7 +95,7 @@ public class WorkerHomescreenController implements Initializable {
 
     @FXML
     private void offHoverbut5() {
-        Utilities.offHover("User Roles", but5, label1, true);
+        Utilities.offHover("Register Found", but5, label1);
     }
 
     // All methods for hovering over a button
@@ -121,7 +121,7 @@ public class WorkerHomescreenController implements Initializable {
 
     @FXML
     private void onHoverbut5() {
-        Utilities.onHover("Register Found", but5, label1, true);
+        Utilities.onHover("Register Found", but5, label1);
     }
 
     @FXML

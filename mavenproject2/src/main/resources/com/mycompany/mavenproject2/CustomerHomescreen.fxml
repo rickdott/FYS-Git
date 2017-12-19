@@ -5,9 +5,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <AnchorPane id="AnchorPane" fx:id="paneCustomerHomescreen" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.CustomerHomescreenController">
    <children>
@@ -31,39 +29,21 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="130.0" prefWidth="1287.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="267.0" layoutX="220.0" layoutY="115.0" stroke="BLACK" strokeType="INSIDE" width="379.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="267.0" layoutX="711.0" layoutY="115.0" stroke="BLACK" strokeType="INSIDE" width="379.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="69.0" layoutX="568.0" layoutY="424.0" stroke="BLACK" strokeType="INSIDE" width="143.0" />
-                  <Button layoutX="568.0" layoutY="424.0" mnemonicParsing="false" onAction="#openFaq" prefHeight="71.0" prefWidth="143.0" style="-fx-background-color: transparent;" textFill="WHITE">
+                  <Button fx:id="faqBut" layoutX="568.0" layoutY="424.0" mnemonicParsing="false" onAction="#openFaq" onMouseEntered="#onHoverFaqBut" onMouseExited="#offHoverFaqBut" prefHeight="71.0" prefWidth="143.0" styleClass="button-large" stylesheets="@../../../styles/Styles.css" text="F.A.Q." textFill="WHITE">
                      <font>
                         <Font size="27.0" />
                      </font>
                   </Button>
-                  <Text fill="#f5f2f2" layoutX="241.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register missing luggage ">
-                     <font>
-                        <Font name="System Bold Italic" size="28.0" />
-                     </font>
-                  </Text>
-                  <Text fill="#f5f2f2" layoutX="806.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Request status">
-                     <font>
-                        <Font name="System Bold Italic" size="28.0" />
-                     </font>
-                  </Text>
-                  <Button layoutX="692.0" layoutY="116.0" mnemonicParsing="false" onAction="#openRequestStatus" prefHeight="267.0" prefWidth="372.0" style="-fx-background-color: transparant transparant;" textFill="WHITE" AnchorPane.rightAnchor="188.0">
+                  <Button fx:id="reqStatBut" layoutX="711.0" layoutY="116.0" mnemonicParsing="false" onAction="#openRequestStatus" onMouseEntered="#onHoverReqStat" onMouseExited="#offHoverReqStat" prefHeight="267.0" prefWidth="372.0" styleClass="button-large" stylesheets="@../../../styles/Styles.css" text="Request Status" textFill="WHITE" AnchorPane.rightAnchor="195.0">
                      <font>
                         <Font size="27.0" />
                      </font>
                   </Button>
-                  <Button layoutX="220.0" layoutY="115.0" mnemonicParsing="false" onAction="#openRegisterMissing" prefHeight="267.0" prefWidth="379.0" style="-fx-background-color: transparant;" textFill="WHITE" AnchorPane.leftAnchor="220.0">
+                  <Button fx:id="regMisBut" layoutX="189.0" layoutY="116.0" mnemonicParsing="false" onAction="#openRegisterMissing" onMouseEntered="#onHoverRegMiss" onMouseExited="#offHoverRegMiss" prefHeight="267.0" prefWidth="379.0" styleClass="button-large" stylesheets="@../../../styles/Styles.css" text="Register Missing" textFill="WHITE" AnchorPane.leftAnchor="189.0">
                      <font>
                         <Font size="27.0" />
                      </font>
                   </Button>
-                  <Text fill="#f5f2f2" layoutX="607.0" layoutY="469.0" strokeType="OUTSIDE" strokeWidth="0.0" text="F.A.Q">
-                     <font>
-                        <Font name="System Bold Italic" size="25.0" />
-                     </font>
-                  </Text>
                </children>
             </AnchorPane>
         </items>

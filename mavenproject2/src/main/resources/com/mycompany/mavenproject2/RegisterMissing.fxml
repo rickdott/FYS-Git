@@ -338,7 +338,7 @@
                   </Text>
                </children>
             </VBox>
-            <Button mnemonicParsing="false" onAction="#openRegisterThankyou" style="-fx-background-color: #d81e05; -fx-border-color: white;" text="Submit" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            <Button mnemonicParsing="false" onAction="#openRegisterThankyou" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Submit" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets right="40.0" />
                </GridPane.margin>
