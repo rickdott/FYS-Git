@@ -11,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,7 +27,23 @@ import javafx.scene.layout.Pane;
  */
 public class Utilities {
 
-    // Two methods to use when hovering over a button
+    public static ObservableList<String> colours = FXCollections.observableArrayList(
+            "Yellow", "Olive", "Red", "Darkred", "Pink", "Purple", "Violet",
+            "Blue", "Lightblue", "Darkblue", "Bluegreen", "Green", "Darkgreen",
+            "Lightgreen", "Gray", "Darkgray", "Lightgray", "Brown", "Darkbrown",
+            "Lightbrown", "White", "Black", "Cream");
+
+    public static ObservableList<String> types = FXCollections.observableArrayList(
+            "Suitcase", "Bag", "Bagpack", "Box", "Sports",
+            "Bag", "Business Case", "Case", "Other");
+    
+    // Three methods to use when hovering over a button, overloaded
+    // First method is only used for big button
+    @FXML
+    public static void onHover(Button btn) {
+        btn.setStyle("-fx-background-color: #951504; -fx-background-radius: 0; -fx-border-width: 1 0 0 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 30;");
+    }
+    
     @FXML
     public static void onHover(String currentPage, Button btn, Label label) {
         System.out.println("onHover activated");
@@ -43,7 +60,13 @@ public class Utilities {
         }
     }
 
-    // Two methods to use when hovered off the button, overloaded
+    // Three methods to use when hovered off the button, overloaded
+    // First method is only used for big buttons
+    @FXML
+    public static void offHover(Button btn) {
+        btn.setStyle("-fx-background-color: #D81E05; -fx-background-radius: 0; -fx-border-width: 1 0 0 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 30;");
+    }
+            
     @FXML
     public static void offHover(String currentPage, Button btn, Label label) {
         System.out.println("offHover activated");

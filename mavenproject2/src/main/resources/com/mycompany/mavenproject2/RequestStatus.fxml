@@ -33,7 +33,7 @@
          <children>
             <VBox fx:id="vbox1" prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.columnIndex="1">
                <children>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox fx:id="hboxRadio" prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <Label text="Looking for:  ">
                            <font>
@@ -245,7 +245,7 @@
                   </StackPane>
                   <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#getInput" style="-fx-background-color: #d81e05; -fx-background-radius: 0; -fx-border-width: 1 0 0 0; -fx-border-color: white;" text="Submit" textFill="WHITE">
+                        <Button fx:id="submitButton" mnemonicParsing="false" onAction="#getInput" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Submit" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
@@ -254,6 +254,42 @@
                            </HBox.margin>
                         </Button>
                      </children>
+                  </HBox>
+                  <HBox fx:id="editHbox" alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" visible="false">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#resetEdit" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Reset" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#deleteEdit" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Delete" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="70.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#cancelEdit" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Cancel" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#saveEdit" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Save" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets right="30.0" />
+                     </VBox.margin>
                   </HBox>
                </children>
                <opaqueInsets>
@@ -286,5 +322,10 @@
             <TableColumn fx:id="idpassenger" prefWidth="75.0" text="PassengerID" />
         </columns>
       </TableView>
+      <Button fx:id="editSelectedButton" layoutX="902.0" layoutY="590.0" mnemonicParsing="false" onAction="#editSelected" prefHeight="40.0" prefWidth="141.0" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Edit Selected" textFill="WHITE" visible="false" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="902.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="590.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

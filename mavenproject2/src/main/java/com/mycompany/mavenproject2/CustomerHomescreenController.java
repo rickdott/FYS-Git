@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 
 /**
@@ -25,6 +26,9 @@ public class CustomerHomescreenController implements Initializable {
 
     @FXML
     private AnchorPane paneCustomerHomescreen;
+    
+    @FXML
+    private Button reqStatBut, regMisBut, faqBut;
     
     Utilities utilities = new Utilities();
 
@@ -47,6 +51,36 @@ public class CustomerHomescreenController implements Initializable {
     @FXML
     private void backToLogin() {
         utilities.newAnchorpane("Login", paneCustomerHomescreen);
+    }
+    
+    @FXML
+    private void onHoverReqStat() {
+        Utilities.onHover(reqStatBut);
+    }
+    
+    @FXML
+    private void offHoverReqStat() {
+        Utilities.offHover(reqStatBut);
+    }
+    
+    @FXML
+    private void onHoverRegMiss() {
+        Utilities.onHover(regMisBut);
+    }
+    
+    @FXML
+    private void offHoverRegMiss() {
+        Utilities.offHover(regMisBut);
+    }
+    
+    @FXML
+    private void onHoverFaqBut() {
+        Utilities.onHover(faqBut);
+    }
+    
+    @FXML
+    private void offHoverFaqBut() {
+        Utilities.offHover(faqBut);
     }
     
 }

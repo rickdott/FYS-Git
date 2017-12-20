@@ -1,3 +1,13 @@
-.button {
+.button-large {
     -fx-font-weight: bold;
+    -fx-font-size: 30;
+    -fx-background-color: #d81e05;
+    -fx-background-radius: 0;
+}
+
+.button-small {
+    -fx-font-weight: bold;
+    -fx-font-size: 18;
+    -fx-background-color: #d81e05;
+    -fx-background-radius: 0;
 }

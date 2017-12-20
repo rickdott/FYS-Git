@@ -210,7 +210,7 @@
                         <Insets top="50.0" />
                      </VBox.margin>
                   </Label>
-                  <Button mnemonicParsing="false" onAction="#openRegisterThankyou" prefHeight="33.0" prefWidth="61.0" style="-fx-background-color: #ee0606;" text="Submit" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#openRegisterThankyou" prefHeight="39.0" prefWidth="85.0" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Submit" textFill="WHITE">
                      <VBox.margin>
                         <Insets left="200.0" top="500.0" />
                      </VBox.margin>
