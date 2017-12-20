@@ -156,7 +156,7 @@ public class RequestStatusController implements Initializable {
 
     @FXML
     private void deleteEdit() {
-        boolean userIsSure = areYouSureBox("Are you sure you want to remove this?", "Remove", "What is this?");
+        boolean userIsSure = areYouSureBox("Are you sure you want to remove this?", "Remove", "This will remove the luggage?");
         if (userIsSure) {
             Database database = new Database();
             String regNr = regNrField.getText();
