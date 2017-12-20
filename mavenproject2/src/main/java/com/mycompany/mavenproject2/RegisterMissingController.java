@@ -74,6 +74,8 @@ public class RegisterMissingController implements Initializable {
 
     @FXML
     private CheckBox mailSturen;
+    
+    
 
     //dropdownlists
     ObservableList<String> colours = FXCollections.observableArrayList(
@@ -246,7 +248,7 @@ public class RegisterMissingController implements Initializable {
             }
 
             // Opvragen van de keys 
-            String luggagetype = db.executeStringListQuery(String.format("SELECT `idluggage type` FROM Luggagetype WHERE english = '%s' OR dutch = '%s' OR spanish = '%s' OR turkish = '%s';", row.get(3), row.get(3), row.get(3), row.get(3)));
+            String luggagetype = db.executeStringListQuery(String.format("SELECT `idluggage_type` FROM Luggagetype WHERE english = '%s' OR dutch = '%s' OR spanish = '%s' OR turkish = '%s';", row.get(3), row.get(3), row.get(3), row.get(3)));
             String maincolor = db.executeStringListQuery(String.format("SELECT `ralcode` FROM Colour WHERE english = '%s' OR dutch = '%s' OR spanish = '%s' OR turkish = '%s';", row.get(8), row.get(8), row.get(8), row.get(8)));
             String secondcolor = db.executeStringListQuery(String.format("SELECT `ralcode` FROM Colour WHERE english = '%s' OR dutch = '%s' OR spanish = '%s' OR turkish = '%s';", row.get(9), row.get(9), row.get(9), row.get(9)));
             String locationfound = db.executeStringListQuery(String.format("SELECT `idlocation` FROM Location WHERE english = '%s' OR dutch = '%s' OR spanish = '%s' OR turkish = '%s';", row.get(7), row.get(7), row.get(7), row.get(7)));
