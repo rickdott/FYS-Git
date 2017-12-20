@@ -1,29 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <AnchorPane id="AnchorPane" fx:id="actualmain" minHeight="647.0" minWidth="1053.0" prefHeight="647.0" prefWidth="1053.0" style="-fx-background-color: #f3f3f3;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.ReportsController">
    <children>
-      <ToolBar layoutX="14.0" layoutY="593.0" prefHeight="44.0" prefWidth="1037.0" style="-fx-background-color: pink;">
-        <items>
-          <Button mnemonicParsing="false" onAction="#showReports" prefHeight="32.0" prefWidth="119.0" style="-fx-background-color: red;" text="Reports" textAlignment="CENTER" textFill="WHITE" />
-            <Button mnemonicParsing="false" onAction="#showMissingStats" prefHeight="32.0" prefWidth="208.0" style="-fx-background-color: red;" text="Missing Luggage" textAlignment="CENTER" textFill="WHITE" />
-            <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="200.0" style="-fx-background-color: red;" text="Found Luggage" textAlignment="CENTER" textFill="WHITE" />
-            <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="231.0" style="-fx-background-color: red;" text="Compensation" textAlignment="CENTER" textFill="WHITE" />
-            <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="244.0" style="-fx-background-color: red;" text="Returned Luggage" textAlignment="CENTER" textFill="WHITE" />
-        </items>
-      </ToolBar>
-      <Text fx:id="titleText" layoutX="164.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem Ipsum Dolor Sit Amet">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </Text>
-      <Text fx:id="textText" layoutX="164.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. &#10;Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor &#10;in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit &#10;anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, &#10;sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco &#10;laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, &#10;sunt in culpa qui officia deserunt mollit anim id est laborum." wrappingWidth="737.7939453125" />
-      <PieChart fx:id="pieChart" layoutX="283.0" layoutY="82.0" visible="false" />
+      <GridPane layoutX="292.0" layoutY="183.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="250.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+               <children>
+                  <Label text="What would you like to see?">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <RadioButton fx:id="missingLuggageToggle" mnemonicParsing="false" onAction="#showMissingStats" selected="true" text="Missing luggage">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="selectionGroup" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="foundLuggageToggle" mnemonicParsing="false" onAction="#showFoundStats" text="Found luggage" toggleGroup="$selectionGroup">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </RadioButton>
+                  <RadioButton fx:id="missingLuggagePerMonthToggle" mnemonicParsing="false" onAction="#showMissingPerMonthStats" text="Missing luggage/month" toggleGroup="$selectionGroup">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </RadioButton>
+                  <RadioButton fx:id="solvedToggle" mnemonicParsing="false" onAction="#showSolvedCasesStats" text="Solved cases" toggleGroup="$selectionGroup">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </RadioButton>
+                  <RadioButton fx:id="compensationToggle" mnemonicParsing="false" onAction="#showCompensationStats" text="Compensation" toggleGroup="$selectionGroup">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </RadioButton>
+                  <DatePicker fx:id="datePickerEnd" />
+                  <DatePicker fx:id="datePickerStart" />
+                  <Button mnemonicParsing="false" onAction="#showMissingStats" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Button" textFill="WHITE" />
+               </children>
+            </VBox>
+            <PieChart fx:id="pieChart" visible="false" />
+         </children>
+      </GridPane>
    </children>
 </AnchorPane>
