@@ -46,11 +46,31 @@ public class ReportsController implements Initializable {
     @FXML
     private Toggle missingLuggageToggle, foundLuggageToggle, missingLuggagePerMonthToggle, solvedToggle, compensationToggle;
 
+    class ChartEntry {
+
+        private double amount;
+        private String entry;
+
+        public ChartEntry(double amount, String entry) {
+            this.amount = amount;
+            this.entry = entry;
+        }
+
+        public double getAmount() {
+            return amount;
+        }
+
+        public String getEntry() {
+            return entry;
+        }
+
+    }
+
     @FXML
     private void showMissingStats() throws SQLException {
         System.out.println("Showing missing stats");
         pieChart.setVisible(true);
-//        populatePieChart(pieChart);
+        populatePieChart(pieChart, countAppearances("primarycolour"));
     }
 
     @FXML
@@ -89,39 +109,29 @@ public class ReportsController implements Initializable {
         return date;
     }
 
-    private void populatePieChart(PieChart chart, ArrayList entryList) throws SQLException {
-        ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
-        for (int i = 0, i < entryList.size(), i++) {
-            pieChartData.addAll(entryList);
+    private void populatePieChart(PieChart chart, ArrayList<ChartEntry> entryList) throws SQLException {
+        ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
+        for (int i = 0; i < entryList.size(); i++) {
+            pieChartData.add(new PieChart.Data(entryList.get(i).getEntry(), entryList.get(i).getAmount()));
         }
+
         
-        chart.setData (pieChartData);
+//            new PieChart.Data(entryList.get(0).getEntry(), entryList.get(0).getAmount());
+
+        chart.setData(pieChartData);
         chart.setTitle("Vermissingen per kleur 2017");
     }
 
     private ArrayList countAppearances(String category) {
-
-        class chartEntry {
-
-            int amount;
-            String entry;
-
-            public chartEntry(int amount, String entry) {
-                this.amount = amount;
-                this.entry = entry;
-            }
-        }
-
-        ArrayList<chartEntry> entryList = new ArrayList<>();
-
+        ArrayList<ChartEntry> entryList = new ArrayList<>();
         try {
-            int counter = 0;
             String query = String.format("SELECT COUNT(registrationnr) AS amount, %s FROM Lostbagage GROUP BY %s", category, category);
 
             Database database = new Database();
             ResultSet result = database.executeResultSetQuery(query);
             while (result.next()) {
-                chartEntry entry = new chartEntry(result.getInt("amount"), result.getString(category));
+                String colour = database.executeStringListQuery(String.format("SELECT english FROM Colour WHERE ralcode = '%s'", result.getString(category)));
+                ChartEntry entry = new ChartEntry(result.getInt("amount"), colour);
                 entryList.add(entry);
             }
 
