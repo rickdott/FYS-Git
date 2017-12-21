@@ -14,10 +14,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.chart.PieChart;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.VBox;
 
 /**
  *
@@ -27,11 +30,11 @@ public class ReportsController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        try {
-            showMissingStats();
-        } catch (SQLException ex) {
-            Logger.getLogger(ReportsController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+//            showMissingStats();
+//        } catch (SQLException ex) {
+//            Logger.getLogger(ReportsController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }
 
     @FXML
@@ -45,6 +48,9 @@ public class ReportsController implements Initializable {
 
     @FXML
     private Toggle missingLuggageToggle, foundLuggageToggle, missingLuggagePerMonthToggle, solvedToggle, compensationToggle;
+    
+    @FXML
+    private VBox checkBoxVBox;
 
     class ChartEntry {
 
@@ -70,12 +76,16 @@ public class ReportsController implements Initializable {
     private void showMissingStats() throws SQLException {
         System.out.println("Showing missing stats");
         pieChart.setVisible(true);
-        populatePieChart(pieChart, countAppearances("primarycolour"));
+        
+        populatePieChart(pieChart, amountOfMissingAsPieChart("Flight.from", findSelectedAirports()));
     }
 
     @FXML
     private void showFoundStats() {
-        countAppearances("primarycolour");
+        ArrayList<String> testList = findSelectedAirports();
+        for (int i = 0; i < testList.size(); i++) {
+            System.out.println(testList.get(i));
+        }
     }
 
     @FXML
@@ -91,6 +101,20 @@ public class ReportsController implements Initializable {
     @FXML
     private void showCompensationStats() {
         System.out.println("kut");
+    }
+    
+    private ArrayList<String> findSelectedAirports(){
+        ArrayList<String> selectedAirports = new ArrayList<>();
+        ObservableList<Node> checkBoxList = checkBoxVBox.getChildren();
+        
+        CheckBox cb;
+        for (int i = 0; i < checkBoxList.size(); i++) {
+            cb = (CheckBox) checkBoxList.get(i);
+            if (cb.isSelected()) {
+                selectedAirports.add(cb.getText());
+            }
+        }
+        return selectedAirports;
     }
 
     @FXML
@@ -114,24 +138,22 @@ public class ReportsController implements Initializable {
         for (int i = 0; i < entryList.size(); i++) {
             pieChartData.add(new PieChart.Data(entryList.get(i).getEntry(), entryList.get(i).getAmount()));
         }
-
         
-//            new PieChart.Data(entryList.get(0).getEntry(), entryList.get(0).getAmount());
-
         chart.setData(pieChartData);
-        chart.setTitle("Vermissingen per kleur 2017");
+        chart.setTitle("Missing Luggage");
     }
 
-    private ArrayList countAppearances(String category) {
+    private ArrayList amountOfMissingAsPieChart(String category, ArrayList<String> airports) {
         ArrayList<ChartEntry> entryList = new ArrayList<>();
         try {
-            String query = String.format("SELECT COUNT(registrationnr) AS amount, %s FROM Lostbagage GROUP BY %s", category, category);
+            String query = String.format("SELECT COUNT(registrationnr) AS amount, %s\n" +
+                                         "FROM Foundbagageinventory INNER JOIN Flight ON flightnr = flightnumber\n" +
+                                         "GROUP BY flightnumber", category);
 
             Database database = new Database();
             ResultSet result = database.executeResultSetQuery(query);
             while (result.next()) {
-                String colour = database.executeStringListQuery(String.format("SELECT english FROM Colour WHERE ralcode = '%s'", result.getString(category)));
-                ChartEntry entry = new ChartEntry(result.getInt("amount"), colour);
+                ChartEntry entry = new ChartEntry(result.getInt("amount"), result.getString("from"));
                 entryList.add(entry);
             }
 

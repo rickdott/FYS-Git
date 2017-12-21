@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
@@ -12,6 +13,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" fx:id="actualmain" minHeight="647.0" minWidth="1053.0" prefHeight="647.0" prefWidth="1053.0" style="-fx-background-color: #f3f3f3;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.ReportsController">
@@ -25,59 +27,156 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+            <VBox GridPane.columnIndex="1">
                <children>
-                  <Label text="What would you like to see?">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <RadioButton fx:id="missingLuggageToggle" mnemonicParsing="false" onAction="#showMissingStats" selected="true" text="Missing luggage">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                     <toggleGroup>
-                        <ToggleGroup fx:id="selectionGroup" />
-                     </toggleGroup>
-                  </RadioButton>
-                  <RadioButton fx:id="foundLuggageToggle" mnemonicParsing="false" onAction="#showFoundStats" text="Found luggage" toggleGroup="$selectionGroup">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                  </RadioButton>
-                  <RadioButton fx:id="missingLuggagePerMonthToggle" mnemonicParsing="false" onAction="#showMissingPerMonthStats" text="Missing luggage/month" toggleGroup="$selectionGroup">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                  </RadioButton>
-                  <RadioButton fx:id="solvedToggle" mnemonicParsing="false" onAction="#showSolvedCasesStats" text="Solved cases" toggleGroup="$selectionGroup">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                  </RadioButton>
-                  <RadioButton fx:id="compensationToggle" mnemonicParsing="false" onAction="#showCompensationStats" text="Compensation" toggleGroup="$selectionGroup">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                  </RadioButton>
-                  <DatePicker fx:id="datePickerEnd" />
-                  <DatePicker fx:id="datePickerStart" />
-                  <Button mnemonicParsing="false" onAction="#showMissingStats" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Button" textFill="WHITE" />
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label text="What would you like to see?">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <RadioButton fx:id="missingLuggageToggle" mnemonicParsing="false" onAction="#showMissingStats" selected="true" text="Missing luggage">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="selectionGroup" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="foundLuggageToggle" mnemonicParsing="false" onAction="#showFoundStats" text="Found luggage" toggleGroup="$selectionGroup">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </RadioButton>
+                        <RadioButton fx:id="missingLuggagePerMonthToggle" mnemonicParsing="false" onAction="#showMissingPerMonthStats" text="Missing luggage/month" toggleGroup="$selectionGroup">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </RadioButton>
+                        <RadioButton fx:id="solvedToggle" mnemonicParsing="false" onAction="#showSolvedCasesStats" text="Solved cases" toggleGroup="$selectionGroup">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </RadioButton>
+                        <RadioButton fx:id="compensationToggle" mnemonicParsing="false" onAction="#showCompensationStats" text="Compensation" toggleGroup="$selectionGroup">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </RadioButton>
+                        <Line endX="100.0" opacity="0.5" startX="-100.0" strokeWidth="1.5">
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="20.0" top="20.0" />
+                           </VBox.margin>
+                        </Line>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="checkBoxVBox" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <CheckBox mnemonicParsing="false" selected="true" text="Agadir">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" selected="true" text="Amsterdam">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" selected="true" text="Antalya">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" selected="true" text="Bodrum">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" selected="true" text="Brussels">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" selected="true" text="Eindhoven">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" selected="true" text="Heraklion">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" selected="true" text="Istanbul">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" selected="true" text="Malaga">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" selected="true" text="Paris">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
+                        </CheckBox>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" visible="false">
+                     <children>
+                        <DatePicker fx:id="datePickerStart" />
+                        <DatePicker fx:id="datePickerEnd" />
+                        <Button mnemonicParsing="false" onAction="#showMissingStats" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Button" textFill="WHITE" />
+                     </children>
+                  </VBox>
                </children>
             </VBox>
             <PieChart fx:id="pieChart" visible="false" />

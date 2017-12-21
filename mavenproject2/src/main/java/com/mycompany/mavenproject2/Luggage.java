@@ -9,7 +9,7 @@ package com.mycompany.mavenproject2;
  *
  * @author Rick
  */
-public class Luggage {
+public abstract class Luggage {
     private int registrationnr;
     //private String datefound, timefound;
     private String luggagetype, brand;
