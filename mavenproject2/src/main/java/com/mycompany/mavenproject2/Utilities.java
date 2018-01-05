@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import java.sql.ResultSet;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -44,6 +45,11 @@ public class Utilities {
         btn.setStyle("-fx-background-color: #951504; -fx-background-radius: 0; -fx-border-width: 1 0 0 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 30;");
     }
     
+    public static int userID;
+    public static int roleID;
+
+    
+    // Two methods to use when hovering over a button
     @FXML
     public static void onHover(String currentPage, Button btn, Label label) {
         System.out.println("onHover activated");
@@ -118,6 +124,14 @@ public class Utilities {
 
         System.out.println("Another page opened(anchor)...");
     }
+    
+    @FXML
+    public void setEmployee(int idEmployee, int RoleID) {
+        this.userID = idEmployee;
+        this.roleID = RoleID;
+    }
+    
+    
 
     public Parent loadFXMLFile(String fxmlFileName) {
         try {
