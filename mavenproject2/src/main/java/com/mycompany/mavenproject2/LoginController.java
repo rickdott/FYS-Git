@@ -5,6 +5,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -24,8 +25,7 @@ import javafx.stage.Stage;
 /**
  *
  * @author Rick, Matthijs
-  */ 
-
+ */
 public class LoginController implements Initializable {
 
     @Override
@@ -173,8 +173,7 @@ public class LoginController implements Initializable {
             System.out.println("weight: " + row.get(11));
             System.out.println("passenger_name_city: " + passengernamecity);
             System.out.println("otherchar: " + row.get(13));
-            */
-
+             */
             // Kijk of hij al in de db zit als dat niet zo is zet de record in de db
             String checkIfInDB = db.executeStringQuery(String.format("SELECT registrationnr FROM Foundbagageinventory WHERE registrationnr = '%s'", row.get(0)));
             System.out.println("checkIfInDB: " + checkIfInDB + "\n");
@@ -272,60 +271,67 @@ public class LoginController implements Initializable {
     private void openWorkerHomescreen(ActionEvent event) {
         utilities.newAnchorpane("WorkerHomescreen", paneLogin);
     }
-    
+
     @FXML
     private void goToEmployee(ActionEvent event) {
         controller.newAnchorpane("LoginEmployee", paneLogin);
     }
-    
+
     @FXML
     private void goToPassenger(ActionEvent event) {
         controller.newAnchorpane("Login", paneLogin);
     }
+
     //Login for employee
     @FXML
     private TextField textUsername;
 
     @FXML
     private PasswordField textPassword;
-    
-    @FXML
-    private ChoiceBox<String> EmpSelect;
 
     Stage dialogStage = new Stage();
     Scene scene;
-    
+
     ResultSet resultSet = null;
 
     //Login for employee
     @FXML
     private void handleButtonAction(ActionEvent event) {
         Database db = new Database();
-        String username = textUsername.getText().toString();
-        String password = textPassword.getText().toString();
-        String function = EmpSelect.getValue().toString();
-        String sql = String.format("SELECT * FROM Employee WHERE username = '%s' and password = '%s' and function = '%s' ", username, password, function);
-
+        String username = textUsername.getText();
+        String password = textPassword.getText();
+        int usrID = 0;
+        int roleID = 0;
+        //String RoleID = EmpSelect.getValue();
+        String sql = String.format("SELECT * FROM Employee "
+                + "WHERE username = '%s' "
+                + "and password = '%s' ",
+                //+ "and RoleID = '%s' ", 
+                username, password);
+        
+        infoBox("sql [" + sql + "]", "Success", null); 
+        
         try {
             resultSet = db.executeResultSetQuery(sql);
 
+                            
             if (!resultSet.next()) {
                 infoBox("Enter Correct Username and Password", "Failed", null);
             } else {
-                if ("Medewerker".equals(function)) {
-                    infoBox("Login Successfull", "Success", null);
-                    FXMLDocumentController controller = new FXMLDocumentController();
-                    controller.newAnchorpane("WorkerHomescreen", paneLogin);
-                } else if ("Manager".equals(function)) {
-                    infoBox("Login Successfull", "Success", null);
-                    FXMLDocumentController controller = new FXMLDocumentController();
-                    controller.newAnchorpane("WorkerHomescreen", paneLogin);
-                }
-                infoBox("Login Successfull", "Success", null);
-                FXMLDocumentController controller = new FXMLDocumentController();
-                utilities.newAnchorpane("WorkerHomescreen", paneLogin);
-            }
+                    //infoBox("Login Successfull", "Success", null);
+                resultSet.first();
+                usrID = resultSet.getInt("idEmployee");
+                roleID = resultSet.getInt("RoleID");
+                
+                utilities.setEmployee(usrID, roleID);
+                
+                    
 
+                FXMLDocumentController controller = new FXMLDocumentController();
+                utilities.newAnchorpane("EmployeeHomescreen", paneLogin);
+                infoBox("Login Successfull", "Success", null);                  
+            }
+           
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -349,24 +355,39 @@ public class LoginController implements Initializable {
     @FXML
     private void handleButtonActionPassenger(ActionEvent event) {
         Database db = new Database();
-        String email = textEmail.getText().toString();
-        String lastname = textLastName.getText().toString();
+        String email = textEmail.getText();
+        String lastname = textLastName.getText();
+        int usrID = 0;
+        int roleID = 0;
 
         //SQL query checks if email and lastname is equal to input.
-         String sql = String.format("SELECT * FROM Passenger WHERE email = '%s' and lastname = '%s' ", email, lastname);
+        String sql = String.format("SELECT * FROM Passenger "
+                + "WHERE email = '%s' "
+                + "and lastname = '%s' ", 
+                email, lastname);
 
         try {
             resultSet = db.executeResultSetQuery(sql);
             if (!resultSet.next()) {
                 infoBox("Enter Correct Email And Lastname", "Failed", null);
             } else {
-                infoBox("Login Successfull", "Success", null);
+                //infoBox("Login Successfull", "Success", null);
+                
+                while (resultSet.next()) {
+                    usrID = resultSet.getInt("idEmployee");
+                }
+                infoBox("User ID = " + usrID, "Success", null);        
+                        /*String coffeeName = rs.getString("idEmployee");
+            int supplierID = rs.getInt("SUP_ID");
+            float price = rs.getFloat("PRICE");
+            int sales = rs.getInt("SALES");
+            int total = rs.getInt("TOTAL");*/
                 FXMLDocumentController controller = new FXMLDocumentController();
                 utilities.newAnchorpane("CustomerHomescreen", paneLogin);
 
             }
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -378,5 +399,4 @@ public class LoginController implements Initializable {
         alert.setContentText(infoMessage);
         alert.showAndWait();
     }
-
 }

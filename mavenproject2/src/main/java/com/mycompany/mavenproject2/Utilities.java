@@ -6,6 +6,7 @@
 package com.mycompany.mavenproject2;
 
 import java.io.IOException;
+import java.sql.ResultSet;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,6 +20,10 @@ import javafx.scene.layout.Pane;
  * @author Rick
  */
 public class Utilities {
+    
+    public static int userID;
+    public static int roleID;
+
     
     // Two methods to use when hovering over a button
     @FXML
@@ -87,6 +92,14 @@ public class Utilities {
         
         System.out.println("Another page opened(anchor)...");
     }
+    
+    @FXML
+    public void setEmployee(int idEmployee, int RoleID) {
+        this.userID = idEmployee;
+        this.roleID = RoleID;
+    }
+    
+    
 
     public Parent loadFXMLFile(String fxmlFileName) {
         try {
@@ -96,4 +109,6 @@ public class Utilities {
             return null;
         }
     }
+    
+    
 }

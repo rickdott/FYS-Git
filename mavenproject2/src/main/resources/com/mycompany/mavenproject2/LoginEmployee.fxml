@@ -41,14 +41,7 @@
                   </Text>
                   <TextField id="txtUsername" fx:id="textUsername" layoutX="581.0" layoutY="187.0" prefHeight="25.0" prefWidth="253.0" promptText="Enter your username" />
                   <PasswordField id="txtPassword" fx:id="textPassword" layoutX="581.0" layoutY="227.0" prefHeight="25.0" prefWidth="253.0" promptText="Enter your password" />
-                  <ChoiceBox fx:id="EmpSelect" layoutX="581.0" layoutY="266.0" prefWidth="150.0" value="Medewerker">
-            <items>
-                <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="Medewerker" />
-                    <String fx:value="Manager" />
-                </FXCollections>
-            </items>
-        </ChoiceBox>
+                  
                   <Text layoutX="676.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Warning!" wrappingWidth="68.00003051757812" />
                   <Text layoutX="646.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login is case sensitive" wrappingWidth="124.0" />
                   <Button layoutX="39.0" layoutY="397.0" mnemonicParsing="false" onAction="#goToPassenger" text="Go to passenger login" />
