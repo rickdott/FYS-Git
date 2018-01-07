@@ -5,31 +5,34 @@
  */
 package com.mycompany.mavenproject2;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Rick
  */
-public class Luggage {
-    private int registrationnr;
+public abstract class Luggage {
+
+    protected String registrationnr;
     //private String datefound, timefound;
-    private String luggagetype, brand;
-    private String flightnumber, luggagelabelnr;
+    protected String luggagetype, brand;
+    protected String flightnumber, luggagelabelnr;
     //private String locationfound;
-    private String primarycolour, secondarycolour;
-    private String size, weight;
-    private String passenger_name_city;
-    private String otherchar;
-    private int idpassenger;
+    protected String primarycolour, secondarycolour;
+    protected String size, weight;
+    protected String passenger_name_city;
+    protected String otherchar;
+    protected int idpassenger;
 
     public Luggage() {
-        
+
     }
-    
-    public int getRegistrationnr() {
+
+    public String getRegistrationnr() {
         return registrationnr;
     }
 
-    public void setRegistrationnr(int registrationnr) {
+    public void setRegistrationnr(String registrationnr) {
         this.registrationnr = registrationnr;
     }
 
@@ -120,6 +123,7 @@ public class Luggage {
     public void setIdpassenger(int idpassenger) {
         this.idpassenger = idpassenger;
     }
-    
-    
+
+    public abstract ArrayList<String> getLuggageInfo();
+
 }

@@ -156,7 +156,7 @@ public class RequestStatusController implements Initializable {
 
     @FXML
     private void deleteEdit() {
-        boolean userIsSure = areYouSureBox("Are you sure you want to remove this?", "Remove", "What is this?");
+        boolean userIsSure = areYouSureBox("Are you sure you want to remove this?", "Remove", "This will remove the luggage?");
         if (userIsSure) {
             Database database = new Database();
             String regNr = regNrField.getText();
@@ -164,7 +164,7 @@ public class RequestStatusController implements Initializable {
             makeTextFieldsAndLabelsInvisible();
 
             for (int i = 0; i < foundLuggageList.size(); i++) {
-                if (Integer.toString(foundLuggageList.get(i).getRegistrationnr()).equals(regNr)) {
+                if (foundLuggageList.get(i).getRegistrationnr().equals(regNr)) {
                     foundLuggageList.remove(i);
                     System.out.println("Removed row with index " + i);
                     break;
@@ -658,7 +658,7 @@ public class RequestStatusController implements Initializable {
     }
 
     private void initTextFieldsWithLostLuggage(LostLuggage luggage) {
-        regNrField.setText(Integer.toString(luggage.getRegistrationnr()));
+        regNrField.setText(luggage.getRegistrationnr());
         dateFoundField.setText(luggage.getDateregistered());
         timeFoundField.setText(luggage.getTimeregistered());
         typeComboBox.getSelectionModel().select(luggage.getLuggagetype());
@@ -675,7 +675,7 @@ public class RequestStatusController implements Initializable {
     }
 
     private void initTextFieldsWithFoundLuggage(FoundLuggage luggage) {
-        regNrField.setText(Integer.toString(luggage.getRegistrationnr()));
+        regNrField.setText(luggage.getRegistrationnr());
         dateFoundField.setText(luggage.getDatefound());
         timeFoundField.setText(luggage.getTimefound());
         typeComboBox.getSelectionModel().select(luggage.getLuggagetype());
