@@ -80,7 +80,8 @@ public class RegisterMissingController implements Initializable {
             "Yellow", "Olive", "Red", "Darkred", "Pink", "Purple", "Violet",
             "Blue", "Lightblue", "Darkblue", "Bluegreen", "Green", "Darkgreen",
             "Lightgreen", "Gray", "Darkgray", "Lightgray", "Brown", "Darkbrown",
-            "Lightbrown", "White", "Black", "Cream");
+            "Lightbrk\", \"Box\", \"Sports\",\n" +
+"            \"Bag\", \"Business Case\", \"Case\", \"Other\");own", "White", "Black", "Cream");
 
     ObservableList<String> Luggagetypes = FXCollections.observableArrayList(
             "Suitcase", "Bag", "Bagpack", "Box", "Sports",
