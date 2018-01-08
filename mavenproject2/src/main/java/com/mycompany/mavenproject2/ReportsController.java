@@ -3,14 +3,11 @@ package com.mycompany.mavenproject2;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
-import static javafx.collections.FXCollections.observableArrayList;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -28,8 +25,9 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.VBox;
 
 /**
- *
- * @author Rick
+ * Controller that handles the reports section, showing 
+ * different statistics on missing luggage
+ * @author Rick den Otter 500749952 (314 lines)
  */
 public class ReportsController implements Initializable {
 

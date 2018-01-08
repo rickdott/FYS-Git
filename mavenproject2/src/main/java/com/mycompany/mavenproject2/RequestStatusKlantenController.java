@@ -20,8 +20,8 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 /**
- *
- * @author Rick
+ *Controller for the customer section of the request status
+ * @author Timur Yagci 500764449 (148 lines) Met hulp van Rick den Otter 500749952
  */
 public class RequestStatusKlantenController {
 

@@ -3,12 +3,11 @@ package com.mycompany.mavenproject2;
 import java.awt.Label;
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
-import static javafx.application.ConditionalFeature.FXML;
 import javafx.fxml.FXML;
 
 /**
  *
- * @author Matthijs Snijders
+ * @author Matthijs Snijders 500780453 (32 lines)
  */
 public class MainController {
     

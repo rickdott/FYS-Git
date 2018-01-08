@@ -15,8 +15,8 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 /**
- *
- * @author somej
+ * Import excel files to the database
+ * @author Stan van Weringh 500771870 (95 lines)
  */
 public class ExcelReader {
 

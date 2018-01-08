@@ -13,8 +13,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 
 /**
- *
- * @author Rick
+ * YET TO BE IMPLEMENTED
+ * @author Tarik 500780772
  */
 public class UserRolesController implements Initializable {
     
