@@ -20,19 +20,24 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 /**
- *Controller for the customer section of the request status
- * @author Timur Yagci 500764449 (148 lines) Met hulp van Rick den Otter 500749952
+ * Controller for the customer section of the request status
+ *
+ * @author Timur Yagci 500764449 (148 lines) Met hulp van Rick den Otter
+ * 500749952
  */
 public class RequestStatusKlantenController {
 
     @FXML
     private AnchorPane requestpage;
-    
+
     @FXML
     private TextField lastNameField, labelNrField;
 
     @FXML
     private HBox hBoxLost, hBoxFound;
+    
+    @FXML
+    private Label statusMessage;
 
     @FXML
     private void getInput() throws SQLException {
@@ -40,45 +45,57 @@ public class RequestStatusKlantenController {
         String labelnr = labelNrField.getText();
 
         Database database = new Database();
-        ResultSet resultLost = database.executeResultSetQuery(makeQuery("Lostbagage", labelnr, lastName));
-        ResultSet resultFound = database.executeResultSetQuery(makeQuery("Foundbagageinventory", labelnr, lastName));
-
-        ArrayList<LostLuggage> listLost = new ArrayList<>();
-        ArrayList<FoundLuggage> listFound = new ArrayList<>();
-
-        listLost = Utilities.listOfLostLuggageFromResultSet(resultLost, listLost);
-        listFound = Utilities.listOfFoundLuggageFromResultSet(resultFound, listFound);
-
-        if (!listLost.isEmpty() && !listFound.isEmpty()) {
-            // Luggage is both lost and found, case is solved
-            System.out.println("Luggage is both lost and found");
-        } else if (!listLost.isEmpty()) {
-            //Luggage is only lost
-            System.out.println("Luggage is missing");
-            LostLuggage luggage = (LostLuggage) listLost.get(0);
-
-            hBoxFound.setVisible(false);
-            initializeLostFields(luggage);
-            hBoxLost.setVisible(true);
-        } else if (!listFound.isEmpty()) {
-            //Luggage is only found
-            System.out.println("Luggage has been found");
-            FoundLuggage luggage = (FoundLuggage) listFound.get(0);
-
-            hBoxLost.setVisible(false);
-            initializeFoundFields(luggage);
-            hBoxFound.setVisible(true);
+        if (lastNameField.getText().isEmpty() || labelNrField.getText().isEmpty()) {
+            System.out.println("No name or label number entered");
+            statusMessage.setText("The information you entered is not complete.");
         } else {
-            // Luggage is neither lost or found, unknown luggage or wrong 
-            // information has been entered
-            System.out.println("WRONGFUL INFORMATION, LUGGAGE NOT FOUND");
-        }
+            ResultSet resultLost = database.executeResultSetQuery(makeQuery("Lostbagage", labelnr, lastName));
+            ResultSet resultFound = database.executeResultSetQuery(makeQuery("Foundbagageinventory", labelnr, lastName));
 
-        // Closing open connections
-        resultLost.close();
-        resultFound.close();
-        database.close();
+            ArrayList<LostLuggage> listLost = new ArrayList<>();
+            ArrayList<FoundLuggage> listFound = new ArrayList<>();
+
+            listLost = Utilities.listOfLostLuggageFromResultSet(resultLost, listLost);
+            listFound = Utilities.listOfFoundLuggageFromResultSet(resultFound, listFound);
+
+            if (!listLost.isEmpty() && !listFound.isEmpty()) {
+                // Luggage is both lost and found, case is solved
+                System.out.println("Luggage is both lost and found");
+            } else if (!listLost.isEmpty()) {
+                //Luggage is only lost
+                System.out.println("Luggage is missing");
+                statusMessage.setText("Luggage is missing!");
+                LostLuggage luggage = (LostLuggage) listLost.get(0);
+
+                hBoxFound.setVisible(false);
+                initializeLostFields(luggage);
+                hBoxLost.setVisible(true);
+            } else if (!listFound.isEmpty()) {
+                //Luggage is only found
+                System.out.println("Luggage has been found");
+                statusMessage.setText("Luggage has been found!");
+                FoundLuggage luggage = (FoundLuggage) listFound.get(0);
+
+                hBoxLost.setVisible(false);
+                initializeFoundFields(luggage);
+                hBoxFound.setVisible(true);
+            } else {
+                // Luggage is neither lost or found, unknown luggage or wrong 
+                // information has been entered
+                System.out.println("WRONGFUL INFORMATION, LUGGAGE NOT FOUND");
+                statusMessage.setText("The information you entered does not match a piece of luggage in our systems.");
+                
+                hBoxLost.setVisible(false);
+                hBoxFound.setVisible(false);
+            }
+
+            // Closing open connections
+            resultLost.close();
+            resultFound.close();
+            database.close();
+        }
         // back button
+
     }
 
     private String makeQuery(String fromTable, String labelNr, String lastName) {
@@ -107,7 +124,6 @@ public class RequestStatusKlantenController {
 
         ArrayList<String> infoList = luggage.getLuggageInfo();
 
-        System.out.println(listOfLabels.size());
         for (int i = 0; i < listOfLabels.size(); i++) {
             listOfLabels.get(i).setText(infoList.get(i));
         }
@@ -136,7 +152,7 @@ public class RequestStatusKlantenController {
         for (int i = 0; i < listOfLabels.size(); i++) {
             listOfLabels.get(i).setText(infoList.get(i));
         }
-        
+
     }
 
     @FXML
