@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -24,12 +25,30 @@ public class LoginController {
 
     @FXML
     private AnchorPane paneLogin, paneCustomer;
-    private ResourceBundle bundle;
-    private Locale locale;
-
+    
     Utilities utilities = new Utilities();
 
     // Methods for changing the language
+    @FXML
+    private void testMethod() {
+        System.out.println("Current Locale: " + Locale.getDefault());
+	ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
+        System.out.println("Say how are you in US English: " + mybundle.getString("language"));
+        
+        Locale.setDefault(new Locale("en", "EN"));
+        System.out.println(Locale.getDefault());
+        mybundle = ResourceBundle.getBundle("languages.Language");
+        System.out.println(mybundle.getString("language"));
+        
+        
+//        Locale.setDefault(new Locale("ms", "MY"));
+//
+//        // read MyLabels_ms_MY.properties
+//        System.out.println("Current Locale: " + Locale.getDefault());
+//        mybundle = ResourceBundle.getBundle("languages.language");
+//        System.out.println("Say how are you in Malaysian Malaya language: " + mybundle.getString("how_are_you"));
+    }
+    
     @FXML
     private void setLanguageEnglish() {
         System.out.println("Set language to English");
