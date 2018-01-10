@@ -1,15 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.mavenproject2;
 
 import java.util.ArrayList;
 
 /**
- *
- * @author Rick
+ * Luggage class, is a parent class to Found/Lost luggage classes to enable 
+ * making luggage objects for easy changing/showing information
+ * @author Rick den Otter 500749952 (130 lines)
  */
 public abstract class Luggage {
 

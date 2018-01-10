@@ -1,15 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.mavenproject2;
 
 import java.util.ArrayList;
 
 /**
- *
- * @author Rick
+ *LostLuggage class, extension of the luggage class
+ * @author Rick den Otter 500749952 (51 lines)
  */
 public class LostLuggage extends Luggage{
     
@@ -51,7 +46,5 @@ public class LostLuggage extends Luggage{
         list.add(this.otherchar);
         
         return list;
-    }
-    
-    
+    } 
 }

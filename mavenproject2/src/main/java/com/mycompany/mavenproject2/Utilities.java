@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -24,8 +23,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 /**
- *
- * @author Rick
+ * Rick 1-154 (153) Timur 154-261 (107)
+ * @author Rick den Otter 500749952 Timur Yagci 500764449
  */
 public class Utilities {
 

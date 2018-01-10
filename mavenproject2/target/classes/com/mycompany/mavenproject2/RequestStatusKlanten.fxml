@@ -68,6 +68,14 @@
                         </TextField>
                      </children>
                   </StackPane>
+                  <Label fx:id="statusMessage">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="40.0" />
+                     </VBox.margin>
+                  </Label>
                   <Button mnemonicParsing="false" onAction="#getInput" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Submit" textFill="WHITE">
                      <opaqueInsets>
                         <Insets />

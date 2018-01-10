@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.mavenproject2;
 
 import java.net.URL;
@@ -32,8 +27,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 /**
- *
- * @author Rick
+ * Controller for the request status section, can read, update and delete
+ * entries from the database
+ * @author Rick den Otter 500749952 (689 lines)
  */
 public class RequestStatusController implements Initializable {
 
