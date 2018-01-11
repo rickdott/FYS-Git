@@ -133,12 +133,12 @@ public class ReportsController implements Initializable {
 
     @FXML
     private void showSolvedCasesStats() {
-        System.out.println("pik");
+        System.out.println("Not implemented");
     }
 
     @FXML
     private void showCompensationStats() {
-        System.out.println("kut");
+        System.out.println("Not implement");
     }
 
     private ArrayList<String> findSelectedAirports() {
