@@ -29,6 +29,7 @@ import javafx.scene.layout.VBox;
 /**
  * Controller for the request status section, can read, update and delete
  * entries from the database
+ *
  * @author Rick den Otter 500749952 (689 lines)
  */
 public class RequestStatusController implements Initializable {
@@ -178,7 +179,7 @@ public class RequestStatusController implements Initializable {
     }
 
     @FXML
-    private void saveEdit() {
+    private void saveEdit() throws SQLException {
         // Todo: make an update query with the changed textfields
         // Go through all textfields, see if content is different from .get method
 
@@ -197,7 +198,7 @@ public class RequestStatusController implements Initializable {
         // Make two overloaded methods, one with Found, one with Lost
     }
 
-    private String getUpdateQuery(Luggage luggage, Database database) {
+    private String getUpdateQuery(Luggage luggage, Database database) throws SQLException {
         List<String> queryList = new ArrayList();
         String query;
 
@@ -248,15 +249,16 @@ public class RequestStatusController implements Initializable {
             }
 
             // Check these two
-//        if (mainColourComboBox.getValue() != null) {
-//            String ral = database.executeStringListQuery(String.format("SELECT ralcode FROM Colour WHERE english = '%s'", mainColourComboBox.getValue()));
-//            queryList.add(String.format("primarycolour = '%s'", ral));
-//        }
-//
-//        if (secondaryColourComboBox.getValue() != null) {
-//            String ral = database.executeStringListQuery(String.format("SELECT ralcode FROM Colour WHERE english = '%s'", secondaryColourComboBox.getValue()));
-//            queryList.add(String.format("secondarycolour = '%s'", ral));
-//        }
+            if (mainColourComboBox.getValue() != null) {
+                int ral = Utilities.getRalFromColour(mainColourComboBox.getValue());
+                queryList.add(String.format("primarycolour = %d", ral));
+            }
+
+            if (secondaryColourComboBox.getValue() != null) {
+                int ral = Utilities.getRalFromColour(secondaryColourComboBox.getValue());
+                queryList.add(String.format("primarycolour = %d", ral));
+            }
+
             if (sizeField.getText() != null) {
                 if (!sizeField.getText().equals(lluggage.getSize())) {
                     queryList.add("size = '" + sizeField.getText() + "'");
@@ -339,16 +341,19 @@ public class RequestStatusController implements Initializable {
                     fluggage.setLocationfound(locationFoundField.getText());
                 }
             }
+
             // Fix these
-//        if (mainColourComboBox.getValue() != null) {
-//            String ral = database.executeStringListQuery(String.format("SELECT ralcode FROM Colour WHERE english = '%s'", mainColourComboBox.getValue()));
-//            queryList.add(String.format("primarycolour = '%s'", ral));
-//        }
-//
-//        if (secondaryColourComboBox.getValue() != null) {
-//            String ral = database.executeStringListQuery(String.format("SELECT ralcode FROM Colour WHERE english = '%s'", secondaryColourComboBox.getValue()));
-//            queryList.add(String.format("secondarycolour = '%s'", ral));
-//        }
+            if (mainColourComboBox.getValue() != null) {
+                int ral = Utilities.getRalFromColour(mainColourComboBox.getValue());
+                queryList.add(String.format("primarycolour = %d", ral));
+                fluggage.setPrimarycolour(Utilities.getColourFromRal(Integer.toString(ral)));
+            }
+
+            if (secondaryColourComboBox.getValue() != null) {
+                int ral = Utilities.getRalFromColour(secondaryColourComboBox.getValue());
+                queryList.add(String.format("secondarycolour = %d", ral));
+                fluggage.setSecondarycolour(Utilities.getColourFromRal(Integer.toString(ral)));
+            }
 
             if (sizeField.getText() != null) {
                 if (!sizeField.getText().equals(fluggage.getSize())) {
@@ -392,7 +397,7 @@ public class RequestStatusController implements Initializable {
                 query += ", ";
             }
         }
-        query += String.format("WHERE registrationnr = %s", regNrField.getText());
+        query += String.format(" WHERE registrationnr = '%s'", regNrField.getText());
         return query;
     }
 
