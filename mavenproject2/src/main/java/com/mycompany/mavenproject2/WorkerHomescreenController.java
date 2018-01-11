@@ -1,13 +1,9 @@
 package com.mycompany.mavenproject2;
 
-import static com.mycompany.mavenproject2.LoginController.infoBox;
 import java.net.URL;
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -15,13 +11,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 /**
- *
- * @author Rick, Matthijs
+ * NEEDS TO BE CLEANED UP
+ * @author Matthijs Snijders 500780453
  */
 public class WorkerHomescreenController implements Initializable {
 
