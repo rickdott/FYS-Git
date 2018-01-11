@@ -80,9 +80,11 @@ public class LoginController {
 
     // Main method for changing languages
     private void loadLanguage(String language, String lang) {
+        System.out.println("Current Locale: " + Locale.getDefault());
+	ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
         Locale.setDefault(new Locale(language, lang));
-        ResourceBundle bundle = ResourceBundle.getBundle("Language"); // TODO: Path veranderen zodat de .properties in een map languages kunnen
-        //System.out.println(bundle.getString("language"));
+        System.out.println(Locale.getDefault());
+        mybundle = ResourceBundle.getBundle("languages.Language");
     }
 
     @FXML
