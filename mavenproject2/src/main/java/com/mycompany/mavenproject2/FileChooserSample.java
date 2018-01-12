@@ -1,5 +1,5 @@
-
 package com.mycompany.mavenproject2;
+
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
@@ -18,8 +18,8 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 /**
- *
- * @author Laptop
+ * Implements a file chooser
+ * @author Stan van Weringh 500771870 (99 lines)
  */
 public final class FileChooserSample extends Application {
     private Desktop desktop = Desktop.getDesktop();
@@ -97,4 +97,3 @@ public final class FileChooserSample extends Application {
         return file;
     }
 }
-

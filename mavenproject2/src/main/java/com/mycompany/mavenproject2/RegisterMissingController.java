@@ -24,8 +24,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.ComboBox;
 
 /**
- *
- * @author Rick & Stijn :)
+ * Class to facilitate registering a piece of missing luggage into the database
+ * Stijn Klopper: 1-216 (215) and 387-483 (94) Stan van Weringh: 216-386 (170)
+ * @author Stijn Klopper 500770512, Stan van Weringh 500771870
  */
 public class RegisterMissingController implements Initializable {
 
@@ -74,6 +75,9 @@ public class RegisterMissingController implements Initializable {
 
     @FXML
     private CheckBox mailSturen;
+
+    // Path van het excel bestand (als die er is)
+    private String excelPath;
 
     //dropdownlists
     ObservableList<String> colours = FXCollections.observableArrayList(
@@ -197,6 +201,11 @@ public class RegisterMissingController implements Initializable {
             }
 
             utilities.newAnchorpane("RegisterMissing_thankyou", registerMissingPane);
+        } else if (!excelPath.isEmpty()) {
+            excelImport(excelPath);
+        } else {
+            System.out.println("niet alle verplichte velden ingevuld");
+            warning.setText("Niet alle verplichte velden zijn ingevuld.");
         }
     }
 
@@ -204,14 +213,19 @@ public class RegisterMissingController implements Initializable {
     private void backToLogin() {
         utilities.newAnchorpane("LoginEmployee", registerMissingPane);
     }
-    
-    // Method om een Excelsheet te importeren
-    @FXML
-    private void excelImport() {
-        System.out.println("Beginning Excel import...");
 
+    @FXML
+    private void excelImportPath() {
         // Roept een method aan in de MainApp die het path returnt
-        String filePath = MainApp.fileChoosePath();
+        // TODO: Moet alleen een excel kunnen zijn
+        excelPath = MainApp.fileChoosePath();
+        System.out.println("String path: " + excelPath);
+        warning.setText(excelPath);
+    }
+
+    // Method om een Excelsheet te importeren
+    private void excelImport(String filePath) {
+        System.out.println("Beginning Excel import...");
 
         ExcelReader reader = new ExcelReader(filePath);
         List<String> row = new ArrayList<>();
@@ -246,7 +260,7 @@ public class RegisterMissingController implements Initializable {
             }
 
             // Opvragen van de keys 
-            String luggagetype = db.executeStringListQuery(String.format("SELECT `idluggage type` FROM Luggagetype WHERE english = '%s' OR dutch = '%s' OR spanish = '%s' OR turkish = '%s';", row.get(3), row.get(3), row.get(3), row.get(3)));
+            String luggagetype = db.executeStringListQuery(String.format("SELECT `idluggage_type` FROM Luggagetype WHERE english = '%s' OR dutch = '%s' OR spanish = '%s' OR turkish = '%s';", row.get(3), row.get(3), row.get(3), row.get(3)));
             String maincolor = db.executeStringListQuery(String.format("SELECT `ralcode` FROM Colour WHERE english = '%s' OR dutch = '%s' OR spanish = '%s' OR turkish = '%s';", row.get(8), row.get(8), row.get(8), row.get(8)));
             String secondcolor = db.executeStringListQuery(String.format("SELECT `ralcode` FROM Colour WHERE english = '%s' OR dutch = '%s' OR spanish = '%s' OR turkish = '%s';", row.get(9), row.get(9), row.get(9), row.get(9)));
             String locationfound = db.executeStringListQuery(String.format("SELECT `idlocation` FROM Location WHERE english = '%s' OR dutch = '%s' OR spanish = '%s' OR turkish = '%s';", row.get(7), row.get(7), row.get(7), row.get(7)));
@@ -281,8 +295,7 @@ public class RegisterMissingController implements Initializable {
             System.out.println("weight: " + row.get(11));
             System.out.println("passenger_name_city: " + passengernamecity);
             System.out.println("otherchar: " + row.get(13));
-            */
-
+             */
             // Kijk of hij al in de db zit als dat niet zo is zet de record in de db
             String checkIfInDB = db.executeStringQuery(String.format("SELECT registrationnr FROM Foundbagageinventory WHERE registrationnr = '%s'", row.get(0)));
             System.out.println("checkIfInDB: " + checkIfInDB + "\n");
@@ -370,7 +383,6 @@ public class RegisterMissingController implements Initializable {
         }
         System.out.println("Excel import complete...");
     }
-
 
 }
 

@@ -1,53 +1,235 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+
 <?import javafx.scene.layout.RowConstraints?>
+
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <AnchorPane id="AnchorPane" fx:id="actualmain" minHeight="647.0" minWidth="1053.0" prefHeight="647.0" prefWidth="1053.0" style="-fx-background-color: #f3f3f3;" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.ReportsController">
    <children>
-      <GridPane prefHeight="647.0" prefWidth="1053.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <GridPane layoutX="292.0" layoutY="183.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="250.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="500.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ToolBar prefHeight="44.0" style="-fx-background-color: pink;" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" GridPane.vgrow="ALWAYS">
-              <items>
-                <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#showReports" prefHeight="32.0" prefWidth="119.0" style="-fx-background-color: red;" text="Reports" textAlignment="CENTER" textFill="WHITE" />
-                  <Button mnemonicParsing="false" onAction="#showMissingStats" prefHeight="32.0" prefWidth="208.0" style="-fx-background-color: red;" text="Missing Luggage" textAlignment="CENTER" textFill="WHITE" />
-                  <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="200.0" style="-fx-background-color: red;" text="Found Luggage" textAlignment="CENTER" textFill="WHITE" />
-                  <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="231.0" style="-fx-background-color: red;" text="Compensation" textAlignment="CENTER" textFill="WHITE" />
-                  <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="34.0" prefWidth="221.0" style="-fx-background-color: red;" text="Returned Luggage" textAlignment="CENTER" textFill="WHITE" />
-              </items>
-               <GridPane.margin>
-                  <Insets />
-               </GridPane.margin>
-            </ToolBar>
-            <Text fx:id="titleText" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem Ipsum Dolor Sit Amet" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-               <GridPane.margin>
-                  <Insets bottom="100.0" />
-               </GridPane.margin>
-            </Text>
-            <Text fx:id="textText" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. &#10;Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor &#10;in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit &#10;anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, &#10;sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco &#10;laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, &#10;sunt in culpa qui officia deserunt mollit anim id est laborum." wrappingWidth="737.7939453125" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-               <GridPane.margin>
-                  <Insets top="100.0" />
-               </GridPane.margin>
-            </Text>
-            <PieChart fx:id="pieChart" visible="false" />
+            <VBox GridPane.columnIndex="1">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label text="What would you like to see?">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <RadioButton fx:id="missingLuggageToggle" mnemonicParsing="false" onAction="#showMissingStats" selected="true" text="Missing luggage">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="selectionGroup" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="foundLuggageToggle" mnemonicParsing="false" onAction="#showFoundStats" text="Found luggage" toggleGroup="$selectionGroup">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </RadioButton>
+                        <RadioButton fx:id="missingLuggagePerMonthToggle" mnemonicParsing="false" onAction="#showMissingPerMonthStats" text="Missing luggage/month" toggleGroup="$selectionGroup">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </RadioButton>
+                        <RadioButton fx:id="solvedToggle" mnemonicParsing="false" onAction="#showSolvedCasesStats" text="Solved cases" toggleGroup="$selectionGroup">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </RadioButton>
+                        <RadioButton fx:id="compensationToggle" mnemonicParsing="false" onAction="#showCompensationStats" text="Compensation" toggleGroup="$selectionGroup">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </RadioButton>
+                        <Line endX="100.0" opacity="0.5" startX="-100.0" strokeWidth="1.5">
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="20.0" top="20.0" />
+                           </VBox.margin>
+                        </Line>
+                     </children>
+                  </VBox>
+                  <StackPane prefHeight="150.0" prefWidth="200.0">
+                     <children>
+                        <VBox fx:id="missingVBox" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <CheckBox mnemonicParsing="false" selected="true" text="Agadir">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                              <CheckBox mnemonicParsing="false" selected="true" text="Amsterdam">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                              <CheckBox mnemonicParsing="false" selected="true" text="Antalya">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                              <CheckBox mnemonicParsing="false" selected="true" text="Bodrum">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                              <CheckBox mnemonicParsing="false" selected="true" text="Brussels">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                              <CheckBox mnemonicParsing="false" selected="true" text="Eindhoven">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                              <CheckBox mnemonicParsing="false" selected="true" text="Heraklion">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                              <CheckBox mnemonicParsing="false" selected="true" text="Istanbul">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                              <CheckBox mnemonicParsing="false" selected="true" text="Malaga">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                              <CheckBox mnemonicParsing="false" selected="true" text="Paris">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                              <VBox fx:id="missingPerMonthVBox" prefHeight="200.0" prefWidth="250.0" spacing="10.0">
+                                 <children>
+                                    <ComboBox fx:id="yearComboBox" prefWidth="150.0" promptText="What year?" visible="false">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </ComboBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" top="20.0" />
+                                 </VBox.margin>
+                              </VBox>
+                              <StackPane>
+                                 <VBox.margin>
+                                    <Insets right="80.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Button fx:id="submitFoundMissingBut" mnemonicParsing="false" onAction="#showMissingStats" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Submit" textFill="WHITE" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Button fx:id="submitMissingPerMonthBut" mnemonicParsing="false" onAction="#showMissingPerMonthStats" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Submit" textFill="WHITE" visible="false" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </StackPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </StackPane>
+               </children>
+            </VBox>
+            <StackPane>
+               <children>
+                  <PieChart fx:id="pieChart" visible="false" />
+                  <LineChart fx:id="lineChart" visible="false">
+                    <xAxis>
+                      <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" />
+                    </yAxis>
+                  </LineChart>
+               </children>
+            </StackPane>
+
          </children>
       </GridPane>
    </children>

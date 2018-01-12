@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.mavenproject2;
 
 import java.net.URL;
@@ -32,8 +27,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 /**
- *
- * @author Rick
+ * Controller for the request status section, can read, update and delete
+ * entries from the database
+ * @author Rick den Otter 500749952 (689 lines)
  */
 public class RequestStatusController implements Initializable {
 
@@ -164,7 +160,7 @@ public class RequestStatusController implements Initializable {
             makeTextFieldsAndLabelsInvisible();
 
             for (int i = 0; i < foundLuggageList.size(); i++) {
-                if (Integer.toString(foundLuggageList.get(i).getRegistrationnr()).equals(regNr)) {
+                if (foundLuggageList.get(i).getRegistrationnr().equals(regNr)) {
                     foundLuggageList.remove(i);
                     System.out.println("Removed row with index " + i);
                     break;
@@ -658,7 +654,7 @@ public class RequestStatusController implements Initializable {
     }
 
     private void initTextFieldsWithLostLuggage(LostLuggage luggage) {
-        regNrField.setText(Integer.toString(luggage.getRegistrationnr()));
+        regNrField.setText(luggage.getRegistrationnr());
         dateFoundField.setText(luggage.getDateregistered());
         timeFoundField.setText(luggage.getTimeregistered());
         typeComboBox.getSelectionModel().select(luggage.getLuggagetype());
@@ -675,7 +671,7 @@ public class RequestStatusController implements Initializable {
     }
 
     private void initTextFieldsWithFoundLuggage(FoundLuggage luggage) {
-        regNrField.setText(Integer.toString(luggage.getRegistrationnr()));
+        regNrField.setText(luggage.getRegistrationnr());
         dateFoundField.setText(luggage.getDatefound());
         timeFoundField.setText(luggage.getTimefound());
         typeComboBox.getSelectionModel().select(luggage.getLuggagetype());

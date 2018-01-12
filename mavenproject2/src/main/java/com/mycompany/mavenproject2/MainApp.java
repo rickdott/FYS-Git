@@ -14,6 +14,7 @@ import javafx.stage.Screen;
 public class MainApp extends Application {
 
     public static Stage application;
+    public Utilities myUtils;
 
     // Start van de hele applicatie
     @Override

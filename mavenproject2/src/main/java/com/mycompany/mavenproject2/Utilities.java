@@ -9,10 +9,11 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -22,8 +23,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 /**
- *
- * @author Rick
+ * Rick 1-154 (153) Timur 154-261 (107)
+ * @author Rick den Otter 500749952 Timur Yagci 500764449
  */
 public class Utilities {
 
@@ -44,6 +45,11 @@ public class Utilities {
         btn.setStyle("-fx-background-color: #951504; -fx-background-radius: 0; -fx-border-width: 1 0 0 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 30;");
     }
     
+    public static int userID;
+    public static int roleID;
+
+    
+    // Two methods to use when hovering over a button
     @FXML
     public static void onHover(String currentPage, Button btn, Label label) {
         System.out.println("onHover activated");
@@ -118,6 +124,14 @@ public class Utilities {
 
         System.out.println("Another page opened(anchor)...");
     }
+    
+    @FXML
+    public void setEmployee(int idEmployee, int RoleID) {
+        this.userID = idEmployee;
+        this.roleID = RoleID;
+    }
+    
+    
 
     public Parent loadFXMLFile(String fxmlFileName) {
         try {
@@ -144,7 +158,7 @@ public class Utilities {
         
         while (result.next()) {
             FoundLuggage luggage = new FoundLuggage();
-            luggage.setRegistrationnr(result.getInt("registrationnr"));
+            luggage.setRegistrationnr(result.getString("registrationnr"));
             luggage.setDatefound(result.getString("datefound"));
             luggage.setTimefound(result.getString("timefound"));
             luggage.setLuggagetype(result.getString("luggagetype"));
@@ -172,7 +186,60 @@ public class Utilities {
         
         while (result.next()) {
             LostLuggage luggage = new LostLuggage();
-            luggage.setRegistrationnr(result.getInt("registrationnr"));
+            luggage.setRegistrationnr(result.getString("registrationnr"));
+            luggage.setDateregistered(result.getString("dateregistered"));
+            luggage.setTimeregistered(result.getString("timeregistered"));
+            luggage.setLuggagetype(result.getString("luggagetype"));
+            luggage.setBrand(result.getString("brand"));
+            luggage.setFlightnumber(result.getString("flightnumber"));
+            luggage.setLuggagelabelnr(result.getString("luggagelabelnr"));
+            luggage.setPrimarycolour(result.getString("primarycolour"));
+            luggage.setSecondarycolour(result.getString("secondarycolour"));
+            luggage.setSize(result.getString("size"));
+            luggage.setWeight(result.getString("weight"));
+            luggage.setPassenger_name_city(result.getString("passenger_name_city"));
+            luggage.setOtherchar(result.getString("otherchar"));
+            luggage.setIdpassenger(result.getInt("idpassenger"));
+            foundLuggageList.add(luggage);
+        }
+        return foundLuggageList;
+    }
+    
+    public static ArrayList<FoundLuggage> listOfFoundLuggageFromResultSet(ResultSet result, ArrayList<FoundLuggage> foundLuggageList) throws SQLException {
+        // Loop through the resultset, making a new 'FoundLuggage' Object 
+        // for every result, adding the attributes of the result to the 
+        // corresponding attribute in the FoundLuggage object
+        
+        while (result.next()) {
+            FoundLuggage luggage = new FoundLuggage();
+            luggage.setRegistrationnr(result.getString("registrationnr"));
+            luggage.setDatefound(result.getString("datefound"));
+            luggage.setTimefound(result.getString("timefound"));
+            luggage.setLuggagetype(result.getString("luggagetype"));
+            luggage.setBrand(result.getString("brand"));
+            luggage.setFlightnumber(result.getString("flightnumber"));
+            luggage.setLuggagelabelnr(result.getString("luggagelabelnr"));
+            luggage.setLocationfound(result.getString("locationfound"));
+            luggage.setPrimarycolour(result.getString("primarycolour"));
+            luggage.setSecondarycolour(result.getString("secondarycolour"));
+            luggage.setSize(result.getString("size"));
+            luggage.setWeight(result.getString("weight"));
+            luggage.setPassenger_name_city(result.getString("passenger_name_city"));
+            luggage.setOtherchar(result.getString("otherchar"));
+            luggage.setIdpassenger(result.getInt("idpassenger"));
+            foundLuggageList.add(luggage);
+        }
+        return foundLuggageList;
+    }
+    
+    public static ArrayList<LostLuggage> listOfLostLuggageFromResultSet(ResultSet result, ArrayList<LostLuggage> foundLuggageList) throws SQLException {
+        // Loop through the resultset, making a new 'FoundLuggage' Object 
+        // for every result, adding the attributes of the result to the 
+        // corresponding attribute in the FoundLuggage object
+        
+        while (result.next()) {
+            LostLuggage luggage = new LostLuggage();
+            luggage.setRegistrationnr(result.getString("registrationnr"));
             luggage.setDateregistered(result.getString("dateregistered"));
             luggage.setTimeregistered(result.getString("timeregistered"));
             luggage.setLuggagetype(result.getString("luggagetype"));
