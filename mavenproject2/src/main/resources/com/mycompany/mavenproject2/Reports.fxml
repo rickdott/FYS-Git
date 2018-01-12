@@ -194,12 +194,7 @@
                                  <children>
                                     <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                          <Button fx:id="submitFoundMissingBut" mnemonicParsing="false" onAction="#showMissingStats" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Submit" textFill="WHITE" />
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
-                                       <children>
-                                          <Button fx:id="submitMissingPerMonthBut" mnemonicParsing="false" onAction="#showMissingPerMonthStats" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Submit" textFill="WHITE" visible="false" />
+                                          <Button fx:id="submitFoundMissingBut" mnemonicParsing="false" onAction="#submitFoundMissingButton" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Submit" textFill="WHITE" />
                                        </children>
                                     </HBox>
                                  </children>
@@ -208,6 +203,11 @@
                         </VBox>
                      </children>
                   </StackPane>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="submitMissingPerMonthBut" mnemonicParsing="false" onAction="#showMissingPerMonthStats" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Submit" textFill="WHITE" />
+                     </children>
+                  </HBox>
                </children>
             </VBox>
             <StackPane>
