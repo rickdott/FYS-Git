@@ -102,7 +102,7 @@ public class LoginController {
 
     @FXML
     private void openWorkerHomescreenFromCustomer(ActionEvent event) {
-        utilities.newAnchorpane("WorkerHomescreen", paneCustomer);
+        utilities.newAnchorpane("EmployeeHomescreen", paneCustomer);
     }
 
     @FXML
@@ -129,6 +129,8 @@ public class LoginController {
     //Login for employee
     @FXML
     private void handleButtonAction(ActionEvent event) {
+        
+        
         Database db = new Database();
         String username = textUsername.getText();
         String password = textPassword.getText();
@@ -142,7 +144,10 @@ public class LoginController {
                 username, password);
 
         infoBox("sql [" + sql + "]", "Success", null);
-
+        
+        
+        
+        
         try {
             resultSet = db.executeResultSetQuery(sql);
 
@@ -164,6 +169,7 @@ public class LoginController {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        
     }
 
     public static void infoBox(String infoMessage, String titleBar, String headerMessage) {

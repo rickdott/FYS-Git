@@ -12,22 +12,21 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" fx:id="registerMissingPane" minHeight="647.0" minWidth="1053.0" prefHeight="647.0" prefWidth="1053.0" style="-fx-background-color: #f3f3f3;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.RegisterMissingController">
+<AnchorPane id="AnchorPane" fx:id="registerMissingPane" minHeight="647.0" minWidth="1053.0" prefHeight="647.0" prefWidth="1053.0" style="-fx-background-color: #f3f3f3;" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.RegisterMissingController">
    <children>
       <GridPane layoutX="86.0" layoutY="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
-          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="263.0" minWidth="263.0" prefWidth="263.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="263.0" minWidth="263.0" prefWidth="263.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="187.0" minWidth="150.0" prefWidth="187.0" />
-          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="341.0" minWidth="263.0" prefWidth="341.0" />
+          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="300.0" minWidth="100.0" prefWidth="100.0" />
+            <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="500.0" minWidth="263.0" prefWidth="263.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="240.0" prefWidth="187.0" />
+          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="500.0" minWidth="263.0" prefWidth="263.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints maxHeight="630.0" minHeight="10.0" prefHeight="604.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="318.0" minHeight="10.0" prefHeight="43.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="318.0" minHeight="10.0" prefHeight="43.0" valignment="BOTTOM" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
@@ -292,7 +291,7 @@
                         <Font size="24.0" />
                      </font>
                   </Text>
-                  <ComboBox fx:id="LuggageType" prefHeight="29.0" prefWidth="302.0" promptText="Luggage Type">
+                  <ComboBox fx:id="LuggageType" prefHeight="29.0" prefWidth="273.0" promptText="Luggage Type">
                      <VBox.margin>
                         <Insets top="5.0" />
                      </VBox.margin>
@@ -302,11 +301,11 @@
                         <Insets right="40.0" top="7.0" />
                      </VBox.margin>
                   </TextField>
-                  <ComboBox fx:id="BagagePrimaryColour" prefHeight="29.0" prefWidth="302.0" promptText="Colour">
+                  <ComboBox fx:id="BagagePrimaryColour" prefHeight="29.0" prefWidth="275.0" promptText="Colour">
                      <VBox.margin>
                         <Insets top="5.0" />
                      </VBox.margin></ComboBox>
-                  <ComboBox fx:id="BagageSecondaryColour" prefHeight="29.0" prefWidth="302.0" promptText="Colour">
+                  <ComboBox fx:id="BagageSecondaryColour" prefHeight="29.0" prefWidth="276.0" promptText="Colour">
                      <VBox.margin>
                         <Insets top="8.0" />
                      </VBox.margin>
@@ -316,6 +315,14 @@
                         <Insets right="40.0" top="8.0" />
                      </VBox.margin>
                   </TextField>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Velden met * zijn verplicht om in te vullen">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
                   <Label fx:id="warning" prefHeight="44.0" prefWidth="296.0" textFill="RED">
                      <font>
                         <Font size="17.0" />
@@ -329,17 +336,26 @@
                         <Font size="13.0" />
                      </font>
                   </CheckBox>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Velden met * zijn verplicht om in te vullen">
+                  <Button mnemonicParsing="false" onAction="#excelImportPath" text="Excel importeren" VBox.vgrow="ALWAYS">
                      <VBox.margin>
-                        <Insets top="110.0" />
+                        <Insets top="10.0" />
                      </VBox.margin>
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Text>
+                  </Button>
                </children>
             </VBox>
-            <Button mnemonicParsing="false" onAction="#backToLogin" text="Back to login" GridPane.rowIndex="1" />
+
+                  <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="250.0" mnemonicParsing="false" onAction="#openRegisterThankyou" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Submit" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets bottom="30.0" left="40.0" right="120.0" />
+               </GridPane.margin>
+            </Button>
+            <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="250.0" mnemonicParsing="false" onAction="#backToLogin" text="Back to login" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets bottom="30.0" left="40.0" />
+               </GridPane.margin>
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding></Button>
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <children>
                   <Button mnemonicParsing="false" onAction="#excelImportPath" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Excel importeren" textFill="WHITE">
@@ -347,15 +363,10 @@
                         <Insets right="84.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#openRegisterThankyou" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Submit" textFill="WHITE">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </Button>
                </children>
             </HBox>
+
          </children>
       </GridPane>
-      <Line endX="526.5" endY="647.0" startX="526.5" stroke="#363636" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="526.0" AnchorPane.rightAnchor="526.0" AnchorPane.topAnchor="0.0" />
    </children>
 </AnchorPane>

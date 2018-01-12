@@ -15,8 +15,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="requestpage" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.RequestStatusKlantenController">
+<AnchorPane id="AnchorPane" fx:id="requestpage" prefHeight="720.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.RequestStatusKlantenController">
    <children>
+
       <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="100.0" />
@@ -536,11 +537,13 @@
                </children>
             </StackPane>
             <ImageView fitHeight="150.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+
                <image>
                   <Image url="@../../../images/Corendon%20Logo.png" />
                </image>
             </ImageView>
          </children>
+
       </GridPane>
       <ImageView fitHeight="71.0" fitWidth="69.0" layoutX="1178.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -548,5 +551,6 @@
          </image>
       </ImageView>
       <Button layoutX="1180.0" layoutY="40.0" mnemonicParsing="false" onAction="#backToLogin" prefHeight="69.0" prefWidth="69.0" style="-fx-background-color: transparent;" />
+
    </children>
 </AnchorPane>
