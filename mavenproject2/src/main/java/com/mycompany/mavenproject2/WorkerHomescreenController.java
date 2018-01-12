@@ -35,6 +35,8 @@ public class WorkerHomescreenController implements Initializable {
 
     @FXML
     private VBox VBPane;
+    
+    Utilities utilities = new Utilities();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -90,7 +92,6 @@ public class WorkerHomescreenController implements Initializable {
         }
 
     }
-    Utilities utilities = new Utilities();
 
     //Methods to open other pages
     @FXML

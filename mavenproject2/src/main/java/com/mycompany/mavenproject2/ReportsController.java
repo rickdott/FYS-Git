@@ -37,6 +37,7 @@ public class ReportsController implements Initializable {
         try {
             showMissingStats();
             ArrayList<String> listOfYears = getYearsInDB();
+            years.clear();
             years.addAll(listOfYears);
             yearComboBox.setItems(years);
         } catch (SQLException ex) {

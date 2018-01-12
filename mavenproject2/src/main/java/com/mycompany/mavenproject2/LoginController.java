@@ -97,7 +97,7 @@ public class LoginController {
 
     @FXML
     private void openWorkerHomescreen(ActionEvent event) {
-        utilities.newAnchorpane("WorkerHomescreen", paneLogin);
+        utilities.newAnchorpane("EmployeeHomescreen", paneLogin);
     }
 
     @FXML
@@ -207,13 +207,12 @@ public class LoginController {
                 infoBox("Enter Correct Email And Lastname", "Failed", null);
             } else {
                 infoBox("Login Successfull", "Success", null);
-                Utilities utilities = new Utilities();
                 while (resultSet.next()) {
                     usrID = resultSet.getInt("idEmployee");
                 }
                 infoBox("User ID = " + usrID, "Success", null);
                 LoginController controller = new LoginController();
-                utilities.newAnchorpane("CustomerHomescreen", paneLogin);
+                utilities.newAnchorpane("CustomerHomescreen", paneCustomer);
 
             }
 
