@@ -25,8 +25,9 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.VBox;
 
 /**
- * Controller that handles the reports section, showing 
- * different statistics on missing luggage
+ * Controller that handles the reports section, showing different statistics on
+ * missing luggage
+ *
  * @author Rick den Otter 500749952 (314 lines)
  */
 public class ReportsController implements Initializable {
@@ -36,6 +37,7 @@ public class ReportsController implements Initializable {
         try {
             showMissingStats();
             ArrayList<String> listOfYears = getYearsInDB();
+            years.clear();
             years.addAll(listOfYears);
             yearComboBox.setItems(years);
         } catch (SQLException ex) {
@@ -212,6 +214,16 @@ public class ReportsController implements Initializable {
         database.close();
 
         return entryList;
+    }
+
+    @FXML
+    private void submitFoundMissingButton() throws SQLException {
+        System.out.println("Testfound/missing");
+        if (missingLuggageToggle.isSelected()) {
+            showMissingStats();
+        } else {
+            showFoundStats();
+        }
     }
 
     private void populateLineChart(LineChart chart, ArrayList<String> airports, String year) throws SQLException {
