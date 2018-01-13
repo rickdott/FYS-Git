@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -221,7 +220,7 @@
                   </Text>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Type">
                      <VBox.margin>
-                        <Insets right="10.0" top="39.0" />
+                        <Insets right="10.0" top="43.0" />
                      </VBox.margin>
                      <font>
                         <Font size="17.0" />
@@ -245,7 +244,7 @@
                   </Text>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Secondary Colour">
                      <VBox.margin>
-                        <Insets right="10.0" top="8.0" />
+                        <Insets right="10.0" top="14.0" />
                      </VBox.margin>
                      <font>
                         <Font size="17.0" />
@@ -256,7 +255,7 @@
                         <Font size="17.0" />
                      </font>
                      <VBox.margin>
-                        <Insets right="10.0" top="8.0" />
+                        <Insets right="10.0" top="12.0" />
                      </VBox.margin>
                   </Text>
                </children>
@@ -323,6 +322,14 @@
                         <Font size="15.0" />
                      </font>
                   </Text>
+                  <CheckBox fx:id="mailSturen" mnemonicParsing="false" text="Stuur een kopie van dit document naar mijn email">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </CheckBox>
                   <Label fx:id="warning" prefHeight="44.0" prefWidth="296.0" textFill="RED">
                      <font>
                         <Font size="17.0" />
@@ -331,40 +338,19 @@
                         <Insets top="50.0" />
                      </VBox.margin>
                   </Label>
-                  <CheckBox fx:id="mailSturen" mnemonicParsing="false" text="Stuur een kopie van dit document naar mijn email">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </CheckBox>
-                  <Button mnemonicParsing="false" onAction="#excelImportPath" text="Excel importeren" VBox.vgrow="ALWAYS">
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                  </Button>
                </children>
             </VBox>
 
-                  <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="250.0" mnemonicParsing="false" onAction="#openRegisterThankyou" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Submit" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                        <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="250.0" mnemonicParsing="false" onAction="#openRegisterThankyou" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Submit" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <GridPane.margin>
-                  <Insets bottom="30.0" left="40.0" right="120.0" />
+                  <Insets bottom="30.0" left="40.0" right="100.0" />
                </GridPane.margin>
             </Button>
-            <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="250.0" mnemonicParsing="false" onAction="#backToLogin" text="Back to login" GridPane.rowIndex="1">
+            <Button alignment="CENTER" maxWidth="250.0" mnemonicParsing="false" onAction="#excelImportPath" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Excel importeren" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <GridPane.margin>
-                  <Insets bottom="30.0" left="40.0" />
+                  <Insets bottom="100.0" left="40.0" right="100.0" />
                </GridPane.margin>
-               <padding>
-                  <Insets bottom="10.0" top="10.0" />
-               </padding></Button>
-            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#excelImportPath" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Excel importeren" textFill="WHITE">
-                     <HBox.margin>
-                        <Insets right="84.0" />
-                     </HBox.margin>
-                  </Button>
-               </children>
-            </HBox>
+            </Button>
 
          </children>
       </GridPane>

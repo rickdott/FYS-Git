@@ -97,7 +97,7 @@ public class Utilities {
         Parent newPane = loadFXMLFile(pageName + ".fxml");
         pane.getChildren().clear();
         pane.getChildren().add(newPane);
-        label.setText(btn.getText());
+        //label.setText(btn.getText());
 
         System.out.println("Another page opened...");
     }

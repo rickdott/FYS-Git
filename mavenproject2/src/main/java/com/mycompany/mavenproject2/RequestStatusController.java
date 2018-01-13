@@ -24,6 +24,7 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 /**
@@ -35,6 +36,9 @@ public class RequestStatusController implements Initializable {
 
     @FXML
     private TableView foundLuggageTableView;
+    
+    @FXML
+    private StackPane StackButtonPane;
 
     @FXML
     private Button editSelectedButton, submitButton;
@@ -592,11 +596,13 @@ public class RequestStatusController implements Initializable {
 
     private void makeTableViewInvisible() {
         foundLuggageTableView.setVisible(false);
+        StackButtonPane.setVisible(false);
         editSelectedButton.setVisible(false);
     }
 
     private void makeTableViewVisible() {
         foundLuggageTableView.setVisible(true);
+        StackButtonPane.setVisible(true);
         editSelectedButton.setVisible(true);
     }
 

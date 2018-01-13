@@ -26,11 +26,13 @@ public class MainApp extends Application {
         stage.setMaximized(true);
         stage.setTitle("BAGGER");
         stage.setScene(scene);
-        Screen screen = Screen.getPrimary();
+        
         
          
         
         stage.show();
+        stage.setMinWidth(1300);
+        stage.setMinHeight(760);
         stage.setResizable(true);
    
         application = stage;
