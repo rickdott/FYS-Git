@@ -4,8 +4,8 @@ import java.sql.*;
 import java.util.Enumeration;
 
 /**
- *
- * @author Stan van Weringh
+ * Database class made by HvA, edited by Stan to work with our database
+ * @author Stan van Weringh 500771870 (15 lines edited)
  */
 public class Database {
     private static final String DB_DEFAULT_DATABASE = "stanviw199_fys";

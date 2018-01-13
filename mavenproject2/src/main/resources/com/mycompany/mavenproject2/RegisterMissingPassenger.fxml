@@ -19,10 +19,10 @@
    <children>
       <GridPane layoutX="86.0" layoutY="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
-          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="300.0" minWidth="100.0" prefWidth="100.0" />
-            <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="500.0" minWidth="263.0" prefWidth="263.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="240.0" prefWidth="187.0" />
           <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="500.0" minWidth="263.0" prefWidth="263.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="500.0" minWidth="263.0" prefWidth="263.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="187.0" minWidth="150.0" prefWidth="187.0" />
+          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="500.0" minWidth="263.0" prefWidth="341.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints maxHeight="630.0" minHeight="10.0" prefHeight="604.0" vgrow="SOMETIMES" />
@@ -291,7 +291,7 @@
                         <Font size="24.0" />
                      </font>
                   </Text>
-                  <ComboBox fx:id="LuggageType" prefHeight="29.0" prefWidth="273.0" promptText="Luggage Type">
+                  <ComboBox fx:id="LuggageType" prefHeight="29.0" prefWidth="302.0" promptText="Luggage Type">
                      <VBox.margin>
                         <Insets top="5.0" />
                      </VBox.margin>
@@ -301,11 +301,11 @@
                         <Insets right="40.0" top="7.0" />
                      </VBox.margin>
                   </TextField>
-                  <ComboBox fx:id="BagagePrimaryColour" prefHeight="29.0" prefWidth="275.0" promptText="Colour">
+                  <ComboBox fx:id="BagagePrimaryColour" prefHeight="29.0" prefWidth="302.0" promptText="Colour">
                      <VBox.margin>
                         <Insets top="5.0" />
                      </VBox.margin></ComboBox>
-                  <ComboBox fx:id="BagageSecondaryColour" prefHeight="29.0" prefWidth="276.0" promptText="Colour">
+                  <ComboBox fx:id="BagageSecondaryColour" prefHeight="29.0" prefWidth="302.0" promptText="Colour">
                      <VBox.margin>
                         <Insets top="8.0" />
                      </VBox.margin>
@@ -344,7 +344,7 @@
                </children>
             </VBox>
 
-                  <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="250.0" mnemonicParsing="false" onAction="#openRegisterThankyou" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Submit" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                  <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="250.0" mnemonicParsing="false" onAction="#openRegisterThankyou" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Submit" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets bottom="30.0" left="40.0" right="120.0" />
                </GridPane.margin>

@@ -25,8 +25,13 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
 /**
+<<<<<<< HEAD
  *
  * @author TaRick /
+=======
+ * YET TO BE IMPLEMENTED
+ * @author Tarik 500780772
+>>>>>>> master
  */
 public class UserRolesController implements Initializable {
 

@@ -23,113 +23,163 @@
       <GridPane layoutX="219.0" layoutY="215.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="128.0" />
-            <ColumnConstraints maxWidth="-Infinity" minWidth="10.0" prefWidth="384.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="70.0" prefWidth="0.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="128.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <VBox fx:id="vbox1" prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.columnIndex="1">
+            <VBox fx:id="vbox1" alignment="TOP_RIGHT" prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.columnIndex="1">
                <children>
-                  <HBox fx:id="hboxRadio" prefHeight="100.0" prefWidth="200.0">
+                  <HBox fx:id="hboxRadio" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label text="Looking for:  ">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets top="9.0" />
-                           </HBox.margin>
-                        </Label>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
+                        <StackPane alignment="TOP_LEFT" prefHeight="100.0" prefWidth="403.0">
                            <children>
-                              <RadioButton mnemonicParsing="false" selected="true" text="Lost">
+                              <VBox prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <RadioButton mnemonicParsing="false" selected="true" text="Lost">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="lostFoundGroup" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="Found" toggleGroup="$lostFoundGroup">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </RadioButton>
+                                 </children>
+                                 <StackPane.margin>
+                                    <Insets left="270.0" />
+                                 </StackPane.margin>
+                              </VBox>
+                              <Label alignment="CENTER" maxWidth="110.0" minWidth="0.0" text="Looking for:  " StackPane.alignment="TOP_LEFT">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
-                                 <toggleGroup>
-                                    <ToggleGroup fx:id="lostFoundGroup" />
-                                 </toggleGroup>
-                              </RadioButton>
-                              <RadioButton mnemonicParsing="false" text="Found" toggleGroup="$lostFoundGroup">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </RadioButton>
+                              </Label>
                            </children>
-                        </VBox>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </StackPane>
                      </children>
                   </HBox>
                   <StackPane>
                      <children>
-                        <TextField fx:id="regNrField" maxWidth="175.0" StackPane.alignment="CENTER_RIGHT" />
-                        <Label contentDisplay="RIGHT" minWidth="-Infinity" text="Registration Number" StackPane.alignment="CENTER_LEFT">
+                        <TextField fx:id="regNrField" maxWidth="167.0" StackPane.alignment="CENTER">
+                           <StackPane.margin>
+                              <Insets left="150.0" />
+                           </StackPane.margin></TextField>
+                        <Label contentDisplay="RIGHT" prefWidth="200.0" text="Registration Number" StackPane.alignment="CENTER">
                            <font>
                               <Font size="18.0" />
                            </font>
+                           <StackPane.margin>
+                              <Insets right="200.0" />
+                           </StackPane.margin>
                         </Label>
                      </children>
                   </StackPane>
                   <StackPane>
                      <children>
-                        <Label contentDisplay="RIGHT" text="Date Found" StackPane.alignment="CENTER_LEFT">
+                        <Label contentDisplay="RIGHT" prefWidth="200.0" text="Date Found" StackPane.alignment="CENTER">
                            <font>
                               <Font size="18.0" />
                            </font>
+                           <StackPane.margin>
+                              <Insets right="200.0" />
+                           </StackPane.margin>
                         </Label>
-                        <TextField fx:id="dateFoundField" maxWidth="175.0" StackPane.alignment="CENTER_RIGHT" />
+                        <TextField fx:id="dateFoundField" maxWidth="167.0" StackPane.alignment="CENTER">
+                           <StackPane.margin>
+                              <Insets left="150.0" />
+                           </StackPane.margin></TextField>
                      </children>
                   </StackPane>
                   <StackPane>
                      <children>
-                        <Label contentDisplay="RIGHT" text="Time Found" StackPane.alignment="CENTER_LEFT">
+                        <Label contentDisplay="RIGHT" prefWidth="200.0" text="Time Found" StackPane.alignment="CENTER">
                            <font>
                               <Font size="18.0" />
                            </font>
+                           <StackPane.margin>
+                              <Insets right="200.0" />
+                           </StackPane.margin>
                         </Label>
-                        <TextField fx:id="timeFoundField" maxWidth="175.0" StackPane.alignment="CENTER_RIGHT" />
+                        <TextField fx:id="timeFoundField" maxWidth="167.0" StackPane.alignment="CENTER">
+                           <StackPane.margin>
+                              <Insets left="150.0" />
+                           </StackPane.margin></TextField>
                      </children>
                   </StackPane>
                   <StackPane>
                      <children>
-                        <Label contentDisplay="RIGHT" text="Type" StackPane.alignment="CENTER_LEFT">
+                        <Label contentDisplay="RIGHT" prefWidth="200.0" text="Type" StackPane.alignment="CENTER">
                            <font>
                               <Font size="18.0" />
                            </font>
+                           <StackPane.margin>
+                              <Insets right="200.0" />
+                           </StackPane.margin>
                         </Label>
-                        <ComboBox fx:id="typeComboBox" maxWidth="175.0" promptText="Luggage Type" StackPane.alignment="CENTER_RIGHT" />
+                        <ComboBox fx:id="typeComboBox" maxWidth="167.0" promptText="Luggage Type" StackPane.alignment="CENTER">
+                           <StackPane.margin>
+                              <Insets left="150.0" />
+                           </StackPane.margin></ComboBox>
                      </children>
                   </StackPane>
                   <StackPane>
                      <children>
-                        <Label contentDisplay="RIGHT" text="Brand" StackPane.alignment="CENTER_LEFT">
+                        <Label contentDisplay="RIGHT" prefWidth="200.0" text="Brand" StackPane.alignment="CENTER">
                            <font>
                               <Font size="18.0" />
                            </font>
+                           <StackPane.margin>
+                              <Insets right="200.0" />
+                           </StackPane.margin>
                         </Label>
-                        <TextField fx:id="brandField" maxWidth="175.0" StackPane.alignment="CENTER_RIGHT" />
+                        <TextField fx:id="brandField" maxWidth="167.0" StackPane.alignment="CENTER">
+                           <StackPane.margin>
+                              <Insets left="150.0" />
+                           </StackPane.margin></TextField>
                      </children>
                   </StackPane>
                   <StackPane>
                      <children>
-                        <Label contentDisplay="RIGHT" text="Flight Number" StackPane.alignment="CENTER_LEFT">
+                        <Label contentDisplay="RIGHT" prefWidth="200.0" text="Flight Number" StackPane.alignment="CENTER">
                            <font>
                               <Font size="18.0" />
                            </font>
+                           <StackPane.margin>
+                              <Insets right="200.0" />
+                           </StackPane.margin>
                         </Label>
-                        <TextField fx:id="flightNrField" maxWidth="175.0" StackPane.alignment="CENTER_RIGHT" />
+                        <TextField fx:id="flightNrField" maxWidth="167.0" StackPane.alignment="CENTER">
+                           <StackPane.margin>
+                              <Insets left="150.0" />
+                           </StackPane.margin></TextField>
                      </children>
                   </StackPane>
                   <StackPane>
                      <children>
-                        <Label contentDisplay="RIGHT" minWidth="-Infinity" text="Bagage Label Number" StackPane.alignment="CENTER_LEFT">
+                        <Label contentDisplay="RIGHT" minWidth="-Infinity" prefWidth="200.0" text="Bagage Label Number" StackPane.alignment="CENTER">
                            <font>
                               <Font size="18.0" />
                            </font>
+                           <StackPane.margin>
+                              <Insets right="200.0" />
+                           </StackPane.margin>
                         </Label>
-                        <TextField fx:id="labelNrField" maxWidth="175.0" StackPane.alignment="CENTER_RIGHT" />
+                        <TextField fx:id="labelNrField" maxWidth="167.0" StackPane.alignment="CENTER">
+                           <StackPane.margin>
+                              <Insets left="150.0" />
+                           </StackPane.margin></TextField>
                      </children>
                   </StackPane>
                </children>
@@ -147,98 +197,119 @@
                <children>
                   <StackPane>
                      <children>
-                        <Label contentDisplay="RIGHT" text="Location Found" StackPane.alignment="CENTER_LEFT">
+                        <Label contentDisplay="RIGHT" prefHeight="27.0" prefWidth="200.0" text="Location Found" StackPane.alignment="CENTER">
                            <font>
                               <Font size="18.0" />
                            </font>
-                        </Label>
-                        <TextField fx:id="locationFoundField" maxWidth="175.0" StackPane.alignment="CENTER_RIGHT">
                            <StackPane.margin>
-                              <Insets right="10.0" />
+                              <Insets right="175.0" />
+                           </StackPane.margin>
+                        </Label>
+                        <TextField fx:id="locationFoundField" maxWidth="175.0" prefWidth="152.0" StackPane.alignment="CENTER">
+                           <StackPane.margin>
+                              <Insets left="190.0" right="10.0" />
                            </StackPane.margin>
                         </TextField>
                      </children>
                   </StackPane>
                   <StackPane>
                      <children>
-                        <Label contentDisplay="RIGHT" text="Main Colour" StackPane.alignment="CENTER_LEFT">
+                        <Label contentDisplay="RIGHT" prefWidth="200.0" text="Main Colour" StackPane.alignment="CENTER">
                            <font>
                               <Font size="18.0" />
                            </font>
-                        </Label>
-                        <ComboBox fx:id="mainColourComboBox" maxWidth="175.0" promptText="Colour" StackPane.alignment="CENTER_RIGHT">
                            <StackPane.margin>
-                              <Insets right="10.0" />
+                              <Insets right="175.0" />
+                           </StackPane.margin>
+                        </Label>
+                        <ComboBox fx:id="mainColourComboBox" maxWidth="175.0" promptText="Colour" StackPane.alignment="CENTER">
+                           <StackPane.margin>
+                              <Insets left="190.0" right="10.0" />
                            </StackPane.margin>
                         </ComboBox>
                      </children>
                   </StackPane>
                   <StackPane>
                      <children>
-                        <Label contentDisplay="RIGHT" text="Secondary Colour" StackPane.alignment="CENTER_LEFT">
+                        <Label contentDisplay="RIGHT" prefWidth="200.0" text="Secondary Colour" StackPane.alignment="CENTER">
                            <font>
                               <Font size="18.0" />
                            </font>
-                        </Label>
-                        <ComboBox fx:id="secondaryColourComboBox" maxWidth="175.0" promptText="Colour" StackPane.alignment="CENTER_RIGHT">
                            <StackPane.margin>
-                              <Insets right="10.0" />
+                              <Insets right="175.0" />
+                           </StackPane.margin>
+                        </Label>
+                        <ComboBox fx:id="secondaryColourComboBox" maxWidth="175.0" promptText="Colour" StackPane.alignment="CENTER">
+                           <StackPane.margin>
+                              <Insets left="190.0" right="10.0" />
                            </StackPane.margin>
                         </ComboBox>
                      </children>
                   </StackPane>
                   <StackPane>
                      <children>
-                        <Label contentDisplay="RIGHT" text="Size" StackPane.alignment="CENTER_LEFT">
+                        <Label contentDisplay="RIGHT" prefWidth="200.0" text="Size" StackPane.alignment="CENTER">
                            <font>
                               <Font size="18.0" />
                            </font>
-                        </Label>
-                        <TextField fx:id="sizeField" maxWidth="175.0" StackPane.alignment="CENTER_RIGHT">
                            <StackPane.margin>
-                              <Insets right="10.0" />
+                              <Insets right="175.0" />
+                           </StackPane.margin>
+                        </Label>
+                        <TextField fx:id="sizeField" maxWidth="175.0" StackPane.alignment="CENTER">
+                           <StackPane.margin>
+                              <Insets left="190.0" right="10.0" />
                            </StackPane.margin>
                         </TextField>
                      </children>
                   </StackPane>
                   <StackPane>
                      <children>
-                        <Label contentDisplay="RIGHT" text="Weight" StackPane.alignment="CENTER_LEFT">
+                        <Label contentDisplay="RIGHT" prefWidth="200.0" text="Weight" StackPane.alignment="CENTER">
                            <font>
                               <Font size="18.0" />
                            </font>
-                        </Label>
-                        <TextField fx:id="weightField" maxWidth="175.0" StackPane.alignment="CENTER_RIGHT">
                            <StackPane.margin>
-                              <Insets right="10.0" />
+                              <Insets right="175.0" />
+                           </StackPane.margin>
+                        </Label>
+                        <TextField fx:id="weightField" maxWidth="175.0" StackPane.alignment="CENTER">
+                           <StackPane.margin>
+                              <Insets left="190.0" right="10.0" />
                            </StackPane.margin>
                         </TextField>
                      </children>
                   </StackPane>
                   <StackPane>
                      <children>
-                        <Label contentDisplay="RIGHT" text="Passenger Name &amp; City" StackPane.alignment="CENTER_LEFT">
+                        <TextField fx:id="nameAndCityField" maxWidth="175.0" StackPane.alignment="CENTER">
+                           <StackPane.margin>
+                              <Insets left="190.0" right="10.0" />
+                           </StackPane.margin>
+                        </TextField>
+                        <Label contentDisplay="RIGHT" prefWidth="200.0" text="Passenger Name &amp; City" StackPane.alignment="CENTER">
                            <font>
                               <Font size="18.0" />
                            </font>
-                        </Label>
-                        <TextField fx:id="nameAndCityField" maxWidth="175.0" StackPane.alignment="CENTER_RIGHT">
                            <StackPane.margin>
-                              <Insets right="10.0" />
+                              <Insets right="175.0" />
                            </StackPane.margin>
-                        </TextField>
+                        </Label>
                      </children>
                   </StackPane>
                   <StackPane>
                      <children>
-                        <Label contentDisplay="RIGHT" text="Special Characteristics" StackPane.alignment="CENTER_LEFT">
+                        <Label contentDisplay="RIGHT" prefWidth="200.0" text="Special Characteristics" StackPane.alignment="CENTER">
                            <font>
                               <Font size="18.0" />
                            </font>
-                        </Label>
-                        <TextField fx:id="specialCharField" maxWidth="175.0" StackPane.alignment="CENTER_RIGHT">
                            <StackPane.margin>
-                              <Insets right="10.0" />
+                              <Insets right="175.0" />
+                           </StackPane.margin>
+                        </Label>
+                        <TextField fx:id="specialCharField" maxWidth="175.0" StackPane.alignment="CENTER">
+                           <StackPane.margin>
+                              <Insets left="190.0" right="10.0" />
                            </StackPane.margin>
                         </TextField>
                      </children>

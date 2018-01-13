@@ -9,8 +9,8 @@ import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
 
 /**
- *
- * @author Stijn
+ * Controller for the thank you message of the register missing screen
+ * @author Stijn Klopper 500770512 (31 lines)
  */
 public class RegisterMissingThankYouController {
     Utilities utilities = new Utilities();

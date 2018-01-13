@@ -1,13 +1,9 @@
 package com.mycompany.mavenproject2;
 
-import static com.mycompany.mavenproject2.LoginController.infoBox;
 import java.net.URL;
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -15,13 +11,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 /**
+ * NEEDS TO BE CLEANED UP
  *
- * @author Rick, Matthijs
+ * @author Matthijs Snijders 500780453
  */
 public class WorkerHomescreenController implements Initializable {
 
@@ -33,12 +29,14 @@ public class WorkerHomescreenController implements Initializable {
 
     @FXML
     private Label label1;
-    
+
     @FXML
     private Button but1, but2, but3, but4;
 
     @FXML
     private VBox VBPane;
+    
+    Utilities utilities = new Utilities();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -56,12 +54,12 @@ public class WorkerHomescreenController implements Initializable {
                 //VBPane.add(button, 1, i++);
                 VBPane.setPrefWidth(100);
                 button.setMinWidth(VBPane.getPrefWidth());
-                VBPane.getChildren().add(button);               
+                VBPane.getChildren().add(button);
                 button.setStyle("-fx-font: 22 arial; -fx-base: #d81e05; "
                         + "-fx-background-radius: 0; -fx-border-width: 1 0 0 0; "
                         + "-fx-border-color: white; -fx-font-weight: bold; "
                         + "-fx-font-size: 18; -fx-alignment: CENTER;");
-                
+
                 final String url2 = resultSet.getString("Link");
                 button.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
@@ -74,7 +72,7 @@ public class WorkerHomescreenController implements Initializable {
                                 utilities.newPane("RegisterMissing", but2, mainpage, label1);
                                 break;
                             case "Reports":
-                                utilities.newPane("Reports", but3 , mainpage, label1);
+                                utilities.newPane("Reports", but3, mainpage, label1);
                                 break;
                             case "UserRoles":
                                 utilities.newPane("UserRoles", but4, mainpage, label1);
@@ -94,17 +92,16 @@ public class WorkerHomescreenController implements Initializable {
         }
 
     }
-    Utilities utilities = new Utilities();
 
     //Methods to open other pages
     @FXML
     private void openRequestStatus(ActionEvent event) {
-        utilities.newPane("RequestStatus",but1, mainpage, label1);
+        utilities.newPane("RequestStatus", but1, mainpage, label1);
     }
 
     @FXML
     private void openRegisterMissing(ActionEvent event) {
-        utilities.newPane("RegisterMissing",but2, mainpage, label1);
+        utilities.newPane("RegisterMissing", but2, mainpage, label1);
     }
 
     //TEMP
@@ -121,43 +118,43 @@ public class WorkerHomescreenController implements Initializable {
     // All methods for hovering off a button
     @FXML
     private void offHoverbut1() {
-        Utilities.offHover("Request Status",but1, label1);
+        Utilities.offHover("Request Status", but1, label1);
     }
 
     @FXML
     private void offHoverbut2() {
-        Utilities.offHover("Register Missing",but2, label1);
+        Utilities.offHover("Register Missing", but2, label1);
     }
 
     @FXML
     private void offHoverbut3() {
-        Utilities.offHover("Request Status",but3, label1);
+        Utilities.offHover("Request Status", but3, label1);
     }
 
     @FXML
     private void offHoverbut4() {
-        Utilities.offHover("Register Missing",but4, label1);
+        Utilities.offHover("Register Missing", but4, label1);
     }
 
     // All methods for hovering over a button
     @FXML
     private void onHoverbut1() {
-        Utilities.onHover("Request Status",but1, label1);
+        Utilities.onHover("Request Status", but1, label1);
     }
 
     @FXML
     private void onHoverbut2() {
-        Utilities.onHover("Register Missing",but2, label1);
+        Utilities.onHover("Register Missing", but2, label1);
     }
 
     @FXML
     private void onHoverbut3() {
-        Utilities.onHover("Register Missing",but3, label1);
+        Utilities.onHover("Register Missing", but3, label1);
     }
 
     @FXML
     private void onHoverbut4() {
-        Utilities.onHover("Register Missing",but4, label1);
+        Utilities.onHover("Register Missing", but4, label1);
     }
 
     @FXML

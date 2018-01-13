@@ -1,28 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.mavenproject2;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 
 /**
+ * Controller for the customer homescreen
+ * @author Tarik 500780772 (73 lines)
  *
- * @author Rick
  */
-public class CustomerHomescreenController implements Initializable {
-
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }
+public class CustomerHomescreenController {
 
     @FXML
     private AnchorPane paneCustomerHomescreen;
@@ -31,7 +19,6 @@ public class CustomerHomescreenController implements Initializable {
     private Button reqStatBut, regMisBut, faqBut;
     
     Utilities utilities = new Utilities();
-
     
     @FXML
     private void openRequestStatus(ActionEvent event) {
@@ -40,7 +27,7 @@ public class CustomerHomescreenController implements Initializable {
     
     @FXML
     private void openRegisterMissing(ActionEvent event) {
-        utilities.newAnchorpane("RegisterMissing", paneCustomerHomescreen);
+        utilities.newAnchorpane("RegisterMissingPassenger", paneCustomerHomescreen);
     }
     
     @FXML

@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Matthijs Snijders
+ * @author Matthijs Snijders (27 lines)
  */
 public class LoginApplication extends Application {
 
