@@ -25,18 +25,18 @@
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="130.0" prefWidth="1287.0" styleClass="\\">
                <children>
                   <TextField editable="false" layoutX="27.0" layoutY="47.0" prefHeight="96.0" prefWidth="211.0" />
-                  <Text layoutX="475.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" wrappingWidth="97.2909927368164">
+                  <Text layoutX="435.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" wrappingWidth="140.2909927368164">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="472.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Achternaam:" wrappingWidth="104.291015625">
+                  <Text layoutX="435.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" wrappingWidth="104.291015625">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="textEmail" layoutX="581.0" layoutY="187.0" prefHeight="25.0" prefWidth="253.0" promptText="Enter your email" />
-                  <TextField fx:id="textLastName" layoutX="581.0" layoutY="227.0" prefHeight="25.0" prefWidth="253.0" promptText="Enter your lastname:" />
+                  <TextField fx:id="textEmail" layoutX="581.0" layoutY="187.0" prefHeight="25.0" prefWidth="253.0" promptText="Enter your email:" />
+                  <TextField fx:id="textLastName" layoutX="581.0" layoutY="227.0" prefHeight="25.0" prefWidth="253.0" promptText="Enter your last name:" />
                   <Text layoutX="40.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tijdelijke knoppen om in te loggen" />
                   <Button layoutX="77.0" layoutY="77.0" mnemonicParsing="false" onAction="#openCustomerHomescreenFromCustomer" text="Inloggen als klant" />
                   <Button layoutX="57.0" layoutY="106.0" mnemonicParsing="false" onAction="#openWorkerHomescreenFromCustomer" text="Inloggen als medewerker" />

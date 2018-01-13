@@ -1,11 +1,17 @@
 package com.mycompany.mavenproject2;
 
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -105,6 +111,8 @@ public class LoginController {
 
     Stage dialogStage = new Stage();
     Scene scene;
+    
+    PreparedStatement preparedStatement = null;
 
     ResultSet resultSet = null;
 
@@ -116,22 +124,16 @@ public class LoginController {
         String password = textPassword.getText();
         int usrID = 0;
         int roleID = 0;
-        //String RoleID = EmpSelect.getValue();
         String sql = String.format("SELECT * FROM Employee "
                 + "WHERE username = '%s' "
                 + "and password = '%s' ",
-                //+ "and RoleID = '%s' ", 
                 username, password);
-
-        infoBox("sql [" + sql + "]", "Success", null);
-
         try {
             resultSet = db.executeResultSetQuery(sql);
 
             if (!resultSet.next()) {
                 infoBox("Enter Correct Username and Password", "Failed", null);
             } else {
-                //infoBox("Login Successfull", "Success", null);
                 resultSet.first();
                 usrID = resultSet.getInt("idEmployee");
                 roleID = resultSet.getInt("RoleID");
@@ -156,20 +158,20 @@ public class LoginController {
         alert.showAndWait();
     }
 
-    //Login for passenger
+     //Login for passenger
     @FXML
     private TextField textEmail;
-
+            
     @FXML
     private TextField textLastName;
 
     @FXML
     private void handleButtonActionPassenger(ActionEvent event) {
         Database db = new Database();
+        /*String test = luggagelabelnr2.getText();
+        int bla = Integer.parseInt(test);    */  
         String email = textEmail.getText();
         String lastname = textLastName.getText();
-        int usrID = 0;
-        int roleID = 0;
 
         //SQL query checks if email and lastname is equal to input.
         String sql = String.format("SELECT * FROM Passenger "
@@ -180,17 +182,13 @@ public class LoginController {
         try {
             resultSet = db.executeResultSetQuery(sql);
             if (!resultSet.next()) {
-                infoBox("Enter Correct Email And Lastname", "Failed", null);
+                infoBox("Enter Correct labelnummer And Lastname", "Failed", null);
             } else {
                 infoBox("Login Successfull", "Success", null);
                 Utilities utilities = new Utilities();
-                while (resultSet.next()) {
-                    usrID = resultSet.getInt("idEmployee");
-                }
-                infoBox("User ID = " + usrID, "Success", null);
-                LoginController controller = new LoginController();
-                utilities.newAnchorpane("CustomerHomescreen", paneLogin);
 
+                LoginController controller = new LoginController();
+                utilities.newAnchorpane("CustomerHomescreen", paneCustomer);
             }
 
         } catch (SQLException e) {

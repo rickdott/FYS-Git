@@ -42,7 +42,7 @@ public class Utilities {
     // First method is only used for big button
     @FXML
     public static void onHover(Button btn) {
-        btn.setStyle("-fx-background-color: #951504; -fx-background-radius: 0; -fx-border-width: 1 0 0 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 30;");
+        btn.setStyle("-fx-background-color: #951504; -fx-background-radius: 0; -fx-border-width: 1 0 0 0; -fx-border-color: yellow; -fx-font-weight: bold; -fx-font-size: 30;");
     }
     
     public static int userID;
@@ -54,7 +54,7 @@ public class Utilities {
     public static void onHover(String currentPage, Button btn, Label label) {
         System.out.println("onHover activated");
         if (!label.getText().equals(currentPage)) {
-            btn.setStyle("-fx-background-color: #951504; -fx-background-radius: 0; -fx-border-width: 1 0 0 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18;");
+            btn.setStyle("-fx-background-color: #951504; -fx-background-radius: 0; -fx-border-width: 1 0 0 0; -fx-border-color: yellow; -fx-font-weight: bold; -fx-font-size: 18;");
         }
     }
 
@@ -74,7 +74,7 @@ public class Utilities {
     }
             
     @FXML
-    public static void offHover(String currentPage, Button btn, Label label) {
+    public void offHover(String currentPage, Button btn, Label label) {
         System.out.println("offHover activated");
         if (!label.getText().equals(currentPage)) {
             btn.setStyle("-fx-background-color: #D81E05; -fx-background-radius: 0; -fx-border-width: 1 0 0 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18;");
