@@ -57,10 +57,7 @@ public class RegisterFoundController implements Initializable {
 
     }
     //Alle text velden en objecten in de FMXL page worden aangeroepen met hun code
-    @FXML
-    private TextField LocationFound;
-    @FXML
-    private TextField Airport;
+  
 
     @FXML
     private TextField BagageLabel;
@@ -82,6 +79,7 @@ public class RegisterFoundController implements Initializable {
     TextField GeneralDate2;
     @FXML
     TextField GeneralTime;
+    
     @FXML
     private AnchorPane RegisterFoundPane;
 
@@ -115,6 +113,4 @@ public class RegisterFoundController implements Initializable {
             utilities.newAnchorpane("RegisterMissing_thankyou", RegisterFoundPane);
         }
     }
-
-//   GetCurrentDateTime time = new GetCurrentDateTime();
 }
