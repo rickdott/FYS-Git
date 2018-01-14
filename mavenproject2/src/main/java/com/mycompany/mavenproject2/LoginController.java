@@ -1,17 +1,22 @@
 package com.mycompany.mavenproject2;
 
+import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
@@ -20,8 +25,36 @@ import javafx.stage.Stage;
  * Stan 1-72, Matthijs 73-208
  * @author Matthijs Snijders 500780453, Stan van Weringh 500771870
  */
-public class LoginController {
+public class LoginController implements Initializable {
 
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
+        
+        labelEmail.setText(mybundle.getString("E-Mail"));
+        textEmail.setText(mybundle.getString("Enter_your_E-mail"));
+        labelLastname.setText(mybundle.getString("Lastname"));
+        textLastname.setText(mybundle.getString("Enter_your_lastname"));
+        buttonPassenger.setText(mybundle.getString("Login"));
+        buttonEmployee.setText(mybundle.getString("Employee_Login"));
+        textWarning.setText(mybundle.getString("Warning!"));
+        textCaseSensitive.setText(mybundle.getString("Login_is_case_sensitive!"));
+        
+
+    }
+        
+    @FXML
+    private Label labelEmail, labelLastname ;
+    
+    private Text textEmail, textLastname, textWarning, textCaseSensitive ;
+    
+    private Button buttonPassenger, buttonEmployee ;
+    
+    
+    
+    
+// End of translation lines
+    
     @FXML
     private AnchorPane paneLogin, paneCustomer;
     
