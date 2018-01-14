@@ -41,13 +41,13 @@ public class Utilities {
             "Bag", "Business Case", "Case", "Other");
 
     public static final int[] luggageCodes = {1, 2, 3, 4, 5, 6, 7, 8};
-    
+
     public static final String[][] luggageStrings = new String[][]{
         {"Suitcase", "Bag", "Bagpack", "Box", "Sports Bag", "Business Case", "Case", "Other"},
         {"Koffer", "Tas", "Rugzak", "Doos", "Sporttas", "Zakenkoffer", "Kist", "Anders"},
         {"Bavul", "Canta", "Sırt çantası", "Kutu", "Spor çantası", "Iş çantası", "Göğüs", "Diğer"}
     };
-    
+
     public static final int[] ralcodes = {1003, 1015, 1024, 2004, 3000, 3005, 3017, 4005,
         4010, 5002, 5015, 5022, 6002, 6004, 6022, 6038, 7000, 7015, 8002,
         8011, 8023, 9001, 9005, 9011};
@@ -196,25 +196,77 @@ public class Utilities {
             return colour;
         }
     }
-    
+
     public static int getRalFromColour(String colour) {
-       
+
         String language = Locale.getDefault().getLanguage();
         int languageIndex = -1;
         switch (language) {
-                        case "en":
-                            languageIndex = 0;
-                            break;
-                        case "nl":
-                            languageIndex = 1;
-                            break;
-                        case "tr":
-                            languageIndex = 2;
-                            break;
-                    }
+            case "en":
+                languageIndex = 0;
+                break;
+            case "nl":
+                languageIndex = 1;
+                break;
+            case "tr":
+                languageIndex = 2;
+                break;
+        }
         for (int i = 0; i < Utilities.coloursStrings[0].length; i++) {
             if (Utilities.coloursStrings[languageIndex][i].equals(colour)) {
                 return Utilities.ralcodes[i];
+            }
+        }
+        return -1;
+    }
+
+    public static String getTypeFromNumber(String ral) throws SQLException {
+        if (ral == null) {
+            return "";
+        } else {
+            int ralInt = Integer.parseInt(ral);
+
+            String language = Locale.getDefault().getLanguage();
+            String type = "";
+
+            for (int i = 0; i < Utilities.luggageCodes.length; i++) {
+                if (Utilities.luggageCodes[i] == ralInt) {
+                    switch (language) {
+                        case "en":
+                            type = Utilities.luggageStrings[0][i];
+                            break;
+                        case "nl":
+                            type = Utilities.luggageStrings[1][i];
+                            break;
+                        case "tr":
+                            type = Utilities.luggageStrings[2][i];
+                            break;
+                    }
+                }
+            }
+
+            return type;
+        }
+    }
+
+    public static int getNumberFromType(String colour) {
+
+        String language = Locale.getDefault().getLanguage();
+        int languageIndex = -1;
+        switch (language) {
+            case "en":
+                languageIndex = 0;
+                break;
+            case "nl":
+                languageIndex = 1;
+                break;
+            case "tr":
+                languageIndex = 2;
+                break;
+        }
+        for (int i = 0; i < Utilities.luggageStrings[0].length; i++) {
+            if (Utilities.luggageStrings[languageIndex][i].equals(colour)) {
+                return Utilities.luggageCodes[i];
             }
         }
         return -1;
@@ -230,7 +282,7 @@ public class Utilities {
             luggage.setRegistrationnr(result.getString("registrationnr"));
             luggage.setDatefound(result.getString("datefound"));
             luggage.setTimefound(result.getString("timefound"));
-            luggage.setLuggagetype(result.getString("luggagetype"));
+            luggage.setLuggagetype(Utilities.getTypeFromNumber(result.getString("luggagetype")));
             luggage.setBrand(result.getString("brand"));
             luggage.setFlightnumber(result.getString("flightnumber"));
             luggage.setLuggagelabelnr(result.getString("luggagelabelnr"));
@@ -258,7 +310,7 @@ public class Utilities {
             luggage.setRegistrationnr(result.getString("registrationnr"));
             luggage.setDateregistered(result.getString("dateregistered"));
             luggage.setTimeregistered(result.getString("timeregistered"));
-            luggage.setLuggagetype(result.getString("luggagetype"));
+            luggage.setLuggagetype(Utilities.getTypeFromNumber(result.getString("luggagetype")));
             luggage.setBrand(result.getString("brand"));
             luggage.setFlightnumber(result.getString("flightnumber"));
             luggage.setLuggagelabelnr(result.getString("luggagelabelnr"));
@@ -284,7 +336,7 @@ public class Utilities {
             luggage.setRegistrationnr(result.getString("registrationnr"));
             luggage.setDatefound(result.getString("datefound"));
             luggage.setTimefound(result.getString("timefound"));
-            luggage.setLuggagetype(result.getString("luggagetype"));
+            luggage.setLuggagetype(Utilities.getTypeFromNumber(result.getString("luggagetype")));
             luggage.setBrand(result.getString("brand"));
             luggage.setFlightnumber(result.getString("flightnumber"));
             luggage.setLuggagelabelnr(result.getString("luggagelabelnr"));
@@ -311,7 +363,7 @@ public class Utilities {
             luggage.setRegistrationnr(result.getString("registrationnr"));
             luggage.setDateregistered(result.getString("dateregistered"));
             luggage.setTimeregistered(result.getString("timeregistered"));
-            luggage.setLuggagetype(result.getString("luggagetype"));
+            luggage.setLuggagetype(Utilities.getTypeFromNumber(result.getString("luggagetype")));
             luggage.setBrand(result.getString("brand"));
             luggage.setFlightnumber(result.getString("flightnumber"));
             luggage.setLuggagelabelnr(result.getString("luggagelabelnr"));
