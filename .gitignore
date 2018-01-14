@@ -12,3 +12,6 @@
 *.pdf
 *.pdf
 mavenproject2/src/main/resources/temp/PDFTest.pdf
+!/mavenproject2/src/main/resources/languages/Language_en_EN.properties
+!/mavenproject2/src/main/resources/languages/Language_nl_NL.properties
+!/mavenproject2/src/main/resources/languages/Language_tr_TR.properties
