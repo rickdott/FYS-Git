@@ -6,6 +6,7 @@
 package com.mycompany.mavenproject2;
 
 import java.io.IOException;
+import java.math.BigInteger;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -377,5 +378,72 @@ public class Utilities {
             foundLuggageList.add(luggage);
         }
         return foundLuggageList;
+    }
+    
+    /**
+     * 
+     * @param labelnr labelnr of the luggage you want to check
+     * @param solveCase true if you want it to put the luggage in SolvedCases if it is only in foundbagageinventory, false if you dont
+     * @return returns true if it is already in SolvedCases or if the method puts it there
+     * @throws SQLException 
+     */
+    public static boolean isSolvedLabelnr(long labelnr, boolean solveCase) throws SQLException {
+        Database database = new Database();
+
+        ResultSet resultLost = database.executeResultSetQuery(String.format("SELECT * FROM Lostbagage WHERE luggagelabelnr = %d", labelnr));
+        ResultSet resultFound = database.executeResultSetQuery(String.format("SELECT * FROM Foundbagageinventory WHERE luggagelabelnr = %d", labelnr));
+        ResultSet resultSolved = database.executeResultSetQuery(String.format("SELECT * FROM Solvedcases WHERE luggagelabelnr = %d", labelnr));
+        
+        database.close();
+        //Logic for finding out what kind of luggage it is
+        boolean isInLost, isInFound, isInSolved;
+        if (resultLost.next() == false) {
+            //Luggage is not in lostbagage
+            isInLost = false;
+        } else {
+            isInLost = true;
+        }
+        if (resultFound.next() == false) {
+            //Luggage is not in foundbagage
+            isInFound = false;
+        } else {
+            isInFound = true;
+        }
+        if (resultSolved.next() == false) {
+            //Luggage is not in solved
+            isInSolved = false;
+        } else {
+            isInSolved = true;
+        }
+//        resultLost.close();
+//        resultFound.close();
+//        resultSolved.close();
+        
+        //Logic to decide what to do
+        if (isInLost && isInFound && isInSolved) {
+            return true;
+        } else if ((isInLost && isInFound) && !isInSolved) {
+            //put in solved
+            solveCase(labelnr, isInLost, isInFound, isInSolved);
+            return true;
+        } else if (isInFound && solveCase) {
+            solveCase(labelnr, isInLost, isInFound, isInSolved);
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    private static void solveCase(long labelnr, boolean isInLost, boolean isInFound, boolean isInSolved) {
+        Database database = new Database();
+        
+        database.executeUpdateQuery(String.format("INSERT INTO Solvedcases (luggagelabelnr, dateSolved) VALUES (%d, CURDATE());", labelnr));
+        if (isInLost) {
+            database.executeUpdateQuery(String.format("UPDATE Lostbagage SET isSolved = 1 WHERE luggagelabelnr = %d", labelnr));
+        }
+        if (isInFound) {
+            database.executeUpdateQuery(String.format("UPDATE Foundbagageinventory SET isSolved = 1 WHERE luggagelabelnr = %d", labelnr));
+        }
+        database.close();
     }
 }

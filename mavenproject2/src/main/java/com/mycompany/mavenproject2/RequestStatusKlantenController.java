@@ -41,6 +41,9 @@ public class RequestStatusKlantenController {
 
     @FXML
     private void getInput() throws SQLException {
+        if (Utilities.isSolvedLabelnr(2771896151L, true)) {
+            
+        }
         String lastName = lastNameField.getText();
         String labelnr = labelNrField.getText();
 
@@ -60,6 +63,7 @@ public class RequestStatusKlantenController {
 
             if (!listLost.isEmpty() && !listFound.isEmpty()) {
                 // Luggage is both lost and found, case is solved
+                
                 System.out.println("Luggage is both lost and found");
             } else if (!listLost.isEmpty()) {
                 //Luggage is only lost
@@ -79,6 +83,8 @@ public class RequestStatusKlantenController {
                 hBoxLost.setVisible(false);
                 initializeFoundFields(luggage);
                 hBoxFound.setVisible(true);
+                //What do you want to do with the luggage? Utilities.solvecase
+                
             } else {
                 // Luggage is neither lost or found, unknown luggage or wrong 
                 // information has been entered
