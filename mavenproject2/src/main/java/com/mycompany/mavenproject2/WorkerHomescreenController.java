@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
@@ -49,13 +50,16 @@ public class WorkerHomescreenController implements Initializable {
             while (resultSet.next()) {
                 Button button = new Button(resultSet.getString("Name"));
                 //VBPane.add(button, 1, i++);
-                VBPane.setPrefWidth(100);
+//                VBPane.setPrefWidth(100);
                 button.setMinWidth(VBPane.getPrefWidth());
+                button.setPrefWidth(300);
+                button.setPadding(new Insets(15, 0, 15, 0));
                 VBPane.getChildren().add(button);               
-                button.setStyle("-fx-font: 22 arial; -fx-base: #d81e05; "
+                button.setStyle("-fx-font: 22 arial; -fx-background-color: #d81e05; "
                         + "-fx-background-radius: 0; -fx-border-width: 1 0 0 0; "
                         + "-fx-border-color: white; -fx-font-weight: bold; "
-                        + "-fx-font-size: 18; -fx-alignment: CENTER;");
+                        + "-fx-font-size: 18; -fx-alignment: CENTER;"
+                        + "-fx-text-fill: white");
                 
                 final String url2 = resultSet.getString("Link");
                 button.setOnAction(new EventHandler<ActionEvent>() {
