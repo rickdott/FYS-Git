@@ -226,11 +226,11 @@ public class RequestStatusController implements Initializable {
                 }
             }
 
-            // Check this
-//        if (typeComboBox.getValue() != null) {
-//            String type = database.executeStringListQuery(String.format("SELECT idluggage_type FROM Luggagetype WHERE english = '%s'", typeComboBox.getValue()));
-//            queryList.add(String.format("luggagetype = '%s'", type));
-//        }
+            if (typeComboBox.getValue() != null) {
+                int ral = Utilities.getNumberFromType(typeComboBox.getValue());
+                queryList.add(String.format("type = %d", ral));
+                lluggage.setLuggagetype(Utilities.getTypeFromNumber(Integer.toString(ral)));
+            }
             if (brandField.getText() != null) {
                 if (!brandField.getText().equals(lluggage.getBrand())) {
                     queryList.add("brand = '" + brandField.getText() + "'");
@@ -313,11 +313,11 @@ public class RequestStatusController implements Initializable {
                 }
             }
 
-            //check this
-//        if (typeComboBox.getValue() != null) {
-//            String type = database.executeStringListQuery(String.format("SELECT idluggage_type FROM Luggagetype WHERE english = '%s'", typeComboBox.getValue()));
-//            queryList.add(String.format("luggagetype = '%s'", type));
-//        }
+            if (typeComboBox.getValue() != null) {
+                int ral = Utilities.getNumberFromType(typeComboBox.getValue());
+                queryList.add(String.format("type = %d", ral));
+                fluggage.setLuggagetype(Utilities.getTypeFromNumber(Integer.toString(ral)));
+            }
             if (brandField.getText() != null) {
                 if (!brandField.getText().equals(fluggage.getBrand())) {
                     queryList.add("brand = '" + brandField.getText() + "'");
@@ -346,7 +346,6 @@ public class RequestStatusController implements Initializable {
                 }
             }
 
-            // Fix these
             if (mainColourComboBox.getValue() != null) {
                 int ral = Utilities.getRalFromColour(mainColourComboBox.getValue());
                 queryList.add(String.format("primarycolour = %d", ral));
