@@ -11,8 +11,10 @@ import java.util.ArrayList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -32,18 +34,24 @@ public class RequestStatusKlantenController {
 
     @FXML
     private TextField lastNameField, labelNrField;
+    
+    @FXML
+    private TextField addressField, numberField, cityField, countryField, zipCodeField;
 
     @FXML
     private HBox hBoxLost, hBoxFound;
     
     @FXML
-    private Label statusMessage;
+    private VBox choiceVBox;
+    
+    @FXML
+    private Label statusMessage, addressLabel, zipCodeLabel, cityAndCountryLabel;
+        
+    @FXML
+    private RadioButton choicePickup, choiceAddress;
 
     @FXML
     private void getInput() throws SQLException {
-        if (Utilities.isSolvedLabelnr(2771896151L, true)) {
-            
-        }
         String lastName = lastNameField.getText();
         String labelnr = labelNrField.getText();
 
@@ -63,7 +71,8 @@ public class RequestStatusKlantenController {
 
             if (!listLost.isEmpty() && !listFound.isEmpty()) {
                 // Luggage is both lost and found, case is solved
-                
+                choiceVBox.setVisible(true);
+                statusMessage.setText("Lost luggage has been found");
                 System.out.println("Luggage is both lost and found");
             } else if (!listLost.isEmpty()) {
                 //Luggage is only lost
@@ -83,14 +92,12 @@ public class RequestStatusKlantenController {
                 hBoxLost.setVisible(false);
                 initializeFoundFields(luggage);
                 hBoxFound.setVisible(true);
-                //What do you want to do with the luggage? Utilities.solvecase
-                
+                choiceVBox.setVisible(true);
             } else {
                 // Luggage is neither lost or found, unknown luggage or wrong 
                 // information has been entered
                 System.out.println("WRONGFUL INFORMATION, LUGGAGE NOT FOUND");
                 statusMessage.setText("The information you entered does not match a piece of luggage in our systems.");
-                
                 hBoxLost.setVisible(false);
                 hBoxFound.setVisible(false);
             }
@@ -104,6 +111,31 @@ public class RequestStatusKlantenController {
 
     }
 
+    @FXML
+    private void submitChoice() throws SQLException {
+        //read choice from radio buttons
+        if (choicePickup.isSelected()) {
+            
+        } else {
+            //customer wants to deliver to another address, get info from textfields
+            long labelnumber = Long.parseLong(labelNrField.getText());
+            String address = addressField.getText();
+            String number = numberField.getText();
+            String city = cityField.getText();
+            String country = countryField.getText();
+            String zip = zipCodeField.getText();
+            
+            hBoxLost.setVisible(false);
+            hBoxFound.setVisible(false);
+            
+            addressLabel.setText(String.format("%s %s", address, number));
+            zipCodeLabel.setText(String.format("%s", zip));
+            cityAndCountryLabel.setText(String.format("%s, %s", city, country));
+            Utilities.isSolvedLabelnr(labelnumber, true);
+            
+        }
+    }
+    
     private String makeQuery(String fromTable, String labelNr, String lastName) {
         String query = String.format("SELECT * FROM %s WHERE luggagelabelnr = '%s' AND passenger_name_city LIKE '%%%s%%'", fromTable, labelNr, lastName);
 
