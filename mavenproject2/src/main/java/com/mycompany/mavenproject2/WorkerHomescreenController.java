@@ -1,22 +1,19 @@
 package com.mycompany.mavenproject2;
 
-import java.awt.event.MouseEvent;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
-import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 
 /**
  * NEEDS TO BE CLEANED UP
@@ -44,7 +41,7 @@ public class WorkerHomescreenController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        Locale.setDefault(new Locale("tr", "TR"));
         Database db = new Database();
         ResultSet resultSet = null;
         String sqlMenu = String.format("SELECT * FROM Menu "
@@ -57,7 +54,7 @@ public class WorkerHomescreenController implements Initializable {
                 VBPane.setPrefWidth(100);
                 button.setMinWidth(VBPane.getPrefWidth());
                 final String url2 = resultSet.getString("Link");
-                VBPane.getChildren().add(VBPane.getChildren().size() - 1, button);
+                VBPane.getChildren().add(button);
 
                 /**
                  * Sets the standard button style
