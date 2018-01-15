@@ -32,7 +32,7 @@
             </Label>
             <VBox fx:id="VBPane" alignment="TOP_CENTER" style="-fx-background-color: d81e05;" GridPane.rowIndex="1">
                <children>
-                  <Button fx:id="but6" mnemonicParsing="false" onMouseEntered="#onHoverbut6" onMouseExited="#offHoverbut6" style="-fx-font: 22 arial; -fx-background-color: #d81e05; -fx-background-radius: 0; -fx-border-width: 1 1 1 1; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18; -fx-text-fill: white; -fx-min-height: 50; -fx-min-width: 150;" text="Log Out">
+                  <Button fx:id="but6" mnemonicParsing="false" onAction="#backToLogin" onMouseEntered="#onHoverbut6" onMouseExited="#offHoverbut6" style="-fx-font: 22 arial; -fx-background-color: #d81e05; -fx-background-radius: 0; -fx-border-width: 1 1 1 1; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18; -fx-text-fill: white; -fx-min-height: 50; -fx-min-width: 150;" text="Log Out">
                      <VBox.margin>
                         <Insets top="325.0" />
                      </VBox.margin>

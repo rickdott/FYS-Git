@@ -4,7 +4,9 @@ import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -81,9 +83,30 @@ public class RequestStatusController implements Initializable {
                 System.out.println("Attached column '" + propertyName + "' in tableview to matching attribute");
             }
         }
-        typeComboBox.setItems(Utilities.types);
-        mainColourComboBox.setItems(Utilities.colours);
-        secondaryColourComboBox.setItems(Utilities.colours);
+        
+        ObservableList<String> coloursList = FXCollections.observableArrayList();
+        ObservableList<String> typesList = FXCollections.observableArrayList();
+        
+        String language = Locale.getDefault().getLanguage();
+        
+        switch (language) {
+                        case "en":
+                            coloursList.addAll(Arrays.asList(Utilities.coloursStrings[0]));
+                            typesList.addAll(Arrays.asList(Utilities.luggageStrings[0]));
+                            break;
+                        case "nl":
+                            coloursList.addAll(Arrays.asList(Utilities.coloursStrings[1]));
+                            typesList.addAll(Arrays.asList(Utilities.luggageStrings[1]));
+                            break;
+                        case "tr":
+                            coloursList.addAll(Arrays.asList(Utilities.coloursStrings[2]));
+                            typesList.addAll(Arrays.asList(Utilities.luggageStrings[2]));
+                            break;
+                    }
+        
+        typeComboBox.setItems(typesList);
+        mainColourComboBox.setItems(coloursList);
+        secondaryColourComboBox.setItems(coloursList);
     }
 
     Utilities utilities = new Utilities();

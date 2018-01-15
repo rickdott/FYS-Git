@@ -1,12 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.mavenproject2;
 
 import java.io.IOException;
-import java.math.BigInteger;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -32,7 +26,7 @@ import javafx.scene.layout.Pane;
  * @author Rick den Otter 500749952 Timur Yagci 500764449
  */
 public class Utilities {
-
+    //List of colours, used in dropdown boxes
     public static ObservableList<String> colours = FXCollections.observableArrayList(
             "Yellow", "Olive", "Red", "Darkred", "Pink", "Purple", "Violet",
             "Blue", "Lightblue", "Darkblue", "Bluegreen", "Green", "Darkgreen",
@@ -175,8 +169,8 @@ public class Utilities {
 
     @FXML
     public void setEmployee(int idEmployee, int RoleID) {
-        this.userID = idEmployee;
-        this.roleID = RoleID;
+        Utilities.userID = idEmployee;
+        Utilities.roleID = RoleID;
     }
 
     public Parent loadFXMLFile(String fxmlFileName) {
