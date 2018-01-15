@@ -11,14 +11,14 @@
    <children>
       <BorderPane prefHeight="647.0" prefWidth="1053.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Missing luggage registered! Thank you! " BorderPane.alignment="CENTER">
+            <Text fx:id="labelThankyou" strokeType="OUTSIDE" strokeWidth="0.0" text="Missing luggage registered! Thank you! " BorderPane.alignment="CENTER">
                <font>
                   <Font size="30.0" />
                </font>
             </Text>
          </center>
          <bottom>
-            <Button maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#backToLoginTY" prefHeight="40.0" prefWidth="165.0" style="-fx-background-color: #d81e05;" text="Back to Home" textFill="WHITE" BorderPane.alignment="CENTER">
+            <Button fx:id="buttonBacktohome" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#backToLoginTY" prefHeight="40.0" prefWidth="165.0" style="-fx-background-color: #d81e05;" text="Back to Home" textFill="WHITE" BorderPane.alignment="CENTER">
                <font>
                   <Font size="20.0" />
                </font>

@@ -10,13 +10,12 @@ import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.concurrent.Executors;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -25,7 +24,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
-import org.apache.xmlbeans.impl.jam.internal.javadoc.JavadocRunner;
 
 /**
  * Class to facilitate registering a piece of missing luggage into the database
@@ -35,6 +33,67 @@ import org.apache.xmlbeans.impl.jam.internal.javadoc.JavadocRunner;
  */
 public class RegisterMissingController implements Initializable {
 
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
+
+        labelGeneral.setText(mybundle.getString("General"));
+        labelDate.setText(mybundle.getString("Date"));
+        labelTime.setText(mybundle.getString("Time"));
+        labelLuggage.setText(mybundle.getString("Luggage_Label"));
+        labelLabelNumber.setText(mybundle.getString("Label_Number*"));
+        labelFlightNumber.setText(mybundle.getString("Flight_Number*"));
+        labelLuggageInformation.setText(mybundle.getString("Luggage_Information"));
+        labelType.setText(mybundle.getString("Type"));
+        labelBrand.setText(mybundle.getString("Brand"));
+        labelSpecialChar.setText(mybundle.getString("Special_Characteristics"));
+        labelSize.setText(mybundle.getString("Size"));
+        labelWeight.setText(mybundle.getString("Weight"));
+        labelRequired.setText(mybundle.getString("Fields_with_*_are_required_to_fill_in"));
+        labelTraveller.setText(mybundle.getString("Traveller"));
+        labelFirstname.setText(mybundle.getString("Firstname*"));
+        labelSurname.setText(mybundle.getString("Surname*"));
+
+        labelAdress.setText(mybundle.getString("Adress*"));
+        labelCity.setText(mybundle.getString("City*"));
+        labelPostalcode.setText(mybundle.getString("Postal_code*"));
+        labelCountry.setText(mybundle.getString("Country*"));
+        labelPhone.setText(mybundle.getString("Phone*"));
+        labelEmail.setText(mybundle.getString("E-mail*"));
+        labelPColour.setText(mybundle.getString("Primary_Colour"));
+        labelSColour.setText(mybundle.getString("Secondary_Colour"));
+        labelSendmail.setText(mybundle.getString("Send_a_copy_of_this_document_to_my_email"));
+        labelExcel.setText(mybundle.getString("Import_Excel"));
+        buttonBacktologin.setText(mybundle.getString("Submit"));
+
+        DateFormat datum = new SimpleDateFormat("yyyy/MM/dd");
+        DateFormat tijd = new SimpleDateFormat("HH:mm:ss");
+
+        Date date = new Date();
+        Date time = new Date();
+
+        generalTime.setText((tijd.format(date)));
+        generalDate.setText((datum.format(time)));
+
+        BagagePrimaryColour.setItems(colours);
+        BagageSecondaryColour.setItems(colours);
+        LuggageType.setItems(Luggagetypes);
+    }
+
+    @FXML
+    private Text labelGeneral, labelDate, labelTime, labelLocation, labelLuggage, labelLabelNumber,
+            labelFlightNumber, labelLuggageInformation, labelType, labelBrand, labelColour, labelSpecialChar, labelRequired,
+            labelTraveller, labelFirstname, labelSurname, labelAdress, labelCity, labelPostalcode, labelCountry, labelPhone, labelEmail, labelPColour, labelSColour, 
+            labelSize, labelWeight;
+
+    @FXML
+    private Button buttonBacktologin, labelExcel, labelSubmit;
+
+    @FXML
+
+    private CheckBox labelSendmail;
+
+// End of translation lines
     //input Traveller
     @FXML
     private TextField TravellerFirstName;
@@ -107,24 +166,6 @@ public class RegisterMissingController implements Initializable {
             "Suitcase", "Bag", "Bagpack", "Box", "Sports",
             "Bag", "Business Case", "Case", "Other");
 
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-
-        DateFormat datum = new SimpleDateFormat("yyyy/MM/dd");
-        DateFormat tijd = new SimpleDateFormat("HH:mm:ss");
-
-        Date date = new Date();
-        Date time = new Date();
-
-        generalTime.setText((tijd.format(date)));
-        generalDate.setText((datum.format(time)));
-
-        BagagePrimaryColour.setItems(colours);
-        BagageSecondaryColour.setItems(colours);
-        LuggageType.setItems(Luggagetypes);
-
-    }
-
     @FXML
     private AnchorPane registerMissingPane, thankYouPage;
 
@@ -146,120 +187,115 @@ public class RegisterMissingController implements Initializable {
                 && !BagageLabel.getText().trim().isEmpty()) {
             //ResultSet resultSet = null;
             String sql = String.format("SELECT * FROM Flight WHERE flightnr = '%s' ",
-                BagageFlight.getText());
+                    BagageFlight.getText());
             Database db = new Database();
             ResultSet resultSet = db.executeResultSetQuery(sql);
-            if(resultSet.next()){
-            
-            
-            Mail mail = new Mail(TravellerEmail.getText().trim());
-            if (mail.ValidateMail(TravellerEmail.getText().trim()) == true) {
+            if (resultSet.next()) {
 
-                
-
-                String BagagePrimaryColourString;
-                String BagageSecondaryColourString;
-                String LuggageTypeSelect;
-
-                String pdf_inputprimarycolour = "";
-                String pdf_inputsecondarycolour = "";
-                String pdf_inputluggagetype = "";
-
-                //misschien temp manier van lege choicebox check
-                if (BagagePrimaryColour.getValue() != null) {
-                    BagagePrimaryColourString = db.executeStringListQuery(String.format("SELECT ralcode FROM Colour WHERE english = '%s'", BagagePrimaryColour.getValue()));
-                    pdf_inputprimarycolour = BagagePrimaryColour.getValue();
-
-                } else {
-                    BagagePrimaryColourString = "1";
-                }
-
-                if (BagageSecondaryColour.getValue() != null) {
-                    BagageSecondaryColourString = db.executeStringListQuery(String.format("SELECT ralcode FROM Colour WHERE english = '%s'", BagageSecondaryColour.getValue()));
-                    pdf_inputsecondarycolour = BagageSecondaryColour.getValue();
-                } else {
-                    BagageSecondaryColourString = "1";
-                }
-
-                if (LuggageType.getValue() != null) {
-                    LuggageTypeSelect = db.executeStringListQuery(String.format("SELECT idluggage_type FROM Luggagetype WHERE english = '%s'", LuggageType.getValue()));
-                    pdf_inputluggagetype = LuggageType.getValue();
-                } else {
-                    LuggageTypeSelect = "10";
-                }
-
-                String travellerInformation = String.format("INSERT INTO Passenger "
-                        + "(firstname, lastname, adress, city, zip, country, phone, email, flightnumber) "
-                        + "VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
-                        TravellerFirstName.getText(), TravellerSurname.getText(),
-                        TravellerAdress.getText(), TravellerCity.getText(),
-                        TravellerPostalCode.getText(), TravellerCountry.getText(),
-                        TravellerPhone.getText(), TravellerEmail.getText(),
-                        BagageFlight.getText());
-
-                db.executeUpdateQuery(travellerInformation);
-
-                ResultSet bagagenummer = db.executeResultSetQuery("SELECT idpassenger FROM Passenger ORDER BY idpassenger DESC LIMIT 1;");
-                bagagenummer.next();
-                System.out.println("TEST LET OP !!!" + bagagenummer.getInt("idpassenger"));
-
-                String luggageInformation = String.format("INSERT INTO "
-                        + "Lostbagage (dateregistered, timeregistered, luggagelabelnr, passenger_name_city, luggagetype, brand, primarycolour, secondarycolour, otherchar, flightnumber, idpassenger, size, weight) "
-                        + "VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
-                        generalDate.getText(), generalTime.getText(), BagageLabel.getText(),
-                        TravellerFirstName.getText() + TravellerAdress.getText(), LuggageTypeSelect,
-                        BagageBrand.getText(), BagagePrimaryColourString, BagageSecondaryColourString,
-                        BagageSpecialchar.getText(), BagageFlight.getText(), bagagenummer.getInt("idpassenger"),
-                        BagageSize.getText(), BagageWeight.getText());
-
-                db.executeUpdateQuery(luggageInformation);
-                
-                Pdf pdf = new Pdf();
-                pdf.printPDF(TravellerFirstName.getText(), TravellerSurname.getText(),
-                        TravellerAdress.getText(), TravellerCity.getText(),
-                        TravellerPostalCode.getText(), TravellerCountry.getText(),
-                        TravellerPhone.getText(), TravellerEmail.getText(),
-                        BagageLabel.getText(), BagageFlight.getText(),
-                        pdf_inputluggagetype,
-                        BagageBrand.getText(), pdf_inputprimarycolour,
-                        pdf_inputsecondarycolour,
-                        BagageSpecialchar.getText(), generalDate.getText(), generalTime.getText());
-
+                Mail mail = new Mail(TravellerEmail.getText().trim());
                 if (mail.ValidateMail(TravellerEmail.getText().trim()) == true) {
 
-                    if (mailSturen.isSelected()) {
+                    String BagagePrimaryColourString;
+                    String BagageSecondaryColourString;
+                    String LuggageTypeSelect;
 
-                        System.out.println("Sending mail...");
-                        mailThread(mail);
-                        
-                        utilities.newAnchorpane("RegisterMissing_thankyou", registerMissingPane);
+                    String pdf_inputprimarycolour = "";
+                    String pdf_inputsecondarycolour = "";
+                    String pdf_inputluggagetype = "";
+
+                    //misschien temp manier van lege choicebox check
+                    if (BagagePrimaryColour.getValue() != null) {
+                        BagagePrimaryColourString = db.executeStringListQuery(String.format("SELECT ralcode FROM Colour WHERE english = '%s'", BagagePrimaryColour.getValue()));
+                        pdf_inputprimarycolour = BagagePrimaryColour.getValue();
+
+                    } else {
+                        BagagePrimaryColourString = "1";
+                    }
+
+                    if (BagageSecondaryColour.getValue() != null) {
+                        BagageSecondaryColourString = db.executeStringListQuery(String.format("SELECT ralcode FROM Colour WHERE english = '%s'", BagageSecondaryColour.getValue()));
+                        pdf_inputsecondarycolour = BagageSecondaryColour.getValue();
+                    } else {
+                        BagageSecondaryColourString = "1";
+                    }
+
+                    if (LuggageType.getValue() != null) {
+                        LuggageTypeSelect = db.executeStringListQuery(String.format("SELECT idluggage_type FROM Luggagetype WHERE english = '%s'", LuggageType.getValue()));
+                        pdf_inputluggagetype = LuggageType.getValue();
+                    } else {
+                        LuggageTypeSelect = "10";
                     }
                     utilities.newAnchorpane("RegisterMissing_thankyou", registerMissingPane);
 
-                    
-                    
+                    String travellerInformation = String.format("INSERT INTO Passenger "
+                            + "(firstname, lastname, adress, city, zip, country, phone, email, flightnumber) "
+                            + "VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
+                            TravellerFirstName.getText(), TravellerSurname.getText(),
+                            TravellerAdress.getText(), TravellerCity.getText(),
+                            TravellerPostalCode.getText(), TravellerCountry.getText(),
+                            TravellerPhone.getText(), TravellerEmail.getText(),
+                            BagageFlight.getText());
 
+                    db.executeUpdateQuery(travellerInformation);
+
+                    ResultSet bagagenummer = db.executeResultSetQuery("SELECT idpassenger FROM Passenger ORDER BY idpassenger DESC LIMIT 1;");
+                    bagagenummer.next();
+                    System.out.println("TEST LET OP !!!" + bagagenummer.getInt("idpassenger"));
+
+                    String luggageInformation = String.format("INSERT INTO "
+                            + "Lostbagage (dateregistered, timeregistered, luggagelabelnr, passenger_name_city, luggagetype, brand, primarycolour, secondarycolour, otherchar, flightnumber, idpassenger, size, weight) "
+                            + "VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
+                            generalDate.getText(), generalTime.getText(), BagageLabel.getText(),
+                            TravellerFirstName.getText() + TravellerAdress.getText(), LuggageTypeSelect,
+                            BagageBrand.getText(), BagagePrimaryColourString, BagageSecondaryColourString,
+                            BagageSpecialchar.getText(), BagageFlight.getText(), bagagenummer.getInt("idpassenger"),
+                            BagageSize.getText(), BagageWeight.getText());
+
+                    db.executeUpdateQuery(luggageInformation);
+
+                    Pdf pdf = new Pdf();
+                    pdf.printPDF(TravellerFirstName.getText(), TravellerSurname.getText(),
+                            TravellerAdress.getText(), TravellerCity.getText(),
+                            TravellerPostalCode.getText(), TravellerCountry.getText(),
+                            TravellerPhone.getText(), TravellerEmail.getText(),
+                            BagageLabel.getText(), BagageFlight.getText(),
+                            pdf_inputluggagetype,
+                            BagageBrand.getText(), pdf_inputprimarycolour,
+                            pdf_inputsecondarycolour,
+                            BagageSpecialchar.getText(), generalDate.getText(), generalTime.getText());
+
+                    if (mail.ValidateMail(TravellerEmail.getText().trim()) == true) {
+
+                        if (mailSturen.isSelected()) {
+
+                            System.out.println("Sending mail...");
+                            mailThread(mail);
+
+                            utilities.newAnchorpane("RegisterMissing_thankyou", registerMissingPane);
+                        }
+
+                    }
+                } else {
+                    warning.setText("Email adress is incorrect");
                 }
             } else {
-                warning.setText("Email adress is incorrect");
+                warning.setText("Invalid flightnumber");
             }
-            }
-            else{warning.setText("Invalid flightnumber");}
         } else {
             System.out.println("niet alle verplichte velden ingevuld");
             warning.setText("Niet alle verplichte velden zijn ingevuld.");
         }
-        
 
         if (excelPath != null) {
-            if (excelPath.contains(".xlsx")){
-            System.out.println("test");
-            System.out.println(excelPath);
-            
-            excelThread();
-            utilities.newAnchorpane("RegisterMissing_thankyou", registerMissingPane);
+            if (excelPath.contains(".xlsx")) {
+                System.out.println("test");
+                System.out.println(excelPath);
+
+                excelThread();
+                utilities.newAnchorpane("RegisterMissing_thankyou", registerMissingPane);
+            } else {
+                warning.setText("fout bestandstype");
             }
-            else {warning.setText("fout bestandstype");}
 
             // excelImport(excelPath);
         }
@@ -280,7 +316,7 @@ public class RegisterMissingController implements Initializable {
             }
         });
     }
-    
+
     private void mailThread(final Mail mail) {
         Executors.newSingleThreadExecutor().execute(new Runnable() {
             @Override
@@ -291,7 +327,6 @@ public class RegisterMissingController implements Initializable {
             }
         });
     }
-    
 
     @FXML
     private void backToLogin() {

@@ -21,7 +21,8 @@ import javafx.scene.layout.VBox;
  * @author Matthijs Snijders 500780453
  */
 public class WorkerHomescreenController implements Initializable {
-
+    
+    
     @FXML
     private AnchorPane actualmain;
 
@@ -34,6 +35,7 @@ public class WorkerHomescreenController implements Initializable {
     @FXML
     private Button but1, but2, but3, but4, but5, but6;
 
+
     @FXML
     private VBox VBPane;
 
@@ -41,7 +43,6 @@ public class WorkerHomescreenController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Locale.setDefault(new Locale("tr", "TR"));
         Database db = new Database();
         ResultSet resultSet = null;
         String sqlMenu = String.format("SELECT * FROM Menu "
