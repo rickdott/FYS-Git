@@ -59,7 +59,7 @@
                         <Image url="@../../../images/flag-square-250.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="329.0" layoutY="14.0" onMouseClicked="#setLanguageTurkish" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="333.0" layoutY="14.0" onMouseClicked="#setLanguageTurkish" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/flag-square-250_1.png" />
                      </image>
