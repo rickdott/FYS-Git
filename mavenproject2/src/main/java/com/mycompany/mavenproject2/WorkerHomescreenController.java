@@ -103,12 +103,13 @@ public class WorkerHomescreenController implements Initializable {
                         but5 = button;
                         Utilities.onHover("RegisterFound", but5, label1);
                         Utilities.offHover("RegisterFound", but5, label1);
+                        Utilities.offHover("RegisteFound", but5, label1);
                         break;
-//                    case "LoginEmployee":
-//                        but6 = button;
-//                        Utilities.onHover("LoginEmployee", but6, label1);
-//                        Utilities.offHover("LoginEmployee", but6, label1);
-//                        break;
+                    case "Login":
+                        but6 = button;
+                        Utilities.onHover("Login", but6, label1);
+                        Utilities.offHover("Login", but6, label1);
+                        break;
                     default:
                         break;
                 }
@@ -134,9 +135,8 @@ public class WorkerHomescreenController implements Initializable {
                             case "RegisterFound":
                                 utilities.newPane("RegisterFound", but5, mainpage, label1);
                                 break;
-//                            case "LoginEmployee":
-//                                utilities.newPane("LoginEmployee", actualmain);
-//                                break;
+                            case "Login":
+                                utilities.newPane("Login", actualmain);
                             default:
                                 break;
                         }
@@ -169,7 +169,16 @@ public class WorkerHomescreenController implements Initializable {
     private void openRegistertesting(ActionEvent event) {
         utilities.newPane("RegisterMissing", but4, mainpage, label1);
     }
+    
+    @FXML
+    private void openRegisterFound(ActionEvent event) {
+        utilities.newPane("RegisterFound", but5, mainpage, label1);
+    }
 
+    @FXML
+    private void openPassengerLogin(ActionEvent event) {
+        utilities.newPane("Login", but6, mainpage, label1);
+    }
     // All methods for hovering off a button
     @FXML
     private void offHoverbut1() {
@@ -199,6 +208,7 @@ public class WorkerHomescreenController implements Initializable {
     @FXML
     private void offHoverbut6() {
         but6.setStyle("-fx-font: 22 arial; -fx-background-color: #d81e05; -fx-background-radius: 0; -fx-border-width: 1 1 1 1; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18; -fx-text-fill: white; -fx-min-height: 50; -fx-min-width: 150;");
+        utilities.offHover("Login", but6, label1);
     }
 
     // All methods for hovering over a button
@@ -230,6 +240,7 @@ public class WorkerHomescreenController implements Initializable {
     @FXML
     private void onHoverbut6() {
         but6.setStyle("-fx-font: 22 arial; -fx-background-color: #951504; -fx-background-radius: 0; -fx-border-width: 1 1 1 1; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18; -fx-text-fill: white; -fx-min-height: 50; -fx-min-width: 150;");
+        utilities.offHover("Login", but6, label1);
     }
 
     @FXML

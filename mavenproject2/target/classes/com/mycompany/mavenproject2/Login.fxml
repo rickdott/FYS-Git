@@ -9,10 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" fx:id="paneCustomer" prefHeight="720.0" prefWidth="1280.0" AnchorPane.bottomAnchor = '0'
-            AnchorPane.leftAnchor = '0'
-            AnchorPane.rightAnchor = '0'
-            AnchorPane.topAnchor = '0'  xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.LoginController">
+<AnchorPane id="AnchorPane" fx:id="paneCustomer" prefHeight="720.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.LoginController">
    <children>
       <SplitPane dividerPositions="0.18384401114206128, 0.862116991643454" layoutY="14.0" orientation="VERTICAL" prefHeight="720.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
         <items>
@@ -27,28 +24,21 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="130.0" prefWidth="1287.0" styleClass="\\">
                <children>
-                  <TextField editable="false" layoutX="27.0" layoutY="47.0" prefHeight="96.0" prefWidth="211.0" />
-                  <Text layoutX="435.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" wrappingWidth="140.2909927368164">
+                  <Text layoutX="475.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" wrappingWidth="97.2909927368164">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="435.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" wrappingWidth="104.291015625">
+                  <Text layoutX="472.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Achternaam:" wrappingWidth="104.291015625">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="textEmail" layoutX="581.0" layoutY="187.0" prefHeight="25.0" prefWidth="253.0" promptText="Enter your email:" />
-                  <TextField fx:id="textLastName" layoutX="581.0" layoutY="227.0" prefHeight="25.0" prefWidth="253.0" promptText="Enter your last name:" />
-                  <Text layoutX="40.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tijdelijke knoppen om in te loggen" />
-                  <Button layoutX="77.0" layoutY="77.0" mnemonicParsing="false" onAction="#openCustomerHomescreenFromCustomer" text="Inloggen als klant" />
-                  <Button layoutX="57.0" layoutY="106.0" mnemonicParsing="false" onAction="#openWorkerHomescreenFromCustomer" text="Inloggen als medewerker" />
-                  <Button layoutX="77.0" layoutY="77.0" mnemonicParsing="false" onAction="#openCustomerHomescreenFromCustomer" text="Inloggen als klant" />
-                  <Button layoutX="57.0" layoutY="106.0" mnemonicParsing="false" onAction="#openWorkerHomescreenFromCustomer" text="Inloggen als medewerker" />
+                  <TextField fx:id="textEmail" layoutX="581.0" layoutY="187.0" prefHeight="25.0" prefWidth="253.0" promptText="Enter your email" />
+                  <TextField fx:id="textLastName" layoutX="581.0" layoutY="227.0" prefHeight="25.0" prefWidth="253.0" promptText="Enter your lastname:" />
                   <Button fx:id="buttonPassenger" layoutX="581.0" layoutY="272.0" onAction="#handleButtonActionPassenger" prefHeight="25.0" prefWidth="253.0" text="Login" />
                   <Text layoutX="681.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Warning!" wrappingWidth="68.00003051757812" />
                   <Text layoutX="646.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login is case sensitive" wrappingWidth="121.470703125" />
-                  <Button layoutX="77.0" layoutY="405.0" mnemonicParsing="false" onAction="#goToEmployee" prefHeight="25.0" prefWidth="121.0" text="Go To Employee" />
                </children>
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="130.0" prefWidth="1287.0">
@@ -68,17 +58,7 @@
                         <Image url="@../../../images/flag-square-250.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="327.0" layoutY="14.0" onMouseClicked="#setLanguagePortuguese" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../images/flag_portugal_square-512.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="412.0" layoutY="14.0" onMouseClicked="#setLanguageGerman" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../images/flag_germany_square-512.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="496.0" layoutY="14.0" onMouseClicked="#setLanguageTurkish" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="333.0" layoutY="14.0" onMouseClicked="#setLanguageTurkish" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/flag-square-250_1.png" />
                      </image>
