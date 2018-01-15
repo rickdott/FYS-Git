@@ -234,6 +234,7 @@ public class RegisterMissingController implements Initializable {
                         
                         utilities.newAnchorpane("RegisterMissing_thankyou", registerMissingPane);
                     }
+                    utilities.newAnchorpane("RegisterMissing_thankyou", registerMissingPane);
 
                     
                     
