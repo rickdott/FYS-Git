@@ -24,22 +24,21 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="130.0" prefWidth="1287.0" styleClass="\\">
                <children>
-                  <Text layoutX="435.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" wrappingWidth="140.2909927368164">
+                  <Text layoutX="475.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" wrappingWidth="97.2909927368164">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="435.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" wrappingWidth="104.291015625">
+                  <Text layoutX="472.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Achternaam:" wrappingWidth="104.291015625">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="textEmail" layoutX="581.0" layoutY="187.0" prefHeight="25.0" prefWidth="253.0" promptText="Enter your email:" />
-                  <TextField fx:id="textLastName" layoutX="581.0" layoutY="227.0" prefHeight="25.0" prefWidth="253.0" promptText="Enter your last name:" />
+                  <TextField fx:id="textEmail" layoutX="581.0" layoutY="187.0" prefHeight="25.0" prefWidth="253.0" promptText="Enter your email" />
+                  <TextField fx:id="textLastName" layoutX="581.0" layoutY="227.0" prefHeight="25.0" prefWidth="253.0" promptText="Enter your lastname:" />
                   <Button fx:id="buttonPassenger" layoutX="581.0" layoutY="272.0" onAction="#handleButtonActionPassenger" prefHeight="25.0" prefWidth="253.0" text="Login" />
                   <Text layoutX="681.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Warning!" wrappingWidth="68.00003051757812" />
                   <Text layoutX="646.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login is case sensitive" wrappingWidth="121.470703125" />
-                  <Button layoutX="43.0" layoutY="28.0" mnemonicParsing="false" onAction="#goToEmployee" prefHeight="25.0" prefWidth="121.0" text="Go To Employee" />
                </children>
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="130.0" prefWidth="1287.0">
@@ -59,7 +58,7 @@
                         <Image url="@../../../images/flag-square-250.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="329.0" layoutY="14.0" onMouseClicked="#setLanguageTurkish" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="333.0" layoutY="14.0" onMouseClicked="#setLanguageTurkish" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/flag-square-250_1.png" />
                      </image>
