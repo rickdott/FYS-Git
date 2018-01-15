@@ -65,8 +65,7 @@ public class RegisterFoundController implements Initializable {
     private TextField BagageLabel;
     @FXML
     private TextField BagageFlight;
-    @FXML
-    private TextField BagageDestination;
+    
     @FXML
     private ComboBox<String> LuggageType;
     @FXML
@@ -167,8 +166,19 @@ public class RegisterFoundController implements Initializable {
                 && !BagageSpecialchar.getText().trim().isEmpty()
                 && !BagageFlight.getText().trim().isEmpty()
                 && !BagageLabel.getText().trim().isEmpty()
+<<<<<<< HEAD
                 && !LocationFound.getText().trim().isEmpty()
                 && !BagageDestination.getText().trim().isEmpty()) {
+=======
+                ) {
+            String sql = String.format("SELECT * FROM Flight WHERE flightnr = '%s' ",
+                BagageFlight.getText());
+            Database db = new Database();
+            ResultSet resultSet = db.executeResultSetQuery(sql);
+            if(resultSet.next()){
+            
+            
+>>>>>>> debe714f9df0e3609689e5f763f7060c9ef85f90
             if (BagagePrimaryColour.getValue() != null) {
                 BagagePrimaryColourString = db.executeStringListQuery(String.format("SELECT ralcode FROM Colour WHERE english = '%s'", BagagePrimaryColour.getValue()));
 
@@ -200,10 +210,13 @@ public class RegisterFoundController implements Initializable {
             System.out.println(luggageInformation);
             db.executeUpdateQuery(luggageInformation);
 
-            utilities.newAnchorpane("RegisterMissing_thankyou", RegisterFoundPane);
+            utilities.newAnchorpane("RegisterFound_thankyou", RegisterFoundPane);
+            
+            }
+            else{infoBox("Flightnumber invalid", "Error", null);}
 
         } else {
-            infoBox("Pleaes try to fill in everyting!.", "Error", null);
+            infoBox("Please try to fill in everyting!.", "Error", null);
 
         }
     }

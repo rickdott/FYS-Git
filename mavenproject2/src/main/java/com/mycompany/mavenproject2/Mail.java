@@ -9,6 +9,7 @@ import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.AddressException;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
@@ -25,7 +26,20 @@ public class Mail {
     public Mail(String emailAdress) {
         this.emailAdress = emailAdress;
     }
+    
+    public boolean ValidateMail (String emailAdress){
+        try {InternetAddress internetaddress = new InternetAddress(this.emailAdress);
+        internetaddress.validate();
+        return true;
+            
+        } catch (Exception e) {
+            return false;
+        }
+    }
 
+    /**
+     * Method to send an e-mail to the customer
+     */
     public void mailsturen() {
         //username and password of the senders mail account
         final String username = "baggerfys@gmail.com";
@@ -53,14 +67,13 @@ public class Mail {
                     InternetAddress.parse(this.emailAdress));
             message.setSubject("Corendon PDF Formulier Email bericht");
             
-
             // declare the message and attachment and the mail
             Multipart multipart = new MimeMultipart();
             MimeBodyPart messageBodyPart = new MimeBodyPart();
             MimeBodyPart attachBodyPart = new MimeBodyPart();
 
             //text part of the mail
-            messageBodyPart.setText("Gegroet beste klant hier ontvangt u een kopie van de het ingevulde verloren bagage formulier");
+            messageBodyPart.setText("Gegroet beste klant, hierbij ontvangt u een kopie van het ingevulde verloren bagage formulier");
 
             //adding the PDF attachment to the mail
             String file = "src\\main\\resources\\temp\\PDFTest.pdf";

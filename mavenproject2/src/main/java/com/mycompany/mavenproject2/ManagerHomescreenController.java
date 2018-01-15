@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.mavenproject2;
 
 import java.net.URL;
@@ -18,7 +13,7 @@ import javafx.scene.layout.Pane;
 /**
  * Controller for the manager homescreen
  *
- * @author Matthijs Snijders 500780453 (113 lines)
+ * @author Matthijs Snijders 500780453 (106 lines)
  */
 public class ManagerHomescreenController implements Initializable {
 
@@ -64,44 +59,43 @@ public class ManagerHomescreenController implements Initializable {
     // All methods for hovering off a button
     @FXML
     private void offHoverbut1() {
-        utilities.offHover("Request Status", but1, label1);
+        Utilities.offHover("Request Status", but1, label1);
     }
 
     @FXML
     private void offHoverbut2() {
-        utilities.offHover("Register Missing", but2, label1);
+        Utilities.offHover("Register Missing", but2, label1);
     }
 
     @FXML
     private void offHoverbut3() {
-        utilities.offHover("Reports", but3, label1);
+        Utilities.offHover("Reports", but3, label1);
     }
 
     @FXML
     private void offHoverbut4() {
-        utilities.offHover("UserRoles", but4, label1, true);
+        Utilities.offHover("UserRoles", but4, label1, true);
     }
 
     // All methods for hovering over a button
-    //Vanaf hier
     @FXML
     private void onHoverbut1() {
-        utilities.onHover("Request Status", but1, label1);
+        Utilities.onHover("Request Status", but1, label1);
     }
 
     @FXML
     private void onHoverbut2() {
-        utilities.onHover("Register Missing", but2, label1);
+        Utilities.onHover("Register Missing", but2, label1);
     }
 
     @FXML
     private void onHoverbut3() {
-        utilities.onHover("Reports", but3, label1);
+        Utilities.onHover("Reports", but3, label1);
     }
 
     @FXML
     private void onHoverbut4() {
-        utilities.onHover("User Roles", but4, label1);
+        Utilities.onHover("User Roles", but4, label1);
     }
 
     @FXML
