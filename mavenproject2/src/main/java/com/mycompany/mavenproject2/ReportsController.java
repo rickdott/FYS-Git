@@ -60,10 +60,10 @@ public class ReportsController implements Initializable {
 //            Logger.getLogger(ReportsController.class.getName()).log(Level.SEVERE, null, ex);
 //        }
 //        years.clear();
-//        years.addAll(listOfYears);
-//        yearComboBox.setItems(years);
+//        years.addAll(listOfYears);     
           years.add("2015");
           years.add("2016");
+          yearComboBox.setItems(years);
     }
     @FXML
     private Label labelSee;
