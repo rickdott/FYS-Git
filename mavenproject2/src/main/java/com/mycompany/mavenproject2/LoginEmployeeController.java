@@ -8,7 +8,6 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -16,7 +15,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 /**
  * Controller for the login screen, contains methods for logging in and changing
@@ -144,8 +142,6 @@ public class LoginEmployeeController implements Initializable {
                 + "and password = '%s' ",
                 //+ "and RoleID = '%s' ", 
                 username, password);
-
-        infoBox("sql [" + sql + "]", "Success", null);
 
         try {
             ResultSet resultSet = db.executeResultSetQuery(sql);

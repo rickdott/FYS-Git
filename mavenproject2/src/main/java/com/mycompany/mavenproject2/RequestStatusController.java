@@ -37,25 +37,26 @@ import javafx.scene.layout.VBox;
  *
  * @author Rick den Otter 500749952 (737 lines)
  */
-public class RequestStatusController implements  Initializable {
-
-        @FXML 
-        private Label labelLooking, labelRegistrationnumber, labelDatefound, labelTimefound,
-                labelType, labelBrand, labelFlightnumber, labelBagagelabelnumber, labelLocationfound, labelMaincolour, 
-                labelSecondarycolour, labelSize, labelWeight, labelPassenger, labelSpecialChar; 
-        
-        @FXML 
-        private RadioButton labelLost,labelFound;
-        
-        @FXML 
-        private Button submitButton;
-    
-// End of translation lines
-  
+public class RequestStatusController implements Initializable {
 
     @FXML
+    private Label labelLooking;
+            
+    @FXML
+    private Label labelRegistrationnumber, labelDatefound, labelTimefound,
+    labelType, labelBrand, labelFlightnumber, labelBagagelabelnumber, labelLocationfound, labelMaincolour,
+    labelSecondarycolour, labelSize, labelWeight, labelPassenger, labelSpecialChar;
+
+    @FXML
+    private RadioButton labelLost, labelFound;
+
+    @FXML
+    private Button submitButton;
+
+// End of translation lines
+    @FXML
     private TableView foundLuggageTableView;
-    
+
     @FXML
     private StackPane StackButtonPane;
 
@@ -94,7 +95,7 @@ public class RequestStatusController implements  Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
-        
+
         labelLooking.setText(mybundle.getString("Looking_for:"));
         labelLost.setText(mybundle.getString("Lost"));
         labelFound.setText(mybundle.getString("Found"));
@@ -108,13 +109,13 @@ public class RequestStatusController implements  Initializable {
         labelBagagelabelnumber.setText(mybundle.getString("Luggage_label_Number"));
         labelLocationfound.setText(mybundle.getString("Location_Found"));
         labelMaincolour.setText(mybundle.getString("Main_colour"));
-        labelSecondarycolour.setText(mybundle.getString("Secoundary_colour:"));
+        labelSecondarycolour.setText(mybundle.getString("Secoundary_colour"));
         labelSize.setText(mybundle.getString("Size"));
         labelWeight.setText(mybundle.getString("Weight"));
         labelPassenger.setText(mybundle.getString("Passenger_name_&_city"));
         labelSpecialChar.setText(mybundle.getString("Special_Characteristics"));
-        submitButton.setText(mybundle.getString("ss"));
-        
+        submitButton.setText(mybundle.getString("Submit"));
+
         foundLuggageTableView.setItems(this.foundLuggageList);
 
         for (int i = 0; i < foundLuggageTableView.getColumns().size(); i++) {
@@ -464,6 +465,7 @@ public class RequestStatusController implements  Initializable {
 
     /**
      * Converts a list of strings to the entire update query
+     *
      * @param stringList List of strings, formatted like "attribute = 'value'"
      * @param startOfQuery Where the luggage needs to be gotten from
      * @return Returns the query to use
@@ -500,6 +502,7 @@ public class RequestStatusController implements  Initializable {
     /**
      * Creates the query to find all luggage in the system, conforming to the
      * filled in textfields
+     *
      * @return Returns the SELECT query to find wanted luggage
      */
     private String getQueryFromTextfields() {
