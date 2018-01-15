@@ -5,12 +5,15 @@
  */
 package com.mycompany.mavenproject2;
 
+import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -25,10 +28,28 @@ import javafx.scene.layout.VBox;
  * @author Timur Yagci 500764449 (148 lines) Met hulp van Rick den Otter
  * 500749952
  */
-public class RequestStatusKlantenController {
+public class RequestStatusKlantenController implements Initializable {
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
+        
+        labelNumber.setText(mybundle.getString("Label_Number"));
+        labelName.setText(mybundle.getString("Lastname"));
+        labelSubmit.setText(mybundle.getString("Submit"));
+
+
+    }
+    
+    @FXML
+    private Label labelNumber, labelName, labelSubmit;
+    
+// End of translation lines
+  
 
     @FXML
     private AnchorPane requestpage;
+    
 
     @FXML
     private TextField lastNameField, labelNrField;

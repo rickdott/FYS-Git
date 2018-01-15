@@ -6,6 +6,7 @@
 package com.mycompany.mavenproject2;
 
 import java.io.IOException;
+import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -14,8 +15,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -26,7 +29,23 @@ import javafx.scene.layout.Pane;
  * Rick 1-154 (153) Timur 154-261 (107)
  * @author Rick den Otter 500749952 Timur Yagci 500764449
  */
-public class Utilities {
+public class Utilities implements Initializable {
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
+        
+        labelFaq.setText(mybundle.getString("Faq"));
+
+
+    }
+    
+    @FXML
+    
+    private Label labelFaq;
+        
+    
+// End of translation lines
 
     public static ObservableList<String> colours = FXCollections.observableArrayList(
             "Yellow", "Olive", "Red", "Darkred", "Pink", "Purple", "Violet",

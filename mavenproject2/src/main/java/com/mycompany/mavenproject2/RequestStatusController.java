@@ -16,6 +16,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -31,7 +32,40 @@ import javafx.scene.layout.VBox;
  * entries from the database
  * @author Rick den Otter 500749952 (689 lines)
  */
-public class RequestStatusController implements Initializable {
+public class RequestStatusController implements  Initializable {
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
+        
+        labelLooking.setText(mybundle.getString("Looking_for:"));
+        labelLost.setText(mybundle.getString("Lost"));
+        labelFound.setText(mybundle.getString("Found"));
+        labelRegistrationnumber.setText(mybundle.getString("Registration_Number"));
+        labelDatefound.setText(mybundle.getString("Date_Found"));
+        labelTimefound.setText(mybundle.getString("Time_Found"));
+        typeComboBox.setText(mybundle.getString("Luggage_Type:"));
+        labelType.setText(mybundle.getString("Type"));
+        labelBrand.setText(mybundle.getString("Brand"));
+        labelFlightnumber.setText(mybundle.getString("Flight_Number"));
+        labelBagagelabelnumber.setText(mybundle.getString("Luggage_label_Number"));
+        labelLocationfound.setText(mybundle.getString("Location_Found"));
+        labelMaincolour.setText(mybundle.getString("Main_colour"));
+        labelSecondarycolour.setText(mybundle.getString("Secoundary_colour:"));
+        labelSize.setText(mybundle.getString("Size"));
+        labelWeight.setText(mybundle.getString("Weight"));
+        labelPassenger.setText(mybundle.getString("Passenger_name_&_city"));
+        labelSpecialChar.setText(mybundle.getString("Special_Characteristics"));
+        submitButton.setText(mybundle.getString("ss"));
+
+    }
+        @FXML 
+        private Label labelLooking, labelLost, labelFound, labelRegistrationnumber, labelDatefound, labelTimefound, typeComboBox,
+                labelType, labelBrand, labelFlightnumber, labelBagagelabelnumber, labelLocationfound, labelMaincolour, mainColourComboBox, 
+                labelSecondarycolour, secondaryColourComboBox, labelSize, labelWeight, labelPassenger, labelSpecialChar, submitButton
+    
+// End of translation lines
+  
 
     @FXML
     private TableView foundLuggageTableView;

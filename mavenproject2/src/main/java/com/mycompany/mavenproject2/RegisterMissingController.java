@@ -74,7 +74,7 @@ public class RegisterMissingController implements Initializable {
             labelTraveller, labelFirstname, labelSurname, labelAdress,labelCity,labelPostalcode,labelCountry,labelPhone,labelEmail,labelPColour,labelSColour,
             labelSendmail,labelExcel;
     
-    private button buttonBacktologin;
+    private Button buttonBacktologin;
     
     
 // End of translation lines

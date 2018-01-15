@@ -20,6 +20,7 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.VBox;
@@ -31,6 +32,24 @@ import javafx.scene.layout.VBox;
  */
 public class ReportsController implements Initializable {
 
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
+        
+        labelSee.setText(mybundle.getString("What_would_you_like_to_see?"));
+        missingLuggageToggle.setText(mybundle.getString("Missing_Luggage"));
+        foundLuggageToggle.setText(mybundle.getString("Found_Luggage"));
+        missingLuggagePerMonthToggle.setText(mybundle.getString("Missing_Luggage/month"));
+        solvedToggle.setText(mybundle.getString("Solved_cases"));
+        compensationToggle.setText(mybundle.getString("Compensation"));
+        labelSubmit.setText(mybundle.getString("Submit"));
+
+    }
+        
+    private Label labelSee, labelSubmit;
+
+// End of translation lines
+  
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
@@ -45,8 +64,10 @@ public class ReportsController implements Initializable {
 
     private static ObservableList<String> years = FXCollections.observableArrayList();
 
+    
     @FXML
     private PieChart pieChart;
+    
 
     @FXML
     private LineChart lineChart;
