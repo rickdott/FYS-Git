@@ -13,3 +13,6 @@
 *.pdf
 mavenproject2/src/main/resources/temp/PDFTest.pdf
 mavenproject2/src/main/java/com/mycompany/mavenproject2/CustomerHomescreenController.java
+mavenproject2/src/main/java/com/mycompany/mavenproject2/LoginController.java
+mavenproject2/src/main/java/com/mycompany/mavenproject2/LoginController.java
+mavenproject2/src/main/java/com/mycompany/mavenproject2/WorkerHomescreenController.java

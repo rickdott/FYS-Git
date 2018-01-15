@@ -27,7 +27,7 @@ public class CustomerHomescreenController {
     
     @FXML
     private void openRegisterMissing(ActionEvent event) {
-        utilities.newAnchorpane("RegisterMissing", paneCustomerHomescreen);
+        utilities.newAnchorpane("RegisterMissingPassenger", paneCustomerHomescreen);
     }
     
     @FXML

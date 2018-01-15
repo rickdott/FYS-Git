@@ -1,21 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" fx:id="thankYouPage" minHeight="647.0" minWidth="1053.0" prefHeight="647.0" prefWidth="1053.0" style="-fx-background-color: #f3f3f3;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.RegisterMissingThankYouController">
+<AnchorPane id="AnchorPane" fx:id="thankYouPage" minHeight="647.0" minWidth="1053.0" prefHeight="647.0" prefWidth="1053.0" style="-fx-background-color: #f3f3f3;" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.RegisterMissingThankYouController">
    <children>
-      <Button layoutX="444.0" layoutY="527.0" mnemonicParsing="false" onAction="#backToLoginTY" prefHeight="40.0" prefWidth="165.0" style="-fx-background-color: #d81e05;" text="Back to Home" textFill="WHITE">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
-      <Text layoutX="243.0" layoutY="316.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Missing luggage registered! Thank you! ">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Text>
+      <BorderPane prefHeight="647.0" prefWidth="1053.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Missing luggage registered! Thank you! " BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+         </center>
+         <bottom>
+            <Button maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#backToLoginTY" prefHeight="40.0" prefWidth="165.0" style="-fx-background-color: #d81e05;" text="Back to Home" textFill="WHITE" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <BorderPane.margin>
+                  <Insets bottom="200.0" />
+               </BorderPane.margin>
+            </Button>
+         </bottom>
+      </BorderPane>
    </children>
 </AnchorPane>

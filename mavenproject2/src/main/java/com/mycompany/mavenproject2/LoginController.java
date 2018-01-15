@@ -30,12 +30,30 @@ public class LoginController {
 
     @FXML
     private AnchorPane paneLogin, paneCustomer;
-    private ResourceBundle bundle;
-    private Locale locale;
-
+    
     Utilities utilities = new Utilities();
 
     // Methods for changing the language
+    @FXML
+    private void testMethod() {
+        System.out.println("Current Locale: " + Locale.getDefault());
+	ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
+        System.out.println("Say how are you in US English: " + mybundle.getString("language"));
+        
+        Locale.setDefault(new Locale("en", "EN"));
+        System.out.println(Locale.getDefault());
+        mybundle = ResourceBundle.getBundle("languages.Language");
+        System.out.println(mybundle.getString("language"));
+        
+        
+//        Locale.setDefault(new Locale("ms", "MY"));
+//
+//        // read MyLabels_ms_MY.properties
+//        System.out.println("Current Locale: " + Locale.getDefault());
+//        mybundle = ResourceBundle.getBundle("languages.language");
+//        System.out.println("Say how are you in Malaysian Malaya language: " + mybundle.getString("how_are_you"));
+    }
+    
     @FXML
     private void setLanguageEnglish() {
         System.out.println("Set language to English");
@@ -85,12 +103,12 @@ public class LoginController {
 
     @FXML
     private void openWorkerHomescreen(ActionEvent event) {
-        utilities.newAnchorpane("WorkerHomescreen", paneLogin);
+        utilities.newAnchorpane("EmployeeHomescreen", paneLogin);
     }
 
     @FXML
     private void openWorkerHomescreenFromCustomer(ActionEvent event) {
-        utilities.newAnchorpane("WorkerHomescreen", paneCustomer);
+        utilities.newAnchorpane("EmployeeHomescreen", paneCustomer);
     }
 
     @FXML
@@ -119,6 +137,8 @@ public class LoginController {
     //Login for employee
     @FXML
     private void handleButtonAction(ActionEvent event) {
+        
+        
         Database db = new Database();
         String username = textUsername.getText();
         String password = textPassword.getText();
@@ -127,7 +147,7 @@ public class LoginController {
         String sql = String.format("SELECT * FROM Employee "
                 + "WHERE username = '%s' "
                 + "and password = '%s' ",
-                username, password);
+                username, password);             
         try {
             resultSet = db.executeResultSetQuery(sql);
 
@@ -148,6 +168,7 @@ public class LoginController {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        
     }
 
     public static void infoBox(String infoMessage, String titleBar, String headerMessage) {
@@ -167,9 +188,7 @@ public class LoginController {
 
     @FXML
     private void handleButtonActionPassenger(ActionEvent event) {
-        Database db = new Database();
-        /*String test = luggagelabelnr2.getText();
-        int bla = Integer.parseInt(test);    */  
+        Database db = new Database(); 
         String email = textEmail.getText();
         String lastname = textLastName.getText();
 
@@ -186,7 +205,6 @@ public class LoginController {
             } else {
                 infoBox("Login Successfull", "Success", null);
                 Utilities utilities = new Utilities();
-
                 LoginController controller = new LoginController();
                 utilities.newAnchorpane("CustomerHomescreen", paneCustomer);
             }

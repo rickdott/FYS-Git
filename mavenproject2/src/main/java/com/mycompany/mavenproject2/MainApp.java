@@ -4,10 +4,12 @@ import java.io.File;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.FileChooser;
+import javafx.stage.Screen;
 
 public class MainApp extends Application {
 
@@ -18,14 +20,18 @@ public class MainApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("LoginEmployee.fxml"));
-
+        
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/styles/Styles.css");
-
+        stage.setMaximized(true);
         stage.setTitle("BAGGER");
         stage.setScene(scene);
+        Screen screen = Screen.getPrimary();
+        
+         
+        
         stage.show();
-        stage.setResizable(false);
+        stage.setResizable(true);
    
         application = stage;
         
