@@ -35,9 +35,9 @@ import javafx.scene.layout.VBox;
 public class RequestStatusController implements  Initializable {
 
         @FXML 
-        private Label labelLooking, labelLost, labelFound, labelRegistrationnumber, labelDatefound, labelTimefound, typeComboBox,
-                labelType, labelBrand, labelFlightnumber, labelBagagelabelnumber, labelLocationfound, labelMaincolour, mainColourComboBox, 
-                labelSecondarycolour, secondaryColourComboBox, labelSize, labelWeight, labelPassenger, labelSpecialChar, submitButton;
+        private Label labelLooking, labelLost, labelFound, labelRegistrationnumber, labelDatefound, labelTimefound,
+                labelType, labelBrand, labelFlightnumber, labelBagagelabelnumber, labelLocationfound, labelMaincolour, 
+                labelSecondarycolour, labelSize, labelWeight, labelPassenger, labelSpecialChar, submitButton;
     
 // End of translation lines
   
@@ -46,7 +46,7 @@ public class RequestStatusController implements  Initializable {
     private TableView foundLuggageTableView;
 
     @FXML
-    private Button editSelectedButton, submitButton;
+    private Button editSelectedButton;
 
     private ObservableList<Luggage> foundLuggageList
             = FXCollections.observableArrayList();
@@ -87,7 +87,7 @@ public class RequestStatusController implements  Initializable {
         labelRegistrationnumber.setText(mybundle.getString("Registration_Number"));
         labelDatefound.setText(mybundle.getString("Date_Found"));
         labelTimefound.setText(mybundle.getString("Time_Found"));
-        typeComboBox.setText(mybundle.getString("Luggage_Type:"));
+        //typeComboBox.setText(mybundle.getString("Luggage_Type:")); TODO
         labelType.setText(mybundle.getString("Type"));
         labelBrand.setText(mybundle.getString("Brand"));
         labelFlightnumber.setText(mybundle.getString("Flight_Number"));

@@ -37,21 +37,14 @@ public class ReportsController implements Initializable {
         ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
         
         labelSee.setText(mybundle.getString("What_would_you_like_to_see?"));
-        missingLuggageToggle.setText(mybundle.getString("Missing_Luggage"));
-        foundLuggageToggle.setText(mybundle.getString("Found_Luggage"));
-        missingLuggagePerMonthToggle.setText(mybundle.getString("Missing_Luggage/month"));
-        solvedToggle.setText(mybundle.getString("Solved_cases"));
-        compensationToggle.setText(mybundle.getString("Compensation"));
+        //missingLuggageToggle.setText(mybundle.getString("Missing_Luggage"));
+        //foundLuggageToggle.setText(mybundle.getString("Found_Luggage"));
+        //missingLuggagePerMonthToggle.setText(mybundle.getString("Missing_Luggage/month"));
+        //solvedToggle.setText(mybundle.getString("Solved_cases"));
+        //compensationToggle.setText(mybundle.getString("Compensation"));
         labelSubmit.setText(mybundle.getString("Submit"));
-
-    }
         
-    private Label labelSee, labelSubmit;
-
-// End of translation lines
-  
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
+        
         try {
             showMissingStats();
             ArrayList<String> listOfYears = getYearsInDB();
@@ -61,6 +54,8 @@ public class ReportsController implements Initializable {
             Logger.getLogger(ReportsController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+        
+    private Label labelSee, labelSubmit;
 
     private static ObservableList<String> years = FXCollections.observableArrayList();
 

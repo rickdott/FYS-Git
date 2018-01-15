@@ -65,7 +65,21 @@ public class RegisterMissingController implements Initializable {
         labelSColour.setText(mybundle.getString("Secondary_Colour"));       
         labelSendmail.setText(mybundle.getString("Send_a_copy_of_this_document_to_my_email"));  
         labelExcel.setText(mybundle.getString("Import_Excel"));         
-        buttonBacktologin.setText(mybundle.getString("Back_to_login"));  
+        buttonBacktologin.setText(mybundle.getString("Back_to_login"));
+        
+        
+        DateFormat datum = new SimpleDateFormat("yyyy/MM/dd");
+        DateFormat tijd = new SimpleDateFormat("HH:mm:ss");
+
+        Date date = new Date();
+        Date time = new Date();
+
+        generalTime.setText((tijd.format(date)));
+        generalDate.setText((datum.format(time)));
+
+        BagagePrimaryColour.setItems(colours);
+        BagageSecondaryColour.setItems(colours);
+        LuggageType.setItems(Luggagetypes);
     }
         
     @FXML
@@ -139,23 +153,6 @@ public class RegisterMissingController implements Initializable {
             "Suitcase", "Bag", "Bagpack", "Box", "Sports",
             "Bag", "Business Case", "Case", "Other");
 
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-
-        DateFormat datum = new SimpleDateFormat("yyyy/MM/dd");
-        DateFormat tijd = new SimpleDateFormat("HH:mm:ss");
-
-        Date date = new Date();
-        Date time = new Date();
-
-        generalTime.setText((tijd.format(date)));
-        generalDate.setText((datum.format(time)));
-
-        BagagePrimaryColour.setItems(colours);
-        BagageSecondaryColour.setItems(colours);
-        LuggageType.setItems(Luggagetypes);
-
-    }
 
     @FXML
     private AnchorPane registerMissingPane, thankYouPage;
