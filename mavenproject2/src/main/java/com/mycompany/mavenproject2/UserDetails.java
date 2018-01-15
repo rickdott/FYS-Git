@@ -10,58 +10,56 @@ package com.mycompany.mavenproject2;
  * @author Tarik Yildirim 500780772
  */
 public class UserDetails {
-   private String firstName;
-   private String lastName;
-   private String userName;
-   private String passWord;
-   private String roleID;
 
-    public UserDetails(String firstName, String lastName, String userName, String passWord) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.userName = userName;
-        this.passWord = passWord;
+    private String firstnameTc;
+    private String lastnameTc;
+    private String usernameTc;
+    private String passwordTc;
+    private int roleTc;
+
+    public UserDetails() {
+        this.roleTc = 0;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getFirstnameTc() {
+        return firstnameTc;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFirstnameTc(String firstnameTc) {
+        this.firstnameTc = firstnameTc;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getLastnameTc() {
+        return lastnameTc;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setLastnameTc(String lastnameTc) {
+        this.lastnameTc = lastnameTc;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsernameTc() {
+        return usernameTc;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsernameTc(String usernameTc) {
+        this.usernameTc = usernameTc;
     }
 
-    public String getPassWord() {
-        return passWord;
+    public String getPasswordTc() {
+        return passwordTc;
     }
 
-    public void setPassWord(String passWord) {
-        this.passWord = passWord;
+    public void setPasswordTc(String passwordTc) {
+        this.passwordTc = passwordTc;
     }
 
-    public String getRoleID() {
-        return roleID;
+    public int getRoleTc() {
+        return roleTc;
     }
 
-    public void setRoleID(String roleID) {
-        this.roleID = roleID;
+    public void setRoleTc(int roleTc) {
+        this.roleTc = roleTc;
     }
 
+ 
 }
-

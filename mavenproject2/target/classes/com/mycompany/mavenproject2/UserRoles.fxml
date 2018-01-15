@@ -21,18 +21,17 @@
          <children>
             <Pane fx:id="mainpage" prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <TableView fx:id="TableUser" editable="true" fixedCellSize="9.0" layoutY="39.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="608.0" prefWidth="1053.0">
+                  <TableView fx:id="tableUser" editable="true" layoutY="39.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="608.0" prefWidth="1053.0">
                     <columns>
-                      <TableColumn fx:id="firstnameC" editable="false" prefWidth="242.0" text="First name" />
-                      <TableColumn fx:id="lastnameC" editable="false" prefWidth="172.0" text="Last name" />
-                        <TableColumn fx:id="usernameC" editable="false" prefWidth="227.0" text="Username" />
-                        <TableColumn fx:id="passwordC" editable="false" prefWidth="236.0" text="Password" />
-                        <TableColumn fx:id="RoleIDC" editable="false" prefWidth="258.0" text="Roles" />
+                      <TableColumn fx:id="firstnameTc" editable="false" prefWidth="242.0" text="First name" />
+                      <TableColumn fx:id="lastnameTc" editable="false" prefWidth="172.0" text="Last name" />
+                        <TableColumn fx:id="usernameTc" editable="false" prefWidth="227.0" text="Username" />
+                        <TableColumn fx:id="passwordTc" editable="false" prefWidth="236.0" text="Password" />
+                        <TableColumn fx:id="roleTc" editable="false" prefWidth="258.0" text="Roles" />
                     </columns>
                   </TableView>
                   <Button fx:id="but1" layoutX="912.0" mnemonicParsing="false" onAction="#openAddRoles" prefHeight="34.0" prefWidth="141.0" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Add user" textFill="WHITE" />
                   <Button fx:id="test" layoutX="809.0" layoutY="7.0" mnemonicParsing="false" onAction="#loadDataFromDatabase" text="Test Refresh" />
-                  <Button fx:id="test1" layoutX="713.0" layoutY="7.0" mnemonicParsing="false" onAction="#tijdelijkTest" text="Test Refresh" />
                </children>
             </Pane>
          </children>
