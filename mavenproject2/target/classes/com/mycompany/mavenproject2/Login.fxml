@@ -1,91 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane id="AnchorPane" fx:id="paneCustomer" prefHeight="720.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.LoginController">
    <children>
-      <SplitPane dividerPositions="0.18384401114206128, 0.862116991643454" layoutY="14.0" orientation="VERTICAL" prefHeight="720.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-        <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+      <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <ImageView fitHeight="196.0" fitWidth="579.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <image>
+                  <Image url="@../../../images/Corendon%20Logo.png" />
+               </image>
+            </ImageView>
+            <AnchorPane GridPane.rowIndex="2">
                <children>
-                  <ImageView fitHeight="196.0" fitWidth="579.0" layoutX="377.0" layoutY="-21.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../images/Corendon%20Logo.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="130.0" prefWidth="1287.0" styleClass="\\">
-               <children>
-<<<<<<< HEAD
-                  <Text fx:id="labelEmail" layoutX="475.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" wrappingWidth="97.2909927368164">
-=======
-                  <Text layoutX="475.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" wrappingWidth="97.2909927368164">
->>>>>>> master
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Text>
-<<<<<<< HEAD
-                  <Text fx:id="labelLastname" layoutX="472.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Achternaam:" wrappingWidth="104.291015625">
-=======
-                  <Text layoutX="472.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Achternaam:" wrappingWidth="104.291015625">
->>>>>>> master
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Text>
-                  <TextField fx:id="textEmail" layoutX="581.0" layoutY="187.0" prefHeight="25.0" prefWidth="253.0" promptText="Enter your email" />
-<<<<<<< HEAD
-                  <TextField fx:id="textLastname" layoutX="581.0" layoutY="227.0" prefHeight="25.0" prefWidth="253.0" promptText="Enter your lastname:" />
-                  <Button fx:id="buttonPassenger" layoutX="581.0" layoutY="272.0" onAction="#handleButtonActionPassenger" prefHeight="25.0" prefWidth="253.0" text="Login" />
-                  <Text fx:id="textWarning" layoutX="681.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Warning!" wrappingWidth="68.00003051757812" />
-                  <Text fx:id="textCaseSensitive" layoutX="646.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login is case sensitive" wrappingWidth="121.470703125" />
-                  <Button fx:id="buttonEmployee" layoutX="77.0" layoutY="405.0" mnemonicParsing="false" onAction="#goToEmployee" prefHeight="25.0" prefWidth="121.0" text="Go To Employee" />
-=======
-                  <TextField fx:id="textLastName" layoutX="581.0" layoutY="227.0" prefHeight="25.0" prefWidth="253.0" promptText="Enter your lastname:" />
-                  <Button fx:id="buttonPassenger" layoutX="581.0" layoutY="272.0" onAction="#handleButtonActionPassenger" prefHeight="25.0" prefWidth="253.0" text="Login" />
-                  <Text layoutX="681.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Warning!" wrappingWidth="68.00003051757812" />
-                  <Text layoutX="646.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login is case sensitive" wrappingWidth="121.470703125" />
->>>>>>> master
-               </children>
-            </AnchorPane>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="130.0" prefWidth="1287.0">
-               <children>
-                  <Text layoutX="53.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Language:" wrappingWidth="97.291015625">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Text>
-                  <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="150.0" layoutY="14.0" onMouseClicked="#setLanguageEnglish" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="158.0" layoutY="43.0" onMouseClicked="#setLanguageEnglish" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="56.0">
                      <image>
                         <Image url="@../../../images/Square_Flag_of_the_United_Kingdom.svg.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="240.0" layoutY="14.0" onMouseClicked="#setLanguageDutch" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="246.0" layoutY="43.0" onMouseClicked="#setLanguageDutch" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="56.0">
                      <image>
                         <Image url="@../../../images/flag-square-250.png" />
                      </image>
                   </ImageView>
-<<<<<<< HEAD
-                  <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="329.0" layoutY="14.0" onMouseClicked="#setLanguageTurkish" pickOnBounds="true" preserveRatio="true">
-=======
-                  <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="333.0" layoutY="14.0" onMouseClicked="#setLanguageTurkish" pickOnBounds="true" preserveRatio="true">
->>>>>>> master
+                  <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="337.0" layoutY="44.0" onMouseClicked="#setLanguageTurkish" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="55.0">
                      <image>
                         <Image url="@../../../images/flag-square-250_1.png" />
                      </image>
                   </ImageView>
+                  <Text layoutX="60.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Language:" wrappingWidth="97.291015625">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
                </children>
             </AnchorPane>
-        </items>
-      </SplitPane>
+            <StackPane GridPane.rowIndex="1">
+               <children>
+                  <Text fx:id="labelEmail" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" wrappingWidth="97.2909927368164">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <StackPane.margin>
+                        <Insets bottom="100.0" right="450.0" />
+                     </StackPane.margin>
+                  </Text>
+                  <Text fx:id="labelLastname" strokeType="OUTSIDE" strokeWidth="0.0" text="Achternaam:" wrappingWidth="104.291015625">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <StackPane.margin>
+                        <Insets right="450.0" />
+                     </StackPane.margin>
+                  </Text>
+                  <TextField fx:id="textLastname" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="253.0" promptText="Enter your lastname:" />
+                  <TextField fx:id="textEmail" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="253.0" promptText="Enter your email">
+                     <StackPane.margin>
+                        <Insets bottom="100.0" />
+                     </StackPane.margin>
+                  </TextField>
+                  <Button fx:id="buttonPassenger" onAction="#handleButtonActionPassenger" prefHeight="25.0" prefWidth="253.0" text="Login">
+                     <StackPane.margin>
+                        <Insets top="100.0" />
+                     </StackPane.margin>
+                  </Button>
+                  <Text fx:id="textWarning" strokeType="OUTSIDE" strokeWidth="0.0" text="Warning!" wrappingWidth="68.00003051757812">
+                     <StackPane.margin>
+                        <Insets top="170.0" />
+                     </StackPane.margin>
+                  </Text>
+                  <Text fx:id="textCaseSensitive" strokeType="OUTSIDE" strokeWidth="0.0" text="Login is case sensitive" wrappingWidth="121.470703125">
+                     <StackPane.margin>
+                        <Insets top="200.0" />
+                     </StackPane.margin>
+                  </Text>
+               </children>
+            </StackPane>
+            <Button fx:id="buttonEmployee" mnemonicParsing="false" onAction="#goToEmployee" prefHeight="25.0" prefWidth="121.0" text="Go To Employee" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
    </children>
 </AnchorPane>
