@@ -6,8 +6,9 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 
 /**
- * Controller for the customer homescreen
- * @author Tarik 500780772 (73 lines)
+ * Controller for the customer homescreen, only has a few buttons to help 
+ * with navigating the customer portion of the application
+ * @author Tarik 500780772 (74 lines)
  *
  */
 public class CustomerHomescreenController {
@@ -42,32 +43,32 @@ public class CustomerHomescreenController {
     
     @FXML
     private void onHoverReqStat() {
-        utilities.onHover(reqStatBut);
+        Utilities.onHover(reqStatBut);
     }
     
     @FXML
     private void offHoverReqStat() {
-        utilities.offHover(reqStatBut);
+        Utilities.offHover(reqStatBut);
     }
     
     @FXML
     private void onHoverRegMiss() {
-        utilities.onHover(regMisBut);
+        Utilities.onHover(regMisBut);
     }
     
     @FXML
     private void offHoverRegMiss() {
-        utilities.offHover(regMisBut);
+        Utilities.offHover(regMisBut);
     }
     
     @FXML
     private void onHoverFaqBut() {
-        utilities.onHover(faqBut);
+        Utilities.onHover(faqBut);
     }
     
     @FXML
     private void offHoverFaqBut() {
-        utilities.offHover(faqBut);
+        Utilities.offHover(faqBut);
     }
     
 }

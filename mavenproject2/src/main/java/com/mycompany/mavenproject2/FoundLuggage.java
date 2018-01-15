@@ -35,6 +35,10 @@ public class FoundLuggage extends Luggage {
         this.locationfound = locationfound;
     }
     
+    /**
+     * Method to return info on a piece of luggage as an ArrayLiist
+     * @return ArrayList<String> with information on found luggage
+     */
     @Override
     public ArrayList<String> getLuggageInfo() {
         ArrayList<String> list = new ArrayList<>();
