@@ -38,16 +38,9 @@ public class UserRolesController implements Initializable {
     
     private Label labelName, labelRoles, labelRole, labelNameperson, labelSubmit;
 // End of translation lines
-  
-    
     
     @FXML
     private AnchorPane mainpane;
-    
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }
     
     Utilities utilities = new Utilities();
     

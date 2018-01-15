@@ -20,22 +20,7 @@ import javafx.scene.text.Text;
  * @author Matthijs Snijders 500780453
  */
 public class WorkerHomescreenController implements Initializable {
-
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
-        
-        but1.setText(mybundle.getString("Request_Status"));
-        but2.setText(mybundle.getString("Register_Missing"));
-        but3.setText(mybundle.getString("Reports"));
-        but5.setText(mybundle.getString("Register_Found"));
-        but4.setText(mybundle.getString("User_Roles"));
-        buttonLogout.setText(mybundle.getString("Log_Out"));
-
-    }
-        
     
-// End of translation lines
     
     @FXML
     private AnchorPane actualmain;
@@ -55,7 +40,16 @@ public class WorkerHomescreenController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
+        
+        but1.setText(mybundle.getString("Request_Status"));
+        but2.setText(mybundle.getString("Register_Missing"));
+        but3.setText(mybundle.getString("Reports"));
+        but5.setText(mybundle.getString("Register_Found"));
+        but4.setText(mybundle.getString("User_Roles"));
+        buttonLogout.setText(mybundle.getString("Log_Out"));
+        
+        
         //infoBox("User ID = " + utilities.userID, "Success", null);
         Database db = new Database();
         ResultSet resultSet = null;
