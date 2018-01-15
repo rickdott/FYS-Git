@@ -35,7 +35,7 @@ public class LoginEmployeeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        setLanguageEnglish();
+        loadLanguage("en", "EN");
         ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
 
         textUsername.setPromptText(mybundle.getString("Username"));
