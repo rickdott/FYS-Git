@@ -31,7 +31,7 @@ public class WorkerHomescreenController implements Initializable {
     private Label label1;
 
     @FXML
-    private Button but1, but2, but3, but4;
+    private Button but1, but2, but3, but4 ,but5;
 
     @FXML
     private VBox VBPane;
@@ -77,6 +77,9 @@ public class WorkerHomescreenController implements Initializable {
                             case "UserRoles":
                                 utilities.newPane("UserRoles", but4, mainpage, label1);
                                 break;
+                            case "RegisterFound":
+                                utilities.newPane("RegisterFound", but5,mainpage, label1);
+                                break;
                             case "LoginEmployee":
                                 utilities.newPane("LoginEmployee", actualmain);
                                 break;
@@ -114,6 +117,10 @@ public class WorkerHomescreenController implements Initializable {
     private void openRegistertesting(ActionEvent event) {
         utilities.newPane("RegisterMissing", but4, mainpage, label1);
     }
+    @FXML
+    private void openRegisterFound(ActionEvent event) {
+        utilities.newPane("RegisterFound", but5, mainpage, label1);
+    }
 
     // All methods for hovering off a button
     @FXML
@@ -135,6 +142,10 @@ public class WorkerHomescreenController implements Initializable {
     private void offHoverbut4() {
         Utilities.offHover("Register Missing", but4, label1);
     }
+    @FXML
+    private void offHoverbut5() {
+        Utilities.offHover("Register Found", but5, label1);
+    }
 
     // All methods for hovering over a button
     @FXML
@@ -155,6 +166,10 @@ public class WorkerHomescreenController implements Initializable {
     @FXML
     private void onHoverbut4() {
         Utilities.onHover("Register Missing", but4, label1);
+    }
+     @FXML
+    private void onHoverbut5() {
+        Utilities.onHover("Register Found", but5, label1);
     }
 
     @FXML
