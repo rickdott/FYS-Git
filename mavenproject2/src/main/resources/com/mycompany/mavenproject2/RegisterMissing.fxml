@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" fx:id="registerMissingPane" minHeight="647.0" minWidth="1053.0" prefHeight="647.0" prefWidth="1053.0" style="-fx-background-color: #f3f3f3;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.RegisterMissingController">
+<AnchorPane id="AnchorPane" fx:id="registerMissingPane" minHeight="647.0" minWidth="1053.0" prefHeight="647.0" prefWidth="1053.0" style="-fx-background-color: #f3f3f3;" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.RegisterMissingController">
    <children>
       <GridPane layoutX="86.0" layoutY="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
@@ -32,7 +32,7 @@
          <children>
             <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                <children>
-                  <Text fill="#d81e05" strokeType="OUTSIDE" strokeWidth="0.0" text="General">
+                  <Text fx:id="labelGeneral" fill="#d81e05" strokeType="OUTSIDE" strokeWidth="0.0" text="General">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -55,7 +55,7 @@
                         <Insets right="40.0" top="8.0" />
                      </VBox.margin>
                   </TextField>
-                  <Text fill="#d81e05" strokeType="OUTSIDE" strokeWidth="0.0" text="Traveller">
+                  <Text fx:id="labelTraveller" fill="#d81e05" strokeType="OUTSIDE" strokeWidth="0.0" text="Traveller">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -104,7 +104,7 @@
             </VBox>
             <VBox alignment="TOP_RIGHT" prefHeight="200.0" prefWidth="100.0" GridPane.halignment="RIGHT">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
+                  <Text fx:id="labelDate" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
                      <VBox.margin>
                         <Insets right="10.0" top="94.0" />
                      </VBox.margin>
@@ -112,7 +112,7 @@
                         <Font size="17.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Time">
+                  <Text fx:id="labelTime" strokeType="OUTSIDE" strokeWidth="0.0" text="Time">
                      <VBox.margin>
                         <Insets right="10.0" top="7.0" />
                      </VBox.margin>
@@ -120,7 +120,7 @@
                         <Font size="17.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Airport">
+                  <Text fx:id="labelAirport" strokeType="OUTSIDE" strokeWidth="0.0" text="Airport">
                      <VBox.margin>
                         <Insets right="10.0" top="7.0" />
                      </VBox.margin>
@@ -128,7 +128,7 @@
                         <Font size="17.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="First name*">
+                  <Text fx:id="labelFirstname" strokeType="OUTSIDE" strokeWidth="0.0" text="First name*">
                      <VBox.margin>
                         <Insets right="10.0" top="45.0" />
                      </VBox.margin>
@@ -136,7 +136,7 @@
                         <Font size="17.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Surname*">
+                  <Text fx:id="labelSurname" strokeType="OUTSIDE" strokeWidth="0.0" text="Surname*">
                      <font>
                         <Font size="17.0" />
                      </font>
@@ -144,7 +144,7 @@
                         <Insets right="10.0" top="8.0" />
                      </VBox.margin>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Address*">
+                  <Text fx:id="labelAdress" strokeType="OUTSIDE" strokeWidth="0.0" text="Address*">
                      <VBox.margin>
                         <Insets right="10.0" top="10.0" />
                      </VBox.margin>
@@ -152,7 +152,7 @@
                         <Font size="17.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="City*">
+                  <Text fx:id="labelCity" strokeType="OUTSIDE" strokeWidth="0.0" text="City*">
                      <VBox.margin>
                         <Insets right="10.0" top="11.0" />
                      </VBox.margin>
@@ -160,7 +160,7 @@
                         <Font size="17.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Postal code*">
+                  <Text fx:id="labelPostalcode" strokeType="OUTSIDE" strokeWidth="0.0" text="Postal code*">
                      <VBox.margin>
                         <Insets right="10.0" top="10.0" />
                      </VBox.margin>
@@ -168,7 +168,7 @@
                         <Font size="17.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Country*">
+                  <Text fx:id="labelCountry" strokeType="OUTSIDE" strokeWidth="0.0" text="Country*">
                      <VBox.margin>
                         <Insets right="10.0" top="10.0" />
                      </VBox.margin>
@@ -176,7 +176,7 @@
                         <Font size="17.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Phone*">
+                  <Text fx:id="labelPhone" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone*">
                      <VBox.margin>
                         <Insets right="10.0" top="10.0" />
                      </VBox.margin>
@@ -184,7 +184,7 @@
                         <Font size="17.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail*">
+                  <Text fx:id="labelEmail" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail*">
                      <VBox.margin>
                         <Insets right="10.0" top="10.0" />
                      </VBox.margin>
@@ -196,7 +196,7 @@
             </VBox>
             <VBox alignment="TOP_RIGHT" prefHeight="645.0" prefWidth="136.0" GridPane.columnIndex="2">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Label Number*">
+                  <Text fx:id="labelLabelNumber" strokeType="OUTSIDE" strokeWidth="0.0" text="Label Number*">
                      <VBox.margin>
                         <Insets right="10.0" top="85.0" />
                      </VBox.margin>
@@ -204,7 +204,7 @@
                         <Font size="17.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Flight Number*">
+                  <Text fx:id="labelFlightNumber" strokeType="OUTSIDE" strokeWidth="0.0" text="Flight Number*">
                      <VBox.margin>
                         <Insets right="10.0" top="8.0" />
                      </VBox.margin>
@@ -212,7 +212,7 @@
                         <Font size="17.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Destination*">
+                  <Text fx:id="labelDestination" strokeType="OUTSIDE" strokeWidth="0.0" text="Destination*">
                      <VBox.margin>
                         <Insets right="10.0" top="10.0" />
                      </VBox.margin>
@@ -220,7 +220,7 @@
                         <Font size="17.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Type">
+                  <Text fx:id="labelType" strokeType="OUTSIDE" strokeWidth="0.0" text="Type">
                      <VBox.margin>
                         <Insets right="10.0" top="39.0" />
                      </VBox.margin>
@@ -228,7 +228,7 @@
                         <Font size="17.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Brand">
+                  <Text fx:id="labelBrand" strokeType="OUTSIDE" strokeWidth="0.0" text="Brand">
                      <VBox.margin>
                         <Insets right="10.0" top="10.0" />
                      </VBox.margin>
@@ -236,7 +236,7 @@
                         <Font size="17.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Primary Colour">
+                  <Text fx:id="labelPColour" strokeType="OUTSIDE" strokeWidth="0.0" text="Primary Colour">
                      <VBox.margin>
                         <Insets right="10.0" top="10.0" />
                      </VBox.margin>
@@ -244,7 +244,7 @@
                         <Font size="17.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Secondary Colour">
+                  <Text fx:id="labelSColour" strokeType="OUTSIDE" strokeWidth="0.0" text="Secondary Colour">
                      <VBox.margin>
                         <Insets right="10.0" top="8.0" />
                      </VBox.margin>
@@ -264,7 +264,7 @@
             </VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3">
                <children>
-                  <Text fill="#d81e05" strokeType="OUTSIDE" strokeWidth="0.0" text="Luggage label">
+                  <Text fx:id="labelLuggage" fill="#d81e05" strokeType="OUTSIDE" strokeWidth="0.0" text="Luggage label">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -287,7 +287,7 @@
                         <Insets right="40.0" top="8.0" />
                      </VBox.margin>
                   </TextField>
-                  <Text fill="#d81e05" strokeType="OUTSIDE" strokeWidth="0.0" text="Luggage information">
+                  <Text fx:id="labelLuggageInformation" fill="#d81e05" strokeType="OUTSIDE" strokeWidth="0.0" text="Luggage information">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -324,12 +324,12 @@
                         <Insets top="50.0" />
                      </VBox.margin>
                   </Label>
-                  <CheckBox fx:id="mailSturen" mnemonicParsing="false" text="Stuur een kopie van dit document naar mijn email">
+                  <CheckBox fx:id="labelSendmail" mnemonicParsing="false" text="Stuur een kopie van dit document naar mijn email">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </CheckBox>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Velden met * zijn verplicht om in te vullen">
+                  <Text fx:id="labelRequired" strokeType="OUTSIDE" strokeWidth="0.0" text="Velden met * zijn verplicht om in te vullen">
                      <VBox.margin>
                         <Insets top="110.0" />
                      </VBox.margin>
@@ -339,15 +339,15 @@
                   </Text>
                </children>
             </VBox>
-            <Button mnemonicParsing="false" onAction="#backToLogin" text="Back to login" GridPane.rowIndex="1" />
+            <Button fx:id="buttonBacktologin" mnemonicParsing="false" onAction="#backToLogin" text="Back to login" GridPane.rowIndex="1" />
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <children>
-                  <Button mnemonicParsing="false" onAction="#excelImportPath" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Excel importeren" textFill="WHITE">
+                  <Button fx:id="labelExcel" mnemonicParsing="false" onAction="#excelImportPath" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Excel importeren" textFill="WHITE">
                      <HBox.margin>
                         <Insets right="84.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#openRegisterThankyou" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Submit" textFill="WHITE">
+                  <Button fx:id="labelSubmit" mnemonicParsing="false" onAction="#openRegisterThankyou" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Submit" textFill="WHITE">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>

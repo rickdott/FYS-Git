@@ -17,11 +17,13 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.ComboBox;
+import javafx.scene.text.Text;
 
 /**
  * Class to facilitate registering a piece of missing luggage into the database
@@ -29,6 +31,53 @@ import javafx.scene.control.ComboBox;
  * @author Stijn Klopper 500770512, Stan van Weringh 500771870
  */
 public class RegisterMissingController implements Initializable {
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
+        
+        labelGeneral.setText(mybundle.getString("General"));
+        labelDate.setText(mybundle.getString("Date"));
+        labelTime.setText(mybundle.getString("Time"));
+        labelAirport.setText(mybundle.getString("Airport"));       
+        labelLocation.setText(mybundle.getString("Location_Found"));
+        labelLuggage.setText(mybundle.getString("Luggage_Label"));
+        labelLabelNumber.setText(mybundle.getString("Label_Number*"));
+        labelFlightNumber.setText(mybundle.getString("Flight_Number*"));
+        labelDestination.setText(mybundle.getString("Destination*"));       
+        labelLuggageInformation.setText(mybundle.getString("Luggage_Information")); 
+        labelType.setText(mybundle.getString("Type"));
+        labelBrand.setText(mybundle.getString("Brand"));
+        labelColour.setText(mybundle.getString("Colour"));
+        labelSpecialChar.setText(mybundle.getString("Special_Characteristics"));       
+        labelSubmit.setText(mybundle.getString("Submit"));  
+        labelRequired.setText(mybundle.getString("Fields_with_*_are_required_to_fill_in"));       
+        labelTraveller.setText(mybundle.getString("Traveller"));       
+        labelFirstname.setText(mybundle.getString("Firstname*")); 
+        labelSurname.setText(mybundle.getString("Surname*"));
+        labelAdress.setText(mybundle.getString("Adress*"));
+        labelCity.setText(mybundle.getString("City*"));
+        labelPostalcode.setText(mybundle.getString("Postal_code*"));       
+        labelCountry.setText(mybundle.getString("Country*"));  
+        labelPhone.setText(mybundle.getString("Phone*"));  
+        labelEmail.setText(mybundle.getString("E-mail*")); 
+        labelPColour.setText(mybundle.getString("Primary_Colour"));
+        labelSColour.setText(mybundle.getString("Secondary_Colour"));       
+        labelSendmail.setText(mybundle.getString("Send_a_copy_of_this_document_to_my_email"));  
+        labelExcel.setText(mybundle.getString("Import_Excel"));         
+        buttonBacktologin.setText(mybundle.getString("Back_to_login"));  
+    }
+        
+    @FXML
+    private Label labelGeneral, labelDate, labelTime, labelAirport, labelLocation, labelLuggage, labelLabelNumber,
+            labelFlightNumber, labelDestination, labelLuggageInformation, labelType,labelBrand,labelColour,labelSpecialChar,labelSubmit,labelRequired,
+            labelTraveller, labelFirstname, labelSurname, labelAdress,labelCity,labelPostalcode,labelCountry,labelPhone,labelEmail,labelPColour,labelSColour,
+            labelSendmail,labelExcel;
+    
+    private button buttonBacktologin;
+    
+    
+// End of translation lines
 
     //input Traveller
     @FXML

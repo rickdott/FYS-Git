@@ -32,6 +32,8 @@ public class CustomerHomescreenController implements Initializable {
     @FXML
     private Button reqStatBut, regMisBut, faqBut;
     
+    // End of translation lines
+    
     Utilities utilities = new Utilities();
 
     

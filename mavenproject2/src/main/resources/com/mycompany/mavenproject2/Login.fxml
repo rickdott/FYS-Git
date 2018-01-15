@@ -35,7 +35,7 @@
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="textEmail" layoutX="581.0" layoutY="187.0" prefHeight="25.0" prefWidth="253.0" promptText="Enter your email" />
+                  <TextField fx:id="textEmailT" layoutX="581.0" layoutY="187.0" prefHeight="25.0" prefWidth="253.0" promptText="Enter your email" />
                   <TextField fx:id="textLastname" layoutX="581.0" layoutY="227.0" prefHeight="25.0" prefWidth="253.0" promptText="Enter your lastname:" />
                   <Text layoutX="40.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tijdelijke knoppen om in te loggen" />
                   <Button layoutX="77.0" layoutY="77.0" mnemonicParsing="false" onAction="#openCustomerHomescreenFromCustomer" text="Inloggen als klant" />

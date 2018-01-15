@@ -32,23 +32,28 @@ public class LoginController implements Initializable {
         ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
         
         labelEmail.setText(mybundle.getString("E-Mail"));
-        textEmail.setText(mybundle.getString("Enter_your_E-mail"));
+        textEmailT.setText(mybundle.getString("Enter_your_E-mail"));
         labelLastname.setText(mybundle.getString("Lastname"));
         textLastname.setText(mybundle.getString("Enter_your_lastname"));
         buttonPassenger.setText(mybundle.getString("Login"));
         buttonEmployee.setText(mybundle.getString("Employee_Login"));
         textWarning.setText(mybundle.getString("Warning!"));
         textCaseSensitive.setText(mybundle.getString("Login_is_case_sensitive!"));
+        buttonLoginPassenger.setText(mybundle.getString("Passenger_Login"));
+        labelUsername.setText(mybundle.getString("Username"));
+        textUsername.setText(mybundle.getString("Enter_your_username"));
+        labelPassword.setText(mybundle.getString("Password"));
+        textPassword.setText(mybundle.getString("Enter_your_password"));
         
 
     }
         
     @FXML
-    private Label labelEmail, labelLastname ;
+    private Label labelEmail, labelLastname,labelUsername, labelPassword ;
     
-    private Text textEmail, textLastname, textWarning, textCaseSensitive ;
+    private Text textEmailT, textLastname, textWarning, textCaseSensitive, textUsername, textPassword ;
     
-    private Button buttonPassenger, buttonEmployee ;
+    private Button buttonPassenger, buttonEmployee, buttonLoginPassenger ;
     
     
     
