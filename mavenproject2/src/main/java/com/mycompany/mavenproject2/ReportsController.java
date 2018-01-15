@@ -46,15 +46,23 @@ public class ReportsController implements Initializable {
         submitFoundMissingBut.setText(mybundle.getString("Submit"));
         submitMissingPerMonthBut.setText(mybundle.getString("Submit"));
 
+//        try {
+//            showMissingStats();
+//            
+//        } catch (SQLException ex) {
+//            Logger.getLogger(ReportsController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+        
+        ArrayList<String> listOfYears = new ArrayList<>();
         try {
-            showMissingStats();
-            ArrayList<String> listOfYears = getYearsInDB();
-            years.clear();
-            years.addAll(listOfYears);
-            yearComboBox.setItems(years);
+            listOfYears = getYearsInDB();
         } catch (SQLException ex) {
             Logger.getLogger(ReportsController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        years.clear();
+        years.addAll(listOfYears);
+        yearComboBox.setItems(years);
+
     }
     @FXML
     private Label labelSee;
