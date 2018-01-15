@@ -98,10 +98,10 @@ public class WorkerHomescreenController implements Initializable {
                         Utilities.onHover("RegisterFound", but5, label1);
                         Utilities.offHover("RegisteFound", but5, label1);
                         break;
-                    case "LoginEmployee":
+                    case "Login":
                         but6 = button;
-                        Utilities.onHover("LoginEmployee", but6, label1);
-                        Utilities.offHover("LoginEmployee", but6, label1);
+                        Utilities.onHover("Login", but6, label1);
+                        Utilities.offHover("Login", but6, label1);
                         break;
                     default:
                         break;
@@ -128,8 +128,8 @@ public class WorkerHomescreenController implements Initializable {
                             case "RegisterFound":
                                 utilities.newPane("RegisterFound", but5, mainpage, label1);
                                 break;
-                            case "LoginEmployee":
-                                utilities.newPane("LoginEmployee", actualmain);
+                            case "Login":
+                                utilities.newPane("Login", actualmain);
                                 break;
                             default:
                                 break;
@@ -163,7 +163,16 @@ public class WorkerHomescreenController implements Initializable {
     private void openRegistertesting(ActionEvent event) {
         utilities.newPane("RegisterMissing", but4, mainpage, label1);
     }
+    
+    @FXML
+    private void openRegisterFound(ActionEvent event) {
+        utilities.newPane("RegisterFound", but5, mainpage, label1);
+    }
 
+    @FXML
+    private void openPassengerLogin(ActionEvent event) {
+        utilities.newPane("Login", but6, mainpage, label1);
+    }
     // All methods for hovering off a button
     @FXML
     private void offHoverbut1() {
@@ -192,7 +201,7 @@ public class WorkerHomescreenController implements Initializable {
     
     @FXML
     private void offHoverbut6() {
-        utilities.offHover("LoginEmployee", but6, label1);
+        utilities.offHover("Login", but6, label1);
     }
 
     // All methods for hovering over a button
@@ -223,7 +232,7 @@ public class WorkerHomescreenController implements Initializable {
     
     @FXML
     private void onHoverbut6() {
-        utilities.offHover("LoginEmployee", but6, label1);
+        utilities.offHover("Login", but6, label1);
     }
 
     @FXML
