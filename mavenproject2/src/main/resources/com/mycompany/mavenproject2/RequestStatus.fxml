@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="requestpage" prefHeight="650.0" prefWidth="1060.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.RequestStatusController">
+<AnchorPane id="AnchorPane" fx:id="requestpage" prefHeight="650.0" prefWidth="1060.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.RequestStatusController">
    <children>
       <GridPane layoutX="219.0" layoutY="215.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
@@ -41,7 +41,7 @@
                            <children>
                               <VBox prefHeight="200.0" prefWidth="100.0">
                                  <children>
-                                    <RadioButton mnemonicParsing="false" selected="true" text="Lost">
+                                    <RadioButton fx:id="labelLost" mnemonicParsing="false" selected="true" text="Lost">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
@@ -49,7 +49,7 @@
                                           <ToggleGroup fx:id="lostFoundGroup" />
                                        </toggleGroup>
                                     </RadioButton>
-                                    <RadioButton mnemonicParsing="false" text="Found" toggleGroup="$lostFoundGroup">
+                                    <RadioButton fx:id="labelFound" mnemonicParsing="false" text="Found" toggleGroup="$lostFoundGroup">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
@@ -59,7 +59,7 @@
                                     <Insets left="270.0" />
                                  </StackPane.margin>
                               </VBox>
-                              <Label alignment="CENTER" maxWidth="110.0" minWidth="0.0" text="Looking for:  " StackPane.alignment="TOP_LEFT">
+                              <Label fx:id="labelLooking" alignment="CENTER" maxWidth="110.0" minWidth="0.0" text="Looking for:  " StackPane.alignment="TOP_LEFT">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -77,7 +77,7 @@
                            <StackPane.margin>
                               <Insets left="150.0" />
                            </StackPane.margin></TextField>
-                        <Label contentDisplay="RIGHT" prefWidth="200.0" text="Registration Number" StackPane.alignment="CENTER">
+                        <Label fx:id="labelRegistrationnumber" contentDisplay="RIGHT" prefWidth="200.0" text="Registration Number" StackPane.alignment="CENTER">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -89,7 +89,7 @@
                   </StackPane>
                   <StackPane>
                      <children>
-                        <Label contentDisplay="RIGHT" prefWidth="200.0" text="Date Found" StackPane.alignment="CENTER">
+                        <Label fx:id="labelDatefound" contentDisplay="RIGHT" prefWidth="200.0" text="Date Found" StackPane.alignment="CENTER">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -105,7 +105,7 @@
                   </StackPane>
                   <StackPane>
                      <children>
-                        <Label contentDisplay="RIGHT" prefWidth="200.0" text="Time Found" StackPane.alignment="CENTER">
+                        <Label fx:id="labelTimefound" contentDisplay="RIGHT" prefWidth="200.0" text="Time Found" StackPane.alignment="CENTER">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -121,7 +121,7 @@
                   </StackPane>
                   <StackPane>
                      <children>
-                        <Label contentDisplay="RIGHT" prefWidth="200.0" text="Type" StackPane.alignment="CENTER">
+                        <Label fx:id="labelType" contentDisplay="RIGHT" prefWidth="200.0" text="Type" StackPane.alignment="CENTER">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -137,7 +137,7 @@
                   </StackPane>
                   <StackPane>
                      <children>
-                        <Label contentDisplay="RIGHT" prefWidth="200.0" text="Brand" StackPane.alignment="CENTER">
+                        <Label fx:id="labelBrand" contentDisplay="RIGHT" prefWidth="200.0" text="Brand" StackPane.alignment="CENTER">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -153,7 +153,7 @@
                   </StackPane>
                   <StackPane>
                      <children>
-                        <Label contentDisplay="RIGHT" prefWidth="200.0" text="Flight Number" StackPane.alignment="CENTER">
+                        <Label fx:id="labelFlightnumber" contentDisplay="RIGHT" prefWidth="200.0" text="Flight Number" StackPane.alignment="CENTER">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -169,7 +169,7 @@
                   </StackPane>
                   <StackPane>
                      <children>
-                        <Label contentDisplay="RIGHT" minWidth="-Infinity" prefWidth="200.0" text="Bagage Label Number" StackPane.alignment="CENTER">
+                        <Label fx:id="labelBagagelabelnumber" contentDisplay="RIGHT" minWidth="-Infinity" prefWidth="200.0" text="Bagage Label Number" StackPane.alignment="CENTER">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -198,7 +198,7 @@
                <children>
                   <StackPane>
                      <children>
-                        <Label contentDisplay="RIGHT" prefHeight="27.0" prefWidth="200.0" text="Location Found" StackPane.alignment="CENTER">
+                        <Label fx:id="labelLocationfound" contentDisplay="RIGHT" prefHeight="27.0" prefWidth="200.0" text="Location Found" StackPane.alignment="CENTER">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -215,7 +215,7 @@
                   </StackPane>
                   <StackPane>
                      <children>
-                        <Label contentDisplay="RIGHT" prefWidth="200.0" text="Main Colour" StackPane.alignment="CENTER">
+                        <Label fx:id="labelMaincolour" contentDisplay="RIGHT" prefWidth="200.0" text="Main Colour" StackPane.alignment="CENTER">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -232,7 +232,7 @@
                   </StackPane>
                   <StackPane>
                      <children>
-                        <Label contentDisplay="RIGHT" prefWidth="200.0" text="Secondary Colour" StackPane.alignment="CENTER">
+                        <Label fx:id="labelSecondarycolour" contentDisplay="RIGHT" prefWidth="200.0" text="Secondary Colour" StackPane.alignment="CENTER">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -249,7 +249,7 @@
                   </StackPane>
                   <StackPane>
                      <children>
-                        <Label contentDisplay="RIGHT" prefWidth="200.0" text="Size" StackPane.alignment="CENTER">
+                        <Label fx:id="labelSize" contentDisplay="RIGHT" prefWidth="200.0" text="Size" StackPane.alignment="CENTER">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -266,7 +266,7 @@
                   </StackPane>
                   <StackPane>
                      <children>
-                        <Label contentDisplay="RIGHT" prefWidth="200.0" text="Weight" StackPane.alignment="CENTER">
+                        <Label fx:id="labelWeight" contentDisplay="RIGHT" prefWidth="200.0" text="Weight" StackPane.alignment="CENTER">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -288,7 +288,7 @@
                               <Insets left="190.0" right="10.0" />
                            </StackPane.margin>
                         </TextField>
-                        <Label contentDisplay="RIGHT" prefWidth="200.0" text="Passenger Name &amp; City" StackPane.alignment="CENTER">
+                        <Label fx:id="labelPassenger" contentDisplay="RIGHT" prefWidth="200.0" text="Passenger Name &amp; City" StackPane.alignment="CENTER">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -300,7 +300,7 @@
                   </StackPane>
                   <StackPane>
                      <children>
-                        <Label contentDisplay="RIGHT" prefWidth="200.0" text="Special Characteristics" StackPane.alignment="CENTER">
+                        <Label fx:id="labelSpecialChar" contentDisplay="RIGHT" prefWidth="200.0" text="Special Characteristics" StackPane.alignment="CENTER">
                            <font>
                               <Font size="18.0" />
                            </font>

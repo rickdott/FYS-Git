@@ -22,7 +22,6 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
-import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.VBox;
 
@@ -44,7 +43,8 @@ public class ReportsController implements Initializable {
         missingLuggagePerMonthToggle.setText(mybundle.getString("Missing_Luggage/month"));
         solvedToggle.setText(mybundle.getString("Solved_cases"));
         compensationToggle.setText(mybundle.getString("Compensation"));
-        labelSubmit.setText(mybundle.getString("Submit"));
+        submitFoundMissingBut.setText(mybundle.getString("Submit"));
+        submitMissingPerMonthBut.setText(mybundle.getString("Submit"));
         
         
         try {
@@ -59,10 +59,7 @@ public class ReportsController implements Initializable {
     }
     @FXML    
     private Label labelSee;
-    
-    @FXML
-    private Button labelSubmit;
-    
+        
     @FXML 
     private RadioButton compensationToggle, solvedToggle, missingLuggagePerMonthToggle, foundLuggageToggle, missingLuggageToggle;
 
