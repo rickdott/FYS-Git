@@ -96,18 +96,6 @@ public class LoginEmployeeController implements Initializable {
     }
 
     @FXML
-    private void setLanguageGerman() {
-        System.out.println("Set language to German");
-        loadLanguage("de", "DE");
-    }
-
-    @FXML
-    private void setLanguagePortuguese() {
-        System.out.println("Set language to Portuguese");
-        loadLanguage("pt", "PT");
-    }
-
-    @FXML
     private void setLanguageTurkish() {
         System.out.println("Set language to Turkish");
         loadLanguage("tr", "TR");

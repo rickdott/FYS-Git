@@ -64,11 +64,9 @@ public class ReportsController implements Initializable {
     private RadioButton compensationToggle, solvedToggle, missingLuggagePerMonthToggle, foundLuggageToggle, missingLuggageToggle;
 
     private static ObservableList<String> years = FXCollections.observableArrayList();
-
     
     @FXML
     private PieChart pieChart;
-    
 
     @FXML
     private LineChart lineChart;
