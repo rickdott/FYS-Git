@@ -24,6 +24,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 
 /**
  * Rick 1-154 (153) Timur 154-261 (107)
@@ -42,7 +43,7 @@ public class Utilities implements Initializable {
     
     @FXML
     
-    private Label labelFaq;
+    private Text labelFaq;
         
     
 // End of translation lines

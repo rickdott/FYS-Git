@@ -49,10 +49,10 @@ public class LoginController implements Initializable {
     }
         
     @FXML
-    private Label labelEmail, labelLastname,labelUsername, labelPassword ;
-    
-    private Text textEmailT, textLastname, textWarning, textCaseSensitive ;
-    
+    private Text labelEmail, labelLastname,labelUsername, labelPassword, textWarning, textCaseSensitive;
+    @FXML   
+    private TextField textEmailT, textLastname   ;
+    @FXML   
     private Button buttonPassenger, buttonEmployee, buttonLoginPassenger ;
     
     

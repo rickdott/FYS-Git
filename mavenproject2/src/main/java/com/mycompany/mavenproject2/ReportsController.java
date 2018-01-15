@@ -21,6 +21,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.VBox;
@@ -37,11 +38,11 @@ public class ReportsController implements Initializable {
         ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
         
         labelSee.setText(mybundle.getString("What_would_you_like_to_see?"));
-        //missingLuggageToggle.setText(mybundle.getString("Missing_Luggage"));
-        //foundLuggageToggle.setText(mybundle.getString("Found_Luggage"));
-        //missingLuggagePerMonthToggle.setText(mybundle.getString("Missing_Luggage/month"));
-        //solvedToggle.setText(mybundle.getString("Solved_cases"));
-        //compensationToggle.setText(mybundle.getString("Compensation"));
+        missingLuggageToggle.setText(mybundle.getString("Missing_Luggage"));
+        foundLuggageToggle.setText(mybundle.getString("Found_Luggage"));
+        missingLuggagePerMonthToggle.setText(mybundle.getString("Missing_Luggage/month"));
+        solvedToggle.setText(mybundle.getString("Solved_cases"));
+        compensationToggle.setText(mybundle.getString("Compensation"));
         labelSubmit.setText(mybundle.getString("Submit"));
         
         
@@ -54,8 +55,14 @@ public class ReportsController implements Initializable {
             Logger.getLogger(ReportsController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-        
-    private Label labelSee, labelSubmit;
+    @FXML    
+    private Label labelSee;
+    
+    @FXML
+    private Button labelSubmit;
+    
+    @FXML 
+    private RadioButton compensationToggle, solvedToggle, missingLuggagePerMonthToggle, foundLuggageToggle, missingLuggageToggle;
 
     private static ObservableList<String> years = FXCollections.observableArrayList();
 

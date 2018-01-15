@@ -15,6 +15,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -42,7 +43,10 @@ public class RequestStatusKlantenController implements Initializable {
     }
     
     @FXML
-    private Label labelNumber, labelName, labelSubmit;
+    private Label labelNumber, labelName;
+    
+    @FXML 
+    private Button labelSubmit;
     
 // End of translation lines
   

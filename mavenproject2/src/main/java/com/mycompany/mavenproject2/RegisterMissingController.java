@@ -83,12 +83,16 @@ public class RegisterMissingController implements Initializable {
     }
         
     @FXML
-    private Label labelGeneral, labelDate, labelTime, labelAirport, labelLocation, labelLuggage, labelLabelNumber,
-            labelFlightNumber, labelDestination, labelLuggageInformation, labelType,labelBrand,labelColour,labelSpecialChar,labelSubmit,labelRequired,
-            labelTraveller, labelFirstname, labelSurname, labelAdress,labelCity,labelPostalcode,labelCountry,labelPhone,labelEmail,labelPColour,labelSColour,
-            labelSendmail,labelExcel;
+    private Text labelGeneral, labelDate, labelTime, labelAirport, labelLocation, labelLuggage, labelLabelNumber,
+            labelFlightNumber, labelDestination, labelLuggageInformation, labelType,labelBrand,labelColour,labelSpecialChar,labelRequired,
+            labelTraveller, labelFirstname, labelSurname, labelAdress,labelCity,labelPostalcode,labelCountry,labelPhone,labelEmail,labelPColour,labelSColour;
     
-    private Button buttonBacktologin;
+    @FXML
+    private Button buttonBacktologin, labelExcel,labelSubmit;
+    
+    @FXML
+    
+    private CheckBox labelSendmail;
     
     
 // End of translation lines

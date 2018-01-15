@@ -17,6 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -35,9 +36,15 @@ import javafx.scene.layout.VBox;
 public class RequestStatusController implements  Initializable {
 
         @FXML 
-        private Label labelLooking, labelLost, labelFound, labelRegistrationnumber, labelDatefound, labelTimefound,
+        private Label labelLooking, labelRegistrationnumber, labelDatefound, labelTimefound,
                 labelType, labelBrand, labelFlightnumber, labelBagagelabelnumber, labelLocationfound, labelMaincolour, 
-                labelSecondarycolour, labelSize, labelWeight, labelPassenger, labelSpecialChar, submitButton;
+                labelSecondarycolour, labelSize, labelWeight, labelPassenger, labelSpecialChar; 
+        
+        @FXML 
+        private RadioButton labelLost,labelFound;
+        
+        @FXML 
+        private Button submitButton;
     
 // End of translation lines
   

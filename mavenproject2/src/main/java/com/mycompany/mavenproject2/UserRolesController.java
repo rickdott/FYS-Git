@@ -12,7 +12,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 
 /**
  * YET TO BE IMPLEMENTED
@@ -34,9 +36,13 @@ public class UserRolesController implements Initializable {
     }
         
     @FXML
-    private Button but1;
+    private Button but1,labelSubmit;
     
-    private Label labelName, labelRoles, labelRole, labelNameperson, labelSubmit;
+    @FXML
+    private Text labelRole, labelNameperson;
+    
+    @FXML
+    private TableColumn labelName, labelRoles;
 // End of translation lines
     
     @FXML

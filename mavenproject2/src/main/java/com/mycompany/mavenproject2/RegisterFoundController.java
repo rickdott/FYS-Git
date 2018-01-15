@@ -49,14 +49,17 @@ public class RegisterFoundController implements Initializable {
     }
         
     @FXML
-    private Label labelGeneral, labelDate, labelTime, labelAirport, labelLocation, labelLuggage, labelLabelNumber,
-            labelFlightNumber, labelDestination, labelLuggageInformation, labelType,labelBrand,labelColour,labelSpecialChar,labelSubmit,labelRequired;
+    private Text labelGeneral, labelDate, labelTime, labelAirport, labelLocation, labelLuggage, labelLabelNumber,
+            labelFlightNumber, labelDestination, labelLuggageInformation, labelType,labelBrand,labelColour,labelSpecialChar,labelRequired;
 
     @FXML
     private TextField GeneralDate2;
 
     @FXML
     private AnchorPane RegisterFoundPane;
+    
+    @FXML
+    private Button labelSubmit;
     
     Utilities utilities = new Utilities();
 
