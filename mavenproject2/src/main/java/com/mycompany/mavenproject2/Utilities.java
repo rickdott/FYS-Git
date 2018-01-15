@@ -16,11 +16,13 @@ import javafx.collections.ObservableList;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Locale;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
@@ -58,56 +60,82 @@ public class Utilities {
         {"Geel", "Crème", "Olijf", "Oranje", "Rood", "Donkerrood", "Roze", "Paars", "Violet", "Blauw", "Lichtblauw", "Donkerblauw", "Groen", "Blauwgroen", "Donkergroen", "Lichtgroen", "Lichtgrijs", "Grijs", "Bruin", "Donkerbruin", "Lichtbruin", "Wit", "Zwart", "Donkergrijs"},
         {"Sarı", "Krem", "Zeytin yeşili", "Turuncu", "Kırmızı", "Koyu kırmızı", "Pembe", "Mor", "Menekşe", "Mavi", "Açık  mavi", "Koyu mavi", "Yeşil", "çamurcun", "Koyu yeşil", "Açık  yeşil", "Açık gri", "Gri", "Kahverengi", "Koyu kahverengi", "Açık kahverengi", "Beyaz", "Siyah", "Koyu gri"}
     };
+ 
+    private final static String OFFHOVER_STYLE = "-fx-font: 22 arial; -fx-base: #d81e05; "
+                        + "-fx-background-radius: 0; -fx-border-width: 0 0 0 0; "
+                        + "-fx-border-color: white; -fx-font-weight: bold; "
+                        + "-fx-font-size: 18; -fx-alignment: CENTER;"
+                        + "-fx-min-width: 200; -fx-min-height: 50;"
+                        + "-fx-font-size: 18; -fx-alignment: CENTER;";
+ 
+    private final static String ONHOVER_STYLE = "-fx-font: 22 arial; -fx-base: #951504; "
+                        + "-fx-background-radius: 0; -fx-border-width: 0 0 0 0; "
+                        + "-fx-border-color: white; -fx-font-weight: bold; "
+                        + "-fx-font-size: 18; -fx-alignment: CENTER;"
+                        + "-fx-min-width: 200; -fx-min-height: 50;"
+                        + "-fx-font-size: 18; -fx-alignment: CENTER;";
 
     // Three methods to use when hovering over a button, overloaded
     // First method is only used for big button
     @FXML
-    public static void onHover(Button btn) {
-        btn.setStyle("-fx-background-color: #951504; -fx-background-radius: 0; -fx-border-width: 1 0 0 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 30;");
+    public static void onHover(final Button btn) {
+        btn.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                btn.setStyle(ONHOVER_STYLE);
+            }
+        });
     }
 
     public static int userID;
     public static int roleID;
 
     // Two methods to use when hovering over a button
-    @FXML
-    public static void onHover(String currentPage, Button btn, Label label) {
-        System.out.println("onHover activated");
-        if (!label.getText().equals(currentPage)) {
-            btn.setStyle("-fx-background-color: #951504; -fx-background-radius: 0; -fx-border-width: 1 0 0 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18;");
-        }
-    }
 
     @FXML
-    public static void onHover(String currentPage, Button btn, Label label, boolean isLast) {
-        System.out.println("onHover activated");
-        if (!label.getText().equals(currentPage) && isLast) {
-            btn.setStyle("-fx-background-color: #951504; -fx-background-radius: 0; -fx-border-width: 1 0 1 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18;");
-        }
+    public static void onHover(String currentPage, final Button btn, Label label) {
+        btn.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                btn.setStyle(ONHOVER_STYLE);
+            }
+        });
     }
 
     // Three methods to use when hovered off the button, overloaded
     // First method is only used for big buttons
     @FXML
-    public static void offHover(Button btn) {
-        btn.setStyle("-fx-background-color: #D81E05; -fx-background-radius: 0; -fx-border-width: 1 0 0 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 30;");
+    public static void offHover(final Button btn) {
+        btn.setOnMouseExited(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                btn.setStyle(OFFHOVER_STYLE);
+            }
+        });
     }
 
     @FXML
-    public static void offHover(String currentPage, Button btn, Label label) {
-        System.out.println("offHover activated");
-        if (!label.getText().equals(currentPage)) {
-            btn.setStyle("-fx-background-color: #D81E05; -fx-background-radius: 0; -fx-border-width: 1 0 0 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18;");
-        }
+    public static void offHover(String currentPage, final Button btn, Label label) {
+        btn.setOnMouseExited(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                btn.setStyle(OFFHOVER_STYLE);
+            }
+        });
     }
 
     @FXML
-    public static void offHover(String currentPage, Button btn, Label label, boolean isLast) {
-        System.out.println("offHover activated");
+    public static void offHover(String currentPage, final Button btn, Label label, boolean isLast) {
         if (!label.getText().equals(currentPage) && isLast) {
-            btn.setStyle("-fx-background-color: #D81E05; -fx-background-radius: 0; -fx-border-width: 1 0 1 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18;");
+            btn.setOnMouseExited(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                btn.setStyle(OFFHOVER_STYLE);
+            }
+        });
         }
     }
+    
 
     // Opens a different page, changing just a Pane
     @FXML
@@ -394,7 +422,7 @@ public class Utilities {
         ResultSet resultFound = database.executeResultSetQuery(String.format("SELECT * FROM Foundbagageinventory WHERE luggagelabelnr = %d", labelnr));
         ResultSet resultSolved = database.executeResultSetQuery(String.format("SELECT * FROM Solvedcases WHERE luggagelabelnr = %d", labelnr));
         
-        database.close();
+        
         //Logic for finding out what kind of luggage it is
         boolean isInLost, isInFound, isInSolved;
         if (resultLost.next() == false) {
@@ -418,7 +446,7 @@ public class Utilities {
 //        resultLost.close();
 //        resultFound.close();
 //        resultSolved.close();
-        
+        database.close();
         //Logic to decide what to do
         if (isInLost && isInFound && isInSolved) {
             return true;

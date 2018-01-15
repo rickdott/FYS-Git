@@ -9,8 +9,9 @@ import org.apache.pdfbox.pdmodel.font.PDType1Font;
 import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 
 /**
- * Class that creates a property irregularity report and fills it with 
- * the obtained data
+ * Class that creates a property irregularity report and fills it with the
+ * obtained data
+ *
  * @author Stijn Klopper 500770512 (133 lines)
  */
 public class Pdf {
@@ -21,13 +22,12 @@ public class Pdf {
     // Creates a new PDF document, fills it with the missing-luggage form
     public void printPDF(String firstname, String lastname, String adress,
             String city, String zip, String country, String phone, String email,
-            String labelnumber, String flightnumber, 
+            String labelnumber, String flightnumber,
             String type, String brand, String primaryColour, String secondaryColour,
-            String specialchar)
-            {
+            String specialchar, String date, String time) {
 
         try (PDDocument document = new PDDocument()) {
-          
+
             PDPage blank = new PDPage();
             document.addPage(blank);
             PDPage page = document.getPage(0);
@@ -52,10 +52,11 @@ public class Pdf {
             contentStream.setFont(PDType1Font.HELVETICA, FONT_SIZE_SMALL);
             contentStream.newLine();
             contentStream.showText("Date: ");
+            contentStream.showText(date);
             contentStream.newLine();
             contentStream.showText("Time: ");
+            contentStream.showText(time);
             contentStream.newLine();
-            contentStream.showText("Airport:");
 
             contentStream.newLineAtOffset(0, -(LEADING * 2));
             contentStream.setFont(PDType1Font.HELVETICA, FONT_SIZE_BIG);
@@ -83,11 +84,11 @@ public class Pdf {
             contentStream.newLine();
             contentStream.showText("E-mail: ");
             contentStream.showText(email);
-             
+
             contentStream.newLineAtOffset(0, -(LEADING * 2));
             contentStream.setFont(PDType1Font.HELVETICA, FONT_SIZE_BIG);
             contentStream.showText("Luggage label");
-            
+
             contentStream.setFont(PDType1Font.HELVETICA, FONT_SIZE_SMALL);
             contentStream.newLine();
             contentStream.showText("Label Number: ");
@@ -96,11 +97,11 @@ public class Pdf {
             contentStream.showText("Flight Number: ");
             contentStream.showText(flightnumber);
             contentStream.newLine();
-            
+
             contentStream.newLineAtOffset(0, -(LEADING * 2));
             contentStream.setFont(PDType1Font.HELVETICA, FONT_SIZE_BIG);
             contentStream.showText("Luggage information");
-            
+
             contentStream.setFont(PDType1Font.HELVETICA, FONT_SIZE_SMALL);
             contentStream.newLine();
             contentStream.showText("Type: ");
@@ -124,7 +125,7 @@ public class Pdf {
             document.close();
         } catch (IOException e) {
             System.out.println(e);
-        
+
         }
         System.out.println("PDF created!");
 

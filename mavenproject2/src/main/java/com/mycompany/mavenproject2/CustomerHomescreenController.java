@@ -42,32 +42,32 @@ public class CustomerHomescreenController {
     
     @FXML
     private void onHoverReqStat() {
-        Utilities.onHover(reqStatBut);
+        utilities.onHover(reqStatBut);
     }
     
     @FXML
     private void offHoverReqStat() {
-        Utilities.offHover(reqStatBut);
+        utilities.offHover(reqStatBut);
     }
     
     @FXML
     private void onHoverRegMiss() {
-        Utilities.onHover(regMisBut);
+        utilities.onHover(regMisBut);
     }
     
     @FXML
     private void offHoverRegMiss() {
-        Utilities.offHover(regMisBut);
+        utilities.offHover(regMisBut);
     }
     
     @FXML
     private void onHoverFaqBut() {
-        Utilities.onHover(faqBut);
+        utilities.onHover(faqBut);
     }
     
     @FXML
     private void offHoverFaqBut() {
-        Utilities.offHover(faqBut);
+        utilities.offHover(faqBut);
     }
     
 }

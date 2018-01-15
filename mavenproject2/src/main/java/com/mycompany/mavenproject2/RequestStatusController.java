@@ -226,11 +226,12 @@ public class RequestStatusController implements Initializable {
                 }
             }
 
-            if (typeComboBox.getValue() != null) {
+            if (!typeComboBox.getValue().equals(lluggage.getLuggagetype())) {
                 int ral = Utilities.getNumberFromType(typeComboBox.getValue());
-                queryList.add(String.format("type = %d", ral));
+                queryList.add(String.format("luggagetype = %d", ral));
                 lluggage.setLuggagetype(Utilities.getTypeFromNumber(Integer.toString(ral)));
             }
+            
             if (brandField.getText() != null) {
                 if (!brandField.getText().equals(lluggage.getBrand())) {
                     queryList.add("brand = '" + brandField.getText() + "'");
@@ -252,15 +253,16 @@ public class RequestStatusController implements Initializable {
                 }
             }
 
-            // Check these two
-            if (mainColourComboBox.getValue() != null) {
+            if (!mainColourComboBox.getValue().equals(luggage.getPrimarycolour())) {
                 int ral = Utilities.getRalFromColour(mainColourComboBox.getValue());
                 queryList.add(String.format("primarycolour = %d", ral));
+                lluggage.setPrimarycolour(mainColourComboBox.getValue());
             }
 
-            if (secondaryColourComboBox.getValue() != null) {
+            if (!secondaryColourComboBox.getValue().equals(luggage.getSecondarycolour())) {
                 int ral = Utilities.getRalFromColour(secondaryColourComboBox.getValue());
-                queryList.add(String.format("primarycolour = %d", ral));
+                queryList.add(String.format("secondarycolour = %d", ral));
+                lluggage.setSecondarycolour(secondaryColourComboBox.getValue());
             }
 
             if (sizeField.getText() != null) {
@@ -313,11 +315,12 @@ public class RequestStatusController implements Initializable {
                 }
             }
 
-            if (typeComboBox.getValue() != null) {
+            if (!typeComboBox.getValue().equals(fluggage.getLuggagetype())) {
                 int ral = Utilities.getNumberFromType(typeComboBox.getValue());
-                queryList.add(String.format("type = %d", ral));
+                queryList.add(String.format("luggagetype = %d", ral));
                 fluggage.setLuggagetype(Utilities.getTypeFromNumber(Integer.toString(ral)));
             }
+            
             if (brandField.getText() != null) {
                 if (!brandField.getText().equals(fluggage.getBrand())) {
                     queryList.add("brand = '" + brandField.getText() + "'");
@@ -346,16 +349,16 @@ public class RequestStatusController implements Initializable {
                 }
             }
 
-            if (mainColourComboBox.getValue() != null) {
+            if (!mainColourComboBox.getValue().equals(luggage.getPrimarycolour())) {
                 int ral = Utilities.getRalFromColour(mainColourComboBox.getValue());
                 queryList.add(String.format("primarycolour = %d", ral));
-                fluggage.setPrimarycolour(Utilities.getColourFromRal(Integer.toString(ral)));
+                fluggage.setPrimarycolour(mainColourComboBox.getValue());
             }
 
-            if (secondaryColourComboBox.getValue() != null) {
+            if (!secondaryColourComboBox.getValue().equals(luggage.getSecondarycolour())) {
                 int ral = Utilities.getRalFromColour(secondaryColourComboBox.getValue());
                 queryList.add(String.format("secondarycolour = %d", ral));
-                fluggage.setSecondarycolour(Utilities.getColourFromRal(Integer.toString(ral)));
+                fluggage.setSecondarycolour(secondaryColourComboBox.getValue());
             }
 
             if (sizeField.getText() != null) {

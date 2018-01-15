@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
@@ -42,7 +41,7 @@ public class RequestStatusKlantenController {
     private HBox hBoxLost, hBoxFound;
     
     @FXML
-    private VBox choiceVBox;
+    private VBox choiceVBox, shippingVBox;
     
     @FXML
     private Label statusMessage, addressLabel, zipCodeLabel, cityAndCountryLabel;
@@ -125,8 +124,10 @@ public class RequestStatusKlantenController {
             String country = countryField.getText();
             String zip = zipCodeField.getText();
             
+            
             hBoxLost.setVisible(false);
             hBoxFound.setVisible(false);
+            shippingVBox.setVisible(true);
             
             addressLabel.setText(String.format("%s %s", address, number));
             zipCodeLabel.setText(String.format("%s", zip));

@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.concurrent.Executors;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
@@ -29,6 +30,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
+import org.apache.xmlbeans.impl.jam.internal.javadoc.JavadocRunner;
 
 /**
  * Class to facilitate registering a piece of missing luggage into the database
@@ -61,8 +63,7 @@ public class RegisterMissingController implements Initializable {
     //input bagage
     @FXML
     private TextField BagageLabel;
-    
-    
+
     @FXML
     private ComboBox<String> LuggageType;
     @FXML
@@ -73,10 +74,10 @@ public class RegisterMissingController implements Initializable {
     private ComboBox<String> BagageSecondaryColour;
     @FXML
     private TextField BagageSpecialchar;
-    
+
     @FXML
     private TextField BagageSize;
-    
+
     @FXML
     private TextField BagageWeight;
 
@@ -95,7 +96,7 @@ public class RegisterMissingController implements Initializable {
     private CheckBox mailSturen;
 
     @FXML
-    private StackPane progressStackPane;
+    private StackPane loadingScreen;
 
     // Path van het excel bestand (als die er is)
     private String excelPath;
@@ -123,8 +124,6 @@ public class RegisterMissingController implements Initializable {
         generalTime.setText((tijd.format(date)));
         generalDate.setText((datum.format(time)));
 
-        
-
         BagagePrimaryColour.setItems(colours);
         BagageSecondaryColour.setItems(colours);
         LuggageType.setItems(Luggagetypes);
@@ -149,12 +148,19 @@ public class RegisterMissingController implements Initializable {
                 && !TravellerPhone.getText().trim().isEmpty()
                 && !TravellerEmail.getText().trim().isEmpty()
                 && !BagageFlight.getText().trim().isEmpty()
-                && !BagageLabel.getText().trim().isEmpty()
-                ) {
+                && !BagageLabel.getText().trim().isEmpty()) {
+            //ResultSet resultSet = null;
+            String sql = String.format("SELECT * FROM Flight WHERE flightnr = '%s' ",
+                BagageFlight.getText());
+            Database db = new Database();
+            ResultSet resultSet = db.executeResultSetQuery(sql);
+            if(resultSet.next()){
+            
+            
             Mail mail = new Mail(TravellerEmail.getText().trim());
             if (mail.ValidateMail(TravellerEmail.getText().trim()) == true) {
 
-                Database db = new Database();
+                
 
                 String BagagePrimaryColourString;
                 String BagageSecondaryColourString;
@@ -186,8 +192,6 @@ public class RegisterMissingController implements Initializable {
                 } else {
                     LuggageTypeSelect = "10";
                 }
-                
-                
 
                 String travellerInformation = String.format("INSERT INTO Passenger "
                         + "(firstname, lastname, adress, city, zip, country, phone, email, flightnumber) "
@@ -197,33 +201,24 @@ public class RegisterMissingController implements Initializable {
                         TravellerPostalCode.getText(), TravellerCountry.getText(),
                         TravellerPhone.getText(), TravellerEmail.getText(),
                         BagageFlight.getText());
-                    
-                        
-                    db.executeUpdateQuery(travellerInformation);
-                        
-                    ResultSet bagagenummer =  db.executeResultSetQuery("SELECT idpassenger FROM Passenger ORDER BY idpassenger DESC LIMIT 1;");
-                    bagagenummer.next();
-                    System.out.println("TEST LET OP !!!" + bagagenummer.getInt("idpassenger"));
-                    
-                
+
+                db.executeUpdateQuery(travellerInformation);
+
+                ResultSet bagagenummer = db.executeResultSetQuery("SELECT idpassenger FROM Passenger ORDER BY idpassenger DESC LIMIT 1;");
+                bagagenummer.next();
+                System.out.println("TEST LET OP !!!" + bagagenummer.getInt("idpassenger"));
 
                 String luggageInformation = String.format("INSERT INTO "
                         + "Lostbagage (dateregistered, timeregistered, luggagelabelnr, passenger_name_city, luggagetype, brand, primarycolour, secondarycolour, otherchar, flightnumber, idpassenger, size, weight) "
                         + "VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
                         generalDate.getText(), generalTime.getText(), BagageLabel.getText(),
-                        TravellerFirstName.getText() + TravellerAdress.getText(),LuggageTypeSelect,
+                        TravellerFirstName.getText() + TravellerAdress.getText(), LuggageTypeSelect,
                         BagageBrand.getText(), BagagePrimaryColourString, BagageSecondaryColourString,
-                        BagageSpecialchar.getText(), BagageFlight.getText(), bagagenummer.getInt("idpassenger"), 
+                        BagageSpecialchar.getText(), BagageFlight.getText(), bagagenummer.getInt("idpassenger"),
                         BagageSize.getText(), BagageWeight.getText());
 
-                
-                
-               
-                
-                
-                
                 db.executeUpdateQuery(luggageInformation);
-
+                
                 Pdf pdf = new Pdf();
                 pdf.printPDF(TravellerFirstName.getText(), TravellerSurname.getText(),
                         TravellerAdress.getText(), TravellerCity.getText(),
@@ -233,42 +228,44 @@ public class RegisterMissingController implements Initializable {
                         pdf_inputluggagetype,
                         BagageBrand.getText(), pdf_inputprimarycolour,
                         pdf_inputsecondarycolour,
-                        BagageSpecialchar.getText());
+                        BagageSpecialchar.getText(), generalDate.getText(), generalTime.getText());
 
                 if (mail.ValidateMail(TravellerEmail.getText().trim()) == true) {
 
                     if (mailSturen.isSelected()) {
 
                         System.out.println("Sending mail...");
-                        mail.mailsturen();
-                        System.out.println("Mail sent...");
+                        mailThread(mail);
+                        
+                        utilities.newAnchorpane("RegisterMissing_thankyou", registerMissingPane);
                     }
 
-                    draaiding.setVisible(true);
-
-                    utilities.newAnchorpane("RegisterMissing_thankyou", registerMissingPane);
+                    
+                    
 
                 }
             } else {
                 warning.setText("Email adress is incorrect");
             }
-
+            }
+            else{warning.setText("Invalid flightnumber");}
         } else {
             System.out.println("niet alle verplichte velden ingevuld");
             warning.setText("Niet alle verplichte velden zijn ingevuld.");
         }
+        
 
         if (excelPath != null) {
+            if (excelPath.contains(".xlsx")){
             System.out.println("test");
             System.out.println(excelPath);
-            progressStackPane.setVisible(true);
-
-            excelImport(excelPath);
-
-            Thread.currentThread().interrupt();
+            
+            excelThread();
+            utilities.newAnchorpane("RegisterMissing_thankyou", registerMissingPane);
+            }
+            else {warning.setText("fout bestandstype");}
 
             // excelImport(excelPath);
-            //  utilities.newAnchorpane("RegisterMissing_thankyou", registerMissingPane);
         }
 
         /*  else if (!excelPath.isEmpty()) {
@@ -276,6 +273,29 @@ public class RegisterMissingController implements Initializable {
         
          */
     }
+
+    private void excelThread() {
+
+        Executors.newSingleThreadExecutor().execute(new Runnable() {
+            @Override
+            public void run() {
+                excelImport(excelPath);
+
+            }
+        });
+    }
+    
+    private void mailThread(final Mail mail) {
+        Executors.newSingleThreadExecutor().execute(new Runnable() {
+            @Override
+            public void run() {
+                mail.mailsturen();
+                System.out.println("Mail sent...");
+
+            }
+        });
+    }
+    
 
     @FXML
     private void backToLogin() {
