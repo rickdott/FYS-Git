@@ -12,7 +12,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -21,63 +20,66 @@ import javafx.stage.Stage;
 
 /**
  * Controller for the login screen, contains methods for logging in and changing
- * languages
- * Stan 1-72, Matthijs 73-208
+ * languages Stan 1-72, Matthijs 73-208
+ *
  * @author Matthijs Snijders 500780453, Stan van Weringh 500771870
  */
 public class LoginController implements Initializable {
 
+    @FXML
+    private Text labelEmail, labelLastname, textWarning, textCaseSensitive, labelUsername, labelPassword;
+    @FXML
+    private TextField textEmailT, textLastname, textUsername;
+    @FXML
+    private PasswordField textPassword;
+    @FXML
+    private Button buttonPassenger, buttonEmployee, buttonLoginPassenger;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        setLanguageDutch();
         ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
-        
-        labelEmail.setText(mybundle.getString("E-Mail"));
-        textEmailT.setText(mybundle.getString("Enter_your_E-mail"));
-        labelLastname.setText(mybundle.getString("Lastname"));
-        textLastname.setText(mybundle.getString("Enter_your_lastname"));
-        buttonPassenger.setText(mybundle.getString("Login"));
-        buttonEmployee.setText(mybundle.getString("Employee_Login"));
-        textWarning.setText(mybundle.getString("Warning!"));
-        textCaseSensitive.setText(mybundle.getString("Login_is_case_sensitive!"));
-        buttonLoginPassenger.setText(mybundle.getString("Passenger_Login"));
+
+        textUsername.setPromptText(mybundle.getString("Username"));
+        textPassword.setPromptText(mybundle.getString("Password"));
         labelUsername.setText(mybundle.getString("Username"));
-        textUsername.setText(mybundle.getString("Enter_your_username"));
         labelPassword.setText(mybundle.getString("Password"));
-        textPassword.setText(mybundle.getString("Enter_your_password"));
+        buttonEmployee.setText(mybundle.getString("Employee_Login"));
         
+//        labelEmail.setText(mybundle.getString("E-Mail"));
+//        textEmailT.setPromptText(mybundle.getString("Enter_your_E-mail"));
+//        labelLastname.setText(mybundle.getString("Lastname"));
+//        textLastname.setPromptText(mybundle.getString("Enter_your_lastname"));
+//        buttonPassenger.setText(mybundle.getString("Login"));
+//        buttonEmployee.setText(mybundle.getString("Employee_Login"));
+//        textWarning.setText(mybundle.getString("Warning!"));
+//        textCaseSensitive.setText(mybundle.getString("Login_is_case_sensitive!"));
+//        buttonLoginPassenger.setText(mybundle.getString("Passenger_Login"));
+        
+//        textUsername.setText(mybundle.getString("Enter_your_username"));
+        
+//        textPassword.setText(mybundle.getString("Enter_your_password"));
 
     }
-        
-    @FXML
-    private Text labelEmail, labelLastname,labelUsername, labelPassword, textWarning, textCaseSensitive;
-    @FXML   
-    private TextField textEmailT, textLastname   ;
-    @FXML   
-    private Button buttonPassenger, buttonEmployee, buttonLoginPassenger ;
-    
-    
-    
-    
+
 // End of translation lines
-    
     @FXML
     private AnchorPane paneLogin, paneCustomer;
-    
+
     Utilities utilities = new Utilities();
 
     // Methods for changing the language
     @FXML
     private void testMethod() {
         System.out.println("Current Locale: " + Locale.getDefault());
-	ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
+        ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
         System.out.println("Say how are you in US English: " + mybundle.getString("language"));
-        
+
         Locale.setDefault(new Locale("en", "EN"));
         System.out.println(Locale.getDefault());
         mybundle = ResourceBundle.getBundle("languages.Language");
         System.out.println(mybundle.getString("language"));
-        
-        
+
 //        Locale.setDefault(new Locale("ms", "MY"));
 //
 //        // read MyLabels_ms_MY.properties
@@ -85,7 +87,7 @@ public class LoginController implements Initializable {
 //        mybundle = ResourceBundle.getBundle("languages.language");
 //        System.out.println("Say how are you in Malaysian Malaya language: " + mybundle.getString("how_are_you"));
     }
-    
+
     @FXML
     private void setLanguageEnglish() {
         System.out.println("Set language to English");
@@ -119,10 +121,10 @@ public class LoginController implements Initializable {
     // Main method for changing languages
     private void loadLanguage(String language, String lang) {
         System.out.println("Current Locale: " + Locale.getDefault());
-	ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
+        //ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
         Locale.setDefault(new Locale(language, lang));
         System.out.println(Locale.getDefault());
-        mybundle = ResourceBundle.getBundle("languages.Language");
+        //mybundle = ResourceBundle.getBundle("languages.Language");
     }
 
     @FXML
@@ -154,12 +156,6 @@ public class LoginController implements Initializable {
     private void goToPassenger(ActionEvent event) {
         utilities.newAnchorpane("Login", paneLogin);
     }
-
-    @FXML
-    private TextField textUsername;
-
-    @FXML
-    private PasswordField textPassword;
 
     Stage dialogStage = new Stage();
     Scene scene;

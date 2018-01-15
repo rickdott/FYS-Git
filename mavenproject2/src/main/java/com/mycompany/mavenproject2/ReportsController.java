@@ -77,8 +77,8 @@ public class ReportsController implements Initializable {
     @FXML
     private ToggleGroup selectionGroup;
 
-    @FXML
-    private Toggle missingLuggageToggle, foundLuggageToggle, missingLuggagePerMonthToggle, solvedToggle, compensationToggle;
+    //@FXML
+    //private Toggle missingLuggageToggle, foundLuggageToggle, missingLuggagePerMonthToggle, solvedToggle, compensationToggle;
 
     @FXML
     private VBox missingVBox, missingPerMonthVBox;
