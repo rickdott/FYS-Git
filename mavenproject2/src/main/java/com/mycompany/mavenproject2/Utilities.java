@@ -61,19 +61,19 @@ public class Utilities {
         {"Sarı", "Krem", "Zeytin yeşili", "Turuncu", "Kırmızı", "Koyu kırmızı", "Pembe", "Mor", "Menekşe", "Mavi", "Açık  mavi", "Koyu mavi", "Yeşil", "çamurcun", "Koyu yeşil", "Açık  yeşil", "Açık gri", "Gri", "Kahverengi", "Koyu kahverengi", "Açık kahverengi", "Beyaz", "Siyah", "Koyu gri"}
     };
  
-    private final static String OFFHOVER_STYLE = "-fx-font: 22 arial; -fx-base: #d81e05; "
-                        + "-fx-background-radius: 0; -fx-border-width: 0 0 0 0; "
+    private final static String OFFHOVER_STYLE = "-fx-font: 22 arial; -fx-background-color: #d81e05; "
+                        + "-fx-background-radius: 0; -fx-border-width: 1 0 0 0; "
                         + "-fx-border-color: white; -fx-font-weight: bold; "
                         + "-fx-font-size: 18; -fx-alignment: CENTER;"
-                        + "-fx-min-width: 200; -fx-min-height: 50;"
-                        + "-fx-font-size: 18; -fx-alignment: CENTER;";
- 
-    private final static String ONHOVER_STYLE = "-fx-font: 22 arial; -fx-base: #951504; "
-                        + "-fx-background-radius: 0; -fx-border-width: 0 0 0 0; "
+                        + "-fx-min-width: 227; -fx-min-height: 50;"
+                        + "-fx-text-fill: white;";
+    
+    private final static String ONHOVER_STYLE = "-fx-font: 22 arial; -fx-background-color: #951504; "
+                        + "-fx-background-radius: 0; -fx-border-width: 1 0 0 0; "
                         + "-fx-border-color: white; -fx-font-weight: bold; "
                         + "-fx-font-size: 18; -fx-alignment: CENTER;"
-                        + "-fx-min-width: 200; -fx-min-height: 50;"
-                        + "-fx-font-size: 18; -fx-alignment: CENTER;";
+                        + "-fx-min-width: 227; -fx-min-height: 50;"
+                        + "-fx-text-fill: white;";
 
     // Three methods to use when hovering over a button, overloaded
     // First method is only used for big button

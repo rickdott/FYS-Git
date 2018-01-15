@@ -55,20 +55,29 @@ public class WorkerHomescreenController implements Initializable {
             while (resultSet.next()) {
                 final Button button = new Button(resultSet.getString("Name"));
                 VBPane.setPrefWidth(100);
-                VBPane.setSpacing(5);
                 button.setMinWidth(VBPane.getPrefWidth());
                 final String url2 = resultSet.getString("Link");
-                VBPane.getChildren().add(button);
+                VBPane.getChildren().add(VBPane.getChildren().size() - 1, button);
 
                 /**
                  * Sets the standard button style
                  */
-                button.setStyle("-fx-font: 22 arial; -fx-base: #d81e05; "
-                        + "-fx-background-radius: 0; -fx-border-width: 0 0 0 0; "
-                        + "-fx-border-color: black; -fx-font-weight: bold; "
+                if (resultSet.isLast()) {
+                button.setStyle("-fx-font: 22 arial; -fx-background-color: #d81e05; "
+                        + "-fx-background-radius: 0; -fx-border-width: 1 0 1 0; "
+                        + "-fx-border-color: white; -fx-font-weight: bold; "
                         + "-fx-font-size: 18; -fx-alignment: CENTER;"
-                        + "-fx-min-width: 200; -fx-min-height: 50;"
-                        + "-fx-font-size: 18; -fx-alignment: CENTER;");
+                        + "-fx-min-width: 227; -fx-min-height: 50;"
+                        + "-fx-text-fill: white;");
+                } else {
+                    button.setStyle("-fx-font: 22 arial; -fx-background-color: #d81e05; "
+                        + "-fx-background-radius: 0; -fx-border-width: 1 0 0 0; "
+                        + "-fx-border-color: white; -fx-font-weight: bold; "
+                        + "-fx-font-size: 18; -fx-alignment: CENTER;"
+                        + "-fx-min-width: 227; -fx-min-height: 50;"
+                        + "-fx-text-fill: white;");
+                }
+                
                 /**
                  * Gives all the buttons the correct onHover and offHover
                  */
@@ -96,13 +105,13 @@ public class WorkerHomescreenController implements Initializable {
                     case "RegisterFound":
                         but5 = button;
                         Utilities.onHover("RegisterFound", but5, label1);
-                        Utilities.offHover("RegisteFound", but5, label1);
+                        Utilities.offHover("RegisterFound", but5, label1);
                         break;
-                    case "LoginEmployee":
-                        but6 = button;
-                        Utilities.onHover("LoginEmployee", but6, label1);
-                        Utilities.offHover("LoginEmployee", but6, label1);
-                        break;
+//                    case "LoginEmployee":
+//                        but6 = button;
+//                        Utilities.onHover("LoginEmployee", but6, label1);
+//                        Utilities.offHover("LoginEmployee", but6, label1);
+//                        break;
                     default:
                         break;
                 }
@@ -128,9 +137,9 @@ public class WorkerHomescreenController implements Initializable {
                             case "RegisterFound":
                                 utilities.newPane("RegisterFound", but5, mainpage, label1);
                                 break;
-                            case "LoginEmployee":
-                                utilities.newPane("LoginEmployee", actualmain);
-                                break;
+//                            case "LoginEmployee":
+//                                utilities.newPane("LoginEmployee", actualmain);
+//                                break;
                             default:
                                 break;
                         }
@@ -167,63 +176,63 @@ public class WorkerHomescreenController implements Initializable {
     // All methods for hovering off a button
     @FXML
     private void offHoverbut1() {
-        utilities.offHover("Request Status", but1, label1);
+        Utilities.offHover("Request Status", but1, label1);
     }
 
     @FXML
     private void offHoverbut2() {
-        utilities.offHover("Register Missing", but2, label1);
+        Utilities.offHover("Register Missing", but2, label1);
     }
 
     @FXML
     private void offHoverbut3() {
-        utilities.offHover("Reports", but3, label1);
+        Utilities.offHover("Reports", but3, label1);
     }
 
     @FXML
     private void offHoverbut4() {
-        utilities.offHover("UserRoles", but4, label1);
+        Utilities.offHover("UserRoles", but4, label1);
     }
 
     @FXML
     private void offHoverbut5() {
-        utilities.offHover("registerFound", but5, label1);
+        Utilities.offHover("registerFound", but5, label1);
     }
     
     @FXML
     private void offHoverbut6() {
-        utilities.offHover("LoginEmployee", but6, label1);
+        but6.setStyle("-fx-font: 22 arial; -fx-background-color: #d81e05; -fx-background-radius: 0; -fx-border-width: 1 1 1 1; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18; -fx-text-fill: white; -fx-min-height: 50; -fx-min-width: 150;");
     }
 
     // All methods for hovering over a button
     @FXML
     private void onHoverbut1() {
-        utilities.onHover("Request Status", but1, label1);
+        Utilities.onHover("Request Status", but1, label1);
     }
 
     @FXML
     private void onHoverbut2() {
-        utilities.onHover("Register Missing", but2, label1);
+        Utilities.onHover("Register Missing", but2, label1);
     }
 
     @FXML
     private void onHoverbut3() {
-        utilities.onHover("Reports", but3, label1);
+        Utilities.onHover("Reports", but3, label1);
     }
 
     @FXML
     private void onHoverbut4() {
-        utilities.onHover("UserRoles", but4, label1);
+        Utilities.onHover("UserRoles", but4, label1);
     }
 
     @FXML
     private void onHoverbut5() {
-        utilities.onHover("LoginEmployee", but5, label1);
+        Utilities.onHover("LoginEmployee", but5, label1);
     }
     
     @FXML
     private void onHoverbut6() {
-        utilities.offHover("LoginEmployee", but6, label1);
+        but6.setStyle("-fx-font: 22 arial; -fx-background-color: #951504; -fx-background-radius: 0; -fx-border-width: 1 1 1 1; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18; -fx-text-fill: white; -fx-min-height: 50; -fx-min-width: 150;");
     }
 
     @FXML
