@@ -32,9 +32,8 @@ public class RegisterMissingThankYouController implements Initializable {
     @FXML
     private Label labelThankyou;
     
+    @FXML
     private Button buttonBacktohome;
-    
-// End of translation lines
   
     Utilities utilities = new Utilities();
     @FXML

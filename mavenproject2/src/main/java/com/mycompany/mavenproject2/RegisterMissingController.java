@@ -40,22 +40,20 @@ public class RegisterMissingController implements Initializable {
         labelGeneral.setText(mybundle.getString("General"));
         labelDate.setText(mybundle.getString("Date"));
         labelTime.setText(mybundle.getString("Time"));
-        labelAirport.setText(mybundle.getString("Airport"));
-        labelLocation.setText(mybundle.getString("Location_Found"));
         labelLuggage.setText(mybundle.getString("Luggage_Label"));
         labelLabelNumber.setText(mybundle.getString("Label_Number*"));
         labelFlightNumber.setText(mybundle.getString("Flight_Number*"));
-        labelDestination.setText(mybundle.getString("Destination*"));
         labelLuggageInformation.setText(mybundle.getString("Luggage_Information"));
         labelType.setText(mybundle.getString("Type"));
         labelBrand.setText(mybundle.getString("Brand"));
-        labelColour.setText(mybundle.getString("Colour"));
         labelSpecialChar.setText(mybundle.getString("Special_Characteristics"));
-        labelSubmit.setText(mybundle.getString("Submit"));
+        labelSize.setText(mybundle.getString("Size"));
+        labelWeight.setText(mybundle.getString("Weight"));
         labelRequired.setText(mybundle.getString("Fields_with_*_are_required_to_fill_in"));
         labelTraveller.setText(mybundle.getString("Traveller"));
         labelFirstname.setText(mybundle.getString("Firstname*"));
         labelSurname.setText(mybundle.getString("Surname*"));
+
         labelAdress.setText(mybundle.getString("Adress*"));
         labelCity.setText(mybundle.getString("City*"));
         labelPostalcode.setText(mybundle.getString("Postal_code*"));
@@ -66,7 +64,7 @@ public class RegisterMissingController implements Initializable {
         labelSColour.setText(mybundle.getString("Secondary_Colour"));
         labelSendmail.setText(mybundle.getString("Send_a_copy_of_this_document_to_my_email"));
         labelExcel.setText(mybundle.getString("Import_Excel"));
-        buttonBacktologin.setText(mybundle.getString("Back_to_login"));
+        buttonBacktologin.setText(mybundle.getString("Submit"));
 
         DateFormat datum = new SimpleDateFormat("yyyy/MM/dd");
         DateFormat tijd = new SimpleDateFormat("HH:mm:ss");
@@ -83,9 +81,10 @@ public class RegisterMissingController implements Initializable {
     }
 
     @FXML
-    private Text labelGeneral, labelDate, labelTime, labelAirport, labelLocation, labelLuggage, labelLabelNumber,
-            labelFlightNumber, labelDestination, labelLuggageInformation, labelType, labelBrand, labelColour, labelSpecialChar, labelRequired,
-            labelTraveller, labelFirstname, labelSurname, labelAdress, labelCity, labelPostalcode, labelCountry, labelPhone, labelEmail, labelPColour, labelSColour;
+    private Text labelGeneral, labelDate, labelTime, labelLocation, labelLuggage, labelLabelNumber,
+            labelFlightNumber, labelLuggageInformation, labelType, labelBrand, labelColour, labelSpecialChar, labelRequired,
+            labelTraveller, labelFirstname, labelSurname, labelAdress, labelCity, labelPostalcode, labelCountry, labelPhone, labelEmail, labelPColour, labelSColour, 
+            labelSize, labelWeight;
 
     @FXML
     private Button buttonBacktologin, labelExcel, labelSubmit;
