@@ -94,9 +94,9 @@ public class UserRoles_AddUsersController implements Initializable {
                 && !first.getText().trim().isEmpty()
                 && !pass.getText().trim().isEmpty()) {
             if (Role.getSelectionModel().isSelected(0)) {
-                RoleValue = 1;
-            } else {
                 RoleValue = 2;
+            } else {
+                RoleValue = 1;
             }
             if (checkUsername() == true) {
                 System.out.println(checkUsername());

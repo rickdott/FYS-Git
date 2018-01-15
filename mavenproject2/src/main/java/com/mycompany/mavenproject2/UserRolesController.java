@@ -9,6 +9,8 @@ import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -42,6 +44,11 @@ public class UserRolesController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         tableUser.setItems(this.userList);
+        try {
+            loadDataFromDatabase();
+        } catch (SQLException ex) {
+            Logger.getLogger(UserRolesController.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         for (int i = 0; i < tableUser.getColumns().size(); i++) {
             TableColumn tc = (TableColumn) tableUser.getColumns().get(i);
@@ -49,12 +56,13 @@ public class UserRolesController implements Initializable {
             if (propertyName != null && !propertyName.isEmpty()) {
                 tc.setCellValueFactory(new PropertyValueFactory<>(propertyName));
                 System.out.println("Attached column '" + propertyName + "' in tableview to matching attribute");
+                
             }
         }
     }
     
     @FXML
-    private void loadDataFromDatabase(ActionEvent event) throws SQLException {
+    private void loadDataFromDatabase() throws SQLException {
         Database dc = new Database();
         ResultSet rs = dc.executeResultSetQuery("SELECT * FROM Employee;");
         ObservableList<UserDetails> list
@@ -65,7 +73,7 @@ public class UserRolesController implements Initializable {
             user.setLastnameTc(rs.getString("lastname"));
             user.setUsernameTc(rs.getString("username"));
             user.setPasswordTc(rs.getString("password"));
-            
+            user.setRoleTc(rs.getInt("RoleId"));
             System.out.println(user.getFirstnameTc());
             list.add(user);
         }

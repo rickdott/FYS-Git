@@ -31,7 +31,8 @@
                     </columns>
                   </TableView>
                   <Button fx:id="but1" layoutX="912.0" mnemonicParsing="false" onAction="#openAddRoles" prefHeight="34.0" prefWidth="141.0" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Add user" textFill="WHITE" />
-                  <Button fx:id="test" layoutX="809.0" layoutY="7.0" mnemonicParsing="false" onAction="#loadDataFromDatabase" text="Test Refresh" />
+                  <Button fx:id="but11" layoutX="751.0" mnemonicParsing="false" onAction="#openAddRoles" prefHeight="34.0" prefWidth="141.0" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Edit user" textFill="WHITE" />
+                  <Button fx:id="but111" layoutX="583.0" mnemonicParsing="false" onAction="#openAddRoles" prefHeight="34.0" prefWidth="141.0" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Delete user" textFill="WHITE" />
                </children>
             </Pane>
          </children>
