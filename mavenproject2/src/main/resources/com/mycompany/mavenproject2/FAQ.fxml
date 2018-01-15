@@ -1,36 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" fx:id="actualmain" minHeight="647.0" minWidth="1053.0" prefHeight="647.0" prefWidth="1053.0" style="-fx-background-color: #f3f3f3;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.FAQController">
+<AnchorPane id="AnchorPane" fx:id="actualmain" minHeight="647.0" minWidth="1053.0" prefHeight="647.0" prefWidth="1053.0" style="-fx-background-color: #f3f3f3;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.Utilities">
    <children>
-      <SplitPane dividerPositions="0.2062015503875969" orientation="VERTICAL" prefHeight="647.0" prefWidth="1053.0">
-        <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="159.0" prefWidth="483.0">
-               <children>
-                  <Text layoutX="474.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FAQ">
-                     <font>
-                        <Font size="55.0" />
-                     </font>
-                  </Text>
-                  <ImageView fitHeight="90.0" fitWidth="84.0" layoutX="941.0" layoutY="23.0" onMouseClicked="#backToHomescreen" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../images/logout.png" />
-                     </image></ImageView>
-               </children>
-            </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-               <children>
-                  <Text layoutX="499.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LALALAAL" />
-               </children>
-            </AnchorPane>
-            
-        </items>
-      </SplitPane>
+      <Text layoutX="471.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FAQ">
+         <font>
+            <Font size="55.0" />
+         </font>
+      </Text>
+      <Text layoutX="379.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
+      <Text layoutX="379.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
+      <Text layoutX="379.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
+      <Text layoutX="379.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
+      <Text layoutX="379.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
    </children>
 </AnchorPane>
