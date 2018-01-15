@@ -21,7 +21,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="actualmain" minHeight="647.0" minWidth="1053.0" prefHeight="647.0" prefWidth="1053.0" style="-fx-background-color: #f3f3f3;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.ReportsController">
+<AnchorPane id="AnchorPane" fx:id="actualmain" minHeight="647.0" minWidth="1053.0" prefHeight="647.0" prefWidth="1053.0" style="-fx-background-color: #f3f3f3;" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.ReportsController">
    <children>
       <GridPane layoutX="292.0" layoutY="183.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
@@ -36,7 +36,7 @@
                <children>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <Label text="What would you like to see?">
+                        <Label fx:id="labelSee" text="What would you like to see?">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -197,7 +197,7 @@
                                           <Button fx:id="submitFoundMissingBut" mnemonicParsing="false" onAction="#showMissingStats" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Submit" textFill="WHITE" />
                                        </children>
                                     </HBox>
-                                    <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                                    <HBox fx:id="labelSubmit" alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
                                        <children>
                                           <Button fx:id="submitMissingPerMonthBut" mnemonicParsing="false" onAction="#showMissingPerMonthStats" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Submit" textFill="WHITE" visible="false" />
                                        </children>

@@ -7,10 +7,10 @@
 
 <AnchorPane id="AnchorPane" fx:id="actualmain" minHeight="647.0" minWidth="1053.0" prefHeight="647.0" prefWidth="1053.0" style="-fx-background-color: #f3f3f3;" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.UserRolesController">
    <children>
-      <Text layoutX="296.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name Person" />
+      <Text fx:id="labelNameperson" layoutX="296.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name Person" />
       <TextField layoutX="291.0" layoutY="129.0" text="Rick den Otter" />
-      <Button layoutX="657.0" layoutY="210.0" mnemonicParsing="false" style="-fx-background-color: red;" text="SUBMIT" textFill="WHITE" />
+      <Button fx:id="labelSubmit" layoutX="657.0" layoutY="210.0" mnemonicParsing="false" style="-fx-background-color: red;" text="SUBMIT" textFill="WHITE" />
       <TextField layoutX="558.0" layoutY="129.0" text="Baas" />
-      <Text layoutX="558.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Role" />
+      <Text fx:id="labelRole" layoutX="558.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Role" />
    </children>
 </AnchorPane>
