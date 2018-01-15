@@ -199,7 +199,7 @@ public class RegisterFoundController implements Initializable {
             System.out.println(luggageInformation);
             db.executeUpdateQuery(luggageInformation);
 
-            utilities.newAnchorpane("RegisterMissing_thankyou", RegisterFoundPane);
+            utilities.newAnchorpane("RegisterFound_thankyou", RegisterFoundPane);
 
         } else {
             infoBox("Pleaes try to fill in everyting!.", "Error", null);

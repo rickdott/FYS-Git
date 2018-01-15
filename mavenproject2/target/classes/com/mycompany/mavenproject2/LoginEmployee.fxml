@@ -14,9 +14,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<!--fx:controller="com.mycompany.mavenproject2.LoginController"
-!-->
-
 <AnchorPane fx:id="paneLogin" prefHeight="720.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.LoginController">
    <children>
       <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -73,11 +70,6 @@
                         <Insets top="230.0" />
                      </StackPane.margin>
                   </Text>
-              <Button mnemonicParsing="false" onAction="#goToPassenger" text="Go to passenger login" StackPane.alignment="BOTTOM_LEFT">
-                     <StackPane.margin>
-                        <Insets bottom="100.0" />
-                     </StackPane.margin>
-                  </Button>
                </children>
             </StackPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="130.0" prefWidth="1287.0" GridPane.rowIndex="2" GridPane.valignment="CENTER">
@@ -97,17 +89,7 @@
                         <Image url="@../../../images/flag-square-250.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="327.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="55.0">
-                     <image>
-                        <Image url="@../../../images/flag_portugal_square-512.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="412.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="55.0">
-                     <image>
-                        <Image url="@../../../images/flag_germany_square-512.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="496.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="55.0">
+                  <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="329.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="55.0">
                      <image>
                         <Image url="@../../../images/flag-square-250_1.png" />
                      </image>

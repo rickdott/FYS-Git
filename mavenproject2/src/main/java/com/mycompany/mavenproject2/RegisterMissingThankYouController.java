@@ -18,4 +18,15 @@ public class RegisterMissingThankYouController {
     private AnchorPane registerMissingPane, thankYouPage;
     
     
+
+    @FXML
+    private void backToLogin() {
+        utilities.newAnchorpane("LoginEmployee", registerMissingPane);
+    }
+    
+    @FXML
+    private void backToLoginTY() {
+        utilities.newAnchorpane("RegisterMissing", thankYouPage);
+    }
+
 }

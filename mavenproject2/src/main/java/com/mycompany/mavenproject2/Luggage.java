@@ -5,15 +5,13 @@ import java.util.ArrayList;
 /**
  * Luggage class, is a parent class to Found/Lost luggage classes to enable 
  * making luggage objects for easy changing/showing information
- * @author Rick den Otter 500749952 (130 lines)
+ * @author Rick den Otter 500749952 (124 lines)
  */
 public abstract class Luggage {
 
     protected String registrationnr;
-    //private String datefound, timefound;
     protected String luggagetype, brand;
     protected String flightnumber, luggagelabelnr;
-    //private String locationfound;
     protected String primarycolour, secondarycolour;
     protected String size, weight;
     protected String passenger_name_city;
@@ -120,6 +118,7 @@ public abstract class Luggage {
         this.idpassenger = idpassenger;
     }
 
+    //Abstract method to show to Lost/FoundLuggage classes that they need this method
     public abstract ArrayList<String> getLuggageInfo();
 
 }

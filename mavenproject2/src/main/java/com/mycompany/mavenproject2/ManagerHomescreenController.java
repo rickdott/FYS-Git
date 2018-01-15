@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.mavenproject2;
 
 import java.net.URL;
@@ -18,7 +13,7 @@ import javafx.scene.layout.Pane;
 /**
  * Controller for the manager homescreen
  *
- * @author Matthijs Snijders 500780453 (113 lines)
+ * @author Matthijs Snijders 500780453 (106 lines)
  */
 public class ManagerHomescreenController implements Initializable {
 
@@ -36,8 +31,6 @@ public class ManagerHomescreenController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //String Check = "SELECT * FROM Employee WHERE function = Medewerker";
-        //but4.setVisible(false);
     }
 
     Utilities utilities = new Utilities();
@@ -102,7 +95,7 @@ public class ManagerHomescreenController implements Initializable {
 
     @FXML
     private void onHoverbut4() {
-        Utilities.onHover("User Roles", but4, label1, true);
+        Utilities.onHover("User Roles", but4, label1);
     }
 
     @FXML
