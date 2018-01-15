@@ -151,6 +151,8 @@ public class RegisterMissingController implements Initializable {
 
     // Path van het excel bestand (als die er is)
     private String excelPath;
+    
+    ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
 
     //dropdownlists
     ObservableList<String> colours = FXCollections.observableArrayList(
@@ -272,14 +274,14 @@ public class RegisterMissingController implements Initializable {
 
                     }
                 } else {
-                    warning.setText("Email adress is incorrect");
+                    warning.setText(mybundle.getString("EmailIncorrect"));
                 }
             } else {
-                warning.setText("Invalid flightnumber");
+                warning.setText(mybundle.getString("FlightnumberInvalid"));
             }
         } else {
             System.out.println("niet alle verplichte velden ingevuld");
-            warning.setText("Niet alle verplichte velden zijn ingevuld.");
+            warning.setText(mybundle.getString("NietAllesIngevuld"));
         }
 
         if (excelPath != null) {
@@ -290,7 +292,7 @@ public class RegisterMissingController implements Initializable {
                 excelThread();
                 utilities.newAnchorpane("RegisterMissing_thankyou", registerMissingPane);
             } else {
-                warning.setText("fout bestandstype");
+                warning.setText(mybundle.getString("WrongFile"));
             }
 
         }
