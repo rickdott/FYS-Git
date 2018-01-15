@@ -33,7 +33,7 @@ public class LoginController implements Initializable {
     private AnchorPane paneCustomer;
 
     @FXML
-    private Button buttonEmployee, buttonLoginPassenger, buttonPassenger;
+    private Button buttonEmployee, buttonPassenger;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -49,29 +49,9 @@ public class LoginController implements Initializable {
 //        buttonLoginPassenger.setText(mybundle.getString("Passenger_Login"));
     }
 
-// End of translation lines
     Utilities utilities = new Utilities();
 
     // Methods for changing the language
-    @FXML
-    private void testMethod() {
-        System.out.println("Current Locale: " + Locale.getDefault());
-        ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
-        System.out.println("Say how are you in US English: " + mybundle.getString("language"));
-
-        Locale.setDefault(new Locale("en", "EN"));
-        System.out.println(Locale.getDefault());
-        mybundle = ResourceBundle.getBundle("languages.Language");
-        System.out.println(mybundle.getString("language"));
-
-//        Locale.setDefault(new Locale("ms", "MY"));
-//
-//        // read MyLabels_ms_MY.properties
-//        System.out.println("Current Locale: " + Locale.getDefault());
-//        mybundle = ResourceBundle.getBundle("languages.language");
-//        System.out.println("Say how are you in Malaysian Malaya language: " + mybundle.getString("how_are_you"));
-    }
-
     @FXML
     private void setLanguageEnglish() {
         System.out.println("Set language to English");
@@ -94,16 +74,6 @@ public class LoginController implements Initializable {
     private void loadLanguage(String language, String lang) {
         System.out.println("Current Locale: " + Locale.getDefault());
         Locale.setDefault(new Locale(language, lang));
-    }
-
-    @FXML
-    private void openCustomerHomescreenFromCustomer(ActionEvent event) {
-        utilities.newAnchorpane("CustomerHomescreen", paneCustomer);
-    }
-
-    @FXML
-    private void openWorkerHomescreenFromCustomer(ActionEvent event) {
-        utilities.newAnchorpane("EmployeeHomescreen", paneCustomer);
     }
 
     @FXML
@@ -141,7 +111,6 @@ public class LoginController implements Initializable {
                 infoBox("Enter Correct labelnummer And Lastname", "Failed", null);
             } else {
                 infoBox("Login Successfull", "Success", null);
-                Utilities utilities = new Utilities();
 
                 while (resultSet.next()) {
                     usrID = resultSet.getInt("idEmployee");
