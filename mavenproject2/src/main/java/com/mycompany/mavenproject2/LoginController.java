@@ -137,8 +137,7 @@ public class LoginController {
     //Login for employee
     @FXML
     private void handleButtonAction(ActionEvent event) {
-        
-        
+           
         Database db = new Database();
         String username = textUsername.getText();
         String password = textPassword.getText();

@@ -34,7 +34,7 @@ public class WorkerHomescreenController implements Initializable {
     private Label label1;
 
     @FXML
-    private Button but1, but2, but3, but4, but5;
+    private Button but1, but2, but3, but4, but5, but6;
 
     @FXML
     private VBox VBPane;
@@ -89,14 +89,18 @@ public class WorkerHomescreenController implements Initializable {
                         break;
                     case "UserRoles":
                         but4 = button;
-                        but4.setStyle("-fx-border-width: 1 0 1 0;");
                         Utilities.onHover("UserRoles", but4, label1);
                         Utilities.offHover("UserRoles", but4, label1);
                         break;
-                    case "LoginEmployee":
+                    case "RegisterFound":
                         but5 = button;
-                        Utilities.onHover("LoginEmployee", but5, label1);
-                        Utilities.offHover("LoginEmployee", but5, label1);
+                        Utilities.onHover("RegisterFound", but5, label1);
+                        Utilities.offHover("RegisteFound", but5, label1);
+                        break;
+                    case "LoginEmployee":
+                        but6 = button;
+                        Utilities.onHover("LoginEmployee", but6, label1);
+                        Utilities.offHover("LoginEmployee", but6, label1);
                         break;
                     default:
                         break;
@@ -119,6 +123,9 @@ public class WorkerHomescreenController implements Initializable {
                                 break;
                             case "UserRoles":
                                 utilities.newPane("UserRoles", but4, mainpage, label1);
+                                break;
+                            case "RegisterFound":
+                                utilities.newPane("RegisterFound", but5, mainpage, label1);
                                 break;
                             case "LoginEmployee":
                                 utilities.newPane("LoginEmployee", actualmain);
@@ -179,7 +186,12 @@ public class WorkerHomescreenController implements Initializable {
 
     @FXML
     private void offHoverbut5() {
-        utilities.offHover("LoginEmployee", but5, label1);
+        utilities.offHover("registerFound", but5, label1);
+    }
+    
+    @FXML
+    private void offHoverbut6() {
+        utilities.offHover("LoginEmployee", but6, label1);
     }
 
     // All methods for hovering over a button
@@ -200,22 +212,17 @@ public class WorkerHomescreenController implements Initializable {
 
     @FXML
     private void onHoverbut4() {
-        /*if (but4.getText().equals("UserRoles")) {
-            utilities.onHover("UserRoles", but4, label1);
-            but4.setStyle("-fx-font: 22 arial; -fx-base: #d81e05; "
-                        + "-fx-background-radius: 0; -fx-border-width: 1 0 1 0; "
-                        + "-fx-border-color: black; -fx-font-weight: bold; "
-                        + "-fx-font-size: 18; -fx-alignment: CENTER;"
-                        + "-fx-min-width: 200; -fx-min-height: 50;"
-                        + "-fx-font-size: 18; -fx-alignment: CENTER;");
-        } else {*/
-            utilities.onHover("UserRoles", but4, label1);
-        //}
+        utilities.onHover("UserRoles", but4, label1);
     }
 
     @FXML
     private void onHoverbut5() {
         utilities.onHover("LoginEmployee", but5, label1);
+    }
+    
+    @FXML
+    private void onHoverbut6() {
+        utilities.offHover("LoginEmployee", but6, label1);
     }
 
     @FXML

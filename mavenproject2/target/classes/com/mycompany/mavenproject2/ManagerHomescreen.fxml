@@ -41,31 +41,7 @@
                   <Font name="Helvetica Neue" size="48.0" />
                </font>
             </Label>
-            <VBox alignment="TOP_CENTER" style="-fx-background-color: d81e05;" GridPane.rowIndex="1">
-               <children>
-                  <Button fx:id="but1" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minWidth="200.0" mnemonicParsing="false" onAction="#openRequestStatus" onMouseEntered="#onHoverbut1" onMouseExited="#offHoverbut1" prefHeight="50.0" style="-fx-background-color: #d81e05; -fx-background-radius: 0; -fx-border-width: 1 0 0 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18;" text="Request Status" textFill="WHITE">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </Button>
-                  <Button fx:id="but2" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#openRegisterMissing" onMouseEntered="#onHoverbut2" onMouseExited="#offHoverbut2" prefHeight="50.0" style="-fx-background-color: #d81e05; -fx-background-radius: 0; -fx-border-width: 1 0 0 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18;" text="Register Missing" textFill="WHITE">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </Button>
-                  <Button fx:id="but5" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#openRegisterFound" onMouseEntered="#onHoverbut5" onMouseExited="#offHoverbut5" prefHeight="50.0" style="-fx-background-color: #d81e05; -fx-background-radius: 0; -fx-border-width: 1 0 0 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18;" text="Register Found" textFill="WHITE" />
-                  <Button fx:id="but3" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#openReports" onMouseEntered="#onHoverbut3" onMouseExited="#offHoverbut3" prefHeight="50.0" style="-fx-background-color: #d81e05; -fx-background-radius: 0; -fx-border-width: 1 0 0 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18;" text="Reports" textFill="WHITE">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </Button>
-                  <Button fx:id="but4" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#openUserRoles" onMouseEntered="#onHoverbut4" onMouseExited="#offHoverbut4" prefHeight="50.0" style="-fx-background-color: #d81e05; -fx-background-radius: 0; -fx-border-width: 1 0 1 0; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18;" text="User Roles" textFill="WHITE">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </Button>
-               </children>
-            </VBox>
+            <VBox alignment="TOP_CENTER" style="-fx-background-color: d81e05;" GridPane.rowIndex="1" />
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: d81e05;" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <children>
                   <Button layoutX="70.0" layoutY="-4.0" mnemonicParsing="false" onAction="#backToLogin" style="-fx-border-color: white;" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Logout" textFill="WHITE" />
