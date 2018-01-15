@@ -69,18 +69,21 @@ public class LoginEmployeeController implements Initializable {
     private void setLanguageEnglish() {
         System.out.println("Set language to English");
         loadLanguage("en", "EN");
+        utilities.newAnchorpane("LoginEmployee", paneLogin);
     }
 
     @FXML
     private void setLanguageDutch() {
         System.out.println("Set language to Dutch");
         loadLanguage("nl", "NL");
+        utilities.newAnchorpane("LoginEmployee", paneLogin);
     }
 
     @FXML
     private void setLanguageTurkish() {
         System.out.println("Set language to Turkish");
         loadLanguage("tr", "TR");
+        utilities.newAnchorpane("LoginEmployee", paneLogin);
     }
 
     // Main method for changing languages

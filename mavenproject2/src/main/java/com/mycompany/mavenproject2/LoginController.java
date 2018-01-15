@@ -37,16 +37,15 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
-
-//        labelEmail.setText(mybundle.getString("E-Mail"));
-//        textEmail.setPromptText(mybundle.getString("Enter_your_E-mail"));
-//        labelLastname.setText(mybundle.getString("Lastname"));
-//        textLastname.setPromptText(mybundle.getString("Enter_your_lastname"));
-//        buttonEmployee.setText(mybundle.getString("Login"));
-//        textWarning.setText(mybundle.getString("Warning!"));
-//        textCaseSensitive.setText(mybundle.getString("Login_is_case_sensitive!"));
-//        buttonLoginPassenger.setText(mybundle.getString("Passenger_Login"));
+           ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
+        labelEmail.setText(mybundle.getString("E-Mail"));
+        textEmail.setPromptText(mybundle.getString("Enter_your_E-mail"));
+        labelLastname.setText(mybundle.getString("Lastname"));
+        textLastname.setPromptText(mybundle.getString("Enter_your_lastname"));
+        buttonPassenger.setText(mybundle.getString("Login"));
+        textWarning.setText(mybundle.getString("Warning!"));
+        textCaseSensitive.setText(mybundle.getString("Login_is_case_sensitive!"));
+        buttonEmployee.setText(mybundle.getString("Passenger_Login"));
     }
 
     Utilities utilities = new Utilities();
@@ -56,18 +55,21 @@ public class LoginController implements Initializable {
     private void setLanguageEnglish() {
         System.out.println("Set language to English");
         loadLanguage("en", "EN");
+        utilities.newAnchorpane("Login", paneCustomer);
     }
 
     @FXML
     private void setLanguageDutch() {
         System.out.println("Set language to Dutch");
         loadLanguage("nl", "NL");
+        utilities.newAnchorpane("Login", paneCustomer);
     }
 
     @FXML
     private void setLanguageTurkish() {
         System.out.println("Set language to Turkish");
         loadLanguage("tr", "TR");
+        utilities.newAnchorpane("Login", paneCustomer);
     }
 
     // Main method for changing languages
@@ -91,7 +93,7 @@ public class LoginController implements Initializable {
 
     //Login for passenger
     @FXML
-    private void handleButtonActionPassenger(ActionEvent event) {
+    private void handleButtonActionPassenger(ActionEvent event) throws SQLException {
         Database db = new Database();
         String email = textEmail.getText();
 
@@ -105,21 +107,17 @@ public class LoginController implements Initializable {
                 + "and lastname = '%s' ",
                 email, lastname);
 
-        try {
-            ResultSet resultSet = db.executeResultSetQuery(sql);
-            if (!resultSet.next()) {
-                infoBox("Enter Correct labelnummer And Lastname", "Failed", null);
-            } else {
-                infoBox("Login Successfull", "Success", null);
+        ResultSet resultSet = db.executeResultSetQuery(sql);
+        if (!resultSet.next()) {
+            infoBox("Enter Correct labelnummer And Lastname", "Failed", null);
+        } else {
+            infoBox("Login Successfull", "Success", null);
 
-                while (resultSet.next()) {
-                    usrID = resultSet.getInt("idEmployee");
-                }
-                infoBox("User ID = " + usrID, "Success", null);
-                utilities.newAnchorpane("CustomerHomescreen", paneCustomer);
+            while (resultSet.next()) {
+                usrID = resultSet.getInt("idEmployee");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+            infoBox("User ID = " + usrID, "Success", null);
+            utilities.newAnchorpane("CustomerHomescreen", paneCustomer);
         }
     }
 
