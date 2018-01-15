@@ -36,7 +36,7 @@ public class ReportsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
-        
+
         labelSee.setText(mybundle.getString("What_would_you_like_to_see?"));
         missingLuggageToggle.setText(mybundle.getString("Missing_Luggage"));
         foundLuggageToggle.setText(mybundle.getString("Found_Luggage"));
@@ -45,8 +45,7 @@ public class ReportsController implements Initializable {
         compensationToggle.setText(mybundle.getString("Compensation"));
         submitFoundMissingBut.setText(mybundle.getString("Submit"));
         submitMissingPerMonthBut.setText(mybundle.getString("Submit"));
-        
-        
+
         try {
             showMissingStats();
             ArrayList<String> listOfYears = getYearsInDB();
@@ -57,14 +56,14 @@ public class ReportsController implements Initializable {
             Logger.getLogger(ReportsController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    @FXML    
+    @FXML
     private Label labelSee;
-        
-    @FXML 
+
+    @FXML
     private RadioButton compensationToggle, solvedToggle, missingLuggagePerMonthToggle, foundLuggageToggle, missingLuggageToggle;
 
     private static ObservableList<String> years = FXCollections.observableArrayList();
-    
+
     @FXML
     private PieChart pieChart;
 
@@ -73,9 +72,6 @@ public class ReportsController implements Initializable {
 
     @FXML
     private ToggleGroup selectionGroup;
-
-    //@FXML
-    //private Toggle missingLuggageToggle, foundLuggageToggle, missingLuggagePerMonthToggle, solvedToggle, compensationToggle;
 
     @FXML
     private VBox missingVBox, missingPerMonthVBox;
@@ -166,6 +162,7 @@ public class ReportsController implements Initializable {
 
     /**
      * Finds the airports currently selected in the reports section
+     *
      * @return ArrayList of strings containing airports
      */
     private ArrayList<String> findSelectedAirports() {
@@ -189,9 +186,10 @@ public class ReportsController implements Initializable {
 
     /**
      * Populates a piechart
+     *
      * @param chart the chart you want to populate
      * @param entryList ArrayList of ChartEntry objects
-     * @throws SQLException 
+     * @throws SQLException
      */
     private void populatePieChart(PieChart chart, ArrayList<ChartEntry> entryList) throws SQLException {
         ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
@@ -205,11 +203,13 @@ public class ReportsController implements Initializable {
 
     /**
      * Checks the amount of missing or found luggage per airport
+     *
      * @param category What table to find the information in
-     * @param lostOrFound name of the lost or found table, depending on what category you want
+     * @param lostOrFound name of the lost or found table, depending on what
+     * category you want
      * @param airports List of airports currently selected
      * @return returns an arrayList of ChartEntries
-     * @throws SQLException 
+     * @throws SQLException
      */
     private ArrayList amountOfMissingAsPieChart(String category, String lostOrFound, ArrayList<String> airports) throws SQLException {
         ArrayList<ChartEntry> entryList = new ArrayList<>();
@@ -267,10 +267,11 @@ public class ReportsController implements Initializable {
 
     /**
      * Method to populate a line chart
+     *
      * @param chart the LineChart to populate
      * @param airports the currently selected airports
      * @param year the year you want information on
-     * @throws SQLException 
+     * @throws SQLException
      */
     private void populateLineChart(LineChart chart, ArrayList<String> airports, String year) throws SQLException {
         chart.setAnimated(false);
@@ -356,8 +357,9 @@ public class ReportsController implements Initializable {
 
     /**
      * Gets the years to use in the reports section of the application
+     *
      * @return Returns an ArrayList<String> of years available
-     * @throws SQLException 
+     * @throws SQLException
      */
     private ArrayList<String> getYearsInDB() throws SQLException {
         Database database = new Database();

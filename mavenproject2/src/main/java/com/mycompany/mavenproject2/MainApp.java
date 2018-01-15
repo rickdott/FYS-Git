@@ -19,27 +19,25 @@ public class MainApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("LoginEmployee.fxml"));
-        
+
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/styles/Styles.css");
         stage.setMaximized(true);
         stage.setTitle("BAGGER");
         stage.setScene(scene);
-        
-        
-         
-        
+
         stage.show();
         stage.setMinWidth(1300);
         stage.setMinHeight(760);
         stage.setResizable(true);
-   
+
         application = stage;
-        
+
     }
 
     /**
      * Method to get the path from the filechooser
+     *
      * @return Returns the filepath as String
      */
     public static String fileChoosePath() {
@@ -47,8 +45,7 @@ public class MainApp extends Application {
         File file = fileChooser.showOpenDialog(application);
         if (file != null) {
             return file.getPath();
-        }
-        else{
+        } else {
             return "";
         }
     }

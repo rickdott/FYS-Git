@@ -9,16 +9,9 @@ import org.apache.pdfbox.pdmodel.font.PDType1Font;
 import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 
 /**
-<<<<<<< HEAD
- * Class that creates a property irregularity report and fills it with the
- * obtained data
- *
- * @author Stijn Klopper 500770512 (133 lines)
-=======
  * Class that creates a property irregularity report and fills it with 
  * the obtained data
  * @author Stijn Klopper 500770512 (152 lines)
->>>>>>> master
  */
 public class Pdf {
 

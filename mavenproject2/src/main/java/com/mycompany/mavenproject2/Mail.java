@@ -15,8 +15,9 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
 /**
- * Mail class, to facilitate e-mailing the customer their 
- * property irregularity report
+ * Mail class, to facilitate e-mailing the customer their property irregularity
+ * report
+ *
  * @author Stijn Klopper 500770512 (85 lines)
  */
 public class Mail {
@@ -26,12 +27,13 @@ public class Mail {
     public Mail(String emailAdress) {
         this.emailAdress = emailAdress;
     }
-    
-    public boolean ValidateMail (String emailAdress){
-        try {InternetAddress internetaddress = new InternetAddress(this.emailAdress);
-        internetaddress.validate();
-        return true;
-            
+
+    public boolean ValidateMail(String emailAdress) {
+        try {
+            InternetAddress internetaddress = new InternetAddress(this.emailAdress);
+            internetaddress.validate();
+            return true;
+
         } catch (Exception e) {
             return false;
         }
@@ -44,7 +46,7 @@ public class Mail {
         //username and password of the senders mail account
         final String username = "baggerfys@gmail.com";
         final String password = "pindakaas";
-        
+
         //properties of SMTP email server used
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
@@ -66,7 +68,7 @@ public class Mail {
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(this.emailAdress));
             message.setSubject("Corendon PDF Formulier Email bericht");
-            
+
             // declare the message and attachment and the mail
             Multipart multipart = new MimeMultipart();
             MimeBodyPart messageBodyPart = new MimeBodyPart();
