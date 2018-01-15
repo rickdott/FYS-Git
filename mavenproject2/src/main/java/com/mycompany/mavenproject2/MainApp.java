@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.FileChooser;
+import javafx.stage.Screen;
 
 public class MainApp extends Application {
 
@@ -18,20 +19,29 @@ public class MainApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("LoginEmployee.fxml"));
-
+        
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/styles/Styles.css");
-
+        stage.setMaximized(true);
         stage.setTitle("BAGGER");
         stage.setScene(scene);
+        
+        
+         
+        
         stage.show();
-        stage.setResizable(false);
+        stage.setMinWidth(1300);
+        stage.setMinHeight(760);
+        stage.setResizable(true);
    
         application = stage;
         
     }
 
-    // Returnt het pad (String)
+    /**
+     * Method to get the path from the filechooser
+     * @return Returns the filepath as String
+     */
     public static String fileChoosePath() {
         final FileChooser fileChooser = new FileChooser();
         File file = fileChooser.showOpenDialog(application);

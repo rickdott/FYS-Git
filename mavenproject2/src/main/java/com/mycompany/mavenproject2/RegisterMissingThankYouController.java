@@ -48,6 +48,6 @@ public class RegisterMissingThankYouController implements Initializable {
     
     @FXML
     private void backToLoginTY() {
-        utilities.newAnchorpane("LoginEmployee", thankYouPage);
+        utilities.newAnchorpane("RegisterMissing", thankYouPage);
     }
 }

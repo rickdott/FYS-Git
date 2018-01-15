@@ -9,25 +9,49 @@ import org.apache.pdfbox.pdmodel.font.PDType1Font;
 import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 
 /**
+<<<<<<< HEAD
+ * Class that creates a property irregularity report and fills it with the
+ * obtained data
+ *
+ * @author Stijn Klopper 500770512 (133 lines)
+=======
  * Class that creates a property irregularity report and fills it with 
  * the obtained data
- * @author Stijn Klopper 500770512 (133 lines)
+ * @author Stijn Klopper 500770512 (152 lines)
+>>>>>>> master
  */
 public class Pdf {
 
     final float LEADING = 20.0f;
     final int FONT_SIZE_BIG = 20, FONT_SIZE_SMALL = 14;
 
-    // Creates a new PDF document, fills it with the missing-luggage form
+    /**
+     * // Creates a new PDF document, fills it with the missing-luggage form
+     * @param firstname First name
+     * @param lastname Last name
+     * @param adress Address
+     * @param city City
+     * @param zip Zipcode
+     * @param country Country
+     * @param phone Phone number
+     * @param email E-mail address
+     * @param labelnumber Label number
+     * @param flightnumber Flight number
+     * @param destination Destination
+     * @param type Type 
+     * @param brand Brand
+     * @param primaryColour Primary Colour
+     * @param secondaryColour Secondary Colour
+     * @param specialchar Special characteristics
+     */
     public void printPDF(String firstname, String lastname, String adress,
             String city, String zip, String country, String phone, String email,
-            String labelnumber, String flightnumber, String destination, 
+            String labelnumber, String flightnumber,
             String type, String brand, String primaryColour, String secondaryColour,
-            String specialchar)
-            {
+            String specialchar, String date, String time) {
 
         try (PDDocument document = new PDDocument()) {
-          
+
             PDPage blank = new PDPage();
             document.addPage(blank);
             PDPage page = document.getPage(0);
@@ -52,10 +76,11 @@ public class Pdf {
             contentStream.setFont(PDType1Font.HELVETICA, FONT_SIZE_SMALL);
             contentStream.newLine();
             contentStream.showText("Date: ");
+            contentStream.showText(date);
             contentStream.newLine();
             contentStream.showText("Time: ");
+            contentStream.showText(time);
             contentStream.newLine();
-            contentStream.showText("Airport:");
 
             contentStream.newLineAtOffset(0, -(LEADING * 2));
             contentStream.setFont(PDType1Font.HELVETICA, FONT_SIZE_BIG);
@@ -83,11 +108,11 @@ public class Pdf {
             contentStream.newLine();
             contentStream.showText("E-mail: ");
             contentStream.showText(email);
-             
+
             contentStream.newLineAtOffset(0, -(LEADING * 2));
             contentStream.setFont(PDType1Font.HELVETICA, FONT_SIZE_BIG);
             contentStream.showText("Luggage label");
-            
+
             contentStream.setFont(PDType1Font.HELVETICA, FONT_SIZE_SMALL);
             contentStream.newLine();
             contentStream.showText("Label Number: ");
@@ -96,12 +121,11 @@ public class Pdf {
             contentStream.showText("Flight Number: ");
             contentStream.showText(flightnumber);
             contentStream.newLine();
-            contentStream.showText("Destination: ");
-            contentStream.showText(destination);
+
             contentStream.newLineAtOffset(0, -(LEADING * 2));
             contentStream.setFont(PDType1Font.HELVETICA, FONT_SIZE_BIG);
             contentStream.showText("Luggage information");
-            
+
             contentStream.setFont(PDType1Font.HELVETICA, FONT_SIZE_SMALL);
             contentStream.newLine();
             contentStream.showText("Type: ");
@@ -125,7 +149,7 @@ public class Pdf {
             document.close();
         } catch (IOException e) {
             System.out.println(e);
-        
+
         }
         System.out.println("PDF created!");
 

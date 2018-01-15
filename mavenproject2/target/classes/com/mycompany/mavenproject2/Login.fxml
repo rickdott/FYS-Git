@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" fx:id="paneCustomer" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.LoginController">
+<AnchorPane id="AnchorPane" fx:id="paneCustomer" prefHeight="720.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.LoginController">
    <children>
       <SplitPane dividerPositions="0.18384401114206128, 0.862116991643454" layoutY="14.0" orientation="VERTICAL" prefHeight="720.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
         <items>
@@ -59,17 +59,7 @@
                         <Image url="@../../../images/flag-square-250.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="327.0" layoutY="14.0" onMouseClicked="#setLanguagePortuguese" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../images/flag_portugal_square-512.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="412.0" layoutY="14.0" onMouseClicked="#setLanguageGerman" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../images/flag_germany_square-512.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="496.0" layoutY="14.0" onMouseClicked="#setLanguageTurkish" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="68.0" fitWidth="77.0" layoutX="329.0" layoutY="14.0" onMouseClicked="#setLanguageTurkish" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/flag-square-250_1.png" />
                      </image>

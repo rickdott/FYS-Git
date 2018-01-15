@@ -4,7 +4,9 @@ import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -26,12 +28,14 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 /**
  * Controller for the request status section, can read, update and delete
  * entries from the database
- * @author Rick den Otter 500749952 (689 lines)
+ *
+ * @author Rick den Otter 500749952 (737 lines)
  */
 public class RequestStatusController implements  Initializable {
 
@@ -51,6 +55,9 @@ public class RequestStatusController implements  Initializable {
 
     @FXML
     private TableView foundLuggageTableView;
+    
+    @FXML
+    private StackPane StackButtonPane;
 
     @FXML
     private Button editSelectedButton;
@@ -118,9 +125,30 @@ public class RequestStatusController implements  Initializable {
                 System.out.println("Attached column '" + propertyName + "' in tableview to matching attribute");
             }
         }
-        typeComboBox.setItems(Utilities.types);
-        mainColourComboBox.setItems(Utilities.colours);
-        secondaryColourComboBox.setItems(Utilities.colours);
+
+        ObservableList<String> coloursList = FXCollections.observableArrayList();
+        ObservableList<String> typesList = FXCollections.observableArrayList();
+
+        String language = Locale.getDefault().getLanguage();
+
+        switch (language) {
+            case "en":
+                coloursList.addAll(Arrays.asList(Utilities.coloursStrings[0]));
+                typesList.addAll(Arrays.asList(Utilities.luggageStrings[0]));
+                break;
+            case "nl":
+                coloursList.addAll(Arrays.asList(Utilities.coloursStrings[1]));
+                typesList.addAll(Arrays.asList(Utilities.luggageStrings[1]));
+                break;
+            case "tr":
+                coloursList.addAll(Arrays.asList(Utilities.coloursStrings[2]));
+                typesList.addAll(Arrays.asList(Utilities.luggageStrings[2]));
+                break;
+        }
+
+        typeComboBox.setItems(typesList);
+        mainColourComboBox.setItems(coloursList);
+        secondaryColourComboBox.setItems(coloursList);
     }
 
     Utilities utilities = new Utilities();
@@ -216,7 +244,7 @@ public class RequestStatusController implements  Initializable {
     }
 
     @FXML
-    private void saveEdit() {
+    private void saveEdit() throws SQLException {
         // Todo: make an update query with the changed textfields
         // Go through all textfields, see if content is different from .get method
 
@@ -235,14 +263,22 @@ public class RequestStatusController implements  Initializable {
         // Make two overloaded methods, one with Found, one with Lost
     }
 
-    private String getUpdateQuery(Luggage luggage, Database database) {
+    /**
+     * Checks what attributes need to be changed for the luggage given, changes
+     * them in the luggage object (to show up in the tableview) and adds them to
+     * the update query
+     *
+     * @param luggage The luggage object to check
+     * @param database database connection to use
+     * @return
+     * @throws SQLException
+     */
+    private String getUpdateQuery(Luggage luggage, Database database) throws SQLException {
         List<String> queryList = new ArrayList();
         String query;
 
         if (lostSelected()) {
-            //        if (!regNrField.getText().equals(luggage.getRegistrationnr())) {
-//            queryList.add("registrationnr = '" + regNrField.getText() + "' ");
-//        }
+
             LostLuggage lluggage = (LostLuggage) luggage;
 
             if (dateFoundField.getText() != null) {
@@ -259,11 +295,12 @@ public class RequestStatusController implements  Initializable {
                 }
             }
 
-            // Check this
-//        if (typeComboBox.getValue() != null) {
-//            String type = database.executeStringListQuery(String.format("SELECT idluggage_type FROM Luggagetype WHERE english = '%s'", typeComboBox.getValue()));
-//            queryList.add(String.format("luggagetype = '%s'", type));
-//        }
+            if (!typeComboBox.getValue().equals(lluggage.getLuggagetype())) {
+                int ral = Utilities.getNumberFromType(typeComboBox.getValue());
+                queryList.add(String.format("luggagetype = %d", ral));
+                lluggage.setLuggagetype(Utilities.getTypeFromNumber(Integer.toString(ral)));
+            }
+
             if (brandField.getText() != null) {
                 if (!brandField.getText().equals(lluggage.getBrand())) {
                     queryList.add("brand = '" + brandField.getText() + "'");
@@ -285,16 +322,18 @@ public class RequestStatusController implements  Initializable {
                 }
             }
 
-            // Check these two
-//        if (mainColourComboBox.getValue() != null) {
-//            String ral = database.executeStringListQuery(String.format("SELECT ralcode FROM Colour WHERE english = '%s'", mainColourComboBox.getValue()));
-//            queryList.add(String.format("primarycolour = '%s'", ral));
-//        }
-//
-//        if (secondaryColourComboBox.getValue() != null) {
-//            String ral = database.executeStringListQuery(String.format("SELECT ralcode FROM Colour WHERE english = '%s'", secondaryColourComboBox.getValue()));
-//            queryList.add(String.format("secondarycolour = '%s'", ral));
-//        }
+            if (!mainColourComboBox.getValue().equals(luggage.getPrimarycolour())) {
+                int ral = Utilities.getRalFromColour(mainColourComboBox.getValue());
+                queryList.add(String.format("primarycolour = %d", ral));
+                lluggage.setPrimarycolour(mainColourComboBox.getValue());
+            }
+
+            if (!secondaryColourComboBox.getValue().equals(luggage.getSecondarycolour())) {
+                int ral = Utilities.getRalFromColour(secondaryColourComboBox.getValue());
+                queryList.add(String.format("secondarycolour = %d", ral));
+                lluggage.setSecondarycolour(secondaryColourComboBox.getValue());
+            }
+
             if (sizeField.getText() != null) {
                 if (!sizeField.getText().equals(lluggage.getSize())) {
                     queryList.add("size = '" + sizeField.getText() + "'");
@@ -326,9 +365,7 @@ public class RequestStatusController implements  Initializable {
 
             return query;
         } else {
-            //        if (!regNrField.getText().equals(luggage.getRegistrationnr())) {
-//            queryList.add("registrationnr = '" + regNrField.getText() + "'");
-//        }
+
             FoundLuggage fluggage = (FoundLuggage) luggage;
 
             if (dateFoundField.getText() != null) {
@@ -345,11 +382,12 @@ public class RequestStatusController implements  Initializable {
                 }
             }
 
-            //check this
-//        if (typeComboBox.getValue() != null) {
-//            String type = database.executeStringListQuery(String.format("SELECT idluggage_type FROM Luggagetype WHERE english = '%s'", typeComboBox.getValue()));
-//            queryList.add(String.format("luggagetype = '%s'", type));
-//        }
+            if (!typeComboBox.getValue().equals(fluggage.getLuggagetype())) {
+                int ral = Utilities.getNumberFromType(typeComboBox.getValue());
+                queryList.add(String.format("luggagetype = %d", ral));
+                fluggage.setLuggagetype(Utilities.getTypeFromNumber(Integer.toString(ral)));
+            }
+
             if (brandField.getText() != null) {
                 if (!brandField.getText().equals(fluggage.getBrand())) {
                     queryList.add("brand = '" + brandField.getText() + "'");
@@ -377,16 +415,18 @@ public class RequestStatusController implements  Initializable {
                     fluggage.setLocationfound(locationFoundField.getText());
                 }
             }
-            // Fix these
-//        if (mainColourComboBox.getValue() != null) {
-//            String ral = database.executeStringListQuery(String.format("SELECT ralcode FROM Colour WHERE english = '%s'", mainColourComboBox.getValue()));
-//            queryList.add(String.format("primarycolour = '%s'", ral));
-//        }
-//
-//        if (secondaryColourComboBox.getValue() != null) {
-//            String ral = database.executeStringListQuery(String.format("SELECT ralcode FROM Colour WHERE english = '%s'", secondaryColourComboBox.getValue()));
-//            queryList.add(String.format("secondarycolour = '%s'", ral));
-//        }
+
+            if (!mainColourComboBox.getValue().equals(luggage.getPrimarycolour())) {
+                int ral = Utilities.getRalFromColour(mainColourComboBox.getValue());
+                queryList.add(String.format("primarycolour = %d", ral));
+                fluggage.setPrimarycolour(mainColourComboBox.getValue());
+            }
+
+            if (!secondaryColourComboBox.getValue().equals(luggage.getSecondarycolour())) {
+                int ral = Utilities.getRalFromColour(secondaryColourComboBox.getValue());
+                queryList.add(String.format("secondarycolour = %d", ral));
+                fluggage.setSecondarycolour(secondaryColourComboBox.getValue());
+            }
 
             if (sizeField.getText() != null) {
                 if (!sizeField.getText().equals(fluggage.getSize())) {
@@ -422,6 +462,12 @@ public class RequestStatusController implements  Initializable {
         }
     }
 
+    /**
+     * Converts a list of strings to the entire update query
+     * @param stringList List of strings, formatted like "attribute = 'value'"
+     * @param startOfQuery Where the luggage needs to be gotten from
+     * @return Returns the query to use
+     */
     private String stringListToUpdateQuery(List<String> stringList, String startOfQuery) {
         String query = startOfQuery;
         for (int i = 0; i < stringList.size(); i++) {
@@ -430,7 +476,7 @@ public class RequestStatusController implements  Initializable {
                 query += ", ";
             }
         }
-        query += String.format("WHERE registrationnr = %s", regNrField.getText());
+        query += String.format(" WHERE registrationnr = '%s'", regNrField.getText());
         return query;
     }
 
@@ -451,6 +497,11 @@ public class RequestStatusController implements  Initializable {
         alert.showAndWait();
     }
 
+    /**
+     * Creates the query to find all luggage in the system, conforming to the
+     * filled in textfields
+     * @return Returns the SELECT query to find wanted luggage
+     */
     private String getQueryFromTextfields() {
         // Creates new List of Strings to be included in the query
         List<String> queryList = new ArrayList();
@@ -630,11 +681,13 @@ public class RequestStatusController implements  Initializable {
 
     private void makeTableViewInvisible() {
         foundLuggageTableView.setVisible(false);
+        StackButtonPane.setVisible(false);
         editSelectedButton.setVisible(false);
     }
 
     private void makeTableViewVisible() {
         foundLuggageTableView.setVisible(true);
+        StackButtonPane.setVisible(true);
         editSelectedButton.setVisible(true);
     }
 

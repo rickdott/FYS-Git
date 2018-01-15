@@ -9,8 +9,9 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 
 /**
- * Controller for the customer homescreen
- * @author Tarik 500780772 (73 lines)
+ * Controller for the customer homescreen, only has a few buttons to help 
+ * with navigating the customer portion of the application
+ * @author Tarik 500780772 (74 lines)
  *
  */
 public class CustomerHomescreenController implements Initializable {
@@ -45,7 +46,7 @@ public class CustomerHomescreenController implements Initializable {
     
     @FXML
     private void openRegisterMissing(ActionEvent event) {
-        utilities.newAnchorpane("RegisterMissing", paneCustomerHomescreen);
+        utilities.newAnchorpane("RegisterMissingPassenger", paneCustomerHomescreen);
     }
     
     @FXML

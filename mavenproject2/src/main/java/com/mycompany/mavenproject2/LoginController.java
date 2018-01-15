@@ -8,15 +8,12 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 /**
  * Controller for the login screen, contains methods for logging in and changing
@@ -28,13 +25,13 @@ public class LoginController implements Initializable {
 
     @FXML
     private Text labelEmail, labelLastname, textWarning, textCaseSensitive;
-    
+
     @FXML
     private TextField textEmail, textLastname;
-    
+
     @FXML
     private AnchorPane paneCustomer;
-    
+
     @FXML
     private Button buttonEmployee, buttonLoginPassenger, buttonPassenger;
 
@@ -50,12 +47,9 @@ public class LoginController implements Initializable {
 //        textWarning.setText(mybundle.getString("Warning!"));
 //        textCaseSensitive.setText(mybundle.getString("Login_is_case_sensitive!"));
 //        buttonLoginPassenger.setText(mybundle.getString("Passenger_Login"));
-
     }
 
 // End of translation lines
-
-
     Utilities utilities = new Utilities();
 
     // Methods for changing the language
@@ -111,10 +105,17 @@ public class LoginController implements Initializable {
     // Main method for changing languages
     private void loadLanguage(String language, String lang) {
         System.out.println("Current Locale: " + Locale.getDefault());
-        //ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
         Locale.setDefault(new Locale(language, lang));
-        System.out.println(Locale.getDefault());
-        //mybundle = ResourceBundle.getBundle("languages.Language");
+    }
+
+    @FXML
+    private void openCustomerHomescreenFromCustomer(ActionEvent event) {
+        utilities.newAnchorpane("CustomerHomescreen", paneCustomer);
+    }
+
+    @FXML
+    private void openWorkerHomescreenFromCustomer(ActionEvent event) {
+        utilities.newAnchorpane("EmployeeHomescreen", paneCustomer);
     }
 
     @FXML
@@ -131,11 +132,11 @@ public class LoginController implements Initializable {
     }
 
     //Login for passenger
-
     @FXML
     private void handleButtonActionPassenger(ActionEvent event) {
         Database db = new Database();
         String email = textEmail.getText();
+
         String lastname = textLastname.getText();
         int usrID = 0;
         int roleID = 0;
@@ -149,10 +150,11 @@ public class LoginController implements Initializable {
         try {
             ResultSet resultSet = db.executeResultSetQuery(sql);
             if (!resultSet.next()) {
-                infoBox("Enter Correct Email And Lastname", "Failed", null);
+                infoBox("Enter Correct labelnummer And Lastname", "Failed", null);
             } else {
                 infoBox("Login Successfull", "Success", null);
                 Utilities utilities = new Utilities();
+
                 while (resultSet.next()) {
                     usrID = resultSet.getInt("idEmployee");
                 }
