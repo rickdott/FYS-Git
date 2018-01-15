@@ -32,7 +32,7 @@ public class WorkerHomescreenController implements Initializable {
     private Label label1;
 
     @FXML
-    private Button but1, but2, but3, but4, but5, but6;
+    private Button but1, but2, but3, but4, but5, but6, but7;
 
 
     @FXML
@@ -207,6 +207,11 @@ public class WorkerHomescreenController implements Initializable {
     
     @FXML
     private void offHoverbut6() {
+        Utilities.offHover("Login", but6, label1);
+    }
+    
+    @FXML
+    private void offHoverbut7() {
         but6.setStyle("-fx-font: 22 arial; -fx-background-color: #d81e05; -fx-background-radius: 0; -fx-border-width: 1 1 1 1; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18; -fx-text-fill: white; -fx-min-height: 50; -fx-min-width: 150;");
         utilities.offHover("Login", but6, label1);
     }
@@ -239,8 +244,13 @@ public class WorkerHomescreenController implements Initializable {
     
     @FXML
     private void onHoverbut6() {
+        Utilities.onHover("Login", but6, label1);
+    }
+    
+    @FXML
+    private void onHoverbut7() {
         but6.setStyle("-fx-font: 22 arial; -fx-background-color: #951504; -fx-background-radius: 0; -fx-border-width: 1 1 1 1; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18; -fx-text-fill: white; -fx-min-height: 50; -fx-min-width: 150;");
-        utilities.offHover("Login", but6, label1);
+        utilities.offHover("Login", but7, label1);
     }
 
     @FXML

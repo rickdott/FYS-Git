@@ -42,7 +42,7 @@
             </StackPane>
             <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #d81e05;" GridPane.rowIndex="2">
                <children>
-                  <Button fx:id="but6" mnemonicParsing="false" onAction="#backToLogin" onMouseEntered="#onHoverbut6" onMouseExited="#offHoverbut6" style="-fx-font: 22 arial; -fx-background-color: #d81e05; -fx-background-radius: 0; -fx-border-width: 1 1 1 1; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18; -fx-text-fill: white; -fx-min-height: 50; -fx-min-width: 150;" text="Log Out" />
+                  <Button fx:id="but7" mnemonicParsing="false" onAction="#backToLogin" onMouseEntered="#onHoverbut7" onMouseExited="#offHoverbut7" style="-fx-font: 22 arial; -fx-background-color: #d81e05; -fx-background-radius: 0; -fx-border-width: 1 1 1 1; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18; -fx-text-fill: white; -fx-min-height: 50; -fx-min-width: 150;" text="Log Out" />
                </children>
             </StackPane>
          </children>

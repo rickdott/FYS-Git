@@ -17,3 +17,4 @@ mavenproject2/src/main/java/com/mycompany/mavenproject2/LoginController.java
 mavenproject2/src/main/java/com/mycompany/mavenproject2/LoginController.java
 mavenproject2/src/main/java/com/mycompany/mavenproject2/WorkerHomescreenController.java
 mavenproject2/src/main/java/com/mycompany/mavenproject2/WorkerHomescreenController.java
+!/mavenproject2/src/main/resources/languages/Language_en_US.properties

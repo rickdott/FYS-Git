@@ -48,13 +48,22 @@ public class ReportsController implements Initializable {
 
         try {
             showMissingStats();
-            ArrayList<String> listOfYears = getYearsInDB();
-            years.clear();
-            years.addAll(listOfYears);
-            yearComboBox.setItems(years);
+
         } catch (SQLException ex) {
             Logger.getLogger(ReportsController.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+//        ArrayList<String> listOfYears = new ArrayList<>();
+//        try {
+//            listOfYears = getYearsInDB();
+//        } catch (SQLException ex) {
+//            Logger.getLogger(ReportsController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        years.clear();
+//        years.addAll(listOfYears);     
+          years.add("2015");
+          years.add("2016");
+          yearComboBox.setItems(years);
     }
     @FXML
     private Label labelSee;
