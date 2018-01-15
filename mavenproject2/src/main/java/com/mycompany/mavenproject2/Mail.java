@@ -26,6 +26,9 @@ public class Mail {
         this.emailAdress = emailAdress;
     }
 
+    /**
+     * Method to send an e-mail to the customer
+     */
     public void mailsturen() {
         //username and password of the senders mail account
         final String username = "baggerfys@gmail.com";
@@ -53,14 +56,13 @@ public class Mail {
                     InternetAddress.parse(this.emailAdress));
             message.setSubject("Corendon PDF Formulier Email bericht");
             
-
             // declare the message and attachment and the mail
             Multipart multipart = new MimeMultipart();
             MimeBodyPart messageBodyPart = new MimeBodyPart();
             MimeBodyPart attachBodyPart = new MimeBodyPart();
 
             //text part of the mail
-            messageBodyPart.setText("Gegroet beste klant hier ontvangt u een kopie van de het ingevulde verloren bagage formulier");
+            messageBodyPart.setText("Gegroet beste klant, hierbij ontvangt u een kopie van het ingevulde verloren bagage formulier");
 
             //adding the PDF attachment to the mail
             String file = "src\\main\\resources\\temp\\PDFTest.pdf";

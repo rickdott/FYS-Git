@@ -28,7 +28,7 @@ import javafx.scene.layout.VBox;
  * Controller that handles the reports section, showing different statistics on
  * missing luggage
  *
- * @author Rick den Otter 500749952 (314 lines)
+ * @author Rick den Otter 500749952 (360 lines)
  */
 public class ReportsController implements Initializable {
 
@@ -68,6 +68,9 @@ public class ReportsController implements Initializable {
     @FXML
     private Button submitFoundMissingBut, submitMissingPerMonthBut;
 
+    /**
+     * Class to make filling charts easier
+     */
     class ChartEntry {
 
         private double amount;
@@ -143,6 +146,10 @@ public class ReportsController implements Initializable {
         System.out.println("Not implement");
     }
 
+    /**
+     * Finds the airports currently selected in the reports section
+     * @return ArrayList of strings containing airports
+     */
     private ArrayList<String> findSelectedAirports() {
         ArrayList<String> selectedAirports = new ArrayList<>();
         ObservableList<Node> checkBoxList = missingVBox.getChildren();
@@ -162,6 +169,12 @@ public class ReportsController implements Initializable {
         return selectedAirports;
     }
 
+    /**
+     * Populates a piechart
+     * @param chart the chart you want to populate
+     * @param entryList ArrayList of ChartEntry objects
+     * @throws SQLException 
+     */
     private void populatePieChart(PieChart chart, ArrayList<ChartEntry> entryList) throws SQLException {
         ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
 
@@ -172,6 +185,14 @@ public class ReportsController implements Initializable {
         chart.setData(pieChartData);
     }
 
+    /**
+     * Checks the amount of missing or found luggage per airport
+     * @param category What table to find the information in
+     * @param lostOrFound name of the lost or found table, depending on what category you want
+     * @param airports List of airports currently selected
+     * @return returns an arrayList of ChartEntries
+     * @throws SQLException 
+     */
     private ArrayList amountOfMissingAsPieChart(String category, String lostOrFound, ArrayList<String> airports) throws SQLException {
         ArrayList<ChartEntry> entryList = new ArrayList<>();
 
@@ -226,6 +247,13 @@ public class ReportsController implements Initializable {
         }
     }
 
+    /**
+     * Method to populate a line chart
+     * @param chart the LineChart to populate
+     * @param airports the currently selected airports
+     * @param year the year you want information on
+     * @throws SQLException 
+     */
     private void populateLineChart(LineChart chart, ArrayList<String> airports, String year) throws SQLException {
         chart.setAnimated(false);
         chart.getData().clear();
@@ -308,6 +336,11 @@ public class ReportsController implements Initializable {
 
     }
 
+    /**
+     * Gets the years to use in the reports section of the application
+     * @return Returns an ArrayList<String> of years available
+     * @throws SQLException 
+     */
     private ArrayList<String> getYearsInDB() throws SQLException {
         Database database = new Database();
         String query = "SELECT datefound FROM stanviw199_fys.Foundbagageinventory";

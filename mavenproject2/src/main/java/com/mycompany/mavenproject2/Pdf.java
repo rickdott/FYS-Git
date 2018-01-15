@@ -11,14 +11,32 @@ import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 /**
  * Class that creates a property irregularity report and fills it with 
  * the obtained data
- * @author Stijn Klopper 500770512 (133 lines)
+ * @author Stijn Klopper 500770512 (152 lines)
  */
 public class Pdf {
 
     final float LEADING = 20.0f;
     final int FONT_SIZE_BIG = 20, FONT_SIZE_SMALL = 14;
 
-    // Creates a new PDF document, fills it with the missing-luggage form
+    /**
+     * // Creates a new PDF document, fills it with the missing-luggage form
+     * @param firstname First name
+     * @param lastname Last name
+     * @param adress Address
+     * @param city City
+     * @param zip Zipcode
+     * @param country Country
+     * @param phone Phone number
+     * @param email E-mail address
+     * @param labelnumber Label number
+     * @param flightnumber Flight number
+     * @param destination Destination
+     * @param type Type 
+     * @param brand Brand
+     * @param primaryColour Primary Colour
+     * @param secondaryColour Secondary Colour
+     * @param specialchar Special characteristics
+     */
     public void printPDF(String firstname, String lastname, String adress,
             String city, String zip, String country, String phone, String email,
             String labelnumber, String flightnumber, String destination, 

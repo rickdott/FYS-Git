@@ -21,9 +21,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 /**
- * Rick 1-154 (153) Timur 154-261 (107)
+ * Rick 1-300 (- 59-133)/ 419 - 488 (284) Timur 300-419 (119)
+ * Matthijs 59-133
  *
- * @author Rick den Otter 500749952 Timur Yagci 500764449
+ * @author Rick den Otter 500749952 Timur Yagci 500764449 Matthijs 500780453
  */
 public class Utilities {
     //List of colours, used in dropdown boxes
@@ -37,24 +38,26 @@ public class Utilities {
             "Suitcase", "Bag", "Bagpack", "Box", "Sports",
             "Bag", "Business Case", "Case", "Other");
 
-    public static final int[] luggageCodes = {1, 2, 3, 4, 5, 6, 7, 8};
+    //These lists are used for translating luggage types and colours
+    public static int[] luggageCodes = {1, 2, 3, 4, 5, 6, 7, 8};
 
-    public static final String[][] luggageStrings = new String[][]{
+    public static String[][] luggageStrings = new String[][]{
         {"Suitcase", "Bag", "Bagpack", "Box", "Sports Bag", "Business Case", "Case", "Other"},
         {"Koffer", "Tas", "Rugzak", "Doos", "Sporttas", "Zakenkoffer", "Kist", "Anders"},
         {"Bavul", "Canta", "Sırt çantası", "Kutu", "Spor çantası", "Iş çantası", "Göğüs", "Diğer"}
     };
 
-    public static final int[] ralcodes = {1003, 1015, 1024, 2004, 3000, 3005, 3017, 4005,
+    public static int[] ralcodes = {1003, 1015, 1024, 2004, 3000, 3005, 3017, 4005,
         4010, 5002, 5015, 5022, 6002, 6004, 6022, 6038, 7000, 7015, 8002,
         8011, 8023, 9001, 9005, 9011};
 
-    public static final String[][] coloursStrings = new String[][]{
+    public static String[][] coloursStrings = new String[][]{
         {"Yellow", "Cream", "Olive", "Orange", "Red", "Darkred", "Pink", "Purple", "Violet", "Blue", "Lightblue", "Darkblue", "Green", "Bluegreen", "Darkgreen", "Lightgreen", "Lightgray", "Gray", "Brown", "Darkbrown", "Lightbrown", "White", "Black", "Darkgray"},
         {"Geel", "Crème", "Olijf", "Oranje", "Rood", "Donkerrood", "Roze", "Paars", "Violet", "Blauw", "Lichtblauw", "Donkerblauw", "Groen", "Blauwgroen", "Donkergroen", "Lichtgroen", "Lichtgrijs", "Grijs", "Bruin", "Donkerbruin", "Lichtbruin", "Wit", "Zwart", "Donkergrijs"},
         {"Sarı", "Krem", "Zeytin yeşili", "Turuncu", "Kırmızı", "Koyu kırmızı", "Pembe", "Mor", "Menekşe", "Mavi", "Açık  mavi", "Koyu mavi", "Yeşil", "çamurcun", "Koyu yeşil", "Açık  yeşil", "Açık gri", "Gri", "Kahverengi", "Koyu kahverengi", "Açık kahverengi", "Beyaz", "Siyah", "Koyu gri"}
     };
  
+    //Styles to change the buttons to when hovering on/off them
     private final static String OFFHOVER_STYLE = "-fx-font: 22 arial; -fx-background-color: #d81e05; "
                         + "-fx-background-radius: 0; -fx-border-width: 1 0 0 0; "
                         + "-fx-border-color: white; -fx-font-weight: bold; "
@@ -295,10 +298,17 @@ public class Utilities {
         return -1;
     }
 
+    /**
+     * Loop through the resultset, making a new 'FoundLuggage' Object 
+       for every result, adding the attributes of the result to the 
+       corresponding attribute in the FoundLuggage object
+     * @param result resultset to convert to a list
+     * @param foundLuggageList the List to add luggage to
+     * @return the list with all of the luggage from the resultset
+     * @throws SQLException 
+     */
     public static ObservableList initializeFoundLuggageFromResultSet(ResultSet result, ObservableList foundLuggageList) throws SQLException {
-        // Loop through the resultset, making a new 'FoundLuggage' Object 
-        // for every result, adding the attributes of the result to the 
-        // corresponding attribute in the FoundLuggage object
+        
 
         while (result.next()) {
             FoundLuggage luggage = new FoundLuggage();
@@ -323,10 +333,17 @@ public class Utilities {
         return foundLuggageList;
     }
 
+    /**
+     * Loop through the resultset, making a new 'LostLuggage' Object 
+       for every result, adding the attributes of the result to the 
+       corresponding attribute in the LostLuggage object
+     * @param result resultset to convert to a list
+     * @param foundLuggageList the List to add luggage to
+     * @return the list with all of the luggage from the resultset
+     * @throws SQLException 
+     */
     public static ObservableList initializeLostLuggageFromResultSet(ResultSet result, ObservableList foundLuggageList) throws SQLException {
-        // Loop through the resultset, making a new 'FoundLuggage' Object 
-        // for every result, adding the attributes of the result to the 
-        // corresponding attribute in the FoundLuggage object
+         
 
         while (result.next()) {
             LostLuggage luggage = new LostLuggage();
@@ -403,7 +420,7 @@ public class Utilities {
     }
     
     /**
-     * 
+     * Checks if the labelnumber given is solved
      * @param labelnr labelnr of the luggage you want to check
      * @param solveCase true if you want it to put the luggage in SolvedCases if it is only in foundbagageinventory, false if you dont
      * @return returns true if it is already in SolvedCases or if the method puts it there
