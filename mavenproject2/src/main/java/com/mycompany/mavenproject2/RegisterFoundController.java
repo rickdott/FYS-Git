@@ -108,7 +108,7 @@ public class RegisterFoundController implements Initializable {
 
         Statement stmt = null;
         String query
-                = "SELECT max(registrationnr)FROM test3";
+                = "SELECT max(registrationnr)FROM Foundbagageinventory";
         //Ter voorbeeld hieronder
         /* "select COF_NAME, SUP_ID, PRICE, " +
         "SALES, TOTAL " +
@@ -166,6 +166,10 @@ public class RegisterFoundController implements Initializable {
                 && !BagageSpecialchar.getText().trim().isEmpty()
                 && !BagageFlight.getText().trim().isEmpty()
                 && !BagageLabel.getText().trim().isEmpty()
+<<<<<<< HEAD
+                && !LocationFound.getText().trim().isEmpty()
+                && !BagageDestination.getText().trim().isEmpty()) {
+=======
                 ) {
             String sql = String.format("SELECT * FROM Flight WHERE flightnr = '%s' ",
                 BagageFlight.getText());
@@ -174,6 +178,7 @@ public class RegisterFoundController implements Initializable {
             if(resultSet.next()){
             
             
+>>>>>>> debe714f9df0e3609689e5f763f7060c9ef85f90
             if (BagagePrimaryColour.getValue() != null) {
                 BagagePrimaryColourString = db.executeStringListQuery(String.format("SELECT ralcode FROM Colour WHERE english = '%s'", BagagePrimaryColour.getValue()));
 
@@ -197,9 +202,9 @@ public class RegisterFoundController implements Initializable {
 
             //Registrationnr++;
             String luggageInformation = String.format("INSERT INTO "
-                    + "test3 (registrationnr, datefound, timefound, luggagetype, brand, flightnumber, luggagelabelnr, locationfound, primarycolour, secondarycolour, size, weight, passenger_name_city, otherchar, idpassenger)"
-                    + "VALUES ('%s','%s','1','%s','%s','%s','%s','%s','%s','%s','%s','%s','1','%s','1')",
-                    RegistrationString, GeneralDate2.getText(), LuggageTypeSelect, BagageBrand.getText(), BagageFlight.getText(), BagageLabel.getText(),LocationFound.getText(), 
+                    + "Foundbagageinventory (registrationnr, datefound, timefound, luggagetype, brand, flightnumber, luggagelabelnr, locationfound, primarycolour, secondarycolour, size, weight, passenger_name_city, otherchar, idpassenger)"
+                    + "VALUES ('%s','%s','1','%s','%s','%s','%s','1','%s','%s','%s','%s','1','%s','1')",
+                    RegistrationString, GeneralDate2.getText(), LuggageTypeSelect, BagageBrand.getText(), BagageFlight.getText(), BagageLabel.getText(), 
                     BagagePrimaryColourString, BagageSecondaryColourString, Size.getText(), Weight.getText(),
                     BagageSpecialchar.getText());
             System.out.println(luggageInformation);

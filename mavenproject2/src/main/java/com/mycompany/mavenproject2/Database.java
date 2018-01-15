@@ -285,4 +285,8 @@ public class Database {
     public String getErrorMessage() {
         return errorMessage;
     }
+
+    String executeUpdateQuery(String delete_from_Employee_WHERE_username__s, String usernameTc) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

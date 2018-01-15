@@ -10,7 +10,7 @@ package com.mycompany.mavenproject2;
  * @author Tarik Yildirim 500780772
  */
 public class UserDetails {
-
+    private String editUsername;
     private String firstnameTc;
     private String lastnameTc;
     private String usernameTc;
@@ -20,6 +20,14 @@ public class UserDetails {
     public UserDetails() {
         this.roleTc = 0;
     }
+    public String geteditUsername(){
+        return editUsername;
+    }
+    
+     public void seteditUsername(String editUsername){
+       this.editUsername = editUsername;
+    }
+    
 
     public String getFirstnameTc() {
         return firstnameTc;

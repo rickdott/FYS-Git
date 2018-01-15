@@ -32,33 +32,50 @@ public class WorkerHomescreenController implements Initializable {
     private Label label1;
 
     @FXML
+<<<<<<< HEAD
+    private Button but1, but2, but3, but4 ,but5;
+=======
 
    // private Button but1, but2, but3, but4 ,but5;
 
     private Button but1, but2, but3, but4, but5, but6;
 
+>>>>>>> debe714f9df0e3609689e5f763f7060c9ef85f90
 
     @FXML
     private VBox VBPane;
-
+    
     Utilities utilities = new Utilities();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+<<<<<<< HEAD
+
+        //infoBox("User ID = " + utilities.userID, "Success", null);
+=======
         Locale.setDefault(new Locale("tr", "TR"));
+>>>>>>> debe714f9df0e3609689e5f763f7060c9ef85f90
         Database db = new Database();
         ResultSet resultSet = null;
         String sqlMenu = String.format("SELECT * FROM Menu "
-                + "WHERE idMenu IN (SELECT MenuID FROM MenuRoles WHERE RoleID = " + Utilities.roleID + ") ");
+                + "WHERE idMenu IN (SELECT MenuID FROM MenuRoles WHERE RoleID = " + utilities.roleID + ") ");
         try {
             resultSet = db.executeResultSetQuery(sqlMenu);
             int i = 0;
             while (resultSet.next()) {
-                final Button button = new Button(resultSet.getString("Name"));
+                Button button = new Button(resultSet.getString("Name"));
+                //VBPane.add(button, 1, i++);
                 VBPane.setPrefWidth(100);
                 button.setMinWidth(VBPane.getPrefWidth());
-                final String url2 = resultSet.getString("Link");
                 VBPane.getChildren().add(button);
+<<<<<<< HEAD
+                button.setStyle("-fx-font: 22 arial; -fx-base: #d81e05; "
+                        + "-fx-background-radius: 0; -fx-border-width: 1 0 0 0; "
+                        + "-fx-border-color: white; -fx-font-weight: bold; "
+                        + "-fx-font-size: 18; -fx-alignment: CENTER;");
+
+                final String url2 = resultSet.getString("Link");
+=======
 
                 /**
                  * Sets the standard button style
@@ -120,6 +137,7 @@ public class WorkerHomescreenController implements Initializable {
                 /**
                  * Gives all the buttons the correct link
                  */
+>>>>>>> debe714f9df0e3609689e5f763f7060c9ef85f90
                 button.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent e) {
@@ -137,7 +155,11 @@ public class WorkerHomescreenController implements Initializable {
                                 utilities.newPane("UserRoles", but4, mainpage, label1);
                                 break;
                             case "RegisterFound":
+<<<<<<< HEAD
+                                utilities.newPane("RegisterFound", but5,mainpage, label1);
+=======
                                 utilities.newPane("RegisterFound", but5, mainpage, label1);
+>>>>>>> debe714f9df0e3609689e5f763f7060c9ef85f90
                                 break;
 
 
@@ -162,6 +184,7 @@ public class WorkerHomescreenController implements Initializable {
             }
 
         } catch (SQLException e) {
+            e.printStackTrace();
         }
 
     }
@@ -177,6 +200,7 @@ public class WorkerHomescreenController implements Initializable {
         utilities.newPane("RegisterMissing", but2, mainpage, label1);
     }
 
+    //TEMP
     @FXML
     private void openRequestTest(ActionEvent event) {
         utilities.newPane("RequestStatus", but3, mainpage, label1);
@@ -209,11 +233,18 @@ public class WorkerHomescreenController implements Initializable {
 
     @FXML
     private void offHoverbut3() {
+<<<<<<< HEAD
+        Utilities.offHover("Request Status", but3, label1);
+=======
         Utilities.offHover("Reports", but3, label1);
+>>>>>>> debe714f9df0e3609689e5f763f7060c9ef85f90
     }
 
     @FXML
     private void offHoverbut4() {
+<<<<<<< HEAD
+        Utilities.offHover("Register Missing", but4, label1);
+=======
         Utilities.offHover("UserRoles", but4, label1);
     }
 
@@ -226,6 +257,7 @@ public class WorkerHomescreenController implements Initializable {
     private void offHoverbut6() {
         but6.setStyle("-fx-font: 22 arial; -fx-background-color: #d81e05; -fx-background-radius: 0; -fx-border-width: 1 1 1 1; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18; -fx-text-fill: white; -fx-min-height: 50; -fx-min-width: 150;");
         utilities.offHover("Login", but6, label1);
+>>>>>>> debe714f9df0e3609689e5f763f7060c9ef85f90
     }
     @FXML
     private void offHoverbut5() {
@@ -245,11 +277,22 @@ public class WorkerHomescreenController implements Initializable {
 
     @FXML
     private void onHoverbut3() {
+<<<<<<< HEAD
+        Utilities.onHover("Register Missing", but3, label1);
+=======
         Utilities.onHover("Reports", but3, label1);
+>>>>>>> debe714f9df0e3609689e5f763f7060c9ef85f90
     }
 
     @FXML
     private void onHoverbut4() {
+<<<<<<< HEAD
+        Utilities.onHover("Register Missing", but4, label1);
+    }
+     @FXML
+    private void onHoverbut5() {
+        Utilities.onHover("Register Found", but5, label1);
+=======
         Utilities.onHover("UserRoles", but4, label1);
     }
 
@@ -262,6 +305,7 @@ public class WorkerHomescreenController implements Initializable {
     private void onHoverbut6() {
         but6.setStyle("-fx-font: 22 arial; -fx-background-color: #951504; -fx-background-radius: 0; -fx-border-width: 1 1 1 1; -fx-border-color: white; -fx-font-weight: bold; -fx-font-size: 18; -fx-text-fill: white; -fx-min-height: 50; -fx-min-width: 150;");
         utilities.offHover("Login", but6, label1);
+>>>>>>> debe714f9df0e3609689e5f763f7060c9ef85f90
     }
    //  @FXML
    // private void onHoverbut5() {

@@ -11,7 +11,7 @@
          <bottom>
          </bottom>
          <center>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Account has been succesfull made." wrappingWidth="494.7939453125" BorderPane.alignment="CENTER">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Changes has been succesfull made." wrappingWidth="494.7939453125" BorderPane.alignment="CENTER">
                <font>
                   <Font size="30.0" />
                </font>
