@@ -536,7 +536,7 @@
                            </children></VBox>
                      </children>
                   </HBox>
-                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                  <VBox fx:id="shippingVBox" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" visible="false">
                      <children>
                         <Label text="Luggage will be shipped to the following address:">
                            <font>
@@ -601,7 +601,7 @@
                   <Image url="@../../../images/Corendon%20Logo.png" />
                </image>
             </ImageView>
-            <VBox fx:id="choiceVBox" prefHeight="200.0" prefWidth="100.0" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <VBox fx:id="choiceVBox" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <children>
                   <Label prefHeight="63.0" prefWidth="300.0" text="What do you want to do with your luggage?" textAlignment="CENTER" wrapText="true">
                      <font>
@@ -693,8 +693,11 @@
                   </Button>
                </children>
                <padding>
-                  <Insets left="20.0" right="10.0" />
+                  <Insets right="10.0" />
                </padding>
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
             </VBox>
          </children>
 

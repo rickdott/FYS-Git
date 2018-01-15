@@ -394,7 +394,7 @@ public class Utilities {
         ResultSet resultFound = database.executeResultSetQuery(String.format("SELECT * FROM Foundbagageinventory WHERE luggagelabelnr = %d", labelnr));
         ResultSet resultSolved = database.executeResultSetQuery(String.format("SELECT * FROM Solvedcases WHERE luggagelabelnr = %d", labelnr));
         
-        database.close();
+        
         //Logic for finding out what kind of luggage it is
         boolean isInLost, isInFound, isInSolved;
         if (resultLost.next() == false) {
@@ -418,7 +418,7 @@ public class Utilities {
 //        resultLost.close();
 //        resultFound.close();
 //        resultSolved.close();
-        
+        database.close();
         //Logic to decide what to do
         if (isInLost && isInFound && isInSolved) {
             return true;
