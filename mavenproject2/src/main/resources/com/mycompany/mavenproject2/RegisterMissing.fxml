@@ -349,22 +349,7 @@
                   <Insets bottom="30.0" left="40.0" right="120.0" />
                </GridPane.margin>
             </Button>
-            <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="250.0" mnemonicParsing="false" onAction="#backToLogin" text="Back to login" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets bottom="30.0" left="40.0" />
-               </GridPane.margin>
-               <padding>
-                  <Insets bottom="10.0" top="10.0" />
-               </padding></Button>
-            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#excelImportPath" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Excel importeren" textFill="WHITE">
-                     <HBox.margin>
-                        <Insets right="84.0" />
-                     </HBox.margin>
-                  </Button>
-               </children>
-            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
 
          </children>
       </GridPane>

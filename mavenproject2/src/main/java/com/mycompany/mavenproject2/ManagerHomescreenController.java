@@ -36,8 +36,6 @@ public class ManagerHomescreenController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //String Check = "SELECT * FROM Employee WHERE function = Medewerker";
-        //but4.setVisible(false);
     }
 
     Utilities utilities = new Utilities();
@@ -66,43 +64,44 @@ public class ManagerHomescreenController implements Initializable {
     // All methods for hovering off a button
     @FXML
     private void offHoverbut1() {
-        Utilities.offHover("Request Status", but1, label1);
+        utilities.offHover("Request Status", but1, label1);
     }
 
     @FXML
     private void offHoverbut2() {
-        Utilities.offHover("Register Missing", but2, label1);
+        utilities.offHover("Register Missing", but2, label1);
     }
 
     @FXML
     private void offHoverbut3() {
-        Utilities.offHover("Reports", but3, label1);
+        utilities.offHover("Reports", but3, label1);
     }
 
     @FXML
     private void offHoverbut4() {
-        Utilities.offHover("UserRoles", but4, label1, true);
+        utilities.offHover("UserRoles", but4, label1, true);
     }
 
     // All methods for hovering over a button
+    //Vanaf hier
     @FXML
     private void onHoverbut1() {
-        Utilities.onHover("Request Status", but1, label1);
+        utilities.onHover("Request Status", but1, label1);
     }
 
     @FXML
     private void onHoverbut2() {
-        Utilities.onHover("Register Missing", but2, label1);
+        utilities.onHover("Register Missing", but2, label1);
     }
 
     @FXML
     private void onHoverbut3() {
-        Utilities.onHover("Reports", but3, label1);
+        utilities.onHover("Reports", but3, label1);
     }
 
     @FXML
     private void onHoverbut4() {
-        Utilities.onHover("User Roles", but4, label1, true);
+        utilities.onHover("User Roles", but4, label1);
     }
 
     @FXML

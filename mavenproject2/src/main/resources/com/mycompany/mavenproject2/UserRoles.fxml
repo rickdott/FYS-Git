@@ -23,16 +23,16 @@
                <children>
                   <TableView fx:id="tableUser" editable="true" layoutY="39.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="608.0" prefWidth="1053.0">
                     <columns>
-                      <TableColumn fx:id="firstnameTc" editable="false" prefWidth="242.0" text="First name" />
-                      <TableColumn fx:id="lastnameTc" editable="false" prefWidth="172.0" text="Last name" />
-                        <TableColumn fx:id="usernameTc" editable="false" prefWidth="227.0" text="Username" />
-                        <TableColumn fx:id="passwordTc" editable="false" prefWidth="236.0" text="Password" />
-                        <TableColumn fx:id="roleTc" editable="false" prefWidth="258.0" text="Roles" />
+                      <TableColumn fx:id="firstnameTc" editable="false" prefWidth="223.0" text="First name" />
+                        <TableColumn fx:id="lastnameTc" editable="false" prefWidth="196.0" text="Last name" />
+                        <TableColumn fx:id="usernameTc" editable="false" prefWidth="246.0" text="User name" />
+                        <TableColumn fx:id="passwordTc" editable="false" prefWidth="220.0" text="Password" />
+                        <TableColumn fx:id="roleTc" editable="false" prefWidth="167.0" text="Roles" />
                     </columns>
                   </TableView>
                   <Button fx:id="but1" layoutX="912.0" mnemonicParsing="false" onAction="#openAddRoles" prefHeight="34.0" prefWidth="141.0" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Add user" textFill="WHITE" />
-                  <Button fx:id="but11" layoutX="751.0" mnemonicParsing="false" onAction="#openAddRoles" prefHeight="34.0" prefWidth="141.0" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Edit user" textFill="WHITE" />
-                  <Button fx:id="but111" layoutX="583.0" mnemonicParsing="false" onAction="#openAddRoles" prefHeight="34.0" prefWidth="141.0" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Delete user" textFill="WHITE" />
+                  <Button fx:id="but11" layoutX="751.0" mnemonicParsing="false" onAction="#editUser" prefHeight="34.0" prefWidth="141.0" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Edit user" textFill="WHITE" />
+                  <Button fx:id="but111" layoutX="583.0" mnemonicParsing="false" onAction="#deleteUser" prefHeight="34.0" prefWidth="141.0" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Delete user" textFill="WHITE" />
                </children>
             </Pane>
          </children>
