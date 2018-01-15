@@ -10,9 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -214,17 +212,9 @@
                         <Font size="17.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Destination*">
-                     <VBox.margin>
-                        <Insets right="10.0" top="10.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </Text>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Type">
                      <VBox.margin>
-                        <Insets right="10.0" top="43.0" />
+                        <Insets right="10.0" top="80.0" />
                      </VBox.margin>
                      <font>
                         <Font size="17.0" />
@@ -262,11 +252,22 @@
                         <Insets right="10.0" top="12.0" />
                      </VBox.margin>
                   </Text>
-                  <StackPane fx:id="progressStackPane" prefHeight="647.0" prefWidth="1053.0">
-                     <children>
-                        <Pane prefHeight="200.0" prefWidth="200.0" />
-                     </children>
-                  </StackPane>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Size">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets right="10.0" top="5.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Weight">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets right="10.0" top="6.0" />
+                     </VBox.margin>
+                  </Text>
                </children>
             </VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3">
@@ -289,15 +290,13 @@
                         <Insets right="40.0" top="8.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField fx:id="BagageDestination">
-                     <VBox.margin>
-                        <Insets right="40.0" top="8.0" />
-                     </VBox.margin>
-                  </TextField>
                   <Text fill="#d81e05" strokeType="OUTSIDE" strokeWidth="0.0" text="Luggage information">
                      <font>
                         <Font size="24.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets bottom="35.0" />
+                     </VBox.margin>
                   </Text>
                   <ComboBox fx:id="LuggageType" prefHeight="29.0" prefWidth="273.0" promptText="Luggage Type">
                      <VBox.margin>
@@ -321,9 +320,18 @@
                   </ComboBox>
                   <TextField fx:id="BagageSpecialchar">
                      <VBox.margin>
-                        <Insets right="40.0" top="8.0" />
+                        <Insets bottom="7.0" right="40.0" top="8.0" />
                      </VBox.margin>
                   </TextField>
+                  <TextField fx:id="BagageSize" promptText="w*h*l">
+                     <VBox.margin>
+                        <Insets bottom="7.0" right="40.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="BagageWeight" promptText="kg">
+                     <VBox.margin>
+                        <Insets right="40.0" />
+                     </VBox.margin></TextField>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Velden met * zijn verplicht om in te vullen">
                      <VBox.margin>
                         <Insets />

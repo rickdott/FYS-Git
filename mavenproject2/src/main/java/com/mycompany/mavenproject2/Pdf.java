@@ -21,7 +21,7 @@ public class Pdf {
     // Creates a new PDF document, fills it with the missing-luggage form
     public void printPDF(String firstname, String lastname, String adress,
             String city, String zip, String country, String phone, String email,
-            String labelnumber, String flightnumber, String destination, 
+            String labelnumber, String flightnumber, 
             String type, String brand, String primaryColour, String secondaryColour,
             String specialchar)
             {
@@ -96,8 +96,7 @@ public class Pdf {
             contentStream.showText("Flight Number: ");
             contentStream.showText(flightnumber);
             contentStream.newLine();
-            contentStream.showText("Destination: ");
-            contentStream.showText(destination);
+            
             contentStream.newLineAtOffset(0, -(LEADING * 2));
             contentStream.setFont(PDType1Font.HELVETICA, FONT_SIZE_BIG);
             contentStream.showText("Luggage information");

@@ -6,12 +6,16 @@
 package com.mycompany.mavenproject2;
 
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -57,8 +61,8 @@ public class RegisterMissingController implements Initializable {
     //input bagage
     @FXML
     private TextField BagageLabel;
-    @FXML
-    private TextField BagageDestination;
+    
+    
     @FXML
     private ComboBox<String> LuggageType;
     @FXML
@@ -69,10 +73,16 @@ public class RegisterMissingController implements Initializable {
     private ComboBox<String> BagageSecondaryColour;
     @FXML
     private TextField BagageSpecialchar;
+    
+    @FXML
+    private TextField BagageSize;
+    
+    @FXML
+    private TextField BagageWeight;
 
     @FXML
     private Label warning;
-    
+
     @FXML
     private ProgressIndicator draaiding;
 
@@ -112,8 +122,8 @@ public class RegisterMissingController implements Initializable {
 
         generalTime.setText((tijd.format(date)));
         generalDate.setText((datum.format(time)));
+
         
-        progressStackPane.setVisible(false);
 
         BagagePrimaryColour.setItems(colours);
         BagageSecondaryColour.setItems(colours);
@@ -128,7 +138,7 @@ public class RegisterMissingController implements Initializable {
 
     //submit button
     @FXML
-    private void openRegisterThankyou(ActionEvent event) {
+    private void openRegisterThankyou(ActionEvent event) throws SQLException {
 
         if (!TravellerFirstName.getText().trim().isEmpty()
                 && !TravellerSurname.getText().trim().isEmpty()
@@ -140,7 +150,7 @@ public class RegisterMissingController implements Initializable {
                 && !TravellerEmail.getText().trim().isEmpty()
                 && !BagageFlight.getText().trim().isEmpty()
                 && !BagageLabel.getText().trim().isEmpty()
-                && !BagageDestination.getText().trim().isEmpty()) {
+                ) {
             Mail mail = new Mail(TravellerEmail.getText().trim());
             if (mail.ValidateMail(TravellerEmail.getText().trim()) == true) {
 
@@ -176,6 +186,8 @@ public class RegisterMissingController implements Initializable {
                 } else {
                     LuggageTypeSelect = "10";
                 }
+                
+                
 
                 String travellerInformation = String.format("INSERT INTO Passenger "
                         + "(firstname, lastname, adress, city, zip, country, phone, email, flightnumber) "
@@ -185,16 +197,31 @@ public class RegisterMissingController implements Initializable {
                         TravellerPostalCode.getText(), TravellerCountry.getText(),
                         TravellerPhone.getText(), TravellerEmail.getText(),
                         BagageFlight.getText());
+                    
+                        
+                    db.executeUpdateQuery(travellerInformation);
+                        
+                    ResultSet bagagenummer =  db.executeResultSetQuery("SELECT idpassenger FROM Passenger ORDER BY idpassenger DESC LIMIT 1;");
+                    bagagenummer.next();
+                    System.out.println("TEST LET OP !!!" + bagagenummer.getInt("idpassenger"));
+                    
+                
 
                 String luggageInformation = String.format("INSERT INTO "
-                        + "Lostbagage (dateregistered, timeregistered, luggagelabelnr, passenger_name_city, luggagetype, brand, primarycolour, secondarycolour, otherchar, flightnumber) "
-                        + "VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
+                        + "Lostbagage (dateregistered, timeregistered, luggagelabelnr, passenger_name_city, luggagetype, brand, primarycolour, secondarycolour, otherchar, flightnumber, idpassenger, size, weight) "
+                        + "VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
                         generalDate.getText(), generalTime.getText(), BagageLabel.getText(),
-                        BagageDestination.getText(), LuggageTypeSelect,
+                        TravellerFirstName.getText() + TravellerAdress.getText(),LuggageTypeSelect,
                         BagageBrand.getText(), BagagePrimaryColourString, BagageSecondaryColourString,
-                        BagageSpecialchar.getText(), BagageFlight.getText());
+                        BagageSpecialchar.getText(), BagageFlight.getText(), bagagenummer.getInt("idpassenger"), 
+                        BagageSize.getText(), BagageWeight.getText());
 
-                db.executeUpdateQuery(travellerInformation);
+                
+                
+               
+                
+                
+                
                 db.executeUpdateQuery(luggageInformation);
 
                 Pdf pdf = new Pdf();
@@ -203,7 +230,7 @@ public class RegisterMissingController implements Initializable {
                         TravellerPostalCode.getText(), TravellerCountry.getText(),
                         TravellerPhone.getText(), TravellerEmail.getText(),
                         BagageLabel.getText(), BagageFlight.getText(),
-                        BagageDestination.getText(), pdf_inputluggagetype,
+                        pdf_inputluggagetype,
                         BagageBrand.getText(), pdf_inputprimarycolour,
                         pdf_inputsecondarycolour,
                         BagageSpecialchar.getText());
@@ -218,7 +245,7 @@ public class RegisterMissingController implements Initializable {
                     }
 
                     draaiding.setVisible(true);
-                    
+
                     utilities.newAnchorpane("RegisterMissing_thankyou", registerMissingPane);
 
                 }
@@ -235,14 +262,12 @@ public class RegisterMissingController implements Initializable {
             System.out.println("test");
             System.out.println(excelPath);
             progressStackPane.setVisible(true);
-            try {
-                Thread.sleep(10000);  
-                excelImport(excelPath);//1000 milliseconds is one second.
-            } catch (InterruptedException ex) {
-                Thread.currentThread().interrupt();
-            }
-            // excelImport(excelPath);
 
+            excelImport(excelPath);
+
+            Thread.currentThread().interrupt();
+
+            // excelImport(excelPath);
             //  utilities.newAnchorpane("RegisterMissing_thankyou", registerMissingPane);
         }
 
