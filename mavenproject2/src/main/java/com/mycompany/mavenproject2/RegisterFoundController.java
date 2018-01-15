@@ -68,5 +68,4 @@ public class RegisterFoundController implements Initializable {
         utilities.newAnchorpane("RegisterMissing_thankyou", RegisterFoundPane);
     }
 
-//   GetCurrentDateTime time = new GetCurrentDateTime();
 }
