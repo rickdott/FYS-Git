@@ -55,11 +55,5 @@
         </items>
       </SplitPane>
 
-      <Text fx:id="labelNameperson" layoutX="296.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name Person" />
-      <TextField layoutX="291.0" layoutY="129.0" text="Rick den Otter" />
-      <Button fx:id="labelSubmit" layoutX="657.0" layoutY="210.0" mnemonicParsing="false" style="-fx-background-color: red;" text="SUBMIT" textFill="WHITE" />
-      <TextField layoutX="558.0" layoutY="129.0" text="Baas" />
-      <Text fx:id="labelRole" layoutX="558.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Role" />
-
    </children>
 </AnchorPane>
