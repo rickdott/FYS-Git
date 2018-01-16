@@ -59,8 +59,6 @@
                         <TextField fx:id="last" layoutX="112.0" layoutY="214.0" prefHeight="25.0" prefWidth="230.0" />
                         <TextField fx:id="user" layoutX="112.0" layoutY="261.0" onInputMethodTextChanged="#checkUsername" prefHeight="25.0" prefWidth="230.0" />
                         <TextField fx:id="pass" layoutX="112.0" layoutY="310.0" prefHeight="25.0" prefWidth="230.0" />
-                        <Text fx:id="labelRole" layoutX="101.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Role" />
-                        <TextField layoutX="112.0" layoutY="127.0" text="Baas" />
                     </children>
                 </AnchorPane>
                 <Button mnemonicParsing="false" onAction="#confirmbtn" prefHeight="28.0" prefWidth="72.0" style="-fx-background-color: f70707;" text="Confirm" textFill="#fffdfd" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
@@ -68,10 +66,7 @@
                         <Insets bottom="50.0" />
                     </GridPane.margin>
                 </Button>
-                <Button fx:id="labelSubmit" mnemonicParsing="false" style="-fx-background-color: red;" text="SUBMIT" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             </children>
         </GridPane>
-        <Text fx:id="labelNameperson" layoutX="296.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name Person" />
-        <TextField layoutX="291.0" layoutY="129.0" text="Rick den Otter" />
     </children>
 </AnchorPane>

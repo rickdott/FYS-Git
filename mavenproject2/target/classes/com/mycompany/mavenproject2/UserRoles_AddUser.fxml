@@ -12,71 +12,61 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane id="AnchorPane" fx:id="UserRoles" minHeight="647.0" minWidth="1053.0" prefHeight="647.0" prefWidth="1053.0" style="-fx-background-color: #f3f3f3;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.UserRoles_AddUsersController">
-   <children>
-      <GridPane prefHeight="647.0" prefWidth="1053.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-         </rowConstraints>
-         <children>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="22.0">
-               <children>
-                  <Text layoutX="335.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First name" wrappingWidth="113.076171875">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="335.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last name" wrappingWidth="113.076171875">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="335.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" wrappingWidth="113.076171875">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="335.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="113.076171875">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="335.0" layoutY="378.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Role" wrappingWidth="113.076171875">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                  </Text>
-               </children>
-            </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="22.0" GridPane.columnIndex="1">
-               <children>
-                  <ComboBox fx:id="Role" layoutX="114.0" layoutY="356.0" prefHeight="25.0" prefWidth="230.0" promptText="Role" />
-                  <TextField fx:id="first" layoutX="112.0" layoutY="169.0" prefHeight="25.0" prefWidth="230.0" />
-                  <TextField fx:id="last" layoutX="112.0" layoutY="214.0" prefHeight="25.0" prefWidth="230.0" />
-                  <TextField fx:id="user" layoutX="112.0" layoutY="261.0" onInputMethodTextChanged="#checkUsername" prefHeight="25.0" prefWidth="230.0" />
-                  <TextField fx:id="pass" layoutX="112.0" layoutY="310.0" prefHeight="25.0" prefWidth="230.0" />
-                  <Text fx:id="labelRole" layoutX="101.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Role" />
-                  <TextField layoutX="112.0" layoutY="127.0" text="Baas" />
-               </children>
-            </AnchorPane>
-            <Button mnemonicParsing="false" onAction="#confirmbtn" prefHeight="28.0" prefWidth="72.0" style="-fx-background-color: f70707;" text="Confirm" textFill="#fffdfd" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
-               <GridPane.margin>
-                  <Insets bottom="50.0" />
-               </GridPane.margin>
-            </Button>
-            <Button fx:id="labelSubmit" mnemonicParsing="false" style="-fx-background-color: red;" text="SUBMIT" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-         </children>
-      </GridPane>
-
-<<<<<<< HEAD
-=======
-      <Text fx:id="labelNameperson" layoutX="296.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name Person" />
-      <TextField layoutX="291.0" layoutY="129.0" text="Rick den Otter" />
-
->>>>>>> 1fd4657c852496c630484255e9982245335b01a1
-   </children>
+    <children>
+        <GridPane prefHeight="647.0" prefWidth="1053.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="22.0">
+                    <children>
+                        <Text layoutX="335.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First name" wrappingWidth="113.076171875">
+                            <font>
+                                <Font size="19.0" />
+                            </font>
+                        </Text>
+                        <Text layoutX="335.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last name" wrappingWidth="113.076171875">
+                            <font>
+                                <Font size="19.0" />
+                            </font>
+                        </Text>
+                        <Text layoutX="335.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" wrappingWidth="113.076171875">
+                            <font>
+                                <Font size="19.0" />
+                            </font>
+                        </Text>
+                        <Text layoutX="335.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="113.076171875">
+                            <font>
+                                <Font size="19.0" />
+                            </font>
+                        </Text>
+                        <Text layoutX="335.0" layoutY="378.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Role" wrappingWidth="113.076171875">
+                            <font>
+                                <Font size="19.0" />
+                            </font>
+                        </Text>
+                    </children>
+                </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="22.0" GridPane.columnIndex="1">
+                    <children>
+                        <ComboBox fx:id="Role" layoutX="114.0" layoutY="356.0" prefHeight="25.0" prefWidth="230.0" promptText="Role" />
+                        <TextField fx:id="first" layoutX="112.0" layoutY="169.0" prefHeight="25.0" prefWidth="230.0" />
+                        <TextField fx:id="last" layoutX="112.0" layoutY="214.0" prefHeight="25.0" prefWidth="230.0" />
+                        <TextField fx:id="user" layoutX="112.0" layoutY="261.0" onInputMethodTextChanged="#checkUsername" prefHeight="25.0" prefWidth="230.0" />
+                        <TextField fx:id="pass" layoutX="112.0" layoutY="310.0" prefHeight="25.0" prefWidth="230.0" />
+                    </children>
+                </AnchorPane>
+                <Button mnemonicParsing="false" onAction="#confirmbtn" prefHeight="28.0" prefWidth="72.0" style="-fx-background-color: f70707;" text="Confirm" textFill="#fffdfd" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                    <GridPane.margin>
+                        <Insets bottom="50.0" />
+                    </GridPane.margin>
+                </Button>
+            </children>
+        </GridPane>
+    </children>
 </AnchorPane>
