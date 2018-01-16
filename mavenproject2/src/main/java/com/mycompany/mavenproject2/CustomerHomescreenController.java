@@ -23,7 +23,7 @@ public class CustomerHomescreenController implements Initializable {
 
         reqStatBut.setText(mybundle.getString("request_status"));
         regMisBut.setText(mybundle.getString("register_missing"));
-        faqBut.setText(mybundle.getString("faq"));
+        //faqBut.setText(mybundle.getString("faq"));
 
     }
 
