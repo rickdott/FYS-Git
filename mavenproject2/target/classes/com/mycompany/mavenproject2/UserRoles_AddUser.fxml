@@ -72,8 +72,11 @@
          </children>
       </GridPane>
 
+<<<<<<< HEAD
+=======
       <Text fx:id="labelNameperson" layoutX="296.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name Person" />
       <TextField layoutX="291.0" layoutY="129.0" text="Rick den Otter" />
 
+>>>>>>> 1fd4657c852496c630484255e9982245335b01a1
    </children>
 </AnchorPane>

@@ -45,7 +45,7 @@ public class LoginController implements Initializable {
         buttonPassenger.setText(mybundle.getString("Login"));
         textWarning.setText(mybundle.getString("Warning!"));
         textCaseSensitive.setText(mybundle.getString("Login_is_case_sensitive!"));
-        buttonEmployee.setText(mybundle.getString("Passenger_Login"));
+        buttonEmployee.setText(mybundle.getString("Employee_Login"));
     }
 
     Utilities utilities = new Utilities();
