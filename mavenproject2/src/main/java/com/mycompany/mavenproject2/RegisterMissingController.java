@@ -282,7 +282,7 @@ public class RegisterMissingController implements Initializable {
             } else {
                 warning.setText(mybundle.getString("FlightnumberInvalid"));
             }
-        } else {
+        } else if(excelPath == null){
             System.out.println("niet alle verplichte velden ingevuld");
             warning.setText(mybundle.getString("NietAllesIngevuld"));
         }
