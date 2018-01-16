@@ -1,5 +1,6 @@
 package com.mycompany.mavenproject2;
 
+import static com.mycompany.mavenproject2.LoginEmployeeController.infoBox;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -146,9 +147,6 @@ public class RegisterMissingController implements Initializable {
     private TextField generalTime;
 
     @FXML
-    private CheckBox mailSturen;
-
-    @FXML
     private StackPane loadingScreen;
 
     // Path van het excel bestand (als die er is)
@@ -267,12 +265,14 @@ public class RegisterMissingController implements Initializable {
 
                     if (mail.ValidateMail(TravellerEmail.getText().trim()) == true) {
 
-                        if (mailSturen.isSelected()) {
+                        if (labelSendmail.isSelected()) {
 
                             System.out.println("Sending mail...");
                             mailThread(mail);
 
-                            utilities.newAnchorpane("RegisterMissing_thankyou", registerMissingPane);
+                            infoBox("Thanks for registering luggage", "Success", null);
+                        } else {
+                            infoBox("Thanks for registering luggage", "Success", null);
                         }
 
                     }
@@ -293,7 +293,7 @@ public class RegisterMissingController implements Initializable {
                 System.out.println(excelPath);
 
                 excelThread();
-                utilities.newAnchorpane("RegisterMissing_thankyou", registerMissingPane);
+                infoBox("Thanks for registering luggage", "Success", null);
             } else {
                 warning.setText(mybundle.getString("WrongFile"));
             }
@@ -334,7 +334,7 @@ public class RegisterMissingController implements Initializable {
         // Roept een method aan in de MainApp die het path returnt
         excelPath = MainApp.fileChoosePath();
         System.out.println("String path: " + excelPath);
-        //warning.setText(excelPath);
+        warning.setText(excelPath);
     }
 
     // Method om een Excelsheet te importeren
