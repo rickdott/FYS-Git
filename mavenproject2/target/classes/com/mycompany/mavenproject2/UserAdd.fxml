@@ -11,7 +11,11 @@
          <bottom>
          </bottom>
          <center>
+<<<<<<< HEAD
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Changes have been succesfully made." wrappingWidth="504.7939453125" BorderPane.alignment="CENTER">
+=======
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Changes has been succesfull" wrappingWidth="494.7939453125" BorderPane.alignment="CENTER">
+>>>>>>> 1fd4657c852496c630484255e9982245335b01a1
                <font>
                   <Font size="30.0" />
                </font>
