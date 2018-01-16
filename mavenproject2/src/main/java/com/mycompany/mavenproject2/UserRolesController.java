@@ -5,7 +5,7 @@
  */
 package com.mycompany.mavenproject2;
 
-import static com.mycompany.mavenproject2.RegisterFoundController.infoBox;
+import static com.mycompany.mavenproject2.LoginController.infoBox;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,6 +18,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
@@ -28,6 +29,13 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javax.mail.FetchProfile.Item;
 
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
+
+
 /**
  * <<<<<<< HEAD
  *
@@ -36,6 +44,7 @@ import javax.mail.FetchProfile.Item;
  *
  */
 public class UserRolesController implements Initializable {
+
     public static String editUser;
     UserDetails U = new UserDetails();
 
@@ -91,6 +100,38 @@ public class UserRolesController implements Initializable {
         userList.setAll(list);
         dc.close();
     }
+
+/*
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
+        
+        but1.setText(mybundle.getString("Add_user"));
+        labelName.setText(mybundle.getString("Name"));
+        labelRoles.setText(mybundle.getString("Roles"));
+        labelRole.setText(mybundle.getString("Rol"));
+        labelNameperson.setText(mybundle.getString("Name_Person"));
+        labelSubmit.setText(mybundle.getString("Submit"));
+
+    }
+*/
+        
+    @FXML
+    private Button but1,labelSubmit;
+    
+    @FXML
+    private Text labelRole, labelNameperson;
+    
+    @FXML
+    private TableColumn labelName, labelRoles;
+// End of translation lines
+    
+ //   @FXML
+ //   private AnchorPane mainpane;
+    
+   // Utilities utilities = new Utilities();
+    
 
     @FXML
     private void openAddRoles(ActionEvent event) {

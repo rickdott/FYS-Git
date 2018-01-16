@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane id="AnchorPane" fx:id="mainpane" minHeight="647.0" minWidth="1053.0" prefHeight="647.0" prefWidth="1053.0" style="-fx-background-color: #f3f3f3;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.UserRolesController">
+<AnchorPane id="AnchorPane" fx:id="mainpane" minHeight="647.0" minWidth="1053.0" prefHeight="647.0" prefWidth="1053.0" style="-fx-background-color: #f3f3f3;" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.UserRolesController">
    <children>
       <GridPane fx:id="grid1" prefHeight="720.0" prefWidth="1106.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
@@ -23,11 +23,16 @@
                <children>
                   <TableView fx:id="tableUser" editable="true" layoutY="39.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="608.0" prefWidth="1053.0">
                     <columns>
+
                       <TableColumn fx:id="firstnameTc" editable="false" prefWidth="223.0" text="First name" />
                         <TableColumn fx:id="lastnameTc" editable="false" prefWidth="196.0" text="Last name" />
                         <TableColumn fx:id="usernameTc" editable="false" prefWidth="246.0" text="User name" />
                         <TableColumn fx:id="passwordTc" editable="false" prefWidth="220.0" text="Password" />
                         <TableColumn fx:id="roleTc" editable="false" prefWidth="167.0" text="Roles" />
+
+                      <TableColumn fx:id="labelName" prefWidth="675.0000915527344" text="Name" />
+                      <TableColumn fx:id="labelRoles" prefWidth="234.0" text="Roles" />
+
                     </columns>
                   </TableView>
                   <Button fx:id="but1" layoutX="912.0" mnemonicParsing="false" onAction="#openAddRoles" prefHeight="34.0" prefWidth="141.0" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Add user" textFill="WHITE" />

@@ -10,6 +10,7 @@
 
 <AnchorPane id="AnchorPane" fx:id="UserRoles" minHeight="647.0" minWidth="1053.0" prefHeight="647.0" prefWidth="1053.0" style="-fx-background-color: #f3f3f3;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.UserRoles_AddUsersController">
    <children>
+
       <SplitPane dividerPositions="0.4862036156041865" layoutX="-1.0" layoutY="1.0" prefHeight="647.0" prefWidth="1053.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
@@ -53,5 +54,12 @@
             </AnchorPane>
         </items>
       </SplitPane>
+
+      <Text fx:id="labelNameperson" layoutX="296.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name Person" />
+      <TextField layoutX="291.0" layoutY="129.0" text="Rick den Otter" />
+      <Button fx:id="labelSubmit" layoutX="657.0" layoutY="210.0" mnemonicParsing="false" style="-fx-background-color: red;" text="SUBMIT" textFill="WHITE" />
+      <TextField layoutX="558.0" layoutY="129.0" text="Baas" />
+      <Text fx:id="labelRole" layoutX="558.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Role" />
+
    </children>
 </AnchorPane>

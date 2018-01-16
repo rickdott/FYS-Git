@@ -13,7 +13,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+
 <AnchorPane id="AnchorPane" fx:id="RegisterFoundPane" minHeight="647.0" minWidth="1053.0" prefHeight="647.0" prefWidth="1053.0" style="-fx-background-color: #f3f3f3;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.RegisterFoundController">
+
+
+
    <children>
       <GridPane layoutX="86.0" layoutY="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
@@ -28,7 +32,7 @@
          <children>
             <VBox prefHeight="621.0" prefWidth="454.0" GridPane.columnIndex="1">
                <children>
-                  <Text fill="#d81e05" strokeType="OUTSIDE" strokeWidth="0.0" text="General">
+                  <Text fx:id="labelGeneral" fill="#d81e05" strokeType="OUTSIDE" strokeWidth="0.0" text="General">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -41,7 +45,11 @@
                         <Insets right="40.0" />
                      </VBox.margin>
                   </TextField>
+
                   <TextField fx:id="LocationFound" promptText="Only Numbers">
+
+                  
+
                      <VBox.margin>
                         <Insets right="40.0" top="8.0" />
                      </VBox.margin>
@@ -59,7 +67,11 @@
                         <Insets right="40.0" top="8.0" />
                      </VBox.margin>
                   </TextField>
+
                   <TextField fx:id="BagageFlight">
+
+
+
                      <VBox.margin>
                         <Insets right="40.0" top="8.0" />
                      </VBox.margin>
@@ -69,7 +81,10 @@
                         <Font size="24.0" />
                      </font>
                   </Text>
+
                   <ComboBox fx:id="LuggageType" prefHeight="29.0" prefWidth="413.0" promptText="Luggage Type">
+
+
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
@@ -112,6 +127,7 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Text>
+
                </children>
                <opaqueInsets>
                   <Insets right="40.0" />
@@ -120,6 +136,7 @@
             <VBox alignment="TOP_RIGHT" prefHeight="200.0" prefWidth="100.0" GridPane.halignment="RIGHT">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
+
                      <VBox.margin>
                         <Insets right="10.0" top="85.0" />
                      </VBox.margin>
@@ -127,7 +144,7 @@
                         <Font size="17.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Location Found">
+                  <Text fx:id="labelLocation" strokeType="OUTSIDE" strokeWidth="0.0" text="Location Found">
                      <font>
                         <Font size="17.0" />
                      </font>
@@ -135,7 +152,9 @@
                         <Insets right="10.0" top="10.0" />
                      </VBox.margin>
                   </Text>
+
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Label Number*">
+
                      <VBox.margin>
                         <Insets right="10.0" top="65.0" />
                      </VBox.margin>
@@ -143,7 +162,7 @@
                         <Font size="17.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Flight Number*">
+                  <Text fx:id="labelFlightNumber" strokeType="OUTSIDE" strokeWidth="0.0" text="Flight Number*">
                      <VBox.margin>
                         <Insets right="10.0" top="8.0" />
                      </VBox.margin>
@@ -151,7 +170,9 @@
                         <Font size="17.0" />
                      </font>
                   </Text>
+
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Type*">
+
                      <VBox.margin>
                         <Insets right="10.0" top="45.0" />
                      </VBox.margin>
@@ -159,7 +180,9 @@
                         <Font size="17.0" />
                      </font>
                   </Text>
+
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Brand*">
+
                      <VBox.margin>
                         <Insets right="10.0" top="13.0" />
                      </VBox.margin>
@@ -167,7 +190,9 @@
                         <Font size="17.0" />
                      </font>
                   </Text>
+
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Colour*">
+
                      <VBox.margin>
                         <Insets right="10.0" top="15.0" />
                      </VBox.margin>
@@ -175,7 +200,9 @@
                         <Font size="17.0" />
                      </font>
                   </Text>
+
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Secondary Colour*" wrappingWidth="148.99267578125">
+
                      <font>
                         <Font size="17.0" />
                      </font>
@@ -183,7 +210,9 @@
                         <Insets top="15.0" />
                      </VBox.margin>
                   </Text>
+
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Special Characteristics*">
+
                      <VBox.margin>
                         <Insets right="10.0" top="10.0" />
                      </VBox.margin>
@@ -191,7 +220,9 @@
                         <Font size="17.0" />
                      </font>
                   </Text>
+
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Size">
+
                      <font>
                         <Font size="17.0" />
                      </font>
@@ -199,7 +230,9 @@
                         <Insets right="15.0" top="14.0" />
                      </VBox.margin>
                   </Text>
+
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Weight">
+
                      <font>
                         <Font size="17.0" />
                      </font>
@@ -219,6 +252,7 @@
                         <Insets top="50.0" />
                      </VBox.margin>
                   </Label>
+
                </children>
             </VBox>
             <Button mnemonicParsing="false" onAction="#openRegisterThankyou" prefHeight="39.0" prefWidth="85.0" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Submit" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP">

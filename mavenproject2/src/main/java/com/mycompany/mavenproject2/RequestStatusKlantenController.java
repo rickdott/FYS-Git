@@ -1,12 +1,16 @@
 package com.mycompany.mavenproject2;
 
+import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
@@ -21,26 +25,42 @@ import javafx.scene.layout.VBox;
  * @author Timur Yagci 500764449 (148 lines) Met hulp van Rick den Otter
  * 500749952
  */
-public class RequestStatusKlantenController {
+public class RequestStatusKlantenController implements Initializable {
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
+
+        labelNumber.setText(mybundle.getString("Label_Number"));
+        labelName.setText(mybundle.getString("Lastname"));
+        labelSubmit.setText(mybundle.getString("Submit"));
+
+    }
+
+    @FXML
+    private Label labelNumber, labelName;
+
+    @FXML
+    private Button labelSubmit;
 
     @FXML
     private AnchorPane requestpage;
 
     @FXML
     private TextField lastNameField, labelNrField;
-    
+
     @FXML
     private TextField addressField, numberField, cityField, countryField, zipCodeField;
 
     @FXML
     private HBox hBoxLost, hBoxFound;
-    
+
     @FXML
     private VBox choiceVBox, shippingVBox;
-    
+
     @FXML
     private Label statusMessage, addressLabel, zipCodeLabel, cityAndCountryLabel;
-        
+
     @FXML
     private RadioButton choicePickup, choiceAddress;
 
@@ -109,7 +129,7 @@ public class RequestStatusKlantenController {
     private void submitChoice() throws SQLException {
         //read choice from radio buttons
         if (choicePickup.isSelected()) {
-            
+
         } else {
             //customer wants to deliver to another address, get info from textfields
             long labelnumber = Long.parseLong(labelNrField.getText());
@@ -118,20 +138,19 @@ public class RequestStatusKlantenController {
             String city = cityField.getText();
             String country = countryField.getText();
             String zip = zipCodeField.getText();
-            
-            
+
             hBoxLost.setVisible(false);
             hBoxFound.setVisible(false);
             shippingVBox.setVisible(true);
-            
+
             addressLabel.setText(String.format("%s %s", address, number));
             zipCodeLabel.setText(String.format("%s", zip));
             cityAndCountryLabel.setText(String.format("%s, %s", city, country));
             Utilities.isSolvedLabelnr(labelnumber, true);
-            
+
         }
     }
-    
+
     private String makeQuery(String fromTable, String labelNr, String lastName) {
         String query = String.format("SELECT * FROM %s WHERE luggagelabelnr = '%s' AND passenger_name_city LIKE '%%%s%%'", fromTable, labelNr, lastName);
 

@@ -1,168 +1,86 @@
 package com.mycompany.mavenproject2;
 
-import java.sql.PreparedStatement;
+import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.PasswordField;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
+import javafx.scene.text.Text;
 
 /**
  * Controller for the login screen, contains methods for logging in and changing
- * languages
- * Stan 1-72, Matthijs 73-208
+ * languages Stan 1-72, Matthijs 73-208
+ *
  * @author Matthijs Snijders 500780453, Stan van Weringh 500771870
  */
-public class LoginController {
+public class LoginController implements Initializable {
 
     @FXML
-    private AnchorPane paneLogin, paneCustomer;
-    
+    private Text labelEmail, labelLastname, textWarning, textCaseSensitive;
+
+    @FXML
+    private TextField textEmail, textLastname;
+
+    @FXML
+    private AnchorPane paneCustomer;
+
+    @FXML
+    private Button buttonEmployee, buttonPassenger;
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+           ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
+        labelEmail.setText(mybundle.getString("E-Mail"));
+        textEmail.setPromptText(mybundle.getString("Enter_your_E-mail"));
+        labelLastname.setText(mybundle.getString("Lastname"));
+        textLastname.setPromptText(mybundle.getString("Enter_your_lastname"));
+        buttonPassenger.setText(mybundle.getString("Login"));
+        textWarning.setText(mybundle.getString("Warning!"));
+        textCaseSensitive.setText(mybundle.getString("Login_is_case_sensitive!"));
+        buttonEmployee.setText(mybundle.getString("Passenger_Login"));
+    }
+
     Utilities utilities = new Utilities();
 
     // Methods for changing the language
     @FXML
-    private void testMethod() {
-        System.out.println("Current Locale: " + Locale.getDefault());
-	ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
-        System.out.println("Say how are you in US English: " + mybundle.getString("language"));
-        
-        Locale.setDefault(new Locale("en", "EN"));
-        System.out.println(Locale.getDefault());
-        mybundle = ResourceBundle.getBundle("languages.Language");
-        System.out.println(mybundle.getString("language"));
-        
-        
-//        Locale.setDefault(new Locale("ms", "MY"));
-//
-//        // read MyLabels_ms_MY.properties
-//        System.out.println("Current Locale: " + Locale.getDefault());
-//        mybundle = ResourceBundle.getBundle("languages.language");
-//        System.out.println("Say how are you in Malaysian Malaya language: " + mybundle.getString("how_are_you"));
-    }
-    
-    @FXML
     private void setLanguageEnglish() {
         System.out.println("Set language to English");
         loadLanguage("en", "EN");
+        utilities.newAnchorpane("Login", paneCustomer);
     }
 
     @FXML
     private void setLanguageDutch() {
         System.out.println("Set language to Dutch");
         loadLanguage("nl", "NL");
-    }
-
-    @FXML
-    private void setLanguageGerman() {
-        System.out.println("Set language to German");
-        loadLanguage("de", "DE");
-    }
-
-    @FXML
-    private void setLanguagePortuguese() {
-        System.out.println("Set language to Portuguese");
-        loadLanguage("pt", "PT");
+        utilities.newAnchorpane("Login", paneCustomer);
     }
 
     @FXML
     private void setLanguageTurkish() {
         System.out.println("Set language to Turkish");
         loadLanguage("tr", "TR");
+        utilities.newAnchorpane("Login", paneCustomer);
     }
 
     // Main method for changing languages
     private void loadLanguage(String language, String lang) {
+        System.out.println("Current Locale: " + Locale.getDefault());
         Locale.setDefault(new Locale(language, lang));
-        ResourceBundle bundle = ResourceBundle.getBundle("Language"); // TODO: Path veranderen zodat de .properties in een map languages kunnen
-        //System.out.println(bundle.getString("language"));
-    }
-
-    @FXML
-    private void openCustomerHomescreen(ActionEvent event) {
-        utilities.newAnchorpane("CustomerHomescreen", paneLogin);
-    }
-
-    @FXML
-    private void openCustomerHomescreenFromCustomer(ActionEvent event) {
-        utilities.newAnchorpane("CustomerHomescreen", paneCustomer);
-    }
-
-    @FXML
-    private void openWorkerHomescreen(ActionEvent event) {
-        utilities.newAnchorpane("EmployeeHomescreen", paneLogin);
-    }
-
-    @FXML
-    private void openWorkerHomescreenFromCustomer(ActionEvent event) {
-        utilities.newAnchorpane("EmployeeHomescreen", paneCustomer);
     }
 
     @FXML
     private void goToEmployee(ActionEvent event) {
         utilities.newAnchorpane("LoginEmployee", paneCustomer);
-    }
-
-    @FXML
-    private void goToPassenger(ActionEvent event) {
-        utilities.newAnchorpane("Login", paneLogin);
-    }
-
-    @FXML
-    private TextField textUsername;
-
-    @FXML
-    private PasswordField textPassword;
-
-    Stage dialogStage = new Stage();
-    Scene scene;
-    
-    PreparedStatement preparedStatement = null;
-
-    ResultSet resultSet = null;
-
-    //Login for employee
-    @FXML
-    private void handleButtonAction(ActionEvent event) {
-           
-        Database db = new Database();
-        String username = textUsername.getText();
-        String password = textPassword.getText();
-        int usrID = 0;
-        int roleID = 0;
-        String sql = String.format("SELECT * FROM Employee "
-                + "WHERE username = '%s' "
-                + "and password = '%s' ",
-                username, password);             
-        try {
-            resultSet = db.executeResultSetQuery(sql);
-
-            if (!resultSet.next()) {
-                infoBox("Enter Correct Username and Password", "Failed", null);
-            } else {
-                resultSet.first();
-                usrID = resultSet.getInt("idEmployee");
-                roleID = resultSet.getInt("RoleID");
-
-                utilities.setEmployee(usrID, roleID);
-
-                LoginController controller = new LoginController();
-                utilities.newAnchorpane("EmployeeHomescreen", paneLogin);
-                infoBox("Login Successfull", "Success", null);
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        
     }
 
     public static void infoBox(String infoMessage, String titleBar, String headerMessage) {
@@ -173,18 +91,15 @@ public class LoginController {
         alert.showAndWait();
     }
 
-     //Login for passenger
+    //Login for passenger
     @FXML
-    private TextField textEmail;
-            
-    @FXML
-    private TextField textLastName;
-
-    @FXML
-    private void handleButtonActionPassenger(ActionEvent event) {
-        Database db = new Database(); 
+    private void handleButtonActionPassenger(ActionEvent event) throws SQLException {
+        Database db = new Database();
         String email = textEmail.getText();
-        String lastname = textLastName.getText();
+
+        String lastname = textLastname.getText();
+        int usrID = 0;
+        int roleID = 0;
 
         //SQL query checks if email and lastname is equal to input.
         String sql = String.format("SELECT * FROM Passenger "
@@ -192,19 +107,17 @@ public class LoginController {
                 + "and lastname = '%s' ",
                 email, lastname);
 
-        try {
-            resultSet = db.executeResultSetQuery(sql);
-            if (!resultSet.next()) {
-                infoBox("Enter Correct labelnummer And Lastname", "Failed", null);
-            } else {
-                infoBox("Login Successfull", "Success", null);
-                Utilities utilities = new Utilities();
-                LoginController controller = new LoginController();
-                utilities.newAnchorpane("CustomerHomescreen", paneCustomer);
-            }
+        ResultSet resultSet = db.executeResultSetQuery(sql);
+        if (!resultSet.next()) {
+            infoBox("Enter Correct labelnummer And Lastname", "Failed", null);
+        } else {
+            infoBox("Login Successfull", "Success", null);
 
-        } catch (SQLException e) {
-            e.printStackTrace();
+            while (resultSet.next()) {
+                usrID = resultSet.getInt("idEmployee");
+            }
+            infoBox("User ID = " + usrID, "Success", null);
+            utilities.newAnchorpane("CustomerHomescreen", paneCustomer);
         }
     }
 

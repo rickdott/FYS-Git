@@ -5,7 +5,8 @@
  */
 package com.mycompany.mavenproject2;
 
-import static com.mycompany.mavenproject2.RegisterFoundController.infoBox;
+import static com.mycompany.mavenproject2.LoginController.infoBox;
+//import static com.mycompany.mavenproject2.RegisterFoundController.infoBox;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;

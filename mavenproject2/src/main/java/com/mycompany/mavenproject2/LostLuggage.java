@@ -4,10 +4,11 @@ import java.util.ArrayList;
 
 /**
  * LostLuggage class, extension of the luggage class
+ *
  * @author Rick den Otter 500749952 (51 lines)
  */
-public class LostLuggage extends Luggage{
-    
+public class LostLuggage extends Luggage {
+
     private String dateregistered;
     private String timeregistered;
 
@@ -26,15 +27,16 @@ public class LostLuggage extends Luggage{
     public void setTimeregistered(String timeregistered) {
         this.timeregistered = timeregistered;
     }
-    
+
     /**
      * Method to return info on a piece of luggage as an ArrayLiist
+     *
      * @return ArrayList<String> with information on lost luggage
      */
     @Override
     public ArrayList<String> getLuggageInfo() {
         ArrayList<String> list = new ArrayList<>();
-        
+
         list.add(this.registrationnr);
         list.add(this.dateregistered);
         list.add(this.timeregistered);
@@ -48,7 +50,7 @@ public class LostLuggage extends Luggage{
         list.add(this.weight);
         list.add(this.passenger_name_city);
         list.add(this.otherchar);
-        
+
         return list;
-    } 
+    }
 }
