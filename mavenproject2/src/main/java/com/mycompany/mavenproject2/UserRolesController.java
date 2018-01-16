@@ -150,7 +150,7 @@ public class UserRolesController implements Initializable {
             Alert alert = new Alert(AlertType.CONFIRMATION);
             alert.setTitle("Confirmation Dialog");
             alert.setHeaderText(null);
-            alert.setContentText("Are you ok with this?????");
+            alert.setContentText("Are you sure you want to delete this entry?");
 
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get() == ButtonType.OK) {

@@ -111,7 +111,7 @@ public class LoginController implements Initializable {
         if (!resultSet.next()) {
             infoBox("Enter Correct labelnummer And Lastname", "Failed", null);
         } else {
-            infoBox("Login Successfull", "Success", null);
+            infoBox("Login Successful", "Success", null);
 
             while (resultSet.next()) {
                 usrID = resultSet.getInt("idEmployee");

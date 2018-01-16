@@ -128,7 +128,7 @@ public class LoginEmployeeController implements Initializable {
 
                 LoginEmployeeController controller = new LoginEmployeeController();
                 utilities.newAnchorpane("EmployeeHomescreen", paneLogin);
-                infoBox("Login Successfull", "Success", null);
+                infoBox("Login Successful", "Success", null);
             }
 
         } catch (SQLException e) {
