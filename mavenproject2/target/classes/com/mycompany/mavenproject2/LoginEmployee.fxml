@@ -30,7 +30,7 @@
                         <Font size="18.0" />
                     </font>
                <GridPane.margin>
-                  <Insets right="450.0" top="80.0" />
+                  <Insets right="450.0" />
                </GridPane.margin>
                 </Text>
                 <Button fx:id="buttonEmployee" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="253.0" text="Login" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
@@ -43,7 +43,7 @@
                         <Font size="18.0" />
                     </font>
                <GridPane.margin>
-                  <Insets right="450.0" />
+                  <Insets right="450.0" top="80.0" />
                </GridPane.margin>
                 </Text>
                 <TextField fx:id="textUsername" maxWidth="-Infinity" prefHeight="25.0" prefWidth="253.0" promptText="Enter your username" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
