@@ -32,6 +32,9 @@
         </rowConstraints>
          <children>
 <<<<<<< HEAD
+            <Label fx:id="label1" text="B.A.G.G.E.R." textFill="#d81e05" GridPane.columnIndex="1">
+=======
+<<<<<<< HEAD
             <Label fx:id="label1" text="B.A.G.G.E.R" textFill="#d81e05" GridPane.columnIndex="1">
                <font>
                   <Font name="Helvetica Neue" size="48.0" />
@@ -68,6 +71,7 @@
             </VBox>
             <Pane fx:id="mainpage" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
 =======
+>>>>>>> master
             <StackPane fx:id="mainpage" GridPane.columnIndex="1" GridPane.rowIndex="1">
 >>>>>>> master
                <children>
@@ -78,7 +82,6 @@
                   </ImageView>
                </children>
             </StackPane>
-            <Label fx:id="label1" text="B.A.G.G.E.R" textFill="#d81e05" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font name="Helvetica Neue" size="48.0" />
                </font>

@@ -55,14 +55,6 @@
                   <Insets bottom="200.0" right="500.0" />
                </GridPane.margin>
                   </Button>
-                  <Button fx:id="faqBut" mnemonicParsing="false" onAction="#openFaq" onMouseEntered="#onHoverFaqBut" onMouseExited="#offHoverFaqBut" prefHeight="71.0" prefWidth="143.0" styleClass="button-large" stylesheets="@../../../styles/Styles.css" text="F.A.Q." textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-                      <font>
-                          <Font size="27.0" />
-                      </font>
-               <GridPane.margin>
-                  <Insets top="400.0" />
-               </GridPane.margin>
-                  </Button>
          </children>
       </GridPane>
     </children>

@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -9,32 +10,34 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" fx:id="RegisterFoundPane" minHeight="647.0" minWidth="1053.0" prefHeight="647.0" prefWidth="1053.0" style="-fx-background-color: #f3f3f3;" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.RegisterFoundController">
+
+<AnchorPane id="AnchorPane" fx:id="RegisterFoundPane" minHeight="647.0" minWidth="1053.0" prefHeight="647.0" prefWidth="1053.0" style="-fx-background-color: #f3f3f3;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.RegisterFoundController">
+
+
+
    <children>
       <GridPane layoutX="86.0" layoutY="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
-          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="263.0" minWidth="263.0" prefWidth="263.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="263.0" minWidth="263.0" prefWidth="263.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="187.0" minWidth="150.0" prefWidth="187.0" />
-          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="341.0" minWidth="263.0" prefWidth="341.0" />
+          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="500.0" minWidth="263.0" prefWidth="263.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="800.0" minWidth="263.0" prefWidth="454.0" />
+          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="800.0" minWidth="150.0" prefWidth="150.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints maxHeight="630.0" minHeight="10.0" prefHeight="604.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="318.0" minHeight="10.0" prefHeight="43.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="400.0" minHeight="10.0" prefHeight="53.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+            <VBox prefHeight="621.0" prefWidth="454.0" GridPane.columnIndex="1">
                <children>
                   <Text fx:id="labelGeneral" fill="#d81e05" strokeType="OUTSIDE" strokeWidth="0.0" text="General">
                      <font>
                         <Font size="24.0" />
                      </font>
                      <VBox.margin>
-                        <Insets top="60.0" />
+                        <Insets bottom="3.0" top="50.0" />
                      </VBox.margin>
                   </Text>
                   <TextField fx:id="GeneralDate2" prefHeight="25.0" prefWidth="201.0">
@@ -42,21 +45,89 @@
                         <Insets right="40.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField editable="false">
+
+                  <TextField fx:id="LocationFound" promptText="Only Numbers">
+
+                  
+
                      <VBox.margin>
                         <Insets right="40.0" top="8.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField>
+                  <Text fill="#d81e05" strokeType="OUTSIDE" strokeWidth="0.0" text="Luggage label">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Text>
+                  <TextField fx:id="BagageLabel" promptText="Only numbers">
                      <VBox.margin>
                         <Insets right="40.0" top="8.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField>
+
+                  <TextField fx:id="BagageFlight">
+
+
+
                      <VBox.margin>
                         <Insets right="40.0" top="8.0" />
                      </VBox.margin>
                   </TextField>
+                  <Text fill="#d81e05" strokeType="OUTSIDE" strokeWidth="0.0" text="Luggage information">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+
+                  <ComboBox fx:id="LuggageType" prefHeight="29.0" prefWidth="413.0" promptText="Luggage Type">
+
+
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </ComboBox>
+                  <TextField fx:id="BagageBrand">
+                     <VBox.margin>
+                        <Insets right="40.0" top="8.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <ComboBox fx:id="BagagePrimaryColour" prefHeight="29.0" prefWidth="415.0" promptText="Colour">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </ComboBox>
+                  <ComboBox fx:id="BagageSecondaryColour" prefHeight="29.0" prefWidth="415.0" promptText="Colour">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </ComboBox>
+                  <TextField fx:id="BagageSpecialchar">
+                     <VBox.margin>
+                        <Insets right="40.0" top="8.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="Size" promptText="Only Numbers">
+                     <VBox.margin>
+                        <Insets right="40.0" top="8.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="Weight" prefHeight="25.0" prefWidth="413.0" promptText="Only Numbers">
+                     <VBox.margin>
+                        <Insets right="40.0" top="8.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Velden met * zijn verplicht om in te vullen" wrappingWidth="322.328125">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Text>
+
                </children>
                <opaqueInsets>
                   <Insets right="40.0" />
@@ -64,25 +135,10 @@
             </VBox>
             <VBox alignment="TOP_RIGHT" prefHeight="200.0" prefWidth="100.0" GridPane.halignment="RIGHT">
                <children>
-                  <Text fx:id="labelDate" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
+
                      <VBox.margin>
-                        <Insets right="10.0" top="94.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="labelTime" strokeType="OUTSIDE" strokeWidth="0.0" text="Time">
-                     <VBox.margin>
-                        <Insets right="10.0" top="7.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="labelAirport" strokeType="OUTSIDE" strokeWidth="0.0" text="Airport">
-                     <VBox.margin>
-                        <Insets right="10.0" top="7.0" />
+                        <Insets right="10.0" top="85.0" />
                      </VBox.margin>
                      <font>
                         <Font size="17.0" />
@@ -93,16 +149,14 @@
                         <Font size="17.0" />
                      </font>
                      <VBox.margin>
-                        <Insets right="10.0" top="7.0" />
+                        <Insets right="10.0" top="10.0" />
                      </VBox.margin>
                   </Text>
-               </children>
-            </VBox>
-            <VBox alignment="TOP_RIGHT" prefHeight="645.0" prefWidth="136.0" GridPane.columnIndex="2">
-               <children>
-                  <Text fx:id="labelLabelNumber" strokeType="OUTSIDE" strokeWidth="0.0" text="Label Number*">
+
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Label Number*">
+
                      <VBox.margin>
-                        <Insets right="10.0" top="85.0" />
+                        <Insets right="10.0" top="65.0" />
                      </VBox.margin>
                      <font>
                         <Font size="17.0" />
@@ -116,15 +170,9 @@
                         <Font size="17.0" />
                      </font>
                   </Text>
-                  <Text fx:id="labelDestination" strokeType="OUTSIDE" strokeWidth="0.0" text="Destination*">
-                     <VBox.margin>
-                        <Insets right="10.0" top="10.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="labelType" strokeType="OUTSIDE" strokeWidth="0.0" text="Type">
+
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Type*">
+
                      <VBox.margin>
                         <Insets right="10.0" top="45.0" />
                      </VBox.margin>
@@ -132,7 +180,39 @@
                         <Font size="17.0" />
                      </font>
                   </Text>
-                  <Text fx:id="labelBrand" strokeType="OUTSIDE" strokeWidth="0.0" text="Brand">
+
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Brand*">
+
+                     <VBox.margin>
+                        <Insets right="10.0" top="13.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Colour*">
+
+                     <VBox.margin>
+                        <Insets right="10.0" top="15.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Secondary Colour*" wrappingWidth="148.99267578125">
+
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Text>
+
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Special Characteristics*">
+
                      <VBox.margin>
                         <Insets right="10.0" top="10.0" />
                      </VBox.margin>
@@ -140,74 +220,30 @@
                         <Font size="17.0" />
                      </font>
                   </Text>
-                  <Text fx:id="labelColour" strokeType="OUTSIDE" strokeWidth="0.0" text="Colour">
-                     <VBox.margin>
-                        <Insets right="10.0" top="10.0" />
-                     </VBox.margin>
+
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Size">
+
                      <font>
                         <Font size="17.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets right="15.0" top="14.0" />
+                     </VBox.margin>
                   </Text>
-                  <Text fx:id="labelSpecialChar" strokeType="OUTSIDE" strokeWidth="0.0" text="Special Characteristics">
-                     <VBox.margin>
-                        <Insets right="10.0" top="10.0" />
-                     </VBox.margin>
+
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Weight">
+
                      <font>
                         <Font size="17.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" right="15.0" top="5.0" />
+                     </VBox.margin>
                   </Text>
                </children>
             </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3">
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
                <children>
-                  <Text fx:id="labelLuggage" fill="#d81e05" strokeType="OUTSIDE" strokeWidth="0.0" text="Luggage label">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets top="80.0" />
-                     </VBox.margin>
-                  </Text>
-                  <TextField fx:id="BagageLabel">
-                     <VBox.margin>
-                        <Insets right="40.0" top="8.0" />
-                     </VBox.margin>
-                  </TextField>
-                  <TextField fx:id="BagageFlight">
-                     <VBox.margin>
-                        <Insets right="40.0" top="8.0" />
-                     </VBox.margin>
-                  </TextField>
-                  <TextField fx:id="BagageDestination">
-                     <VBox.margin>
-                        <Insets right="40.0" top="8.0" />
-                     </VBox.margin>
-                  </TextField>
-                  <Text fx:id="labelLuggageInformation" fill="#d81e05" strokeType="OUTSIDE" strokeWidth="0.0" text="Luggage information">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Text>
-                  <TextField fx:id="BagageType">
-                     <VBox.margin>
-                        <Insets right="40.0" top="8.0" />
-                     </VBox.margin>
-                  </TextField>
-                  <TextField fx:id="BagageBrand">
-                     <VBox.margin>
-                        <Insets right="40.0" top="8.0" />
-                     </VBox.margin>
-                  </TextField>
-                  <TextField fx:id="BagageColour">
-                     <VBox.margin>
-                        <Insets right="40.0" top="8.0" />
-                     </VBox.margin>
-                  </TextField>
-                  <TextField fx:id="BagageSpecialchar">
-                     <VBox.margin>
-                        <Insets right="40.0" top="8.0" />
-                     </VBox.margin>
-                  </TextField>
                   <Label fx:id="warning" prefHeight="44.0" prefWidth="296.0" textFill="RED">
                      <font>
                         <Font size="17.0" />
@@ -216,23 +252,15 @@
                         <Insets top="50.0" />
                      </VBox.margin>
                   </Label>
-                  <Button fx:id="labelSumbit" mnemonicParsing="false" onAction="#openRegisterThankyou" prefHeight="39.0" prefWidth="85.0" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Submit" textFill="WHITE">
-                     <VBox.margin>
-                        <Insets top="50.0" />
-                     </VBox.margin>
-                  </Button>
-                  <Text fx:id="labelRequired" strokeType="OUTSIDE" strokeWidth="0.0" text="Fields with * are required to fill in">
-                     <VBox.margin>
-                        <Insets top="110.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Text>
+
                </children>
             </VBox>
+            <Button mnemonicParsing="false" onAction="#openRegisterThankyou" prefHeight="39.0" prefWidth="85.0" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Submit" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Button>
          </children>
       </GridPane>
-      <Line endX="526.5" endY="647.0" startX="526.5" stroke="#363636" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="526.0" AnchorPane.rightAnchor="526.0" AnchorPane.topAnchor="0.0" />
    </children>
 </AnchorPane>

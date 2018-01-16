@@ -19,10 +19,10 @@
     <children>
         <GridPane layoutX="86.0" layoutY="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <columnConstraints>
-                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="200.0" minWidth="100.0" prefWidth="187.0" />
-                <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="800.0" minWidth="263.0" prefWidth="263.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="240.0" prefWidth="187.0" />
-                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="800.0" minWidth="263.0" prefWidth="263.0" />
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="300.0" minWidth="100.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="500.0" minWidth="263.0" prefWidth="263.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="300.0" prefWidth="187.0" />
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="500.0" minWidth="263.0" prefWidth="263.0" />
             </columnConstraints>
             <rowConstraints>
                 <RowConstraints maxHeight="630.0" minHeight="10.0" prefHeight="604.0" vgrow="SOMETIMES" />
@@ -31,7 +31,7 @@
             <children>
                 <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                     <children>
-                        <Text fx:id="labelGeneral" fill="#d81e05" strokeType="OUTSIDE" strokeWidth="0.0" text="General">
+                        <Text fill="#d81e05" strokeType="OUTSIDE" strokeWidth="0.0" text="General">
                             <font>
                                 <Font size="24.0" />
                             </font>
@@ -49,7 +49,7 @@
                                 <Insets right="40.0" top="8.0" />
                             </VBox.margin>
                         </TextField>
-                        <Text fx:id="labelTraveller" fill="#d81e05" strokeType="OUTSIDE" strokeWidth="0.0" text="Traveller">
+                        <Text fill="#d81e05" strokeType="OUTSIDE" strokeWidth="0.0" text="Traveller">
                             <font>
                                 <Font size="24.0" />
                             </font>
@@ -107,7 +107,7 @@
                 </VBox>
                 <VBox alignment="TOP_RIGHT" prefHeight="200.0" prefWidth="100.0" GridPane.halignment="RIGHT">
                     <children>
-                        <Text fx:id="labelDate" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
                             <VBox.margin>
                                 <Insets right="10.0" top="94.0" />
                             </VBox.margin>
@@ -115,7 +115,7 @@
                                 <Font size="17.0" />
                             </font>
                         </Text>
-                        <Text fx:id="labelTime" strokeType="OUTSIDE" strokeWidth="0.0" text="Time">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Time">
                             <VBox.margin>
                                 <Insets right="10.0" top="7.0" />
                             </VBox.margin>
@@ -123,7 +123,7 @@
                                 <Font size="17.0" />
                             </font>
                         </Text>
-                        <Text fx:id="labelFirstname" strokeType="OUTSIDE" strokeWidth="0.0" text="First name*">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="First name*">
                             <VBox.margin>
                                 <Insets right="10.0" top="45.0" />
                             </VBox.margin>
@@ -131,7 +131,7 @@
                                 <Font size="17.0" />
                             </font>
                         </Text>
-                        <Text fx:id="labelSurname" strokeType="OUTSIDE" strokeWidth="0.0" text="Surname*">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Surname*">
                             <font>
                                 <Font size="17.0" />
                             </font>
@@ -139,7 +139,7 @@
                                 <Insets right="10.0" top="8.0" />
                             </VBox.margin>
                         </Text>
-                        <Text fx:id="labelAdress" strokeType="OUTSIDE" strokeWidth="0.0" text="Address*">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Address*">
                             <VBox.margin>
                                 <Insets right="10.0" top="10.0" />
                             </VBox.margin>
@@ -147,7 +147,7 @@
                                 <Font size="17.0" />
                             </font>
                         </Text>
-                        <Text fx:id="labelCity" strokeType="OUTSIDE" strokeWidth="0.0" text="City*">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="City*">
                             <VBox.margin>
                                 <Insets right="10.0" top="11.0" />
                             </VBox.margin>
@@ -155,7 +155,7 @@
                                 <Font size="17.0" />
                             </font>
                         </Text>
-                        <Text fx:id="labelPostalcode" strokeType="OUTSIDE" strokeWidth="0.0" text="Postal code*">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Postal code*">
                             <VBox.margin>
                                 <Insets right="10.0" top="10.0" />
                             </VBox.margin>
@@ -163,7 +163,7 @@
                                 <Font size="17.0" />
                             </font>
                         </Text>
-                        <Text fx:id="labelCountry" strokeType="OUTSIDE" strokeWidth="0.0" text="Country*">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Country*">
                             <VBox.margin>
                                 <Insets right="10.0" top="10.0" />
                             </VBox.margin>
@@ -171,7 +171,7 @@
                                 <Font size="17.0" />
                             </font>
                         </Text>
-                        <Text fx:id="labelPhone" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone*">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Phone*">
                             <VBox.margin>
                                 <Insets right="10.0" top="10.0" />
                             </VBox.margin>
@@ -179,7 +179,7 @@
                                 <Font size="17.0" />
                             </font>
                         </Text>
-                        <Text fx:id="labelEmail" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail*">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail*">
                             <VBox.margin>
                                 <Insets right="10.0" top="10.0" />
                             </VBox.margin>
@@ -191,7 +191,7 @@
                 </VBox>
                 <VBox fx:id="emailWarning" alignment="TOP_RIGHT" prefHeight="645.0" prefWidth="136.0" GridPane.columnIndex="2">
                     <children>
-                        <Text fx:id="labelLabelNumber" strokeType="OUTSIDE" strokeWidth="0.0" text="Label Number*">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Label Number*">
                             <VBox.margin>
                                 <Insets right="10.0" top="85.0" />
                             </VBox.margin>
@@ -199,7 +199,7 @@
                                 <Font size="17.0" />
                             </font>
                         </Text>
-                        <Text fx:id="labelFlightNumber" strokeType="OUTSIDE" strokeWidth="0.0" text="Flight Number*">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Flight Number*">
                             <VBox.margin>
                                 <Insets right="10.0" top="8.0" />
                             </VBox.margin>
@@ -207,7 +207,7 @@
                                 <Font size="17.0" />
                             </font>
                         </Text>
-                        <Text fx:id="labelType" strokeType="OUTSIDE" strokeWidth="0.0" text="Type">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Type">
                             <VBox.margin>
                                 <Insets right="10.0" top="80.0" />
                             </VBox.margin>
@@ -215,7 +215,7 @@
                                 <Font size="17.0" />
                             </font>
                         </Text>
-                        <Text fx:id="labelBrand" strokeType="OUTSIDE" strokeWidth="0.0" text="Brand">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Brand">
                             <VBox.margin>
                                 <Insets right="10.0" top="10.0" />
                             </VBox.margin>
@@ -223,7 +223,7 @@
                                 <Font size="17.0" />
                             </font>
                         </Text>
-                        <Text fx:id="labelPColour" strokeType="OUTSIDE" strokeWidth="0.0" text="Primary Colour">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Primary Colour">
                             <VBox.margin>
                                 <Insets right="10.0" top="10.0" />
                             </VBox.margin>
@@ -231,7 +231,7 @@
                                 <Font size="17.0" />
                             </font>
                         </Text>
-                        <Text fx:id="labelSColour" strokeType="OUTSIDE" strokeWidth="0.0" text="Secondary Colour">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Secondary Colour">
                             <VBox.margin>
                                 <Insets right="10.0" top="14.0" />
                             </VBox.margin>
@@ -239,7 +239,7 @@
                                 <Font size="17.0" />
                             </font>
                         </Text>
-                        <Text fx:id="labelSpecialChar" strokeType="OUTSIDE" strokeWidth="0.0" text="Special Characteristics">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Special Characteristics">
                             <font>
                                 <Font size="17.0" />
                             </font>
@@ -247,7 +247,7 @@
                                 <Insets right="10.0" top="12.0" />
                             </VBox.margin>
                         </Text>
-                        <Text fx:id="labelSize" strokeType="OUTSIDE" strokeWidth="0.0" text="Size">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Size">
                             <font>
                                 <Font size="17.0" />
                             </font>
@@ -255,7 +255,7 @@
                                 <Insets right="10.0" top="5.0" />
                             </VBox.margin>
                         </Text>
-                        <Text fx:id="labelWeight" strokeType="OUTSIDE" strokeWidth="0.0" text="Weight">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Weight">
                             <font>
                                 <Font size="17.0" />
                             </font>
@@ -267,7 +267,7 @@
                 </VBox>
                 <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3">
                     <children>
-                        <Text fx:id="labelLuggage" fill="#d81e05" strokeType="OUTSIDE" strokeWidth="0.0" text="Luggage label">
+                        <Text fill="#d81e05" strokeType="OUTSIDE" strokeWidth="0.0" text="Luggage label">
                             <font>
                                 <Font size="24.0" />
                             </font>
@@ -285,7 +285,7 @@
                                 <Insets right="40.0" top="8.0" />
                             </VBox.margin>
                         </TextField>
-                        <Text fx:id="labelLuggageInformation" fill="#d81e05" strokeType="OUTSIDE" strokeWidth="0.0" text="Luggage information">
+                        <Text fill="#d81e05" strokeType="OUTSIDE" strokeWidth="0.0" text="Luggage information">
                             <font>
                                 <Font size="24.0" />
                             </font>
@@ -328,7 +328,7 @@
                                 <Insets right="40.0" />
                             </VBox.margin>
                         </TextField>
-                        <Text fx:id="labelRequired" strokeType="OUTSIDE" strokeWidth="0.0" text="Velden met * zijn verplicht om in te vullen">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Velden met * zijn verplicht om in te vullen">
                             <VBox.margin>
                                 <Insets />
                             </VBox.margin>
@@ -336,7 +336,7 @@
                                 <Font size="15.0" />
                             </font>
                         </Text>
-                        <CheckBox fx:id="labelSendmail" mnemonicParsing="false" text="Stuur een kopie van dit document naar mijn email">
+                        <CheckBox fx:id="mailSturen" mnemonicParsing="false" text="Stuur een kopie van dit document naar mijn email">
                             <VBox.margin>
                                 <Insets top="20.0" />
                             </VBox.margin>
@@ -344,17 +344,20 @@
                     </children>
                 </VBox>
 
-                <Button fx:id="buttonBacktologin" alignment="CENTER" contentDisplay="CENTER" maxWidth="250.0" mnemonicParsing="false" onAction="#openRegisterThankyou" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Submit" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="250.0" mnemonicParsing="false" onAction="#openRegisterThankyou" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Submit" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="1">
                     <GridPane.margin>
                         <Insets bottom="30.0" left="40.0" right="100.0" />
                     </GridPane.margin>
                 </Button>
+            <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="250.0" mnemonicParsing="false" onAction="#backToLogin" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Back" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets bottom="30.0" right="140.0" />
+               </GridPane.margin>
+            </Button>
 
-                <Button fx:id="labelExcel" alignment="CENTER" maxWidth="250.0" mnemonicParsing="false" onAction="#excelImportPath" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Excel importeren" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="1">
-                    <GridPane.margin>
-                        <Insets bottom="100.0" left="40.0" right="100.0" />
-                    </GridPane.margin>
-                </Button>
+            
+
+
             </children>
         </GridPane>
     </children>

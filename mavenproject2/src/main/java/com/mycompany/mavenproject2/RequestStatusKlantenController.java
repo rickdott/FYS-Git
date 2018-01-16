@@ -30,42 +30,37 @@ public class RequestStatusKlantenController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
-        
+
         labelNumber.setText(mybundle.getString("Label_Number"));
         labelName.setText(mybundle.getString("Lastname"));
         labelSubmit.setText(mybundle.getString("Submit"));
 
-
     }
-    
+
     @FXML
     private Label labelNumber, labelName;
-    
-    @FXML 
+
+    @FXML
     private Button labelSubmit;
-    
-// End of translation lines
-  
 
     @FXML
     private AnchorPane requestpage;
-    
 
     @FXML
     private TextField lastNameField, labelNrField;
-    
+
     @FXML
     private TextField addressField, numberField, cityField, countryField, zipCodeField;
 
     @FXML
     private HBox hBoxLost, hBoxFound;
-    
+
     @FXML
     private VBox choiceVBox, shippingVBox;
-    
+
     @FXML
     private Label statusMessage, addressLabel, zipCodeLabel, cityAndCountryLabel;
-        
+
     @FXML
     private RadioButton choicePickup, choiceAddress;
 
@@ -134,7 +129,7 @@ public class RequestStatusKlantenController implements Initializable {
     private void submitChoice() throws SQLException {
         //read choice from radio buttons
         if (choicePickup.isSelected()) {
-            
+
         } else {
             //customer wants to deliver to another address, get info from textfields
             long labelnumber = Long.parseLong(labelNrField.getText());
@@ -143,20 +138,19 @@ public class RequestStatusKlantenController implements Initializable {
             String city = cityField.getText();
             String country = countryField.getText();
             String zip = zipCodeField.getText();
-            
-            
+
             hBoxLost.setVisible(false);
             hBoxFound.setVisible(false);
             shippingVBox.setVisible(true);
-            
+
             addressLabel.setText(String.format("%s %s", address, number));
             zipCodeLabel.setText(String.format("%s", zip));
             cityAndCountryLabel.setText(String.format("%s, %s", city, country));
             Utilities.isSolvedLabelnr(labelnumber, true);
-            
+
         }
     }
-    
+
     private String makeQuery(String fromTable, String labelNr, String lastName) {
         String query = String.format("SELECT * FROM %s WHERE luggagelabelnr = '%s' AND passenger_name_city LIKE '%%%s%%'", fromTable, labelNr, lastName);
 

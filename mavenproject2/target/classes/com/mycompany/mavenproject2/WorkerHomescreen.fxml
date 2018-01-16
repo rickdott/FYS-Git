@@ -27,6 +27,9 @@
             <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="60.0" valignment="TOP" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
+<<<<<<< HEAD
+            <Label fx:id="label1" text="B.A.G.G.E.R." textFill="#d81e05" GridPane.columnIndex="1">
+=======
             <StackPane fx:id="mainpage" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
                   <ImageView fitHeight="949.0" fitWidth="999.0" pickOnBounds="true" preserveRatio="true">
@@ -37,6 +40,7 @@
                </children>
             </StackPane>
             <Label fx:id="label1" text="B.A.G.G.E.R" textFill="#d81e05" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+>>>>>>> master
                <font>
                   <Font name="Helvetica Neue" size="48.0" />
                </font>

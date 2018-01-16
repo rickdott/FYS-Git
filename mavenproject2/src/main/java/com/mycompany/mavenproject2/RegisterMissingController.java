@@ -1,5 +1,6 @@
 package com.mycompany.mavenproject2;
 
+import static com.mycompany.mavenproject2.LoginEmployeeController.infoBox;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -35,6 +36,8 @@ public class RegisterMissingController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        
         ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
 
         labelGeneral.setText(mybundle.getString("General"));
@@ -53,7 +56,6 @@ public class RegisterMissingController implements Initializable {
         labelTraveller.setText(mybundle.getString("Traveller"));
         labelFirstname.setText(mybundle.getString("Firstname*"));
         labelSurname.setText(mybundle.getString("Surname*"));
-
         labelAdress.setText(mybundle.getString("Adress*"));
         labelCity.setText(mybundle.getString("City*"));
         labelPostalcode.setText(mybundle.getString("Postal_code*"));
@@ -63,8 +65,8 @@ public class RegisterMissingController implements Initializable {
         labelPColour.setText(mybundle.getString("Primary_Colour"));
         labelSColour.setText(mybundle.getString("Secondary_Colour"));
         labelSendmail.setText(mybundle.getString("Send_a_copy_of_this_document_to_my_email"));
-        labelExcel.setText(mybundle.getString("Import_Excel"));
-        buttonBacktologin.setText(mybundle.getString("Submit"));
+        //labelExcel.setText(mybundle.getString("Import_Excel"));
+        //buttonBacktologin.setText(mybundle.getString("Submit"));
 
         DateFormat datum = new SimpleDateFormat("yyyy/MM/dd");
         DateFormat tijd = new SimpleDateFormat("HH:mm:ss");
@@ -90,10 +92,8 @@ public class RegisterMissingController implements Initializable {
     private Button buttonBacktologin, labelExcel, labelSubmit;
 
     @FXML
-
     private CheckBox labelSendmail;
 
-// End of translation lines
     //input Traveller
     @FXML
     private TextField TravellerFirstName;
@@ -147,20 +147,20 @@ public class RegisterMissingController implements Initializable {
     private TextField generalTime;
 
     @FXML
-    private CheckBox mailSturen;
-
-    @FXML
     private StackPane loadingScreen;
 
     // Path van het excel bestand (als die er is)
     private String excelPath;
+    
+    ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
 
     //dropdownlists
     ObservableList<String> colours = FXCollections.observableArrayList(
             "Yellow", "Olive", "Red", "Darkred", "Pink", "Purple", "Violet",
             "Blue", "Lightblue", "Darkblue", "Bluegreen", "Green", "Darkgreen",
             "Lightgreen", "Gray", "Darkgray", "Lightgray", "Brown", "Darkbrown",
-            "Lightbrown", "White", "Black", "Cream");
+            "Lightbrk\", \"Box\", \"Sports\",\n" +
+"            \"Bag\", \"Business Case\", \"Case\", \"Other\");own", "White", "Black", "Cream");
 
     ObservableList<String> Luggagetypes = FXCollections.observableArrayList(
             "Suitcase", "Bag", "Bagpack", "Box", "Sports",
@@ -266,24 +266,26 @@ public class RegisterMissingController implements Initializable {
 
                     if (mail.ValidateMail(TravellerEmail.getText().trim()) == true) {
 
-                        if (mailSturen.isSelected()) {
+                        if (labelSendmail.isSelected()) {
 
                             System.out.println("Sending mail...");
                             mailThread(mail);
 
-                            utilities.newAnchorpane("RegisterMissing_thankyou", registerMissingPane);
+                            infoBox("Thanks for registering luggage", "Success", null);
+                        } else {
+                            infoBox("Thanks for registering luggage", "Success", null);
                         }
 
                     }
                 } else {
-                    warning.setText("Email adress is incorrect");
+                    warning.setText(mybundle.getString("EmailIncorrect"));
                 }
             } else {
-                warning.setText("Invalid flightnumber");
+                warning.setText(mybundle.getString("FlightnumberInvalid"));
             }
-        } else {
+        } else if(excelPath == null){
             System.out.println("niet alle verplichte velden ingevuld");
-            warning.setText("Niet alle verplichte velden zijn ingevuld.");
+            warning.setText(mybundle.getString("NietAllesIngevuld"));
         }
 
         if (excelPath != null) {
@@ -292,18 +294,13 @@ public class RegisterMissingController implements Initializable {
                 System.out.println(excelPath);
 
                 excelThread();
-                utilities.newAnchorpane("RegisterMissing_thankyou", registerMissingPane);
+                infoBox("Thanks for registering luggage", "Success", null);
             } else {
-                warning.setText("fout bestandstype");
+                warning.setText(mybundle.getString("WrongFile"));
             }
 
-            // excelImport(excelPath);
         }
 
-        /*  else if (!excelPath.isEmpty()) {
-            excelImport(excelPath);
-        
-         */
     }
 
     private void excelThread() {
@@ -336,10 +333,9 @@ public class RegisterMissingController implements Initializable {
     @FXML
     private void excelImportPath() {
         // Roept een method aan in de MainApp die het path returnt
-        // TODO: Moet alleen een excel kunnen zijn
         excelPath = MainApp.fileChoosePath();
         System.out.println("String path: " + excelPath);
-        //warning.setText(excelPath);
+        warning.setText(excelPath);
     }
 
     // Method om een Excelsheet te importeren
@@ -390,7 +386,6 @@ public class RegisterMissingController implements Initializable {
                 luggagetag = "0";
             }
 
-            //x = x.substring(0, 4) + "." + x.substring(4, x.length());
             // Kijkt of er een ' voorkomt en als dat zo is zet er een \ voor
             String passengernamecity = row.get(12);
             if (passengernamecity.contains("'")) {
@@ -398,23 +393,6 @@ public class RegisterMissingController implements Initializable {
                         + passengernamecity.substring(passengernamecity.indexOf("'"), passengernamecity.length());
             }
 
-            // Test prints
-            /*
-            System.out.println("registrationnr: " + row.get(0));
-            System.out.println("datefound: " + row.get(1));
-            System.out.println("timefound: " + row.get(2));
-            System.out.println("luggagetype: " + luggagetype);
-            System.out.println("brand: " + row.get(4));
-            System.out.println("flightnumber: " + row.get(5));
-            System.out.println("luggagelabelnr: " + luggagetag);
-            System.out.println("locationfound: " + locationfound);
-            System.out.println("primarycolour: " + maincolor);
-            System.out.println("secondarycolour: " + secondcolor);
-            System.out.println("size: " + row.get(10));
-            System.out.println("weight: " + row.get(11));
-            System.out.println("passenger_name_city: " + passengernamecity);
-            System.out.println("otherchar: " + row.get(13));
-             */
             // Kijk of hij al in de db zit als dat niet zo is zet de record in de db
             String checkIfInDB = db.executeStringQuery(String.format("SELECT registrationnr FROM Foundbagageinventory WHERE registrationnr = '%s'", row.get(0)));
             System.out.println("checkIfInDB: " + checkIfInDB + "\n");
@@ -504,99 +482,3 @@ public class RegisterMissingController implements Initializable {
     }
 
 }
-
-/*public String email(String input){
-    mail = input + "hallo";
-    return mail;
-    }
-    
-           
-    Utilities utilities = new Utilities();
-    //submit button
-    @FXML
-    private void openRegisterThankyou(ActionEvent event) {
-        
-            
-        
-        if (!TravellerFirstName.getText().trim().isEmpty()&&
-            !TravellerSurname.getText().trim().isEmpty()&&
-            !TravellerAdress.getText().trim().isEmpty()&&
-            !TravellerCity.getText().trim().isEmpty()&&
-            !TravellerPostalCode.getText().trim().isEmpty()&&
-            !TravellerCountry.getText().trim().isEmpty()&&    
-            !TravellerPhone.getText().trim().isEmpty()&&    
-            !TravellerEmail.getText().trim().isEmpty()&&
-            !BagageFlight.getText().trim().isEmpty()&&
-            !BagageLabel.getText().trim().isEmpty()&&
-            !BagageDestination.getText().trim().isEmpty()
-            ){
-            
-           
-            
-           
-        
-        Database db = new Database();
-        
-        
-                
-          String travellerInformation = String.format      
-        ("INSERT INTO Passenger "
-                + "(firstname, lastname, adress, city, zip, country, phone, email, flightnumber) "
-                + "VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')", 
-                TravellerFirstName.getText(), TravellerSurname.getText(),
-                TravellerAdress.getText(), TravellerCity.getText(),
-                TravellerPostalCode.getText(), TravellerCountry.getText(), 
-                TravellerPhone.getText(), TravellerEmail.getText(),
-                BagageFlight.getText());
-        
-        String luggageInformation = String.format("INSERT INTO "
-                + "Bagage (labelnumber, destination, type, brand, colour, specialchar, flightnumber) "
-                + "VALUES ('%s', '%s', '%s', '%s', '%s', '%s','%s')",
-                BagageLabel.getText(), 
-                BagageDestination.getText(), BagageType.getText(), 
-                BagageBrand.getText(), BagageColour.getText(), 
-                BagageSpecialchar.getText(), BagageFlight.getText());
-        
-        Pdf pdf = new Pdf();
-        pdf.printPDF(TravellerFirstName.getText(), TravellerSurname.getText(), 
-                TravellerAdress.getText(), TravellerCity.getText(), 
-                TravellerPostalCode.getText(), TravellerCountry.getText(), 
-                TravellerPhone.getText(), TravellerEmail.getText());
-        
-        if (mailSturen.isSelected()){
-        System.out.println("Sending mail...");    
-        Mail mail = new Mail(TravellerEmail.getText().trim());
-        mail.mailsturen();
-        System.out.println("Mail sent...");
-        }
-        
-        
-        
-        db.executeUpdateQuery(travellerInformation);
-        db.executeUpdateQuery(luggageInformation);
-        
-        
-        utilities.newAnchorpane("RegisterMissing_thankyou", registerMissingPane); 
-        
-         
-        
-    }
-        else 
-
-            System.out.println("niet alle verplichte velden ingevuld");
-        }
-        warning.setText("Niet alle verplichte velden zijn ingevuld");
-
-    }
-
-    @FXML
-    private void backToLogin() {
-        utilities.newAnchorpane("LoginEmployee", registerMissingPane);
-    }
-
-    
-    @FXML
-    private void backToLoginTY() {
-        utilities.newAnchorpane("LoginEmployee", thankYouPage);
-    }
- */

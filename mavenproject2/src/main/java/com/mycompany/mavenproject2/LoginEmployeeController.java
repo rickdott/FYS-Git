@@ -35,7 +35,7 @@ public class LoginEmployeeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        setLanguageDutch();
+        
         ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
 
         textUsername.setPromptText(mybundle.getString("Username"));
@@ -64,62 +64,32 @@ public class LoginEmployeeController implements Initializable {
     Utilities utilities = new Utilities();
 
     // Methods for changing the language
-    @FXML
-    private void testMethod() {
-        System.out.println("Current Locale: " + Locale.getDefault());
-        ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
-        System.out.println("Say how are you in US English: " + mybundle.getString("language"));
-
-        Locale.setDefault(new Locale("en", "EN"));
-        System.out.println(Locale.getDefault());
-        mybundle = ResourceBundle.getBundle("languages.Language");
-        System.out.println(mybundle.getString("language"));
-
-//        Locale.setDefault(new Locale("ms", "MY"));
-//
-//        // read MyLabels_ms_MY.properties
-//        System.out.println("Current Locale: " + Locale.getDefault());
-//        mybundle = ResourceBundle.getBundle("languages.language");
-//        System.out.println("Say how are you in Malaysian Malaya language: " + mybundle.getString("how_are_you"));
-    }
 
     @FXML
-    private void setLanguageEnglish() {
+    public void setLanguageEnglish() {
         System.out.println("Set language to English");
         loadLanguage("en", "EN");
+        utilities.newAnchorpane("LoginEmployee", paneLogin);
     }
 
     @FXML
     private void setLanguageDutch() {
         System.out.println("Set language to Dutch");
         loadLanguage("nl", "NL");
-    }
-
-    @FXML
-    private void setLanguageGerman() {
-        System.out.println("Set language to German");
-        loadLanguage("de", "DE");
-    }
-
-    @FXML
-    private void setLanguagePortuguese() {
-        System.out.println("Set language to Portuguese");
-        loadLanguage("pt", "PT");
+        utilities.newAnchorpane("LoginEmployee", paneLogin);
     }
 
     @FXML
     private void setLanguageTurkish() {
         System.out.println("Set language to Turkish");
         loadLanguage("tr", "TR");
+        utilities.newAnchorpane("LoginEmployee", paneLogin);
     }
 
     // Main method for changing languages
     private void loadLanguage(String language, String lang) {
         System.out.println("Current Locale: " + Locale.getDefault());
-        //ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
         Locale.setDefault(new Locale(language, lang));
-        System.out.println(Locale.getDefault());
-        //mybundle = ResourceBundle.getBundle("languages.Language");
     }
 
     @FXML
@@ -158,7 +128,7 @@ public class LoginEmployeeController implements Initializable {
 
                 LoginEmployeeController controller = new LoginEmployeeController();
                 utilities.newAnchorpane("EmployeeHomescreen", paneLogin);
-                infoBox("Login Successfull", "Success", null);
+                infoBox("Login Successful", "Success", null);
             }
 
         } catch (SQLException e) {
