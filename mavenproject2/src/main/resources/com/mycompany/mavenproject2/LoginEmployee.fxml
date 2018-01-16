@@ -62,7 +62,10 @@
                   <Insets top="280.0" />
                </GridPane.margin>
             </Text>
-                <Button fx:id="buttonLoginPassenger" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#goToPassenger" text="Go to passenger login" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+                <Button fx:id="buttonLoginPassenger" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#goToPassenger" text="Go to passenger login" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+               <GridPane.margin>
+                  <Insets bottom="20.0" left="570.0" />
+               </GridPane.margin></Button>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Language:" wrappingWidth="97.291015625" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
                       <font>
                           <Font size="18.0" />
