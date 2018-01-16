@@ -32,7 +32,7 @@ import javafx.scene.text.Text;
  *
  * @author Stijn Klopper 500770512, Stan van Weringh 500771870
  */
-public class RegisterMissingController implements Initializable {
+public class RegisterMissingPassengerController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -272,10 +272,10 @@ public class RegisterMissingController implements Initializable {
                             mailThread(mail);
 
                             //infoBox("Thanks for registering luggage", "Success", null);
-                            utilities.newAnchorpane("RegisterFound_thankyou", registerMissingPane);
+                            utilities.newAnchorpane("RegisterMissingPassenger_thankyou", registerMissingPane);
                         } else {
                             //infoBox("Thanks for registering luggage", "Success", null);
-                            utilities.newAnchorpane("RegisterFound_thankyou", registerMissingPane);
+                            utilities.newAnchorpane("RegisterMissingPassenger_thankyou", registerMissingPane);
                         }
 
                     }

@@ -241,7 +241,7 @@ public class RegisterFoundController implements Initializable {
             System.out.println(luggageInformation);
             db.executeUpdateQuery(luggageInformation);
 
-            utilities.newAnchorpane("RegisterFound_thankyou", RegisterFoundPane);
+            utilities.newAnchorpane("RegisterMissing_thankyou", RegisterFoundPane);
             
             }
             else{infoBox("Flightnumber invalid", "Error", null);}
