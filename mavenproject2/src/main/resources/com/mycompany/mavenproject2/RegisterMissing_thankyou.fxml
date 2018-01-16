@@ -7,11 +7,6 @@
 
 <AnchorPane id="AnchorPane" fx:id="thankYouPage" minHeight="647.0" minWidth="1053.0" prefHeight="647.0" prefWidth="1053.0" style="-fx-background-color: #f3f3f3;" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.RegisterMissingThankYouController">
    <children>
-      <Text layoutX="243.0" layoutY="316.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Missing luggage registered! Thank you! ">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Text>
       <BorderPane prefHeight="647.0" prefWidth="1053.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 
          <bottom>
@@ -19,6 +14,13 @@
  
 
          </bottom>
+         <center>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Missing luggage registered! Thank you! " BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+         </center>
       </BorderPane>
    </children>
 </AnchorPane>

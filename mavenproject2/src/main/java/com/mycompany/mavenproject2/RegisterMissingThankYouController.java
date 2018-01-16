@@ -23,8 +23,8 @@ public class RegisterMissingThankYouController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
         
-        labelThankyou.setText(mybundle.getString("Missing_luggage_registered!_Thank_you!"));
-        buttonBacktohome.setText(mybundle.getString("Back_to_Home"));
+       // labelThankyou.setText(mybundle.getString("Missing_luggage_registered!_Thank_you!"));
+       // buttonBacktohome.setText(mybundle.getString("Back_to_Home"));
 
 
     }
