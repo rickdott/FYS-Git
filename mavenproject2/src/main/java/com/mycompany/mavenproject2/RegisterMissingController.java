@@ -64,8 +64,8 @@ public class RegisterMissingController implements Initializable {
         labelPColour.setText(mybundle.getString("Primary_Colour"));
         labelSColour.setText(mybundle.getString("Secondary_Colour"));
         labelSendmail.setText(mybundle.getString("Send_a_copy_of_this_document_to_my_email"));
-        labelExcel.setText(mybundle.getString("Import_Excel"));
-        buttonBacktologin.setText(mybundle.getString("Submit"));
+        //labelExcel.setText(mybundle.getString("Import_Excel"));
+        //buttonBacktologin.setText(mybundle.getString("Submit"));
 
         DateFormat datum = new SimpleDateFormat("yyyy/MM/dd");
         DateFormat tijd = new SimpleDateFormat("HH:mm:ss");

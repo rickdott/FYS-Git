@@ -13,9 +13,9 @@
          </font>
       </Text>
       <BorderPane prefHeight="647.0" prefWidth="1053.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-<<<<<<< HEAD
+
          <bottom>
-=======
+
          <center>
             <Text fx:id="labelThankyou" strokeType="OUTSIDE" strokeWidth="0.0" text="Missing luggage registered! Thank you! " BorderPane.alignment="CENTER">
                <font>
