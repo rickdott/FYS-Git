@@ -52,10 +52,6 @@ public class ReportsController implements Initializable {
         } catch (SQLException ex) {
             Logger.getLogger(ReportsController.class.getName()).log(Level.SEVERE, null, ex);
         }
-  
-          years.clear();
-          years.add("2015");
-          years.add("2016");
           yearComboBox.setItems(years);
     }
     @FXML
@@ -64,7 +60,7 @@ public class ReportsController implements Initializable {
     @FXML
     private RadioButton compensationToggle, solvedToggle, missingLuggagePerMonthToggle, foundLuggageToggle, missingLuggageToggle;
 
-    private static ObservableList<String> years = FXCollections.observableArrayList();
+    private static ObservableList<String> years = FXCollections.observableArrayList("2015", "2016", "2017", "2018");
 
     @FXML
     private PieChart pieChart;
