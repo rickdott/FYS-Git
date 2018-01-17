@@ -1,13 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.mavenproject2;
 
 /**
- *
- * @author Tarik Yildirim 500780772
+ * UserDetails class, to show different users registered to the application and 
+ * to enable editing their information
+ * @author Tarik Yildirim 500780772 (67 Lines)
  */
 public class UserDetails {
     private String editUsername;
@@ -28,7 +24,6 @@ public class UserDetails {
        this.editUsername = editUsername;
     }
     
-
     public String getFirstnameTc() {
         return firstnameTc;
     }
@@ -68,6 +63,4 @@ public class UserDetails {
     public void setRoleTc(int roleTc) {
         this.roleTc = roleTc;
     }
-
- 
 }

@@ -9,7 +9,6 @@ import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
-import javax.mail.internet.AddressException;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
@@ -18,7 +17,7 @@ import javax.mail.internet.MimeMultipart;
  * Mail class, to facilitate e-mailing the customer their property irregularity
  * report
  *
- * @author Stijn Klopper 500770512 (85 lines)
+ * @author Stijn Klopper 500770512 (100 lines)
  */
 public class Mail {
 
@@ -56,6 +55,7 @@ public class Mail {
 
         Session session = Session.getInstance(props,
                 new javax.mail.Authenticator() {
+            @Override
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(username, password);
             }

@@ -80,9 +80,9 @@ public class RegisterFoundController implements Initializable {
     @FXML
     private TextField BagageSpecialchar;
     @FXML
-    TextField GeneralDate2;
+    private TextField GeneralDate2;
     @FXML
-    TextField GeneralTime;
+    private TextField GeneralTime;
 
         
     /*    ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");

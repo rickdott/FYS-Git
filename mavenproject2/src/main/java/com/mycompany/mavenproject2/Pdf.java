@@ -30,12 +30,13 @@ public class Pdf {
      * @param email E-mail address
      * @param labelnumber Label number
      * @param flightnumber Flight number
-     * @param destination Destination
      * @param type Type 
      * @param brand Brand
      * @param primaryColour Primary Colour
      * @param secondaryColour Secondary Colour
      * @param specialchar Special characteristics
+     * @param date The date
+     * @param time The time
      */
     public void printPDF(String firstname, String lastname, String adress,
             String city, String zip, String country, String phone, String email,

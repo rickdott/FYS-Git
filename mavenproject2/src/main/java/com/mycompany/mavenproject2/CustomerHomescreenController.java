@@ -12,7 +12,7 @@ import javafx.scene.layout.AnchorPane;
  * Controller for the customer homescreen, only has a few buttons to help with
  * navigating the customer portion of the application
  *
- * @author Tarik 500780772 (74 lines)
+ * @author Tarik 500780772 (77 lines)
  *
  */
 public class CustomerHomescreenController implements Initializable {
@@ -23,7 +23,6 @@ public class CustomerHomescreenController implements Initializable {
 
         reqStatBut.setText(mybundle.getString("request_status"));
         regMisBut.setText(mybundle.getString("register_missing"));
-        //faqBut.setText(mybundle.getString("faq"));
 
     }
 
@@ -31,7 +30,7 @@ public class CustomerHomescreenController implements Initializable {
     private AnchorPane paneCustomerHomescreen;
 
     @FXML
-    private Button reqStatBut, regMisBut, faqBut;
+    private Button reqStatBut, regMisBut;
 
     Utilities utilities = new Utilities();
 
@@ -57,32 +56,21 @@ public class CustomerHomescreenController implements Initializable {
 
     @FXML
     private void onHoverReqStat() {
-        Utilities.onHover(reqStatBut);
+        reqStatBut.setStyle("-fx-font-weight: bold; -fx-font-size: 30; -fx-background-color: #951504; -fx-background-radius: 0;");
     }
 
     @FXML
     private void offHoverReqStat() {
-        Utilities.offHover(reqStatBut);
+        reqStatBut.setStyle("-fx-font-weight: bold; -fx-font-size: 30; -fx-background-color: #d81e05; -fx-background-radius: 0;");
     }
 
     @FXML
     private void onHoverRegMiss() {
-        Utilities.onHover(regMisBut);
+        regMisBut.setStyle("-fx-font-weight: bold; -fx-font-size: 30; -fx-background-color: #951504; -fx-background-radius: 0;");
     }
 
     @FXML
     private void offHoverRegMiss() {
-        Utilities.offHover(regMisBut);
+        regMisBut.setStyle("-fx-font-weight: bold; -fx-font-size: 30; -fx-background-color: #d81e05; -fx-background-radius: 0;");
     }
-
-    @FXML
-    private void onHoverFaqBut() {
-        Utilities.onHover(faqBut);
-    }
-
-    @FXML
-    private void offHoverFaqBut() {
-        Utilities.offHover(faqBut);
-    }
-
 }

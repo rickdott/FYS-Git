@@ -1,6 +1,5 @@
 package com.mycompany.mavenproject2;
 
-import static com.mycompany.mavenproject2.LoginEmployeeController.infoBox;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -270,9 +269,9 @@ public class RegisterMissingController implements Initializable {
                             System.out.println("Sending mail...");
                             mailThread(mail);
 
-                            infoBox("Thanks for registering luggage", "Success", null);
+                            Utilities.infoBox("Thanks for registering luggage", "Success", null);
                         } else {
-                            infoBox("Thanks for registering luggage", "Success", null);
+                            Utilities.infoBox("Thanks for registering luggage", "Success", null);
                         }
 
                     }
@@ -293,7 +292,7 @@ public class RegisterMissingController implements Initializable {
                 System.out.println(excelPath);
 
                 excelThread();
-                infoBox("Thanks for registering luggage", "Success", null);
+                Utilities.infoBox("Thanks for registering luggage", "Success", null);
             } else {
                 warning.setText(mybundle.getString("WrongFile"));
             }

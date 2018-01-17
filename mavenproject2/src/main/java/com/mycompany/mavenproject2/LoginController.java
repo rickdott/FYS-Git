@@ -17,7 +17,7 @@ import javafx.scene.text.Text;
 
 /**
  * Controller for the login screen, contains methods for logging in and changing
- * languages Stan 1-72, Matthijs 73-208
+ * languages Stan 1-79, Matthijs 80-122
  *
  * @author Matthijs Snijders 500780453, Stan van Weringh 500771870
  */
@@ -37,7 +37,7 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-           ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
+        ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
         labelEmail.setText(mybundle.getString("E-Mail"));
         textEmail.setPromptText(mybundle.getString("Enter_your_E-mail"));
         labelLastname.setText(mybundle.getString("Lastname"));
@@ -82,16 +82,8 @@ public class LoginController implements Initializable {
     private void goToEmployee(ActionEvent event) {
         utilities.newAnchorpane("LoginEmployee", paneCustomer);
     }
-
-    public static void infoBox(String infoMessage, String titleBar, String headerMessage) {
-        Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle(titleBar);
-        alert.setHeaderText(headerMessage);
-        alert.setContentText(infoMessage);
-        alert.showAndWait();
-    }
-
-    //Login for passenger
+    
+    //Handles the login action for passengers
     @FXML
     private void handleButtonActionPassenger(ActionEvent event) throws SQLException {
         Database db = new Database();
@@ -109,19 +101,18 @@ public class LoginController implements Initializable {
 
         ResultSet resultSet = db.executeResultSetQuery(sql);
         if (!resultSet.next()) {
-            infoBox("Enter Correct labelnummer And Lastname", "Failed", null);
+            Utilities.infoBox("Enter Correct labelnummer And Lastname", "Failed", null);
         } else {
-            infoBox("Login Successful", "Success", null);
+            Utilities.infoBox("Login Successful", "Success", null);
 
             while (resultSet.next()) {
                 usrID = resultSet.getInt("idEmployee");
             }
-            infoBox("User ID = " + usrID, "Success", null);
             utilities.newAnchorpane("CustomerHomescreen", paneCustomer);
         }
     }
 
-    public static void infoBoxPassenger(String infoMessage, String titleBar, String headerMessage) {
+    private void infoBoxPassenger(String infoMessage, String titleBar, String headerMessage) {
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle(titleBar);
         alert.setHeaderText(headerMessage);

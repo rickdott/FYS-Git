@@ -22,8 +22,7 @@ import javafx.scene.layout.VBox;
 /**
  * Controller for the customer section of the request status
  *
- * @author Timur Yagci 500764449 (148 lines) Met hulp van Rick den Otter
- * 500749952
+ * @author Rick den Otter 500749952 (216 Lines)
  */
 public class RequestStatusKlantenController implements Initializable {
 

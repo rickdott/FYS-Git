@@ -25,7 +25,10 @@
          </rowConstraints>
          <children>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
-                  <Button fx:id="buttonEmployee" mnemonicParsing="false" onAction="#goToEmployee" prefHeight="25.0" prefWidth="121.0" text="Go To Employee" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+                  <Button fx:id="buttonEmployee" mnemonicParsing="false" onAction="#goToEmployee" prefHeight="25.0" prefWidth="121.0" text="Go To Employee" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+               <GridPane.margin>
+                  <Insets bottom="20.0" left="570.0" />
+               </GridPane.margin></Button>
                   <ImageView fitHeight="196.0" fitWidth="579.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                       <image>
                           <Image url="@../../../images/Corendon%20Logo.png" />
@@ -81,7 +84,7 @@
             </Text>
                   <Text fx:id="textCaseSensitive" strokeType="OUTSIDE" strokeWidth="0.0" text="Login is case sensitive" wrappingWidth="121.470703125" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets top="340.0" />
+                  <Insets top="290.0" />
                </GridPane.margin>
             </Text>
                   <Text fx:id="labelEmail" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" wrappingWidth="195.2909927368164" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
