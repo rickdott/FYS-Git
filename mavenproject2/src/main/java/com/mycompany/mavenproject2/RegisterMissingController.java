@@ -272,10 +272,10 @@ public class RegisterMissingController implements Initializable {
                             mailThread(mail);
 
                             //infoBox("Thanks for registering luggage", "Success", null);
-                            utilities.newAnchorpane("RegisterFound_thankyou", registerMissingPane);
+                            utilities.newAnchorpane("RegisterMissing_thankyou", registerMissingPane);
                         } else {
                             //infoBox("Thanks for registering luggage", "Success", null);
-                            utilities.newAnchorpane("RegisterFound_thankyou", registerMissingPane);
+                            utilities.newAnchorpane("RegisterMissing_thankyou", registerMissingPane);
                         }
 
                     }
@@ -296,7 +296,7 @@ public class RegisterMissingController implements Initializable {
                 System.out.println(excelPath);
 
                 excelThread();
-                infoBox("Thanks for registering luggage", "Success", null);
+                utilities.newAnchorpane("RegisterMissing_thankyou", registerMissingPane);
             } else {
                 warning.setText(mybundle.getString("WrongFile"));
             }
