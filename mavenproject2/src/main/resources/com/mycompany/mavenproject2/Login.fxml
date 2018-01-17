@@ -27,7 +27,7 @@
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
                   <Button fx:id="buttonEmployee" mnemonicParsing="false" onAction="#goToEmployee" prefHeight="25.0" prefWidth="121.0" text="Go To Employee" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
                <GridPane.margin>
-                  <Insets bottom="20.0" left="570.0" />
+                  <Insets />
                </GridPane.margin></Button>
                   <ImageView fitHeight="196.0" fitWidth="579.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                       <image>

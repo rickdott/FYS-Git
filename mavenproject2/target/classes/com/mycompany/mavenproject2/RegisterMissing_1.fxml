@@ -349,7 +349,7 @@
                         <Insets bottom="30.0" left="40.0" right="100.0" />
                     </GridPane.margin>
                 </Button>
-            <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="250.0" mnemonicParsing="false" onAction="#backToLogin" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Back to login" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="250.0" mnemonicParsing="false" onAction="#backToLogin" styleClass="button-small" stylesheets="@../../../styles/Styles.css" text="Back" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets bottom="30.0" />
                </GridPane.margin>

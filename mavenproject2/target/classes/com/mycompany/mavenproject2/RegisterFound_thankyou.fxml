@@ -11,7 +11,7 @@
             <bottom>
             </bottom>
             <center>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Missing luggage registered! Thank you! " BorderPane.alignment="CENTER">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Found luggage registered! Thank you! " BorderPane.alignment="CENTER">
                     <font>
                         <Font size="30.0" />
                     </font>

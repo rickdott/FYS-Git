@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" fx:id="UserRoles" minHeight="647.0" minWidth="1053.0" prefHeight="647.0" prefWidth="1053.0" style="-fx-background-color: #f3f3f3;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.UserRoles_AddUsersController">
+<AnchorPane id="AnchorPane" fx:id="UserRoles" minHeight="647.0" minWidth="1053.0" prefHeight="647.0" prefWidth="1053.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" style="-fx-background-color: #f3f3f3;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.UserRoles_AddUsersController">
     <children>
         <GridPane prefHeight="647.0" prefWidth="1053.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <columnConstraints>

@@ -5,54 +5,59 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" fx:id="UserRoles" minHeight="647.0" minWidth="1053.0" prefHeight="647.0" prefWidth="1053.0" style="-fx-background-color: #f3f3f3;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.UserRoles_EditUserController">
+<AnchorPane id="AnchorPane" fx:id="UserRoles" minHeight="647.0" minWidth="1053.0" prefHeight="647.0" prefWidth="1053.0" style="-fx-background-color: #f3f3f3;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject2.UserRoles_EditUserController">
    <children>
-      <SplitPane dividerPositions="0.4862036156041865" layoutX="-1.0" layoutY="1.0" prefHeight="647.0" prefWidth="1053.0">
-        <items>
-          <AnchorPane fx:id="mainpage" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-               <children>
-                  <Text layoutX="335.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First name" wrappingWidth="113.076171875">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="335.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last name" wrappingWidth="113.076171875">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="335.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" wrappingWidth="113.076171875">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="335.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="113.076171875">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="335.0" layoutY="378.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Role" wrappingWidth="113.076171875">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                  </Text>
-               </children>
-            </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-               <children>
-                  <ComboBox fx:id="Role" layoutX="114.0" layoutY="356.0" prefHeight="25.0" prefWidth="230.0" promptText="Role" />
-                  <Button layoutX="416.0" layoutY="567.0" mnemonicParsing="false" onAction="#testEdit" prefHeight="28.0" prefWidth="72.0" style="-fx-background-color: f70707;" text="Edit" textFill="#fffdfd" />
-                  <TextField fx:id="first" layoutX="112.0" layoutY="169.0" prefHeight="25.0" prefWidth="230.0" />
-                  <TextField fx:id="last" layoutX="112.0" layoutY="214.0" prefHeight="25.0" prefWidth="230.0" />
-                  
-                  <TextField fx:id="pass" layoutX="112.0" layoutY="310.0" prefHeight="25.0" prefWidth="230.0" />
-                  <TextField fx:id="user" layoutX="112.0" layoutY="263.0" prefHeight="25.0" prefWidth="230.0" />
-               </children>
-            </AnchorPane>
-        </items>
-      </SplitPane>
+      <StackPane layoutX="-1.0" layoutY="1.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
+         <children>
+            <SplitPane dividerPositions="0.4862036156041865" prefHeight="647.0" prefWidth="1053.0">
+              <items>
+                <AnchorPane fx:id="mainpage" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                        <Text layoutX="335.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First name" wrappingWidth="113.076171875">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="335.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last name" wrappingWidth="113.076171875">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="335.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" wrappingWidth="113.076171875">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="335.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="113.076171875">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="335.0" layoutY="378.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Role" wrappingWidth="113.076171875">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                        <ComboBox fx:id="Role" layoutX="114.0" layoutY="356.0" prefHeight="25.0" prefWidth="230.0" promptText="Role" />
+                        <Button layoutX="416.0" layoutY="567.0" mnemonicParsing="false" onAction="#testEdit" prefHeight="28.0" prefWidth="72.0" style="-fx-background-color: f70707;" text="Edit" textFill="#fffdfd" />
+                        <TextField fx:id="first" layoutX="112.0" layoutY="169.0" prefHeight="25.0" prefWidth="230.0" />
+                        <TextField fx:id="last" layoutX="112.0" layoutY="214.0" prefHeight="25.0" prefWidth="230.0" />
+                        
+                        <TextField fx:id="pass" layoutX="112.0" layoutY="310.0" prefHeight="25.0" prefWidth="230.0" />
+                        <TextField fx:id="user" layoutX="112.0" layoutY="263.0" prefHeight="25.0" prefWidth="230.0" />
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </children>
+      </StackPane>
    </children>
 </AnchorPane>

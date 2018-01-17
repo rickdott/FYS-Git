@@ -42,7 +42,7 @@ public class CustomerHomescreenController implements Initializable {
 
     @FXML
     private void openRegisterMissing(ActionEvent event) {
-        utilities.newAnchorpane("RegisterMissing_1", paneCustomerHomescreen);
+        utilities.newAnchorpane("RegisterMissingPassenger", paneCustomerHomescreen);
     }
 
     @FXML

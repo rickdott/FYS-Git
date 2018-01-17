@@ -20,6 +20,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
+
 /**
  *
  * @author Tarik Yildirim 500780772
@@ -43,6 +44,7 @@ public class UserRoles_AddUsersController implements Initializable {
 
     ObservableList<String> Roles = FXCollections.observableArrayList(
             "Manager", "Medewerker");
+    
     
     
     @FXML
@@ -113,7 +115,8 @@ public class UserRoles_AddUsersController implements Initializable {
                 System.out.println(AddUser);
                 dc.executeUpdateQuery(AddUser);
 
-                infoBox("Change has been successfully made!", "Complete", null);
+                utilities.newAnchorpane("UserRolesAddThankYou", UserRoles);
+                //infoBox("Change has been successfully made!", "Complete", null);
             }
         } else {
             infoBox("Please try to fill in everyting!", "Error", null);

@@ -18,7 +18,7 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author Stijn
  */
-public class RegisterMissingPassengerThankYouController implements Initializable {
+public class UserROles_AddUserThankYouController implements Initializable {
 
     @FXML
     private AnchorPane thankYouPage;
@@ -33,10 +33,7 @@ public class RegisterMissingPassengerThankYouController implements Initializable
         // TODO
     }    
     
-    @FXML
-    private void backToLoginTY(ActionEvent event) {
-        Utilities utilities = new Utilities();
-        utilities.newAnchorpane("CustomerHomescreen", thankYouPage);
-    }
+    
+    
     
 }

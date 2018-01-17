@@ -116,7 +116,7 @@ public class LoginController implements Initializable {
             while (resultSet.next()) {
                 usrID = resultSet.getInt("idEmployee");
             }
-            infoBox("User ID = " + usrID, "Success", null);
+            
             utilities.newAnchorpane("CustomerHomescreen", paneCustomer);
         }
     }
