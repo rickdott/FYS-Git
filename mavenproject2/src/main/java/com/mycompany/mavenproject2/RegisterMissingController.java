@@ -27,7 +27,7 @@ import javafx.scene.text.Text;
 
 /**
  * Class to facilitate registering a piece of missing luggage into the database
- * Stijn Klopper: 1-216 (215) and 387-483 (94) Stan van Weringh: 216-386 (170)
+ * Stijn Klopper: 1-337 Stan van Weringh: 338-489
  *
  * @author Stijn Klopper 500770512, Stan van Weringh 500771870
  */

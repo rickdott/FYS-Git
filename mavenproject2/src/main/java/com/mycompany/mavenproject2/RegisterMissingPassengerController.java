@@ -1,6 +1,5 @@
 package com.mycompany.mavenproject2;
 
-
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -28,7 +27,7 @@ import javafx.scene.text.Text;
 
 /**
  * Class to facilitate registering a piece of missing luggage into the database
- * Stijn Klopper: 1-216 (215) and 387-483 (94) Stan van Weringh: 216-386 (170)
+ * Stijn Klopper: 1-333 Stan van Weringh: 333-484 (151)
  *
  * @author Stijn Klopper 500770512, Stan van Weringh 500771870
  */
@@ -36,8 +35,7 @@ public class RegisterMissingPassengerController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        
+
         ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
 
         labelGeneral.setText(mybundle.getString("General"));
@@ -85,7 +83,7 @@ public class RegisterMissingPassengerController implements Initializable {
     @FXML
     private Text labelGeneral, labelDate, labelTime, labelLocation, labelLuggage, labelLabelNumber,
             labelFlightNumber, labelLuggageInformation, labelType, labelBrand, labelColour, labelSpecialChar, labelRequired,
-            labelTraveller, labelFirstname, labelSurname, labelAdress, labelCity, labelPostalcode, labelCountry, labelPhone, labelEmail, labelPColour, labelSColour, 
+            labelTraveller, labelFirstname, labelSurname, labelAdress, labelCity, labelPostalcode, labelCountry, labelPhone, labelEmail, labelPColour, labelSColour,
             labelSize, labelWeight;
 
     @FXML
@@ -151,7 +149,7 @@ public class RegisterMissingPassengerController implements Initializable {
 
     // Path van het excel bestand (als die er is)
     private String excelPath;
-    
+
     ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
 
     //dropdownlists
@@ -159,8 +157,8 @@ public class RegisterMissingPassengerController implements Initializable {
             "Yellow", "Olive", "Red", "Darkred", "Pink", "Purple", "Violet",
             "Blue", "Lightblue", "Darkblue", "Bluegreen", "Green", "Darkgreen",
             "Lightgreen", "Gray", "Darkgray", "Lightgray", "Brown", "Darkbrown",
-            "Lightbrk\", \"Box\", \"Sports\",\n" +
-"            \"Bag\", \"Business Case\", \"Case\", \"Other\");own", "White", "Black", "Cream");
+            "Lightbrk\", \"Box\", \"Sports\",\n"
+            + "            \"Bag\", \"Business Case\", \"Case\", \"Other\");own", "White", "Black", "Cream");
 
     ObservableList<String> Luggagetypes = FXCollections.observableArrayList(
             "Suitcase", "Bag", "Bagpack", "Box", "Sports",
@@ -225,7 +223,6 @@ public class RegisterMissingPassengerController implements Initializable {
                     } else {
                         LuggageTypeSelect = "10";
                     }
-                    
 
                     String travellerInformation = String.format("INSERT INTO Passenger "
                             + "(firstname, lastname, adress, city, zip, country, phone, email, flightnumber) "
@@ -285,7 +282,7 @@ public class RegisterMissingPassengerController implements Initializable {
             } else {
                 warning.setText(mybundle.getString("FlightnumberInvalid"));
             }
-        } else if(excelPath == null){
+        } else if (excelPath == null) {
             System.out.println("niet alle verplichte velden ingevuld");
             warning.setText(mybundle.getString("NietAllesIngevuld"));
         }

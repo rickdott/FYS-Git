@@ -8,8 +8,6 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -17,7 +15,7 @@ import javafx.scene.text.Text;
 
 /**
  * Controller for the login screen, contains methods for logging in and changing
- * languages Stan 1-72, Matthijs 73-208
+ * languages Stan 1-77, Matthijs 78-114
  *
  * @author Matthijs Snijders 500780453, Stan van Weringh 500771870
  */
@@ -37,7 +35,7 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-           ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
+        ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
         labelEmail.setText(mybundle.getString("E-Mail"));
         textEmail.setPromptText(mybundle.getString("Enter_your_E-mail"));
         labelLastname.setText(mybundle.getString("Lastname"));
@@ -83,14 +81,6 @@ public class LoginController implements Initializable {
         utilities.newAnchorpane("LoginEmployee", paneCustomer);
     }
 
-    public static void infoBox(String infoMessage, String titleBar, String headerMessage) {
-        Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle(titleBar);
-        alert.setHeaderText(headerMessage);
-        alert.setContentText(infoMessage);
-        alert.showAndWait();
-    }
-
     //Login for passenger
     @FXML
     private void handleButtonActionPassenger(ActionEvent event) throws SQLException {
@@ -109,9 +99,9 @@ public class LoginController implements Initializable {
 
         ResultSet resultSet = db.executeResultSetQuery(sql);
         if (!resultSet.next()) {
-            infoBox("Enter Correct labelnummer And Lastname", "Failed", null);
+            Utilities.infoBox("Enter Correct labelnummer And Lastname", "Failed", null);
         } else {
-            infoBox("Login Successful", "Success", null);
+            Utilities.infoBox("Login Successful", "Success", null);
 
             while (resultSet.next()) {
                 usrID = resultSet.getInt("idEmployee");
@@ -119,13 +109,5 @@ public class LoginController implements Initializable {
             
             utilities.newAnchorpane("CustomerHomescreen", paneCustomer);
         }
-    }
-
-    public static void infoBoxPassenger(String infoMessage, String titleBar, String headerMessage) {
-        Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle(titleBar);
-        alert.setHeaderText(headerMessage);
-        alert.setContentText(infoMessage);
-        alert.showAndWait();
     }
 }

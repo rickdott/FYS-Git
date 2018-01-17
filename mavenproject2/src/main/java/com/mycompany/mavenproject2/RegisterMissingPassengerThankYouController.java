@@ -1,37 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.mavenproject2;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 
 /**
- * FXML Controller class
+ * Controller for the thankyou page of register missing passenger
  *
- * @author Stijn
+ * @author Stijn Klopper 500770512 (27 Lines)
  */
-public class RegisterMissingPassengerThankYouController implements Initializable {
+public class RegisterMissingPassengerThankYouController {
 
     @FXML
     private AnchorPane thankYouPage;
     @FXML
     private Button buttonBacktohome;
-
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
     
     @FXML
     private void backToLoginTY(ActionEvent event) {
