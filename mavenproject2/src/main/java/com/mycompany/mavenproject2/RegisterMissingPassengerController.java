@@ -1,6 +1,6 @@
 package com.mycompany.mavenproject2;
 
-import static com.mycompany.mavenproject2.LoginEmployeeController.infoBox;
+
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -296,7 +296,7 @@ public class RegisterMissingPassengerController implements Initializable {
                 System.out.println(excelPath);
 
                 excelThread();
-                infoBox("Thanks for registering luggage", "Success", null);
+                utilities.newAnchorpane("RegisterMissingPassenger_thankyou", registerMissingPane);
             } else {
                 warning.setText(mybundle.getString("WrongFile"));
             }

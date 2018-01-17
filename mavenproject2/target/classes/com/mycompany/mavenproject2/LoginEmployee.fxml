@@ -52,12 +52,12 @@
                   <Insets top="80.0" />
                </GridPane.margin>
                 </PasswordField>
-                <Text fx:id="textWarning" strokeType="OUTSIDE" strokeWidth="0.0" text="Warning!" wrappingWidth="68.00003051757812" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                <Text fx:id="textWarning" strokeType="OUTSIDE" strokeWidth="0.0" text="Warning!" wrappingWidth="101.00003051757812" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets top="250.0" />
                </GridPane.margin>
             </Text>
-                <Text fx:id="textCaseSensitive" strokeType="OUTSIDE" strokeWidth="0.0" text="Login is case sensitive" wrappingWidth="124.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                <Text fx:id="textCaseSensitive" strokeType="OUTSIDE" strokeWidth="0.0" text="Login is case sensitive" wrappingWidth="177.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets top="290.0" />
                </GridPane.margin>

@@ -1,11 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.mavenproject2;
 
-import static com.mycompany.mavenproject2.LoginController.infoBox;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,30 +12,19 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
-import javax.mail.FetchProfile.Item;
-
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
-
 /**
- * <<<<<<< HEAD
- *
- * @author TaRick / ======= YET TO BE IMPLEMENTED
- * @author Tarik 500780772
- *
+ * Controller for the User Roles page, shows users registered to the application
+ * @author Tarik 500780772 (175 Lines)
  */
 public class UserRolesController implements Initializable {
 
@@ -125,18 +108,10 @@ public class UserRolesController implements Initializable {
     
     @FXML
     private TableColumn labelName, labelRoles;
-// End of translation lines
-    
- //   @FXML
- //   private AnchorPane mainpane;
-    
-   // Utilities utilities = new Utilities();
-    
 
     @FXML
     private void openAddRoles(ActionEvent event) {
         utilities.newAnchorpane("UserRoles_AddUser", mainpane);
-
     }
 
     @FXML
@@ -144,7 +119,7 @@ public class UserRolesController implements Initializable {
         Database dc = new Database();
 
         if (tableUser.getSelectionModel().isEmpty()) {
-            infoBox("Please Select a row", "!", null);
+            Utilities.infoBox("Please Select a row", "!", null);
 
         } else {
             Alert alert = new Alert(AlertType.CONFIRMATION);
@@ -176,11 +151,11 @@ public class UserRolesController implements Initializable {
     @FXML
     private void editUser(ActionEvent event) {
         if (tableUser.getSelectionModel().isEmpty()) {
-            infoBox("Please Select a row", "!", null);
+            Utilities.infoBox("Please Select a row", "!", null);
         }
         {
             UserDetails edituser1 = (UserDetails) tableUser.getSelectionModel().getSelectedItem();
-            editUser = edituser1.getUsernameTc().toString();
+            editUser = edituser1.getUsernameTc();
             
             
             

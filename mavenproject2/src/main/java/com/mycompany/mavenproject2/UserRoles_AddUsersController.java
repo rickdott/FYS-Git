@@ -5,8 +5,6 @@
  */
 package com.mycompany.mavenproject2;
 
-import static com.mycompany.mavenproject2.LoginController.infoBox;
-//import static com.mycompany.mavenproject2.RegisterFoundController.infoBox;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,8 +20,9 @@ import javafx.scene.layout.AnchorPane;
 
 
 /**
- *
- * @author Tarik Yildirim 500780772
+ * Controller for the Add Users page inside User Roles, enabling 
+ * the user to add new users
+ * @author Tarik Yildirim 500780772 (123 Lines)
  */
 public class UserRoles_AddUsersController implements Initializable {
 
@@ -44,36 +43,38 @@ public class UserRoles_AddUsersController implements Initializable {
 
     ObservableList<String> Roles = FXCollections.observableArrayList(
             "Manager", "Medewerker");
-    
-    
-    
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        Role.setItems(Roles);
+
+    }
+    Utilities utilities = new Utilities();
+
+
     @FXML
     private boolean checkUsername() throws SQLException {
         String InputUser = user.getText();
         String OutputDatabase = dc.executeStringListQuery(String.format("SELECT username FROM Employee WHERE username = '%s'", user.getText()));
-        if (InputUser == null ? OutputDatabase == null : InputUser.equals(OutputDatabase)){
+        if (InputUser == null ? OutputDatabase == null : InputUser.equals(OutputDatabase)) {
             return true;
-            //infoBox("Username already taken", "!", null);
-        }
-        else{
+        } else {
             return false;
         }
-          
     }
 
     public void selectQuery()
             throws SQLException {
 
         Statement stmt = null;
-        String query
-                = "SELECT max(idEmployee)FROM Employee";
+        String query = "SELECT max(idEmployee)FROM Employee";
 
         try {
             ResultSet rs = dc.executeResultSetQuery(query);
             while (rs.next()) {
                 IdEmployee = rs.getInt(1);
                 System.out.println(IdEmployee);
-
             }
         } catch (SQLException e) {
             System.err.println("Error" + e);
@@ -104,7 +105,7 @@ public class UserRoles_AddUsersController implements Initializable {
             if (checkUsername() == true) {
                 System.out.println(checkUsername());
 
-              infoBox("Username already taken", "!", null);
+                Utilities.infoBox("Username already taken", "!", null);
             } else {
                 System.out.println(checkUsername());
                 String AddUser = String.format("INSERT INTO "
@@ -115,20 +116,13 @@ public class UserRoles_AddUsersController implements Initializable {
                 System.out.println(AddUser);
                 dc.executeUpdateQuery(AddUser);
 
+
                 utilities.newAnchorpane("UserRolesAddThankYou", UserRoles);
                 //infoBox("Change has been successfully made!", "Complete", null);
+
             }
         } else {
-            infoBox("Please try to fill in everyting!", "Error", null);
-
+            Utilities.infoBox("Please try to fill in everyting!", "Error", null);
         }
     }
-
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        Role.setItems(Roles);
-
-    }
-    Utilities utilities = new Utilities();
-      
 }

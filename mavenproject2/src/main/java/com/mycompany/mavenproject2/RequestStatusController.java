@@ -35,7 +35,7 @@ import javafx.scene.layout.VBox;
  * Controller for the request status section, can read, update and delete
  * entries from the database
  *
- * @author Rick den Otter 500749952 (737 lines)
+ * @author Rick den Otter 500749952 (778 lines)
  */
 public class RequestStatusController implements Initializable {
 
@@ -53,7 +53,6 @@ public class RequestStatusController implements Initializable {
     @FXML
     private Button submitButton;
 
-// End of translation lines
     @FXML
     private TableView foundLuggageTableView;
 
@@ -102,7 +101,6 @@ public class RequestStatusController implements Initializable {
         labelRegistrationnumber.setText(mybundle.getString("Registration_Number"));
         labelDatefound.setText(mybundle.getString("Date_Found"));
         labelTimefound.setText(mybundle.getString("Time_Found"));
-        //typeComboBox.setText(mybundle.getString("Luggage_Type:")); TODO
         labelType.setText(mybundle.getString("Type"));
         labelBrand.setText(mybundle.getString("Brand"));
         labelFlightnumber.setText(mybundle.getString("Flight_Number"));
@@ -208,7 +206,7 @@ public class RequestStatusController implements Initializable {
 
     @FXML
     private void resetEdit() {
-        // Todo: reset all the textfields to their original values from luggage object
+        // Reset all the textfields to their original values from luggage object
         if (lostSelected()) {
             LostLuggage luggage = (LostLuggage) foundLuggageTableView.getSelectionModel().getSelectedItem();
         } else {
@@ -246,7 +244,6 @@ public class RequestStatusController implements Initializable {
 
     @FXML
     private void saveEdit() throws SQLException {
-        // Todo: make an update query with the changed textfields
         // Go through all textfields, see if content is different from .get method
 
         Database database = new Database();
@@ -260,8 +257,6 @@ public class RequestStatusController implements Initializable {
         foundLuggageTableView.refresh();
         makeTextFieldsAndLabelsInvisible();
         makeTableViewVisible();
-
-        // Make two overloaded methods, one with Found, one with Lost
     }
 
     /**
@@ -573,7 +568,6 @@ public class RequestStatusController implements Initializable {
             }
 
             // Start of the query
-            // FOUNDBAGAGEINVENTORY IS INVALID, FIX THIS
             query = "SELECT * FROM Lostbagage ";
         } else {
             if (!regNrField.getText().isEmpty()) {

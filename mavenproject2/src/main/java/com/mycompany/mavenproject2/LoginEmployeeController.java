@@ -8,8 +8,6 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -18,7 +16,7 @@ import javafx.scene.text.Text;
 
 /**
  * Controller for the login screen, contains methods for logging in and changing
- * languages Stan 1-72, Matthijs 73-208
+ * languages Stan 1-80, Matthijs 81-119
  *
  * @author Matthijs Snijders 500780453, Stan van Weringh 500771870
  */
@@ -32,10 +30,11 @@ public class LoginEmployeeController implements Initializable {
     private PasswordField textPassword;
     @FXML
     private Button buttonEmployee, buttonLoginPassenger;
-
+    @FXML
+    private AnchorPane paneLogin;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
         ResourceBundle mybundle = ResourceBundle.getBundle("languages.Language");
 
         textUsername.setPromptText(mybundle.getString("Username"));
@@ -43,28 +42,16 @@ public class LoginEmployeeController implements Initializable {
         labelUsername.setText(mybundle.getString("Username"));
         labelPassword.setText(mybundle.getString("Password"));
         buttonEmployee.setText(mybundle.getString("Employee_Login"));
-
-//        labelEmail.setText(mybundle.getString("E-Mail"));
-//        textEmailT.setPromptText(mybundle.getString("Enter_your_E-mail"));
-//        labelLastname.setText(mybundle.getString("Lastname"));
-//        textLastname.setPromptText(mybundle.getString("Enter_your_lastname"));
-//        buttonPassenger.setText(mybundle.getString("Login"));
-//        buttonEmployee.setText(mybundle.getString("Employee_Login"));
-//        textWarning.setText(mybundle.getString("Warning!"));
-//        textCaseSensitive.setText(mybundle.getString("Login_is_case_sensitive!"));
-//        buttonLoginPassenger.setText(mybundle.getString("Passenger_Login"));
-//        textUsername.setText(mybundle.getString("Enter_your_username"));
-//        textPassword.setText(mybundle.getString("Enter_your_password"));
+        textWarning.setText(mybundle.getString("Warning!"));
+        textCaseSensitive.setText(mybundle.getString("Login_is_case_sensitive!"));
+        buttonLoginPassenger.setText(mybundle.getString("Passenger_Login"));
+        textUsername.setPromptText(mybundle.getString("Enter_your_username"));
+        textPassword.setPromptText(mybundle.getString("Enter_your_password"));
     }
-
-// End of translation lines
-    @FXML
-    private AnchorPane paneLogin;
 
     Utilities utilities = new Utilities();
 
     // Methods for changing the language
-
     @FXML
     public void setLanguageEnglish() {
         System.out.println("Set language to English");
@@ -97,7 +84,6 @@ public class LoginEmployeeController implements Initializable {
         utilities.newAnchorpane("Login", paneLogin);
     }
 
-
     //Login for employee
     @FXML
     private void handleButtonAction(ActionEvent event) {
@@ -112,36 +98,21 @@ public class LoginEmployeeController implements Initializable {
                 + "and password = '%s' ",
                 //+ "and RoleID = '%s' ", 
                 username, password);
-
         try {
             ResultSet resultSet = db.executeResultSetQuery(sql);
-
             if (!resultSet.next()) {
-                infoBox("Enter Correct Username and Password", "Failed", null);
+                Utilities.infoBox("Enter Correct Username and Password", "Failed", null);
             } else {
-                //infoBox("Login Successfull", "Success", null);
                 resultSet.first();
                 usrID = resultSet.getInt("idEmployee");
                 roleID = resultSet.getInt("RoleID");
-
+                
                 utilities.setEmployee(usrID, roleID);
-
-                LoginEmployeeController controller = new LoginEmployeeController();
                 utilities.newAnchorpane("EmployeeHomescreen", paneLogin);
-                infoBox("Login Successful", "Success", null);
+                Utilities.infoBox("Login Successful", "Success", null);
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-
-    public static void infoBox(String infoMessage, String titleBar, String headerMessage) {
-        Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle(titleBar);
-        alert.setHeaderText(headerMessage);
-        alert.setContentText(infoMessage);
-        alert.showAndWait();
-    }
-
 }

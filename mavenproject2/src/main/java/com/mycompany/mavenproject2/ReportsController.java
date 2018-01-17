@@ -52,17 +52,6 @@ public class ReportsController implements Initializable {
         } catch (SQLException ex) {
             Logger.getLogger(ReportsController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-//        ArrayList<String> listOfYears = new ArrayList<>();
-//        try {
-//            listOfYears = getYearsInDB();
-//        } catch (SQLException ex) {
-//            Logger.getLogger(ReportsController.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        years.clear();
-//        years.addAll(listOfYears);     
-          years.add("2015");
-          years.add("2016");
           yearComboBox.setItems(years);
     }
     @FXML
@@ -71,7 +60,7 @@ public class ReportsController implements Initializable {
     @FXML
     private RadioButton compensationToggle, solvedToggle, missingLuggagePerMonthToggle, foundLuggageToggle, missingLuggageToggle;
 
-    private static ObservableList<String> years = FXCollections.observableArrayList();
+    private static ObservableList<String> years = FXCollections.observableArrayList("2015", "2016", "2017", "2018");
 
     @FXML
     private PieChart pieChart;
@@ -363,26 +352,4 @@ public class ReportsController implements Initializable {
         chart.getData().add(data);
 
     }
-
-    /**
-     * Gets the years to use in the reports section of the application
-     *
-     * @return Returns an ArrayList<String> of years available
-     * @throws SQLException
-     */
-    private ArrayList<String> getYearsInDB() throws SQLException {
-        Database database = new Database();
-        String query = "SELECT datefound FROM stanviw199_fys.Foundbagageinventory";
-        ArrayList<String> list = new ArrayList<>();
-        ResultSet result = database.executeResultSetQuery(query);
-        while (result.next()) {
-            String year = result.getString("datefound").substring(7, 11);
-            if (!list.contains(year)) {
-                list.add(year);
-            }
-        }
-
-        return list;
-    }
-
 }

@@ -3,7 +3,6 @@ package com.mycompany.mavenproject2;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Locale;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -16,9 +15,10 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 /**
- * NEEDS TO BE CLEANED UP
+ * Controller for the worker homescreen, initializes buttons from the databases
+ * and contains methods for navigating the application
  *
- * @author Matthijs Snijders 500780453
+ * @author Matthijs Snijders 500780453 (241 Lines)
  */
 public class WorkerHomescreenController implements Initializable {
 
@@ -50,7 +50,6 @@ public class WorkerHomescreenController implements Initializable {
             int i = 0;
             while (resultSet.next()) {
                 Button button = new Button(resultSet.getString("Name"));
-                //VBPane.add(button, 1, i++);
                 VBPane.setPrefWidth(100);
                 button.setMinWidth(VBPane.getPrefWidth());
                 VBPane.getChildren().add(button);
@@ -158,38 +157,6 @@ public class WorkerHomescreenController implements Initializable {
             e.printStackTrace();
         }
 
-    }
-
-    //Methods to open other pages
-    @FXML
-    private void openRequestStatus(ActionEvent event) {
-        utilities.newPane("RequestStatus", but1, mainpage, label1);
-    }
-
-    @FXML
-    private void openRegisterMissing(ActionEvent event) {
-        utilities.newPane("RegisterMissing", but2, mainpage, label1);
-    }
-
-    //TEMP
-    @FXML
-    private void openRequestTest(ActionEvent event) {
-        utilities.newPane("RequestStatus", but3, mainpage, label1);
-    }
-
-    @FXML
-    private void openRegistertesting(ActionEvent event) {
-        utilities.newPane("RegisterMissing", but4, mainpage, label1);
-    }
-
-    @FXML
-    private void openRegisterFound(ActionEvent event) {
-        utilities.newPane("RegisterFound", but5, mainpage, label1);
-    }
-
-    @FXML
-    private void openPassengerLogin(ActionEvent event) {
-        utilities.newPane("Login", but6, mainpage, label1);
     }
 
     // All methods for hovering off a button
