@@ -88,8 +88,6 @@ public class LoginController implements Initializable {
         String email = textEmail.getText();
 
         String lastname = textLastname.getText();
-        int usrID = 0;
-        int roleID = 0;
 
         //SQL query checks if email and lastname is equal to input.
         String sql = String.format("SELECT * FROM Passenger "
@@ -102,10 +100,6 @@ public class LoginController implements Initializable {
             Utilities.infoBox("Enter Correct labelnummer And Lastname", "Failed", null);
         } else {
             Utilities.infoBox("Login Successful", "Success", null);
-
-            while (resultSet.next()) {
-                usrID = resultSet.getInt("idEmployee");
-            }
             
             utilities.newAnchorpane("CustomerHomescreen", paneCustomer);
         }
