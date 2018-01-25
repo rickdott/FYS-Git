@@ -54,11 +54,6 @@ public class WorkerHomescreenController implements Initializable {
                 button.setMinWidth(VBPane.getPrefWidth());
                 VBPane.getChildren().add(button);
 
-                button.setStyle("-fx-font: 22 arial; -fx-base: #d81e05; "
-                        + "-fx-background-radius: 0; -fx-border-width: 1 0 0 0; "
-                        + "-fx-border-color: white; -fx-font-weight: bold; "
-                        + "-fx-font-size: 18; -fx-alignment: CENTER;");
-
                 final String url2 = resultSet.getString("Link");
 
                 /**
